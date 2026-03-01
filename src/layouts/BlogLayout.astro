@@ -2,13 +2,12 @@
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 
-
 const { lang } = Astro.params;
 const readingTime = Math.ceil(frontmatter.words / 200);
 ---
 
 <BaseLayout
-  title={`${frontmatter.title} | LeoryenSoft`}
+  title={`${frontmatter.title} | VelionSoft`}
   description={frontmatter.description}
   image={frontmatter.cover}
   type="article"

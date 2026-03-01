@@ -6,7 +6,7 @@ import { AstroSEO } from "astro-seo-plugin";
 
 const {
     lang = "es",
-    title = "LeoryenSoft | Desarrollo Web Profesional",
+    title = "VelionSoft | Desarrollo Web Profesional",
     description = "Desarrollo de páginas web modernas, rápidas y optimizadas para negocios.",
     image = "/og-default.jpg",
     type = "website",
@@ -24,10 +24,10 @@ const canonical = Astro.url.href;
             type,
             locale: lang === "es" ? "es_ES" : "en_US",
             url: canonical,
-            siteName: "LeoryenSoft",
+            siteName: "VelionSoft",
             images: [
                 {
-                    url: `https://leoryensoft.vercel.app${image}`,
+                    url: `https://VelionSoft.vercel.app${image}`,
                     width: 1200,
                     height: 630,
                     alt: title,
@@ -36,7 +36,7 @@ const canonical = Astro.url.href;
         }}
         twitter={{
             card: "summary_large_image",
-            site: "@leoryensoft",
+            site: "@VelionSoft",
         }}
         jsonLd={{
             "@context": "https://schema.org",

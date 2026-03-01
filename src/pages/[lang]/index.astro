@@ -25,14 +25,14 @@ const latest = posts.slice(0, 3);
 <BaseLayout
 	lang={lang}
 	title={lang === "es"
-		? "LeoryenSoft | Desarrollo de Software y Páginas Web"
-		: "LeoryenSoft | Software & Web Development"}
+		? "VelionSoft | Desarrollo de Software y Páginas Web"
+		: "VelionSoft | Software & Web Development"}
 	description={lang === "es"
 		? "Desarrollo de software, páginas web y SEO"
 		: "Custom software, websites and SEO"}
 >
 	<Hero lang={lang} client:load />
-	<Services lang={lang} onlyFeatured/>
+	<Services lang={lang} onlyFeatured />
 	<ProyectosGrid lang={lang} />
 	<TestimonialSlider client:load lang={lang} />
 

@@ -19,7 +19,7 @@ const i18n = {
         name: "Carlos Fernández",
         role: "Dueño de Negocio",
         message:
-          "Trabajamos con LeoryenSoft y crearon una web rápida, moderna y totalmente optimizada para nuestro negocio. Desde el primer mes aumentaron los clientes.",
+          "Trabajamos con VelionSoft y crearon una web rápida, moderna y totalmente optimizada para nuestro negocio. Desde el primer mes aumentaron los clientes.",
         avatar: "https://i.pravatar.cc/150?img=12",
       },
       {
@@ -56,7 +56,7 @@ const i18n = {
         name: "Carlos Fernández",
         role: "Business Owner",
         message:
-          "We worked with LeoryenSoft and they built a fast, modern, and fully optimized website. We saw more clients from the first month.",
+          "We worked with VelionSoft and they built a fast, modern, and fully optimized website. We saw more clients from the first month.",
         avatar: "https://i.pravatar.cc/150?img=12",
       },
       {

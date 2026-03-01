@@ -15,5 +15,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [react(), sitemap(), mdx()],
-  site: 'https://leoryensoft.vercel.app',
+  site: 'https://VelionSoft.vercel.app',
 });

@@ -25,12 +25,14 @@ const fadeUp = {
     },
 };
 
+const year = new Date().getFullYear();
+
 /* =============================
    I18N CONTENT
 ============================= */
 const SLIDER_I18N = {
     es: {
-        badge: "Agencia digital · 2025",
+        badge: `Agencia digital · ${year}`,
         slides: [
             {
                 title: (
@@ -42,7 +44,7 @@ const SLIDER_I18N = {
                     </>
                 ),
                 subtitle:
-                    "Webs modernas optimizadas para conversión, SEO y velocidad real en 2025.",
+                    "Webs modernas optimizadas para conversión, SEO y velocidad real en" + " " + year,
             },
             {
                 title: (
@@ -62,7 +64,7 @@ const SLIDER_I18N = {
                         SEO + Velocidad
                         <br />
                         fórmula{" "}
-                        <span className="text-accent">LeoryenSoft</span>
+                        <span className="text-accent">VelionSoft</span>
                     </>
                 ),
                 subtitle:
@@ -74,7 +76,7 @@ const SLIDER_I18N = {
     },
 
     en: {
-        badge: "Digital agency · 2025",
+        badge: "Digital agency" + " " + year,
         slides: [
             {
                 title: (
@@ -86,7 +88,7 @@ const SLIDER_I18N = {
                     </>
                 ),
                 subtitle:
-                    "Modern websites optimized for conversion, SEO and real speed in 2025.",
+                    "Modern websites optimized for conversion, SEO and real speed in" + " " + year,
             },
             {
                 title: (
@@ -98,7 +100,7 @@ const SLIDER_I18N = {
                     </>
                 ),
                 subtitle:
-                    "Robust, secure applications ready to grow with your business.",
+                    "Robust, secure applications ready to grow with your business." + " " + year,
             },
             {
                 title: (
@@ -106,11 +108,11 @@ const SLIDER_I18N = {
                         SEO + Speed
                         <br />
                         the{" "}
-                        <span className="text-accent">LeoryenSoft</span> formula
+                        <span className="text-accent">VelionSoft</span> formula
                     </>
                 ),
                 subtitle:
-                    "Technical SEO and extreme performance to stand out on Google.",
+                    "Technical SEO and extreme performance to stand out on Google." + " " + year,
             },
         ],
         ctaPrimary: "🚀 Get a quote",
