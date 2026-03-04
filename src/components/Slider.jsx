@@ -64,7 +64,7 @@ const SLIDER_I18N = {
                         SEO + Velocidad
                         <br />
                         fórmula{" "}
-                        <span className="text-accent">VelionSoft</span>
+                        <span className="text-accent">VelyonSoft</span>
                     </>
                 ),
                 subtitle:
@@ -108,7 +108,7 @@ const SLIDER_I18N = {
                         SEO + Speed
                         <br />
                         the{" "}
-                        <span className="text-accent">VelionSoft</span> formula
+                        <span className="text-accent">VelyonSoft</span> formula
                     </>
                 ),
                 subtitle:
