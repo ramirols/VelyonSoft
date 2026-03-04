@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #101828;
-    --color-secondary: #155dfc;
-    --color-accent: #f7df1e;
+    --color-primary: #333333;
+    --color-secondary: #1eaccc;
+    --color-accent: #000000;
 }
 
 body,
@@ -32,6 +32,6 @@ strong {
 .swiper-pagination-bullet-active {
     width: 30px !important;
     border-radius: 5px !important;
-    background: var(--color-accent) !important;
+    background: #1eaccc !important;
     opacity: 1 !important;
 }

@@ -14,7 +14,7 @@ const readingTime = Math.ceil(frontmatter.words / 200);
   lang={lang}
 >
   <!-- Hero -->
-  <header class="relative mt-[65px]">
+  <header class="relative" id={frontmatter.cover ? "blog-hero" : undefined}>
     {
       frontmatter.cover && (
         <img

@@ -21,7 +21,7 @@ const i18n: Record<
     es: {
         description: "Desarrollo web moderno y optimizado para negocios.",
         nav: "Navegación",
-        contact: "Contáctame",
+        contact: "Contáctanos",
         rights: "Todos los derechos reservados.",
         links: {
             home: "Inicio",
@@ -47,87 +47,123 @@ const i18n: Record<
 const t = i18n[lang];
 ---
 
-<footer class="bg-primary py-12 mt-20 text-gray-300 relative">
-    <div class="relative z-10">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+<footer class="relative text-gray-300 overflow-hidden">
+
+    <!-- Base degradado igual que el slider -->
+    <div class="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black"></div>
+
+    <!-- Glow radial cyan -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.12),transparent_60%)]"></div>
+
+    <!-- Overlay sutil -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative z-10 py-16">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
             <!-- Marca -->
             <div>
-                <h3 class="text-xl font-semibold text-white">VelyonSoft</h3>
-                <p class="mt-3 text-gray-300">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                    <span class="text-xs tracking-widest text-white/60 uppercase font-semibold">
+                        Agencia Digital
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-white">
+                    VelyonSoft
+                </h3>
+
+                <p class="mt-4 text-white/60 leading-relaxed max-w-sm">
                     {t.description}
                 </p>
             </div>
 
             <!-- Navegación -->
             <div>
-                <h4 class="text-lg font-semibold text-white mb-3">
+                <h4 class="text-lg font-semibold text-white mb-6">
                     {t.nav}
                 </h4>
-                <ul class="space-y-2">
-                    <li>
-                        <a class="hover:text-white" href={`/${lang}#inicio`}
-                            >{t.links.home}</a
-                        >
-                    </li>
-                    <li>
-                        <a class="hover:text-white" href={`/${lang}/servicios`}
-                            >{t.links.services}</a
-                        >
-                    </li>
-                    <li>
-                        <a class="hover:text-white" href={`/${lang}/proyectos`}
-                            >{t.links.projects}</a
-                        >
-                    </li>
-                    <li>
-                        <a class="hover:text-white" href={`/${lang}/blog`}
-                            >{t.links.blog}</a
-                        >
-                    </li>
+
+                <ul class="space-y-3">
+
+                    {[
+                        { href: `/${lang}#inicio`, label: t.links.home },
+                        { href: `/${lang}/servicios`, label: t.links.services },
+                        { href: `/${lang}/proyectos`, label: t.links.projects },
+                        { href: `/${lang}/blog`, label: t.links.blog },
+                    ].map((item) => (
+                        <li>
+                            <a
+                                href={item.href}
+                                class="group flex items-center justify-between text-white/60 hover:text-white transition-all duration-300"
+                            >
+                                <span>{item.label}</span>
+
+                                <!-- Flecha hover -->
+                                <svg
+                                    class="w-4 h-4 opacity-0 translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </li>
+                    ))}
+
                 </ul>
             </div>
 
             <!-- Contacto -->
             <div>
-                <h4 class="text-lg font-semibold text-white mb-3">
+                <h4 class="text-lg font-semibold text-white mb-6">
                     {t.contact}
                 </h4>
-                <ul class="space-y-2">
+
+                <ul class="space-y-4">
+
                     <li>
-                        <a
-                            class="hover:text-white"
-                            href="mailto:ramirols.dev@gmail.com"
-                        >
+                        <a class="flex items-center gap-3 text-white/60 hover:text-white transition"
+                            href="mailto:ramirols.dev@gmail.com">
+                            <span class="text-cyan-400">✉</span>
                             ramirols.dev@gmail.com
                         </a>
                     </li>
+
                     <li>
-                        <a
-                            class="hover:text-white"
+                        <a class="flex items-center gap-3 text-white/60 hover:text-white transition"
                             href="https://wa.link/4v2a4j"
-                            target="_blank"
-                        >
+                            target="_blank">
+                            <span class="text-cyan-400">🟢</span>
                             WhatsApp
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            class="hover:text-white"
-                            href="https://linkedin.com/in/ramirols"
-                            target="_blank"
-                        >
-                            LinkedIn
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Copyright -->
-        <p
-            class="text-center text-white mt-10 border-t border-gray-700 pt-5 text-sm"
-        >
-            © {new Date().getFullYear()} VelyonSoft — {t.rights}
-        </p>
+        <!-- Línea separadora glass -->
+        <div class="max-w-6xl mx-auto px-6 mt-14">
+            <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+                <p class="text-white/40 text-sm text-center md:text-left">
+                    © {new Date().getFullYear()} VelyonSoft — {t.rights}
+                </p>
+
+                <!-- Mini badge tech -->
+                <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                    <span class="text-xs text-white/60 font-semibold">
+                        Desarrollado por VelyonSoft
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </footer>

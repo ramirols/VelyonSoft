@@ -1,18 +1,21 @@
+"use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { HiArrowNarrowRight } from "react-icons/hi";
-
-import gradients from "../constants/gradients";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import {
+    HiArrowNarrowRight,
+    HiOutlineCode,
+    HiOutlineChip,
+    HiOutlineTrendingUp,
+} from "react-icons/hi";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
-/* =============================
-   ANIMATIONS
-============================= */
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -27,231 +30,181 @@ const fadeUp = {
 
 const year = new Date().getFullYear();
 
-/* =============================
-   I18N CONTENT
-============================= */
 const SLIDER_I18N = {
     es: {
-        badge: `Agencia digital · ${year}`,
+        badge: `Agencia de Desarrollo Web Premium · ${year}`,
         slides: [
             {
-                title: (
-                    <>
-                        Desarrollo web
-                        <br />
-                        ultra rápido para{" "}
-                        <span className="text-accent">vender</span>
-                    </>
-                ),
+                icon: HiOutlineCode,
+                title: "Desarrollo Web de Alto Rendimiento",
+                highlights: ["Vende más", "Escala rápido", "Carga en < 1s"],
                 subtitle:
-                    "Webs modernas optimizadas para conversión, SEO y velocidad real en" + " " + year,
+                    "Diseñamos páginas web profesionales con arquitectura Next.js y React. Optimizadas para Core Web Vitals y máximas tasas de conversión.",
             },
             {
-                title: (
-                    <>
-                        Software a
-                        <br />
-                        medida para{" "}
-                        <span className="text-secondary">escalar</span>
-                    </>
-                ),
+                icon: HiOutlineChip,
+                title: "Sistemas y Software a Medida",
+                highlights: ["Seguridad bancaria", "Cloud Nativo", "Automatización"],
                 subtitle:
-                    "Aplicaciones robustas, seguras y listas para crecer con tu negocio.",
+                    "Soluciones de software robustas que eliminan cuellos de botella. Desarrollamos herramientas escalables que transforman procesos en rentabilidad.",
             },
             {
-                title: (
-                    <>
-                        SEO + Velocidad
-                        <br />
-                        fórmula{" "}
-                        <span className="text-accent">VelyonSoft</span>
-                    </>
-                ),
+                icon: HiOutlineTrendingUp,
+                title: "Estrategia SEO y Performance",
+                highlights: ["Dominio de Google", "Tráfico Cualificado", "ROI Real"],
                 subtitle:
-                    "Posicionamiento técnico y rendimiento extremo para destacar en Google.",
+                    "No solo es diseño; es visibilidad. Implementamos SEO técnico avanzado para posicionar tu marca en los primeros resultados y captar clientes orgánicos.",
             },
         ],
-        ctaPrimary: "🚀 Cotizar proyecto",
-        ctaSecondary: "Ver Proyectos",
-    },
-
-    en: {
-        badge: "Digital agency" + " " + year,
-        slides: [
-            {
-                title: (
-                    <>
-                        Ultra-fast
-                        <br />
-                        web development to{" "}
-                        <span className="text-accent">sell</span>
-                    </>
-                ),
-                subtitle:
-                    "Modern websites optimized for conversion, SEO and real speed in" + " " + year,
-            },
-            {
-                title: (
-                    <>
-                        Custom
-                        <br />
-                        software to{" "}
-                        <span className="text-secondary">scale</span>
-                    </>
-                ),
-                subtitle:
-                    "Robust, secure applications ready to grow with your business." + " " + year,
-            },
-            {
-                title: (
-                    <>
-                        SEO + Speed
-                        <br />
-                        the{" "}
-                        <span className="text-accent">VelyonSoft</span> formula
-                    </>
-                ),
-                subtitle:
-                    "Technical SEO and extreme performance to stand out on Google." + " " + year,
-            },
-        ],
-        ctaPrimary: "🚀 Get a quote",
-        ctaSecondary: "View Projects",
+        ctaPrimary: "🚀 Empieza tu Transformación",
+        ctaSecondary: "Explorar Casos de Éxito",
     },
 };
 
-/* =============================
-   MAIN COMPONENT
-============================= */
+function TypeHighlight({ words }) {
+    const [text] = useTypewriter({
+        words,
+        loop: true,
+        typeSpeed: 70,
+        deleteSpeed: 40,
+        delaySpeed: 1500,
+    });
+
+    return (
+        <h2 className="text-2xl md:text-4xl font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            {text}
+            <Cursor cursorColor="#22d3ee" />
+        </h2>
+    );
+}
+
 export default function Slider({ lang = "es" }) {
     const [activeIndex, setActiveIndex] = useState(0);
-
-    // Fallback seguro
     const t = SLIDER_I18N[lang] ?? SLIDER_I18N.es;
 
     return (
         <section
-            className="relative min-h-screen text-white overflow-hidden"
+            className="relative w-full overflow-hidden bg-zinc-950 text-white"
             id="inicio"
         >
-            {/* Background image */}
+            {/* Imagen de fondo ORIGINAL */}
             <div
                 className="absolute inset-0 bg-cover bg-top"
                 style={{ backgroundImage: "url(/images/slider-font.webp)" }}
             />
 
-            {/* Gradient overlay */}
-            <div
-                className={`absolute inset-0 transition-all duration-1000 bg-gradient-to-br ${gradients[activeIndex]}`}
+            {/* Degradado base premium */}
+            <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black opacity-30" />
+
+            {/* Glow radial cyan */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(34,211,238,0.12),transparent_60%)]" />
+
+            {/* Círculos decorativos animados */}
+            <motion.div
+                className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-cyan-500/40"
+            />
+            <motion.div
+                className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full border border-purple-500/30"
             />
 
-            {/* Light radial overlay */}
-            <div
-                className="absolute inset-0"
-                style={{
-                    background:
-                        "radial-gradient(circle at 50% 25%, rgba(255,255,255,0.15), transparent 60%)",
-                }}
-            />
-
-            {/* Grid overlay */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "56px 56px",
-                    maskImage:
-                        "radial-gradient(ellipse 65% 55% at 50% 20%, black 60%, transparent 100%)",
-                    WebkitMaskImage:
-                        "radial-gradient(ellipse 65% 55% at 50% 20%, black 60%, transparent 100%)",
-                }}
-            />
-
-            {/* Dark overlay */}
+            {/* Overlay oscuro final */}
             <div className="absolute inset-0 bg-black/60" />
 
             <Swiper
                 modules={[Pagination, Autoplay, EffectFade]}
                 effect="fade"
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                pagination={{ clickable: true }}
+                speed={900}
                 loop
-                onSlideChange={(swiper) =>
-                    setActiveIndex(swiper.realIndex)
-                }
-                className="relative z-10 min-h-screen"
+                autoplay={{
+                    delay: 6000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                }}
+                pagination={{ clickable: true }}
+                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                className="relative h-[90vh] sm:h-[95vh] md:h-[800px]"
             >
                 {t.slides.map((slide, index) => (
-                    <SwiperSlide key={index} className="cursor-pointer">
-                        <SlideContent
-                            isActive={activeIndex === index}
-                            title={slide.title}
-                            subtitle={slide.subtitle}
-                            badge={t.badge}
-                            lang={lang}
-                            ctaPrimary={t.ctaPrimary}
-                            ctaSecondary={t.ctaSecondary}
-                        />
+                    <SwiperSlide key={index}>
+                        {({ isActive }) => {
+                            const Icon = slide.icon;
+
+                            return (
+                                <div className="relative h-full w-full overflow-hidden flex items-center justify-center">
+                                    <motion.div
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        animate={isActive ? "show" : "hidden"}
+                                        className="max-w-4xl text-center"
+                                    >
+                                        {/* Glass Badge */}
+                                        <div className="inline-flex items-center gap-3 px-5 py-2 mb-10 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                                            <Icon className="text-cyan-400" size={16} />
+                                            <span className="text-xs tracking-widest text-white/60 uppercase font-semibold">
+                                                {t.badge}
+                                            </span>
+                                        </div>
+
+                                        {/* Título */}
+                                        <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
+                                            {slide.title}
+                                        </h1>
+
+                                        {/* Typewriter */}
+                                        <div className="flex justify-center mb-8 min-h-[40px]">
+                                            {isActive && (
+                                                <TypeHighlight
+                                                    key={index}
+                                                    words={slide.highlights}
+                                                />
+                                            )}
+                                        </div>
+
+                                        {/* Subtitle */}
+                                        <p className="max-w-2xl px-4 mx-auto text-lg text-white/50 mb-12 leading-relaxed">
+                                            {slide.subtitle}
+                                        </p>
+
+                                        {/* Botones */}
+                                        <div className="flex flex-col sm:flex-row gap-4 justify-center justify-center items-center">
+                                            <a
+                                                href={`/${lang}#contacto`}
+                                                className="px-10 py-3 rounded-full bg-cyan-400 text-black font-semibold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all flex items-center justify-center gap-2"
+                                            >
+                                                {t.ctaPrimary}
+                                                <HiArrowNarrowRight />
+                                            </a>
+
+                                            <a
+                                                href={`/${lang}/proyectos`}
+                                                className="px-10 py-3 rounded-full border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center gap-2"
+                                            >
+                                                {t.ctaSecondary}
+                                                <HiArrowNarrowRight />
+                                            </a>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            );
+                        }}
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </section>
-    );
-}
 
-/* =============================
-   SLIDE CONTENT
-============================= */
-function SlideContent({
-    isActive,
-    title,
-    subtitle,
-    badge,
-    lang,
-    ctaPrimary,
-    ctaSecondary,
-}) {
-    return (
-        <div className="min-h-[100dvh] flex items-center justify-center text-center px-6">
+            {/* Badge inferior tech */}
             <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                animate={isActive ? "show" : "hidden"}
-                className="max-w-5xl mx-auto"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute bottom-16 left-6 md:left-12 z-20"
             >
-                <span className="inline-block mb-6 text-xl tracking-widest text-white/70 uppercase">
-                    {badge}
-                </span>
-
-                <h2 className="text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[6.5rem] xl:text-[7.5rem] leading-[0.95] font-bold tracking-tight mb-8 bg-gradient-to-br from-white via-white to-white/50 text-transparent bg-clip-text">
-                    {title}
-                </h2>
-
-                <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/75 mb-12">
-                    {subtitle}
-                </p>
-
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <a
-                        href={`/${lang}#contacto`}
-                        className="py-3 px-8 bg-accent text-primary rounded-full font-bold hover:scale-105 transition flex items-center gap-2 justify-center"
-                    >
-                        {ctaPrimary}
-                        <HiArrowNarrowRight />
-                    </a>
-
-                    <a
-                        href={`/${lang}/proyectos`}
-                        className="py-3 px-8 border-2 border-secondary text-secondary rounded-full font-bold hover:bg-secondary hover:text-primary transition flex items-center gap-2 justify-center"
-                    >
-                        {ctaSecondary}
-                        <HiArrowNarrowRight />
-                    </a>
+                <div className="flex items-center gap-3 px-4 py-2 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+                    <span className="text-sm font-semibold text-white/80">
+                        Desarrollado por VelyonSoft
+                    </span>
                 </div>
             </motion.div>
-        </div>
+        </section>
     );
 }
