@@ -94,7 +94,7 @@ export default function Slider({ lang = "es" }) {
             />
 
             {/* Degradado base premium */}
-            <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-900 to-black opacity-30" />
 
             {/* Glow radial cyan */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(34,211,238,0.12),transparent_60%)]" />

@@ -33,42 +33,45 @@ export default function Header({ lang = "es" }) {
             const blogHero = document.getElementById("blog-hero")
             const footer = document.querySelector("footer")
 
-            // 🦶 FOOTER PRIMERO (máxima prioridad)
-            if (footer) {
-                const rect = footer.getBoundingClientRect()
+            const scrollY = window.scrollY
 
-                if (rect.top <= window.innerHeight - 80) {
-                    setScrolled(true)
+            // 1. 🦶 DETECCIÓN DEL FOOTER (Zona Oscura)
+            // Si el footer entra en pantalla, queremos el header como en el inicio (transparente/blanco)
+            if (footer) {
+                const footerRect = footer.getBoundingClientRect()
+                // Si la parte superior del footer está cerca de la parte superior del viewport
+                if (footerRect.top < 80) {
+                    setScrolled(false)
                     return
                 }
             }
 
-            // 🏠 HOME (slider principal)
+            // 2. 🏠 HOME / HERO (Zona Oscura)
             if (slideSection) {
                 const rect = slideSection.getBoundingClientRect()
-
-                if (rect.bottom > 100) {
+                if (rect.bottom > 80) {
                     setScrolled(false)
                     return
                 }
             }
 
-            // 📰 Blog con hero
+            // 3. 📰 BLOG HERO (Zona Oscura)
             if (blogHero) {
                 const rect = blogHero.getBoundingClientRect()
-
                 if (rect.bottom > 100) {
                     setScrolled(false)
                     return
                 }
             }
 
-            // 📄 Resto de casos
+            // 4. 📄 ZONAS CLARAS (Efecto cristal con texto oscuro)
+            // Si no estamos en ninguna de las anteriores, activar modo scroll
             setScrolled(true)
         }
 
         window.addEventListener("scroll", handleScroll)
-        handleScroll()
+        // Ejecutar al inicio para setear el estado correcto
+        setTimeout(handleScroll, 100)
 
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
@@ -99,20 +102,37 @@ export default function Header({ lang = "es" }) {
                         }`}
                 >
 
-                    {/* Logo */}
-                    <a
-                        href={`/${lang}`}
-                        className="text-2xl font-black tracking-wide"
-                    >
-                        <span className="text-secondary">Velyon</span>
-                        <span className={scrolled ? "text-primary" : "text-white"}>
-                            Soft
-                        </span>
-                    </a>
+                    {/* Logo Dinámico */}
+                    <div className="flex items-center">
+                        {!scrolled ? (
+                            // Estado inicial (Texto)
+                            <a
+                                href={`/${lang}`}
+                                className="text-2xl font-black tracking-wide transition-all duration-500 ease-in-out"
+                            >
+                                <span className="text-secondary">Velyon</span>
+                                <span className="text-white">Soft</span>
+                            </a>
+                        ) : (
+                            // Al hacer scroll (Imagen)
+                            <motion.a
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                href={`/${lang}#inicio`}
+                                className="transition-all duration-500 ease-in-out"
+                            >
+                                <img
+                                    src="/logo-velyonsoft.png"
+                                    alt="Velyon Soft Logo"
+                                    className="h-10 w-auto rounded-lg object-cover shadow-sm"
+                                />
+                            </motion.a>
+                        )}
+                    </div>
 
                     {/* Desktop Nav */}
                     <nav
-                        className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors duration-300 ${scrolled ? "text-primary/80" : "text-white/70"
+                        className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors duration-300 ${scrolled ? "text-primary" : "text-white/90"
                             }`}
                     >
                         {navLinks.map((link) => (
@@ -135,10 +155,10 @@ export default function Header({ lang = "es" }) {
                         <div className="flex gap-2">
                             <button
                                 onClick={() => switchLang("es")}
-                                className={`px-3 py-1 rounded-lg text-sm font-bold transition ${lang === "es"
+                                className={`px-3 cursor-pointer py-1 rounded-lg text-sm font-bold transition ${lang === "es"
                                     ? scrolled
                                         ? "bg-secondary text-white"
-                                        : "bg-secondary text-primary"
+                                        : "bg-secondary text-white"
                                     : scrolled
                                         ? "text-primary/70 hover:text-primary"
                                         : "text-white/60 hover:text-white"
@@ -149,10 +169,10 @@ export default function Header({ lang = "es" }) {
 
                             <button
                                 onClick={() => switchLang("en")}
-                                className={`px-3 py-1 rounded-lg text-sm font-bold transition ${lang === "en"
+                                className={`px-3 py-1 cursor-pointer rounded-lg text-sm font-bold transition ${lang === "en"
                                     ? scrolled
                                         ? "bg-secondary text-white"
-                                        : "bg-secondary text-primary"
+                                        : "bg-secondary text-white"
                                     : scrolled
                                         ? "text-primary/70 hover:text-primary"
                                         : "text-white/60 hover:text-white"

@@ -1,170 +1,194 @@
 ---
-type Lang = "es" | "en";
+import {
+    User,
+    Mail,
+    MessageSquare,
+    Send,
+    ShieldCheck,
+    Zap,
+} from "lucide-astro";
 
+type Lang = "es" | "en";
 const { lang = "es" } = Astro.props as { lang?: Lang };
 
-const i18n: Record<
-    Lang,
-    {
-        title: string;
-        subtitle: string;
-        nameLabel: string;
-        namePlaceholder: string;
-        emailLabel: string;
-        emailPlaceholder: string;
-        messageLabel: string;
-        messagePlaceholder: string;
-        hint: string;
-        button: string;
-        trust: string;
-        whatsappIntro: string;
-    }
-> = {
+const i18n = {
     es: {
-        title: "Contáctanos y hagamos realidad tu proyecto",
+        badge: "Contacto",
+        title: "¿Tienes un proyecto en mente?",
         subtitle:
-            "Cuéntanos sobre tu idea, negocio o necesidad digital. Te responderemos en menos de 24 horas.",
+            "Completa el formulario y evaluaremos tu propuesta para darte una cotización ajustada a tus objetivos.",
         nameLabel: "Nombre completo",
         namePlaceholder: "Ej. Juan Pérez",
-        emailLabel: "Correo electrónico",
+        emailLabel: "Correo institucional o personal",
         emailPlaceholder: "correo@empresa.com",
-        messageLabel: "Cuéntanos sobre tu proyecto",
+        messageLabel: "Detalles del proyecto",
         messagePlaceholder:
-            "Necesito una página web, sistema, tienda online, etc.",
-        hint: "Mientras más detalles, mejor podré ayudarte 🚀",
-        button: "Enviar mensaje",
-        trust: "🔒 Tu información es confidencial. No spam, solo contacto directo.",
+            "Cuéntanos sobre las funcionalidades, el alcance y tu presupuesto estimado...",
+        hint: "Cuantos más detalles nos des, más precisa será nuestra propuesta 🚀",
+        button: "Enviar propuesta",
+        trust: "Información protegida por acuerdos de confidencialidad.",
         whatsappIntro: "Hola 👋, soy",
     },
     en: {
-        title: "Contact us and bring your project to life",
+        badge: "Contact",
+        title: "Have a project in mind?",
         subtitle:
-            "Tell us about your idea, business, or digital needs. We’ll get back to you within 24 hours.",
+            "Fill out the form and we will evaluate your proposal to give you a quote tailored to your goals.",
         nameLabel: "Full name",
         namePlaceholder: "e.g. John Doe",
-        emailLabel: "Email address",
+        emailLabel: "Business or personal email",
         emailPlaceholder: "email@company.com",
-        messageLabel: "Tell us about your project",
-        messagePlaceholder: "I need a website, system, online store, etc.",
-        hint: "The more details you share, the better I can help 🚀",
-        button: "Send message",
-        trust: "🔒 Your information is confidential. No spam, just direct contact.",
-        whatsappIntro: "Hi 👋, I’m",
+        messageLabel: "Project details",
+        messagePlaceholder:
+            "Tell us about the features, scope, and your estimated budget...",
+        hint: "The more details you share, the more accurate our proposal will be 🚀",
+        button: "Send proposal",
+        trust: "Information protected by non-disclosure agreements.",
+        whatsappIntro: "Hi 👋, I'm",
     },
 };
 
 const t = i18n[lang];
 ---
 
-<section id="contacto" class="relative max-w-3xl mx-auto px-6 py-20">
-    <!-- Header -->
-    <header class="text-center mb-12 animate-fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+<section id="contacto" class="relative max-w-4xl mx-auto px-6 py-24">
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none"
+    >
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-[120px]"
+        >
+        </div>
+    </div>
+
+    <header class="text-center mb-16">
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <span class="w-8 h-[1px] bg-secondary"></span>
+            <span
+                class="text-[10px] font-bold tracking-[0.3em] text-secondary uppercase"
+            >
+                {t.badge}
+            </span>
+            <span class="w-8 h-[1px] bg-secondary"></span>
+        </div>
+        <h2
+            class="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-6"
+        >
             {t.title}
         </h2>
-        <p class="text-gray-600 max-w-xl mx-auto">
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
             {t.subtitle}
         </p>
     </header>
 
-    <!-- Form -->
-    <form
-        id="contactForm"
-        class="space-y-6 bg-white shadow-2xl p-8 md:p-10 rounded-3xl border animate-fade-up animation-delay-200"
-    >
-        <!-- Nombre -->
-        <div>
-            <label for="name" class="block text-sm font-medium mb-1">
-                {t.nameLabel}
-            </label>
-            <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                minlength="3"
-                placeholder={t.namePlaceholder}
-                class="w-full rounded-xl border px-4 py-3 transition focus:outline-none"
-            />
-        </div>
-
-        <!-- Email -->
-        <div>
-            <label for="email" class="block text-sm font-medium mb-1">
-                {t.emailLabel}
-            </label>
-            <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder={t.emailPlaceholder}
-                class="w-full rounded-xl border px-4 py-3 transition focus:outline-none"
-            />
-        </div>
-
-        <!-- Mensaje -->
-        <div>
-            <label for="message" class="block text-sm font-medium mb-1">
-                {t.messageLabel}
-            </label>
-            <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                minlength="10"
-                placeholder={t.messagePlaceholder}
-                class="w-full rounded-xl border px-4 py-3 transition focus:outline-none"
-            ></textarea>
-            <p class="text-xs text-gray-500 mt-1">
-                {t.hint}
-            </p>
-        </div>
-
-        <!-- CTA -->
-        <button
-            type="submit"
-            class="group relative w-full overflow-hidden rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-600/80"
+    <div class="grid md:grid-cols-1 gap-12">
+        <form
+            id="contactForm"
+            class="relative bg-white border border-gray-300 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(30,172,204,0.1)]"
         >
-            <span class="relative z-10">{t.button}</span>
-            <span
-                class="absolute inset-0 -translate-x-full bg-blue-600/80 transition-transform duration-300 group-hover:translate-x-0"
-            ></span>
-        </button>
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="space-y-2">
+                    <label
+                        for="name"
+                        class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                    >
+                        <User size={14} class="text-secondary" />
+                        {t.nameLabel}
+                    </label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder={t.namePlaceholder}
+                        class="w-full rounded-2xl border border-gray-200 px-5 py-4 text-primary transition-all outline-none"
+                    />
+                </div>
 
-        <!-- Trust -->
-        <p class="text-center text-xs text-gray-500 pt-2">
-            {t.trust}
-        </p>
-    </form>
+                <div class="space-y-2">
+                    <label
+                        for="email"
+                        class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                    >
+                        <Mail size={14} class="text-secondary" />
+                        {t.emailLabel}
+                    </label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder={t.emailPlaceholder}
+                        class="w-full rounded-2xl border border-gray-200 px-5 py-4 text-primary transition-all outline-none"
+                    />
+                </div>
+            </div>
+
+            <div class="space-y-2 mb-8">
+                <label
+                    for="message"
+                    class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                >
+                    <MessageSquare size={14} class="text-secondary" />
+                    {t.messageLabel}
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required
+                    placeholder={t.messagePlaceholder}
+                    class="w-full rounded-2xl border border-gray-200 px-5 py-4 text-primary transition-all outline-none resize-none"
+                ></textarea>
+                <div class="flex items-start gap-2 mt-3 px-1">
+                    <Zap size={14} class="text-secondary mt-0.5" />
+                    <p class="text-xs text-gray-400 italic">
+                        {t.hint}
+                    </p>
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                class="group relative w-full flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary py-5 font-bold text-white transition-all hover:bg-accent active:scale-[0.98] shadow-xl shadow-primary/10"
+            >
+                <span class="relative z-10">{t.button}</span>
+                <Send
+                    size={18}
+                    class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                />
+            </button>
+
+            <div
+                class="mt-8 flex items-center justify-center gap-4 py-4 border-t border-gray-50"
+            >
+                <div
+                    class="flex items-center gap-2 text-[10px] text-gray-400 font-medium"
+                >
+                    <ShieldCheck size={14} class="text-green-500" />
+                    {t.trust}
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ whatsappIntro: t.whatsappIntro }}>
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contactForm");
         if (!form) return;
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-
             const data = new FormData(form);
+
             const name = data.get("name");
             const email = data.get("email");
             const message = data.get("message");
 
-            const whatsappMessage = `
-${`{t.whatsappIntro}`} *${name}*
+            const whatsappMessage = `${whatsappIntro} *${name}* 🚀\n\n📧 *Email:* ${email}\n\n📝 *Proyecto:* \n${message}`;
 
-📧 Email: ${email}
-
-💬 Message:
-${message}
-      `;
-
-            const url = `https://wa.me/51997676432?text=${encodeURIComponent(
-                whatsappMessage,
-            )}`;
+            const url = `https://wa.me/51997676432?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(url, "_blank");
         });
     });

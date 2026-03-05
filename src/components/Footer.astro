@@ -1,169 +1,235 @@
 ---
-type Lang = "es" | "en";
+import {
+    Mail,
+    MessageCircle,
+    ArrowRight,
+    ShieldCheck,
+    Cpu,
+} from "lucide-astro";
 
+type Lang = "es" | "en";
 const { lang = "es" } = Astro.props as { lang?: Lang };
 
-const i18n: Record<
-    Lang,
-    {
-        description: string;
-        nav: string;
-        contact: string;
-        rights: string;
-        links: {
-            home: string;
-            services: string;
-            projects: string;
-            blog: string;
-        };
-    }
-> = {
+const i18n = {
     es: {
-        description: "Desarrollo web moderno y optimizado para negocios.",
-        nav: "Navegación",
-        contact: "Contáctanos",
+        description:
+            "Expertos en desarrollo web moderno, aplicaciones escalables y soluciones digitales de alto rendimiento optimizadas para SEO.",
+        nav: "Explorar",
+        contact: "Conecta con nosotros",
         rights: "Todos los derechos reservados.",
+        legal: "Legal",
         links: {
             home: "Inicio",
-            services: "Servicios",
-            projects: "Proyectos",
-            blog: "Blog",
+            services: "Servicios Especializados",
+            projects: "Casos de Éxito",
+            blog: "Blog y Actualidades",
         },
     },
     en: {
-        description: "Modern and optimized web development for businesses.",
-        nav: "Navigation",
-        contact: "Contact",
+        description:
+            "Experts in modern web development, scalable applications, and high-performance digital solutions optimized for SEO.",
+        nav: "Explore",
+        contact: "Connect with us",
         rights: "All rights reserved.",
+        legal: "Legal",
         links: {
             home: "Home",
-            services: "Services",
-            projects: "Projects",
-            blog: "Blog",
+            services: "Specialized Services",
+            projects: "Success Stories",
+            blog: "Blog & News",
         },
     },
-};
+}[lang];
 
-const t = i18n[lang];
+const t = i18n;
 ---
 
-<footer class="relative text-gray-300 overflow-hidden">
+<footer
+    class="relative text-gray-300 overflow-hidden border-t border-white/5"
+    aria-labelledby="footer-heading"
+>
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
 
-    <!-- Base degradado igual que el slider -->
-    <div class="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black"></div>
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-800 to-black"
+    >
+    </div>
+    <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.08),transparent_60%)]"
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
 
-    <!-- Glow radial cyan -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.12),transparent_60%)]"></div>
-
-    <!-- Overlay sutil -->
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="relative z-10 py-16">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-
-            <!-- Marca -->
-            <div>
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                    <span class="text-xs tracking-widest text-white/60 uppercase font-semibold">
-                        Agencia Digital
-                    </span>
+    <div class="relative z-10 py-20">
+        <div
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8"
+        >
+            <div class="md:col-span-5 space-y-8">
+                <div>
+                    <a href={`/${lang}`} class="inline-block group">
+                        <h3
+                            class="text-3xl font-bold text-white tracking-tight"
+                        >
+                            Velyon<span
+                                class="text-cyan-400 group-hover:text-cyan-300 transition-colors"
+                                >Soft</span
+                            >
+                        </h3>
+                    </a>
+                    <p
+                        class="mt-6 text-white/80 leading-relaxed text-balance max-w-md"
+                    >
+                        {t.description}
+                    </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-white">
-                    VelyonSoft
-                </h3>
-
-                <p class="mt-4 text-white/60 leading-relaxed max-w-sm">
-                    {t.description}
-                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div
+                        class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10"
+                    >
+                        <ShieldCheck size={14} class="text-secondary" />
+                        <span
+                            class="text-[10px] uppercase tracking-wider font-medium text-white/70"
+                            >Seguridad SSL</span
+                        >
+                    </div>
+                    <div
+                        class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10"
+                    >
+                        <Cpu size={14} class="text-secondary" />
+                        <span
+                            class="text-[10px] uppercase tracking-wider font-medium text-white/70"
+                            >Core Web Vitals</span
+                        >
+                    </div>
+                </div>
             </div>
 
-            <!-- Navegación -->
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-6">
+            <div class="md:col-span-3">
+                <h4 class="text-sm font-bold text-white uppercase mb-8">
                     {t.nav}
                 </h4>
-
-                <ul class="space-y-3">
-
-                    {[
-                        { href: `/${lang}#inicio`, label: t.links.home },
-                        { href: `/${lang}/servicios`, label: t.links.services },
-                        { href: `/${lang}/proyectos`, label: t.links.projects },
-                        { href: `/${lang}/blog`, label: t.links.blog },
-                    ].map((item) => (
-                        <li>
-                            <a
-                                href={item.href}
-                                class="group flex items-center justify-between text-white/60 hover:text-white transition-all duration-300"
-                            >
-                                <span>{item.label}</span>
-
-                                <!-- Flecha hover -->
-                                <svg
-                                    class="w-4 h-4 opacity-0 translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    viewBox="0 0 24 24"
+                <ul class="space-y-4" role="list">
+                    {
+                        [
+                            { href: `/${lang}#inicio`, label: t.links.home },
+                            {
+                                href: `/${lang}/servicios`,
+                                label: t.links.services,
+                            },
+                            {
+                                href: `/${lang}/proyectos`,
+                                label: t.links.projects,
+                            },
+                            { href: `/${lang}/blog`, label: t.links.blog },
+                        ].map((item) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    class="group flex items-center text-white/80 hover:text-secondary transition-all duration-300 text-sm"
                                 >
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </li>
-                    ))}
-
+                                    <span class="relative">
+                                        {item.label}
+                                        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-secondary transition-all duration-300 group-hover:w-full" />
+                                    </span>
+                                    <ArrowRight
+                                        size={14}
+                                        class="ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
+                                    />
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
-            <!-- Contacto -->
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-6">
+            <div class="md:col-span-4">
+                <h4 class="text-sm font-bold text-white uppercase mb-8">
                     {t.contact}
                 </h4>
+                <div class="space-y-5">
+                    <a
+                        href="mailto:ramirols.dev@gmail.com"
+                        class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-400/50 transition-all group"
+                    >
+                        <div
+                            class="p-2 rounded-lg bg-cyan-400/10 text-cyan-400 group-hover:scale-110 transition-transform"
+                        >
+                            <Mail size={20} />
+                        </div>
+                        <div>
+                            <p
+                                class="text-[10px] uppercase text-white/50 font-bold tracking-widest"
+                            >
+                                Email
+                            </p>
+                            <p class="text-sm text-white/80">
+                                ramirols.dev@gmail.com
+                            </p>
+                        </div>
+                    </a>
 
-                <ul class="space-y-4">
-
-                    <li>
-                        <a class="flex items-center gap-3 text-white/60 hover:text-white transition"
-                            href="mailto:ramirols.dev@gmail.com">
-                            <span class="text-cyan-400">✉</span>
-                            ramirols.dev@gmail.com
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-3 text-white/60 hover:text-white transition"
-                            href="https://wa.link/4v2a4j"
-                            target="_blank">
-                            <span class="text-cyan-400">🟢</span>
-                            WhatsApp
-                        </a>
-                    </li>
-                </ul>
+                    <a
+                        href="https://wa.link/4v2a4j"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-green-400/50 transition-all group"
+                    >
+                        <div
+                            class="p-2 rounded-lg bg-green-400/10 text-green-400 group-hover:scale-110 transition-transform"
+                        >
+                            <MessageCircle size={20} />
+                        </div>
+                        <div>
+                            <p
+                                class="text-[10px] uppercase text-white/50 font-bold tracking-widest"
+                            >
+                                WhatsApp
+                            </p>
+                            <p class="text-sm text-white/80">
+                                Chatea con nosotros
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- Línea separadora glass -->
-        <div class="max-w-6xl mx-auto px-6 mt-14">
-            <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-
-                <p class="text-white/40 text-sm text-center md:text-left">
-                    © {new Date().getFullYear()} VelyonSoft — {t.rights}
-                </p>
-
-                <!-- Mini badge tech -->
-                <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                    <span class="text-xs text-white/60 font-semibold">
-                        Desarrollado por VelyonSoft
-                    </span>
+        <div class="max-w-7xl mx-auto px-6 mt-20">
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+            >
+                <div class="flex flex-col gap-1">
+                    <p
+                        class="text-white text-[11px] font-medium uppercase tracking-widest text-center md:text-left"
+                    >
+                        © {new Date().getFullYear()} VelyonSoft Agencia Digital
+                    </p>
+                    <p
+                        class="text-white/60 text-[10px] text-center md:text-left"
+                    >
+                        {t.rights} Optimizado para carga ultra-rápida.
+                    </p>
                 </div>
 
+                <div
+                    class="group flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-white/5 to-transparent border border-white/10"
+                >
+                    <div class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"
+                        ></span>
+                        <span
+                            class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"
+                        ></span>
+                    </div>
+                    <span
+                        class="text-[10px] text-white/60 font-bold tracking-tighter uppercase group-hover:text-white transition-colors"
+                    >
+                        Socio tecnológico de confianza
+                    </span>
+                </div>
             </div>
         </div>
-
     </div>
 </footer>

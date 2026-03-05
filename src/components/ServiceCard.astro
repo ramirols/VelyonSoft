@@ -1,27 +1,15 @@
 ---
-import { Check, Zap, Rocket, MessageCircle, ShieldCheck } from "lucide-astro";
-
-interface Feature {
-    icon: "check" | "zap" | "rocket" | "message" | "shield";
-    text: string;
-}
+import { Check } from "lucide-astro";
 
 interface Props {
     icon: any;
     badge?: string;
     title: string;
     price: {
-        original: {
-            pen: string;
-            usd: string;
-        };
-        offer?: {
-            pen: string;
-            usd: string;
-            note?: string;
-        };
+        original: { pen: string };
+        offer?: { pen: string; note?: string };
     };
-    features: Feature[];
+    features: { text: string }[];
     ctaText: string;
     ctaHref: string;
     highlight?: boolean;
@@ -37,98 +25,97 @@ const {
     ctaHref,
     highlight = false,
 } = Astro.props;
-
-const iconMap = {
-    check: Check,
-    zap: Zap,
-    rocket: Rocket,
-    message: MessageCircle,
-    shield: ShieldCheck,
-};
 ---
 
 <article
-    class={`group relative rounded-2xl p-8 flex flex-col justify-between transition
+    class={`relative flex flex-col p-8 rounded-3xl transition-all duration-500 border
     ${
         highlight
-            ? "border-2 border-blue-600 shadow-lg hover:shadow-2xl hover:-translate-y-3"
-            : "border bg-white shadow-sm hover:shadow-xl hover:-translate-y-2"
-    }
-  `}
+            ? "bg-white border-secondary shadow-[0_20px_50px_rgba(30,172,204,0.12)] -translate-y-2"
+            : "bg-white border-gray-400 hover:border-gray-500"
+    }`}
 >
     {
         badge && (
-            <span
-                class={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 text-sm rounded-full
-        ${highlight ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-600"}
-      `}
-            >
-                {badge}
-            </span>
+            <div class="mb-6 flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${highlight ? "bg-secondary" : "bg-primary"}`}
+                    />
+                    <span
+                        class={`relative inline-flex rounded-full h-2 w-2 ${highlight ? "bg-secondary" : "bg-primary"}`}
+                    />
+                </span>
+                <span class="text-[10px] uppercase font-bold text-primary/60">
+                    {badge}
+                </span>
+            </div>
         )
     }
 
-    <Icon class="w-12 h-12 text-blue-600 mb-6" />
-
-    <h3 class="text-2xl font-bold mb-4 text-gray-900">{title}</h3>
-
-    <div class="mb-6">
-        {
-            price.offer ? (
-                <>
-                    <p class="text-sm text-gray-400 line-through">
-                        {price.original.pen}
-                    </p>
-
-                    <p class="text-3xl font-extrabold text-secondary">
-                        {price.offer.pen}
-                    </p>
-
-                    <p class="text-sm text-gray-500 mt-1">{price.offer.usd}</p>
-
-                    {price.offer.note && (
-                        <p class="text-xs text-green-600 mt-1">
-                            {price.offer.note}
-                        </p>
-                    )}
-                </>
-            ) : (
-                <>
-                    <p class="text-3xl font-extrabold text-gray-900">
-                        {price.original.pen}
-                    </p>
-                    <p class="text-sm text-gray-500 mt-1">
-                        {price.original.usd}
-                    </p>
-                </>
-            )
-        }
+    <div
+        class={`mb-8 flex items-center justify-center w-12 h-12 rounded-2xl transition-colors
+        ${highlight ? "bg-secondary text-white" : "bg-primary/10 text-primary"}
+    `}
+    >
+        <Icon size={24} strokeWidth={1.5} />
     </div>
 
-    <ul class="space-y-3 text-gray-600 mb-8">
+    <div class="mb-8">
+        <h3 class="text-xl font-bold text-primary mb-2 tracking-tight">
+            {title}
+        </h3>
+        <div class="flex flex-col">
+            {
+                price.offer ? (
+                    <>
+                        <span class="text-xs text-gray-400 line-through mb-1">
+                            {price.original.pen}
+                        </span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-black text-accent tracking-tighter">
+                                {price.offer.pen}
+                            </span>
+                        </div>
+                        {price.offer.note && (
+                            <span class="text-[10px] text-secondary font-bold uppercase mt-2 tracking-wide">
+                                {price.offer.note}
+                            </span>
+                        )}
+                    </>
+                ) : (
+                    <span class="text-4xl font-black text-accent tracking-tighter">
+                        {price.original.pen}
+                    </span>
+                )
+            }
+        </div>
+    </div>
+
+    <ul class="space-y-4 mb-10 flex-grow">
         {
-            features.map((feature) => {
-                const FeatureIcon = iconMap[feature.icon];
-                return (
-                    <li class="flex gap-2">
-                        <FeatureIcon class="w-5 h-5 text-green-500" />
-                        {feature.text}
-                    </li>
-                );
-            })
+            features.map((f) => (
+                <li class="flex items-center gap-3 text-sm text-primary">
+                    <div
+                        class={`flex-shrink-0 p-1 rounded-full ${highlight ? "bg-secondary/10 text-secondary" : "bg-primary/10 text-primary"}`}
+                    >
+                        <Check size={12} strokeWidth={3} />
+                    </div>
+                    {f.text}
+                </li>
+            ))
         }
     </ul>
 
     <a
         href={ctaHref}
-        class={`block text-center rounded-xl py-3 font-semibold transition
-      ${
-          highlight
-              ? "bg-blue-600 text-white hover:bg-blue-700"
-              : "bg-gray-900 text-white hover:bg-gray-800"
-      }
-    `}
+        class={`group relative overflow-hidden rounded-2xl py-4 text-sm font-bold transition-all text-center
+        ${
+            highlight
+                ? "bg-secondary text-white hover:bg-secondary/90 shadow-md shadow-secondary/20"
+                : "bg-primary text-white hover:bg-accent"
+        }`}
     >
-        {ctaText}
+        <span class="relative z-10">{ctaText}</span>
     </a>
 </article>

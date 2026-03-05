@@ -1,122 +1,123 @@
 ---
-import { ChevronDown } from "lucide-astro";
+import { ChevronDown, HelpCircle, Sparkles } from "lucide-astro";
 
 type Lang = "es" | "en";
-
 const { lang = "es" } = Astro.props as { lang?: Lang };
 
 const i18n: Record<Lang, any> = {
     es: {
-        title: "Preguntas frecuentes sobre desarrollo web y software",
+        badge: "Soporte",
+        title: "Preguntas frecuentes",
         subtitle:
-            "Respondemos las dudas más comunes sobre nuestros servicios de desarrollo web, software a medida, SEO, mantenimiento y procesos de trabajo.",
+            "Respondemos las dudas más comunes sobre nuestros servicios de desarrollo web, software a medida y procesos de trabajo.",
         faqs: [
             {
                 q: "¿En cuánto tiempo entregan un proyecto web?",
                 a: "El tiempo de entrega depende del alcance del proyecto. Las landing pages o sitios simples suelen entregarse entre 3 y 7 días.",
-                str: "Proyectos más complejos como webs corporativas, e-commerce o software a medida pueden tomar entre 2 y 4 semanas."
+                str: "Proyectos más complejos como webs corporativas o e-commerce pueden tomar entre 2 y 4 semanas.",
             },
             {
                 q: "¿Ofrecen mantenimiento después de la entrega?",
                 a: "Sí. Ofrecemos",
-                str: "planes de mantenimiento web que incluyen soporte técnico, actualizaciones, seguridad y mejoras de rendimiento."
+                str: "planes de mantenimiento web que incluyen soporte técnico, actualizaciones, seguridad y mejoras de rendimiento.",
             },
             {
                 q: "¿Puedo solicitar cambios después del diseño inicial?",
                 a: "Claro. Todos nuestros proyectos incluyen ",
-                str: "revisiones para asegurar que el resultado final represente correctamente tu marca."
+                str: "revisiones para asegurar que el resultado final represente correctamente tu marca.",
             },
             {
                 q: "¿Trabajan con SEO y optimización de velocidad?",
                 a: "Sí. Todos nuestros desarrollos incluyen ",
-                str: "SEO técnico, optimización de velocidad y buenas prácticas para Google."
+                str: "SEO técnico, optimización de velocidad y buenas prácticas para Google.",
             },
             {
                 q: "¿Desarrollan tiendas online o e-commerce?",
                 a: "Sí. Creamos ",
-                str: "tiendas online optimizadas para conversión con carrito y pasarelas de pago."
+                str: "tiendas online optimizadas para conversión con carrito y pasarelas de pago.",
             },
             {
                 q: "¿Trabajan con empresas y emprendedores?",
                 a: "Sí. Trabajamos con ",
-                str: "emprendedores, startups y empresas que buscan crecer digitalmente."
+                str: "emprendedores, startups y empresas que buscan crecer digitalmente.",
             },
             {
                 q: "¿Qué tecnologías utilizan?",
                 a: "Utilizamos ",
-                str: "Astro, React, Tailwind, Node.js y bases de datos seguras."
+                str: "Astro, React, Tailwind, Node.js y bases de datos seguras.",
             },
             {
                 q: "¿El sitio será responsive?",
                 a: "Sí. ",
-                str: "Todos nuestros proyectos son 100% responsive."
+                str: "Todos nuestros proyectos son 100% responsive.",
             },
             {
                 q: "¿Puedo escalar mi proyecto en el futuro?",
                 a: "Sí. ",
-                str: "Diseñamos soluciones escalables que crecen con tu negocio."
+                str: "Diseñamos soluciones escalables que crecen con tu negocio.",
             },
             {
                 q: "¿Cómo puedo solicitar una cotización?",
                 a: "Puedes contactarnos por el ",
-                str: "formulario o WhatsApp para una cotización personalizada."
+                str: "formulario o WhatsApp para una cotización personalizada.",
             },
         ],
     },
     en: {
-        title: "Frequently Asked Questions about Web & Software Development",
+        badge: "Support",
+        title: "Frequently Asked Questions",
         subtitle:
-            "We answer the most common questions about our web development, custom software, SEO, maintenance, and workflow.",
+            "We answer the most common questions about our web development, custom software, SEO, and workflow.",
         faqs: [
             {
                 q: "How long does a web project take?",
                 a: "Delivery time depends on the project scope. ",
-                str: "Landing pages usually take 3 to 7 days. More complex projects may take 2 to 4 weeks."
+                str: "Landing pages usually take 3 to 7 days. More complex projects may take 2 to 4 weeks.",
             },
             {
                 q: "Do you offer maintenance after delivery?",
                 a: "Yes. We offer web maintenance plans including ",
-                str: "support, updates, security, and performance improvements."
+                str: "support, updates, security, and performance improvements.",
             },
             {
                 q: "Can I request changes after the initial design?",
                 a: "Of course. ",
-                str: "All projects include revisions to ensure the final result matches your brand."
+                str: "All projects include revisions to ensure the final result matches your brand.",
             },
             {
                 q: "Do you handle SEO and speed optimization?",
                 a: "Yes. ",
-                str: "All projects include technical SEO and performance optimization."
+                str: "All projects include technical SEO and performance optimization.",
             },
             {
                 q: "Do you build e-commerce websites?",
                 a: "Yes. ",
-                str: "We create conversion-optimized online stores with carts and payment gateways."
+                str: "We create conversion-optimized online stores with carts and payment gateways.",
             },
             {
                 q: "Do you work with companies and startups?",
                 a: "Yes. ",
-                str: "We work with entrepreneurs, startups, and companies aiming to grow digitally."
+                str: "We work with entrepreneurs, startups, and companies aiming to grow digitally.",
             },
             {
                 q: "What technologies do you use?",
                 a: "We use modern technologies like ",
-                str: "Astro, React, Tailwind, Node.js, and secure databases."
+                str: "Astro, React, Tailwind, Node.js, and secure databases.",
             },
             {
                 q: "Will my website be responsive?",
                 a: "Yes. ",
-                str: "All our projects are fully responsive."
+                str: "All our projects are fully responsive.",
             },
             {
                 q: "Can my project scale in the future?",
                 a: "Yes. ",
-                str: "We design scalable solutions that grow with your business."
+                str: "We design scalable solutions that grow with your business.",
             },
             {
                 q: "How can I request a quote?",
                 a: "Contact us via the ",
-                str: "form or WhatsApp for a personalized quote."
+                str: "form or WhatsApp for a personalized quote.",
             },
         ],
     },
@@ -125,247 +126,88 @@ const i18n: Record<Lang, any> = {
 const t = i18n[lang];
 ---
 
-<section id="faq" class="py-24 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-        <header class="text-center mb-14">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+<section id="faq" class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+        <header class="text-center mb-20 space-y-4">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600"
+            >
+                <Sparkles size={14} />
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em]"
+                    >{t.badge}</span
+                >
+            </div>
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900"
+            >
                 {t.title}
             </h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
+            <p class="text-zinc-500 max-w-xl mx-auto text-lg font-light">
                 {t.subtitle}
             </p>
         </header>
 
-        <div class="space-y-5">
-            <!-- 1 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
+        <div class="space-y-4">
+            {
+                t.faqs.map((faq: any) => (
+                    <details class="group bg-zinc-50/50 rounded-2xl transition-all duration-300 hover:bg-zinc-50 border border-transparent open:border-zinc-100 open:bg-white open:shadow-xl open:shadow-zinc-200/50">
+                        <summary class="flex cursor-pointer list-none items-center justify-between p-6 focus:outline-none">
+                            <div class="flex items-center gap-4">
+                                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-zinc-100 text-zinc-400 group-open:text-cyan-500 group-open:border-cyan-100 transition-colors shadow-sm">
+                                    <HelpCircle size={20} />
+                                </div>
+                                <h3 class="text-lg font-medium text-zinc-700 group-open:text-zinc-950 transition-colors">
+                                    {faq.q}
+                                </h3>
+                            </div>
+                            <div class="text-zinc-400 group-open:rotate-180 transition-transform duration-500">
+                                <ChevronDown size={20} />
+                            </div>
+                        </summary>
+
+                        <div class="grid grid-template-rows-[0fr] group-open:grid-template-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out overflow-hidden">
+                            <div class="min-h-[0px]">
+                                <div class="px-6 pb-8 pt-2 sm:pl-20 text-zinc-500 leading-relaxed font-light text-[17px]">
+                                    {faq.a}{" "}
+                                    <strong class="font-medium text-zinc-900">
+                                        {faq.str}
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+
+        <div class="mt-20 text-center">
+            <p class="text-zinc-400 text-sm">
+                ¿Aún tienes dudas?
+                <a
+                    href={`/${lang}#contacto`}
+                    class="text-cyan-600 font-semibold hover:text-cyan-700 transition-colors ml-1"
                 >
-                    {t.faqs[0].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[0].a}
-                        <strong>{t.faqs[0].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 2 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[1].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[1].a}
-                        <strong>{t.faqs[1].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 3 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[2].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[2].a}
-                        <strong>{t.faqs[2].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 4 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[3].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[3].a}
-                        <strong>{t.faqs[3].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 5 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[4].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[4].a}
-                        <strong>{t.faqs[4].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 6 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[5].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[5].a}
-                        <strong>{t.faqs[5].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 7 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[6].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[6].a}
-                        <strong>{t.faqs[6].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 8 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[7].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[7].a}
-                        <strong>{t.faqs[7].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 9 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[8].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[8].a}
-                        <strong>{t.faqs[8].str}</strong>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 10 -->
-            <details class="group rounded-2xl bg-white shadow-sm border">
-                <summary
-                    class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-semibold text-lg"
-                >
-                    {t.faqs[9].q}
-                    <ChevronDown
-                        class="h-6 w-6 transition-transform duration-300 group-open:rotate-180"
-                    />
-                </summary>
-
-                <div class="faq-content">
-                    <div
-                        class="faq-inner px-6 pb-6 text-gray-600 leading-relaxed"
-                    >
-                        {t.faqs[9].a}
-                        <strong>{t.faqs[9].str}</strong>
-                    </div>
-                </div>
-            </details>
+                    Contáctanos ahora →
+                </a>
+            </p>
         </div>
     </div>
 </section>
 
 <style>
-    details > .faq-content {
+    /* Eliminamos el marcador por defecto de <details> */
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Animación CSS para el contenido */
+    details .grid {
         display: grid;
         grid-template-rows: 0fr;
-        transition:
-            grid-template-rows 300ms ease,
-            opacity 200ms ease;
-        opacity: 0;
+        transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    details[open] > .faq-content {
+    details[open] .grid {
         grid-template-rows: 1fr;
-        opacity: 1;
-    }
-
-    .faq-inner {
-        overflow: hidden;
     }
 </style>
