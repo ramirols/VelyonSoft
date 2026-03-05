@@ -38,6 +38,9 @@ const t = {
             android: "Aplicaciones Android",
             ios: "Aplicaciones iOS",
             marketing: "Estrategias de marketing digital",
+            office: "Soporte en Ofimática",
+            itSupport: "Soporte técnico general",
+            wordpress: "Desarrollo de sitios web con WordPress",
         },
 
         ctaStart: "Comenzar ahora",
@@ -70,6 +73,9 @@ const t = {
             android: "Android applications",
             ios: "iOS applications",
             marketing: "Digital marketing strategies",
+            office: "Office support",
+            itSupport: "IT support",
+            wordpress: "WordPress development",
         },
 
         ctaStart: "Get started",
@@ -113,7 +119,9 @@ const serviceIcons = {
                         highlight={plan.highlight}
                         features={plan.features.map((f) => ({
                             icon: f.icon,
-                            text: t.features[f.textKey],
+                            text: (t.features as Record<string, string>)[
+                                f.textKey
+                            ],
                         }))}
                         ctaText={
                             plan.cta.type === "contact" ? t.ctaStart : t.ctaAll

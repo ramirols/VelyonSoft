@@ -27,7 +27,10 @@ export type ServicePlan = {
         | "support"
         | "android"
         | "ios"
-        | "marketing";
+        | "marketing"
+        | "wordpress"
+        | "office"
+        | "itSupport";
     }[];
     cta: {
         type: "contact" | "services";
@@ -74,6 +77,24 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             cta: { type: "contact" },
         },
         {
+            slug: "wordpress-desarrollo",
+            nombre: "Desarrollo en WordPress",
+            price: {
+                original: { pen: "S/ 1,200" },
+                offer: { pen: "S/ 990", note: "Auto-gestionable" },
+            },
+            featured: true,
+            icon: "code",
+            badgeKey: "starter",
+            features: [
+                { icon: "check", textKey: "wordpress" },
+                { icon: "check", textKey: "responsive" },
+                { icon: "check", textKey: "seoBasic" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
             slug: "aplicaciones-moviles",
             nombre: "Aplicaciones Móviles",
             price: {
@@ -106,6 +127,58 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
                 { icon: "check", textKey: "seoAdvanced" },
                 { icon: "check", textKey: "contact" },
                 { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
+            slug: "automatizaciones",
+            nombre: "Automatizaciones de Procesos",
+            price: {
+                original: { pen: "S/ 2,000" },
+                offer: { pen: "S/ 1,500", note: "Eficiencia" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
+            slug: "soporte-informatico",
+            nombre: "Soporte General Informático",
+            price: {
+                original: { pen: "S/ 500" },
+                offer: { pen: "S/ 350", note: "Mantenimiento" },
+            },
+            featured: false,
+            icon: "laptop",
+            badgeKey: "popular",
+            features: [
+                { icon: "shield", textKey: "itSupport" },
+                { icon: "check", textKey: "support" },
+                { icon: "check", textKey: "contact" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
+            slug: "ofimatica",
+            nombre: "Manejo de Ofimática",
+            price: {
+                original: { pen: "S/ 400" },
+                offer: { pen: "S/ 299", note: "Productividad" },
+            },
+            featured: false,
+            icon: "boxes",
+            badgeKey: "starter",
+            features: [
+                { icon: "check", textKey: "office" },
+                { icon: "check", textKey: "support" },
+                { icon: "check", textKey: "automation" },
             ],
             cta: { type: "contact" },
         },
@@ -167,6 +240,24 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             cta: { type: "contact" },
         },
         {
+            slug: "wordpress-development",
+            nombre: "WordPress Development",
+            price: {
+                original: { pen: "S/ 1,200" },
+                offer: { pen: "S/ 990", note: "Self-managed" },
+            },
+            featured: true,
+            icon: "code",
+            badgeKey: "starter",
+            features: [
+                { icon: "check", textKey: "wordpress" },
+                { icon: "check", textKey: "responsive" },
+                { icon: "check", textKey: "seoBasic" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
             slug: "mobile-apps",
             nombre: "Mobile Applications",
             price: {
@@ -201,6 +292,59 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
                 { icon: "check", textKey: "support" },
             ],
             cta: { type: "contact" },
+        },
+        {
+            slug: "automations",
+            nombre: "Process Automations",
+            price: {
+                original: { pen: "S/ 2,000" },
+                offer: { pen: "S/ 1,500", note: "Efficiency" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
+            slug: "it-support",
+            nombre: "General IT Support",
+            price: {
+                original: { pen: "S/ 500" },
+                offer: { pen: "S/ 350", note: "Maintenance" },
+            },
+            featured: false,
+            icon: "laptop",
+            badgeKey: "popular",
+            features: [
+                { icon: "shield", textKey: "itSupport" },
+                { icon: "check", textKey: "support" },
+                { icon: "check", textKey: "contact" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
+            slug: "custom-software",
+            nombre: "Custom Software",
+            price: {
+                original: { pen: "S/ 8,000" },
+                offer: { pen: "S/ 6,500", note: "Base Quote" },
+            },
+            featured: false,
+            icon: "boxes",
+            badgeKey: "business",
+            features: [
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "automation" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
         },
     ],
 };
