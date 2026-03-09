@@ -1,42 +1,112 @@
 ---
+import { Calendar, User, Clock, ArrowRight } from "lucide-astro";
 
 const { post, lang = "es" } = Astro.props;
-
 const { id, data } = post;
+
+// Formateo de fecha según idioma
+const formattedDate = data.date.toLocaleDateString(
+    lang === "es" ? "es-ES" : "en-US",
+    {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+    },
+);
 ---
 
-<a
-    href={`/${lang}/blog/${id}`}
-    class="block rounded-xl overflow-hidden border hover:shadow-lg transition group"
+<article
+    class="group relative bg-white rounded-[2rem] border border-zinc-100 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:border-secondary/20"
 >
-    {
-        data.cover && (
-            <img
-                src={data.cover}
-                alt={data.title}
-                class="w-full h-48 object-cover group-hover:scale-105 transition"
-            />
-        )
-    }
+    <a href={`/${lang}/blog/${id}`} class="block">
+        <div class="relative aspect-[16/10] overflow-hidden">
+            {
+                data.cover && (
+                    <img
+                        src={data.cover}
+                        alt={data.title}
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                )
+            }
 
-    <div class="p-5">
-        <span class="text-sm text-gray-500">{data.category}</span>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            >
+            </div>
 
-        <h2
-            class="text-xl font-semibold mt-1 group-hover:text-blue-600 transition"
-        >
-            {data.title}
-        </h2>
-
-        <p class="text-gray-600 mt-2 line-clamp-3">
-            {data.description}
-        </p>
-
-        <div
-            class="mt-4 flex items-center justify-between text-sm text-gray-500"
-        >
-            <span>{data.author}</span>
-            <span>{data.date.toLocaleDateString()}</span>
+            <div class="absolute top-4 left-4">
+                <span
+                    class="px-3 py-1.5 bg-white/90 backdrop-blur-md border border-white/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm"
+                >
+                    {data.category}
+                </span>
+            </div>
         </div>
-    </div>
-</a>
+
+        <div class="p-7">
+            <div
+                class="flex items-center gap-4 mb-4 text-zinc-400 text-[11px] font-medium uppercase tracking-wider"
+            >
+                <div class="flex items-center gap-1.5">
+                    <Calendar size={13} class="text-secondary" />
+                    {formattedDate}
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <Clock size={13} class="text-secondary" />
+                    5 min read
+                </div>
+            </div>
+
+            <h2
+                class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-secondary transition-colors duration-300 line-clamp-2"
+            >
+                {data.title}
+            </h2>
+
+            <p
+                class="text-zinc-500 text-sm font-light leading-relaxed mb-8 line-clamp-3"
+            >
+                {data.description}
+            </p>
+
+            <div
+                class="pt-6 border-t border-zinc-50 flex items-center justify-between"
+            >
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-7 h-7 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 border border-zinc-200"
+                    >
+                        <User size={14} />
+                    </div>
+                    <span class="text-xs font-bold text-zinc-700"
+                        >{data.author}</span
+                    >
+                </div>
+
+                <div
+                    class="flex items-center gap-1 text-[10px] font-black uppercase tracking-tighter text-secondary opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0"
+                >
+                    Leer más
+                    <ArrowRight size={14} />
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
+
+<style>
+    /* Truncado de texto seguro */
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

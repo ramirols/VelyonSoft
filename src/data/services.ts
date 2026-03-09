@@ -44,7 +44,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Landing Page Profesional",
             price: {
                 original: { pen: "S/ 799" },
-                offer: { pen: "S/ 599", note: "Lanzamiento" },
+                offer: { pen: "S/ 699", note: "Lanzamiento" },
             },
             featured: true,
             icon: "laptop",
@@ -81,7 +81,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Desarrollo en WordPress",
             price: {
                 original: { pen: "S/ 1,200" },
-                offer: { pen: "S/ 990", note: "Auto-gestionable" },
+                offer: { pen: "S/ 1000", note: "Auto-gestionable" },
             },
             featured: true,
             icon: "code",
@@ -153,7 +153,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Soporte General Informático",
             price: {
                 original: { pen: "S/ 500" },
-                offer: { pen: "S/ 350", note: "Mantenimiento" },
+                offer: { pen: "S/ 400", note: "Mantenimiento" },
             },
             featured: false,
             icon: "laptop",
@@ -170,7 +170,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Manejo de Ofimática",
             price: {
                 original: { pen: "S/ 400" },
-                offer: { pen: "S/ 299", note: "Productividad" },
+                offer: { pen: "S/ 399", note: "Productividad" },
             },
             featured: false,
             icon: "boxes",
@@ -187,7 +187,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Software a Medida",
             price: {
                 original: { pen: "S/ 8,000" },
-                offer: { pen: "S/ 6,500", note: "Cotización Base" },
+                offer: { pen: "S/ 7,500", note: "Cotización Base" },
             },
             featured: false,
             icon: "boxes",
@@ -207,7 +207,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Professional Landing Page",
             price: {
                 original: { pen: "S/ 799" },
-                offer: { pen: "S/ 599", note: "Launch Offer" },
+                offer: { pen: "S/ 699", note: "Launch Offer" },
             },
             featured: true,
             icon: "laptop",
@@ -225,7 +225,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Corporate Website",
             price: {
                 original: { pen: "S/ 1,899" },
-                offer: { pen: "S/ 1,699", note: "Most Popular" },
+                offer: { pen: "S/ 1,799", note: "Most Popular" },
             },
             featured: true,
             icon: "code",
@@ -244,7 +244,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "WordPress Development",
             price: {
                 original: { pen: "S/ 1,200" },
-                offer: { pen: "S/ 990", note: "Self-managed" },
+                offer: { pen: "S/ 1000", note: "Self-managed" },
             },
             featured: true,
             icon: "code",
@@ -261,8 +261,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "mobile-apps",
             nombre: "Mobile Applications",
             price: {
-                original: { pen: "S/ 6,500" },
-                offer: { pen: "S/ 5,500", note: "Business Plan" },
+                original: { pen: "S/ 4,500" },
+                offer: { pen: "S/ 4,500", note: "Business Plan" },
             },
             featured: true,
             icon: "phone",

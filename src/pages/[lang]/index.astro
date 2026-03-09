@@ -3,9 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Slider";
 import Services from "../../components/Services.astro";
 import ProyectosGrid from "../../components/ProyectosGrid.astro";
-import TestimonialSlider from "../../components/TestimonialSlider.jsx";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import BlogCard from "../../components/BlogCard.astro";
-import FAQ from "../../components/FAQ.astro";
+import FAQ from "../../components/FAQ";
 import ContactForm from "../../components/ContactForm.astro";
 
 import { getCollection } from "astro:content";
@@ -34,7 +34,7 @@ const latest = posts.slice(0, 3);
 	<Hero lang={lang} client:load />
 	<Services lang={lang} onlyFeatured />
 	<ProyectosGrid lang={lang} />
-	<TestimonialSlider client:load lang={lang} />
+	<TestimonialCarousel client:load lang={lang} />
 
 	<section class="max-w-6xl mx-auto px-6 py-16">
 		<h2 class="text-3xl font-bold mb-8">
@@ -46,6 +46,6 @@ const latest = posts.slice(0, 3);
 		</div>
 	</section>
 
-	<FAQ lang={lang} />
+	<FAQ client:load lang={lang} />
 	<ContactForm lang={lang} />
 </BaseLayout>

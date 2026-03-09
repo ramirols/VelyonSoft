@@ -9,10 +9,17 @@ import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
 
+import path from 'path';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve('./src'), // Esto le dice a Vite que @ = carpeta src
+      },
+    },
   },
   integrations: [react(), sitemap(), mdx()],
   site: 'https://VelyonSoft.vercel.app',
