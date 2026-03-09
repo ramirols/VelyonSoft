@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --color-primary: #333333;
@@ -9,7 +10,7 @@
 body,
 html {
     scroll-behavior: smooth;
-    scrollbar-color: var(--color-secondary) var(--color-primary);
+    scrollbar-color: var(--color-secondary) white;
     scrollbar-width: thin;
 }
 

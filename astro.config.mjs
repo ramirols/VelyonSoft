@@ -16,4 +16,9 @@ export default defineConfig({
   },
   integrations: [react(), sitemap(), mdx()],
   site: 'https://VelyonSoft.vercel.app',
+  markdown: {
+    shikiConfig: {
+      wrap: true,
+    },
+  }
 });

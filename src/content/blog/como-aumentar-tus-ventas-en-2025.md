@@ -157,10 +157,3 @@ Sino:
 > “¿Qué necesita mi cliente para decidir sin dudas?”
 
 ---
-
-Si quieres, puedo:
-- Adaptar este post a **servicios digitales**, **negocios locales** o **B2B**
-- Crear una **serie de artículos conectados**
-- O ayudarte a convertir estos posts en **clientes reales** 😉
-
-Solo dime.

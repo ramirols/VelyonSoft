@@ -1,4 +1,4 @@
-import { Menu, X, Grid3X3, Briefcase, BookOpen, Mail } from "lucide-react"
+import { Menu, X, Grid3X3, Briefcase, BookOpen, Mail, Home } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -8,12 +8,14 @@ export default function Header({ lang = "es" }) {
 
     const t = {
         es: {
+            inicio: "Inicio",
             servicios: "Servicios",
             proyectos: "Proyectos",
             blog: "Blog",
             contacto: "Contacto",
         },
         en: {
+            inicio: "Home",
             servicios: "Services",
             proyectos: "Projects",
             blog: "Blog",
@@ -22,6 +24,7 @@ export default function Header({ lang = "es" }) {
     }[lang]
 
     const navLinks = [
+        { name: t.inicio, href: `/${lang}#inicio`, icon: <Home size={18} /> },
         { name: t.servicios, href: `/${lang}/servicios`, icon: <Grid3X3 size={18} /> },
         { name: t.proyectos, href: `/${lang}/proyectos`, icon: <Briefcase size={18} /> },
         { name: t.blog, href: `/${lang}/blog`, icon: <BookOpen size={18} /> },
