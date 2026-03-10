@@ -38,7 +38,7 @@ export default function FAQ({ lang = "es" }) {
     const t = i18n[lang] ?? i18n.es;
 
     return (
-        <section id="faq" className="py-32 bg-white">
+        <section id="faq" className="py-15 bg-white">
             <div className="max-w-4xl mx-auto px-6">
 
                 {/* Header Original (Restaurado) */}
@@ -63,20 +63,20 @@ export default function FAQ({ lang = "es" }) {
                         <AccordionItem
                             key={index}
                             value={`item-${index}`}
-                            className="group border border-zinc-100 rounded-2xl bg-zinc-50/50 px-4 transition-all duration-500 data-[state=open]:bg-white data-[state=open]:border-secondary/30 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
+                            className="group border border-gray-400 rounded-2xl bg-zinc-50/50 px-4 transition-all duration-500 data-[state=open]:bg-white data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
                         >
                             <AccordionTrigger className="hover:no-underline py-7 px-4">
                                 <div className="flex items-center gap-5 text-left">
                                     {/* Indicador numérico sutil */}
-                                    <span className="hidden sm:block text-[11px] font-bold text-zinc-300 group-data-[state=open]:text-secondary transition-colors duration-500">
+                                    <span className="hidden sm:block text-[11px] font-bold text-gray-400 group-data-[state=open]:text-secondary transition-colors duration-500">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <h3 className="text-lg font-medium text-zinc-700 group-data-[state=open]:text-primary transition-colors duration-500">
+                                    <h3 className="text-lg font-medium text-gray-700 group-data-[state=open]:text-primary transition-colors duration-500">
                                         {faq.q}
                                     </h3>
                                 </div>
                                 {/* Icono de interacción Plus */}
-                                <div className="shrink-0 ml-4 p-2 rounded-xl bg-white border border-zinc-100 text-zinc-400 group-data-[state=open]:bg-secondary group-data-[state=open]:text-white group-data-[state=open]:border-secondary transition-all duration-500 shadow-sm">
+                                <div className="shrink-0 ml-4 p-2 rounded-xl bg-white border border-gray-400 text-gray-400 group-data-[state=open]:bg-secondary group-data-[state=open]:text-white group-data-[state=open]:border-secondary transition-all duration-500 shadow-sm">
                                     <Plus className="w-4 h-4 transition-transform duration-500 group-data-[state=open]:rotate-45" />
                                 </div>
                             </AccordionTrigger>

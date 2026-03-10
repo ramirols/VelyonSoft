@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import { Newspaper, ArrowRight } from "lucide-astro";
+import BlogCard from "./BlogCard.astro";
+
+const { lang = "es" } = Astro.props;
+
+// Lógica de obtención de datos interna para limpiar el Index
+const posts = await getCollection("blog");
+const latestPosts = posts
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3);
+
+const t = {
+    es: {
+        badge: "Blog",
+        title: "Últimos artículos",
+        subtitle:
+            "Explora nuestras últimas publicaciones sobre tecnología, diseño y estrategia digital.",
+        viewAll: "Ver todo el blog",
+    },
+    en: {
+        badge: "Blog",
+        title: "Latest articles",
+        subtitle:
+            "Explore our latest publications on technology, design, and digital strategy.",
+        viewAll: "View all posts",
+    },
+};
+
+const i18n = lang === "es" ? t.es : t.en;
+---
+
+<section id="blog" class="py-15 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <header class="text-center mb-20 space-y-4">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary"
+            >
+                <Newspaper size={14} />
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em]">
+                    {i18n.badge}
+                </span>
+            </div>
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-primary"
+            >
+                {i18n.title}
+            </h2>
+            <p
+                class="text-zinc-500 max-w-xl mx-auto text-lg font-light leading-relaxed"
+            >
+                {i18n.subtitle}
+            </p>
+        </header>
+
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {latestPosts.map((post) => <BlogCard post={post} lang={lang} />)}
+        </div>
+
+        <div class="mt-16 text-center">
+            <a
+                href={`/${lang}/blog`}
+                class="group inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-primary transition-all"
+            >
+                {i18n.viewAll}
+                <ArrowRight
+                    size={16}
+                    class="transition-transform group-hover:translate-x-1"
+                />
+            </a>
+        </div>
+    </div>
+</section>

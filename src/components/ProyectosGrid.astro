@@ -32,10 +32,10 @@ const t = {
 const i18n = lang === "es" ? t.es : t.en;
 ---
 
-<section id="proyectos" class="bg-white py-32">
+<section id="proyectos" class="bg-white py-15">
   <div class="max-w-6xl mx-auto px-6">
     <div
-      class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+      class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8"
     >
       <div class="space-y-4">
         <div
@@ -72,7 +72,7 @@ const i18n = lang === "es" ? t.es : t.en;
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
         projects.map((project) => (
-          <div class="group relative bg-zinc-50/50 rounded-[2.5rem] border border-zinc-100 p-4 transition-all duration-500 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:border-secondary/20">
+          <div class="group relative bg-zinc-50/50 rounded-[2.5rem] border border-gray-400 p-4 transition-all duration-500 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:border-secondary">
             <div class="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] mb-6">
               <img
                 src={project.data.cover}
@@ -91,12 +91,12 @@ const i18n = lang === "es" ? t.es : t.en;
                 {project.data.description}
               </p>
 
-              <div class="flex items-center gap-3 py-3 px-4 rounded-2xl bg-white border border-zinc-100 mb-8 group-hover:border-secondary/10 transition-colors shadow-sm">
+              <div class="flex items-center gap-3 py-3 px-4 rounded-2xl bg-white border border-gray-400 mb-8 group-hover:border-secondary transition-colors shadow-sm">
                 <div class="text-secondary">
-                  <Zap size={16} fill="currentColor" class="opacity-20" />
+                  <Zap size={16} fill="currentColor" />
                 </div>
                 <p class="text-[12px] font-bold text-primary truncate">
-                  <span class="text-zinc-400 uppercase tracking-wider mr-1 font-medium">
+                  <span class="text-gray-400 uppercase tracking-wider mr-1 font-medium">
                     {i18n.impact}:
                   </span>
                   {project.data.result}

@@ -44,7 +44,6 @@ const i18n = {
     badge: "Feedback",
     title: "Success Stories",
     testimonials: [
-      // ... (Tus datos en inglés)
     ],
   },
 };
@@ -52,17 +51,16 @@ const i18n = {
 export default function TestimonialCarousel({ lang = "es" }) {
   const t = i18n[lang] ?? i18n.es;
 
-  // Configuración del Autoplay para que no se rompa el loop
   const plugin = React.useRef(
     Autoplay({
       delay: 4000,
-      stopOnInteraction: false, // Cambiado a false para que siga rotando tras interactuar
+      stopOnInteraction: false,
       stopOnMouseEnter: true
     })
   );
 
   return (
-    <section className="py-24 bg-white overflow-hidden" id="testimonials">
+    <section className="py-15 bg-white overflow-hidden" id="testimonials">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
@@ -85,15 +83,15 @@ export default function TestimonialCarousel({ lang = "es" }) {
           className="w-full relative"
           opts={{
             align: "start",
-            loop: true, // Esto activa el bucle infinito
+            loop: true,
           }}
         >
           <CarouselContent className="-ml-4">
             {t.testimonials.map((item, i) => (
               <CarouselItem key={i} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3 cursor-pointer">
-                <div className="group relative flex flex-col justify-between h-full p-8 bg-white border border-gray-100 rounded-[2rem] transition-all duration-500 hover:border-secondary/20 hover:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]">
+                <div className="group relative flex flex-col justify-between h-full p-8 bg-white border border-gray-300 rounded-[2rem] transition-all duration-500 hover:border-secondary hover:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]">
 
-                  <div className="absolute top-8 right-8 text-gray-100 group-hover:text-secondary/10 transition-colors duration-500">
+                  <div className="absolute top-8 right-8 text-gray-100 group-hover:text-secondary transition-colors duration-500">
                     <RiDoubleQuotesR size={40} />
                   </div>
 
@@ -124,7 +122,6 @@ export default function TestimonialCarousel({ lang = "es" }) {
             ))}
           </CarouselContent>
 
-          {/* Flechas visibles en Mobile y Desktop */}
           <div className="flex justify-center md:block mt-8 md:mt-0">
             <CarouselPrevious className="static cursor-pointer md:absolute -left-12 translate-y-0 md:-translate-y-1/2 border-none bg-gray-50 hover:bg-secondary hover:text-white transition-all mx-2" />
             <CarouselNext className="static cursor-pointer md:absolute -right-12 translate-y-0 md:-translate-y-1/2 border-none bg-gray-50 hover:bg-secondary hover:text-white transition-all mx-2" />

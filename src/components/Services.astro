@@ -2,6 +2,7 @@
 import { Laptop, Code, Boxes, Phone } from "lucide-astro";
 import ServiceCard from "./ServiceCard.astro";
 import { servicesData } from "../data/services";
+import { LayoutGrid } from "lucide-react";
 
 interface Props {
     lang?: "es" | "en";
@@ -12,6 +13,7 @@ const { lang = "es", onlyFeatured = false } = Astro.props;
 
 const t = {
     es: {
+        badge: "Soluciones",
         sectionTitle: "Planes y precios de nuestros servicios",
         sectionDesc:
             "Estos son nuestros servicios más contratados. Todos incluyen optimización SEO, alto rendimiento y soporte profesional.",
@@ -47,6 +49,7 @@ const t = {
         ctaAll: "Ver todos los servicios",
     },
     en: {
+        badge: "Solutions",
         sectionTitle: "Service plans & pricing",
         sectionDesc:
             "These are our most popular services. All include SEO optimization, high performance and professional support.",
@@ -95,13 +98,25 @@ const serviceIcons = {
 };
 ---
 
-<section id="planes-precios" class="bg-white py-24">
+<section id="planes-precios" class="bg-white py-15">
     <div class="max-w-6xl mx-auto px-6">
-        <header class="text-center mb-20">
-            <h2 class="text-4xl font-extrabold text-gray-900">
+        <header class="text-center mb-20 space-y-4">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary"
+            >
+                <LayoutGrid size={14} />
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em]">
+                    {t.badge}
+                </span>
+            </div>
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-primary"
+            >
                 {t.sectionTitle}
             </h2>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            <p
+                class="text-zinc-500 max-w-2xl mx-auto text-lg font-light leading-relaxed"
+            >
                 {t.sectionDesc}
             </p>
         </header>
