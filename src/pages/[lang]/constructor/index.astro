@@ -12,6 +12,6 @@ const { lang } = Astro.params;
 
 <BaseLayout title="Constructor de Maqueta | VelyonSoft" lang={lang}>
     <div class="pt-2">
-        <ConstructorPage client:only="react" />
+        <ConstructorPage client:only="react" lang={lang} />
     </div>
 </BaseLayout>
