@@ -9,9 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/language-server": "^2.13.4",
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@fontsource-variable/geist": "^5.2.8",
     "@tailwindcss/vite": "^4.1.17",
     "@types/react": "^19.2.7",
@@ -25,6 +29,9 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.26",
     "gsap": "^3.14.1",
+    "html-to-image": "^1.11.13",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.0",
     "lucide-astro": "^0.556.0",
     "lucide-react": "^0.576.0",
     "radix-ui": "^1.4.3",
@@ -40,5 +47,8 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19"
+  },
+  "overrides": {
+    "lodash": "^4.17.21"
   }
 }
