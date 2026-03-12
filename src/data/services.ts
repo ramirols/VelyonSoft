@@ -44,7 +44,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Landing Page Profesional",
             price: {
                 original: { pen: "S/ 799" },
-                offer: { pen: "S/ 699", note: "Lanzamiento" },
+                offer: { pen: "S/ 599", note: "Lanzamiento" },
             },
             featured: true,
             icon: "laptop",
@@ -62,7 +62,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Web Corporativa",
             price: {
                 original: { pen: "S/ 1,799" },
-                offer: { pen: "S/ 1,699", note: "Más Solicitado" },
+                offer: { pen: "S/ 1,299", note: "Más Solicitado" },
             },
             featured: true,
             icon: "code",
@@ -80,8 +80,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "wordpress-desarrollo",
             nombre: "Desarrollo en WordPress",
             price: {
-                original: { pen: "S/ 1,200" },
-                offer: { pen: "S/ 1000", note: "Auto-gestionable" },
+                original: { pen: "S/ 1,299" },
+                offer: { pen: "S/ 899", note: "Auto-gestionable" },
             },
             featured: true,
             icon: "code",
@@ -98,8 +98,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "aplicaciones-moviles",
             nombre: "Aplicaciones Móviles",
             price: {
-                original: { pen: "S/ 5,500" },
-                offer: { pen: "S/ 4,500", note: "Precio Especial" },
+                original: { pen: "S/ 5,599" },
+                offer: { pen: "S/ 3,499", note: "Precio Especial" },
             },
             featured: true,
             icon: "phone",
@@ -117,7 +117,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Marketing Digital",
             price: {
                 original: { pen: "S/ 899 /mes" },
-                offer: { pen: "S/ 799 /mes", note: "Plan Mensual" },
+                offer: { pen: "S/ 699 /mes", note: "Plan Mensual" },
             },
             featured: true,
             icon: "boxes",
@@ -135,7 +135,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Automatizaciones de Procesos",
             price: {
                 original: { pen: "S/ 2,000" },
-                offer: { pen: "S/ 1,500", note: "Eficiencia" },
+                offer: { pen: "S/ 899", note: "Eficiencia" },
             },
             featured: true,
             icon: "laptop",
@@ -152,8 +152,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "soporte-informatico",
             nombre: "Soporte General Informático",
             price: {
-                original: { pen: "S/ 500" },
-                offer: { pen: "S/ 400", note: "Mantenimiento" },
+                original: { pen: "S/ 599" },
+                offer: { pen: "S/ 299", note: "Mantenimiento" },
             },
             featured: false,
             icon: "laptop",
@@ -169,8 +169,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "ofimatica",
             nombre: "Manejo de Ofimática",
             price: {
-                original: { pen: "S/ 400" },
-                offer: { pen: "S/ 399", note: "Productividad" },
+                original: { pen: "S/ 499" },
+                offer: { pen: "S/ 299", note: "Productividad" },
             },
             featured: false,
             icon: "boxes",
@@ -187,7 +187,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             nombre: "Software a Medida",
             price: {
                 original: { pen: "S/ 8,000" },
-                offer: { pen: "S/ 7,500", note: "Cotización Base" },
+                offer: { pen: "Contáctanos", note: "Cotización Base" },
             },
             featured: false,
             icon: "boxes",

@@ -125,6 +125,7 @@ const serviceIcons = {
             {
                 plans.map((plan) => (
                     <ServiceCard
+                        lang={lang}
                         icon={serviceIcons[plan.icon]}
                         badge={
                             plan.badgeKey ? t.badges[plan.badgeKey] : undefined

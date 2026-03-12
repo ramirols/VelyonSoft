@@ -1,5 +1,5 @@
 ---
-import { Check } from "lucide-astro";
+import { Check, Info } from "lucide-astro";
 
 interface Props {
     icon: any;
@@ -13,6 +13,7 @@ interface Props {
     ctaText: string;
     ctaHref: string;
     highlight?: boolean;
+    lang?: "es" | "en";
 }
 
 const {
@@ -24,7 +25,19 @@ const {
     ctaText,
     ctaHref,
     highlight = false,
+    lang = "es",
 } = Astro.props;
+
+const t = {
+    es: {
+        important: "Precio base",
+        info: "Precio base referencial. El costo final depende de las funcionalidades y personalización solicitadas.",
+    },
+    en: {
+        important: "Starting price",
+        info: "Starting price. Final cost depends on specific features and customization requested.",
+    },
+}[lang];
 ---
 
 <article
@@ -54,9 +67,7 @@ const {
     }
 
     <div
-        class={`mb-8 flex items-center justify-center w-12 h-12 rounded-2xl transition-colors
-        ${highlight ? "bg-secondary text-white" : "bg-primary/10 text-primary"}
-    `}
+        class={`mb-8 flex items-center justify-center w-12 h-12 rounded-2xl transition-colors ${highlight ? "bg-secondary text-white" : "bg-primary/10 text-primary"}`}
     >
         <Icon size={24} strokeWidth={1.5} />
     </div>
@@ -65,27 +76,56 @@ const {
         <h3 class="text-xl font-bold text-primary mb-2 tracking-tight">
             {title}
         </h3>
-        <div class="flex flex-col">
+
+        <div class="flex flex-col relative group/tooltip">
             {
                 price.offer ? (
                     <>
                         <span class="text-xs text-gray-400 line-through mb-1">
                             {price.original.pen}
                         </span>
-                        <div class="flex items-baseline gap-2">
+                        <div class="flex items-center gap-3">
                             <span class="text-4xl font-black text-accent tracking-tighter">
                                 {price.offer.pen}
                             </span>
+
+                            <div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-50 border border-amber-200 cursor-help animate-pulse hover:animate-none transition-all group/info">
+                                <Info size={12} class="text-amber-600" />
+                                <span class="text-[9px] font-black uppercase tracking-wider text-amber-700 whitespace-nowrap">
+                                    {t.important}
+                                </span>
+
+                                <div class="absolute bottom-full left-0 md:left-1/2 md:-translate-x-1/2 mb-3 w-56 p-3 bg-slate-900 text-[11px] text-slate-200 rounded-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible md:group-hover:opacity-100 md:group-hover:visible transition-all z-30 shadow-2xl border border-white/10 backdrop-blur-sm pointer-events-none md:pointer-events-auto">
+                                    <p class="leading-relaxed">{t.info}</p>
+                                    <div class="absolute top-full left-6 md:left-1/2 md:-translate-x-1/2 border-8 border-transparent border-t-slate-900" />
+                                </div>
+                            </div>
                         </div>
-                        {price.offer.note && (
-                            <span class="text-[10px] text-secondary font-bold uppercase mt-2 tracking-wide">
-                                {price.offer.note}
-                            </span>
-                        )}
                     </>
                 ) : (
-                    <span class="text-4xl font-black text-accent tracking-tighter">
-                        {price.original.pen}
+                    <div class="flex items-center gap-3">
+                        <span class="text-4xl font-black text-accent tracking-tighter">
+                            {price.original.pen}
+                        </span>
+
+                        <div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-amber-50 border border-amber-200 cursor-help animate-pulse hover:animate-none transition-all">
+                            <Info size={12} class="text-amber-600" />
+                            <span class="text-[9px] font-black uppercase tracking-wider text-amber-700 whitespace-nowrap">
+                                {t.important}
+                            </span>
+
+                            <div class="absolute bottom-full left-0 md:left-1/2 md:-translate-x-1/2 mb-3 w-56 p-3 bg-slate-900 text-[11px] text-slate-200 rounded-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all z-30 shadow-2xl border border-white/10 backdrop-blur-sm">
+                                <p class="leading-relaxed">{t.info}</p>
+                                <div class="absolute top-full left-6 md:left-1/2 md:-translate-x-1/2 border-8 border-transparent border-t-slate-900" />
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+            {
+                price.offer?.note && (
+                    <span class="text-[10px] text-secondary font-bold uppercase mt-2 tracking-wide">
+                        {price.offer.note}
                     </span>
                 )
             }
@@ -109,13 +149,18 @@ const {
 
     <a
         href={ctaHref}
-        class={`group relative overflow-hidden rounded-2xl py-4 text-sm font-bold transition-all text-center
-        ${
-            highlight
-                ? "bg-secondary text-white hover:bg-secondary/90 shadow-md shadow-secondary/20"
-                : "bg-primary text-white hover:bg-accent"
-        }`}
+        class={`group relative overflow-hidden rounded-2xl py-4 text-sm font-bold transition-all text-center ${highlight ? "bg-secondary text-white hover:bg-secondary/90 shadow-md shadow-secondary/20" : "bg-primary text-white hover:bg-accent"}`}
     >
         <span class="relative z-10">{ctaText}</span>
     </a>
 </article>
+
+<style>
+    /* Opcional: Para asegurar que en mobile se vea bien el tooltip al hacer tap */
+    @media (max-width: 768px) {
+        .group\/tooltip:active .invisible {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+</style>
