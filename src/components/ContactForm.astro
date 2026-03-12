@@ -28,6 +28,11 @@ const i18n = {
         button: "Enviar propuesta",
         trust: "Información protegida por acuerdos de confidencialidad.",
         whatsappIntro: "Hola 👋, soy",
+        errors: {
+            name: "El nombre es requerido (mín. 3 caracteres)",
+            email: "Introduce un correo válido",
+            message: "Por favor, cuéntanos un poco más (mín. 10 caracteres)",
+        },
     },
     en: {
         badge: "Contact",
@@ -45,18 +50,27 @@ const i18n = {
         button: "Send proposal",
         trust: "Information protected by non-disclosure agreements.",
         whatsappIntro: "Hi 👋, I'm",
+        errors: {
+            name: "Name is required (min. 3 characters)",
+            email: "Enter a valid email address",
+            message: "Please tell us a bit more (min. 10 characters)",
+        },
     },
 };
 
 const t = i18n[lang];
 ---
 
-<section id="contacto" class="relative max-w-4xl mx-auto px-6 py-15">
+<section id="contacto" class="relative max-w-4xl mx-auto px-6 py-20">
     <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none"
     >
         <div
-            class="absolute top-20 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-[120px]"
+            class="absolute top-20 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-[120px]"
+        >
+        </div>
+        <div
+            class="absolute bottom-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px]"
         >
         </div>
     </div>
@@ -66,9 +80,8 @@ const t = i18n[lang];
             <span class="w-8 h-[1px] bg-secondary"></span>
             <span
                 class="text-[10px] font-bold tracking-[0.3em] text-secondary uppercase"
+                >{t.badge}</span
             >
-                {t.badge}
-            </span>
             <span class="w-8 h-[1px] bg-secondary"></span>
         </div>
         <h2
@@ -81,12 +94,13 @@ const t = i18n[lang];
         </p>
     </header>
 
-    <div class="grid md:grid-cols-1 gap-12">
+    <div class="grid md:grid-cols-1">
         <form
             id="contactForm"
-            class="relative bg-white border border-gray-300 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(30,172,204,0.1)]"
+            novalidate
+            class="relative bg-white border border-slate-200 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:border-secondary/30"
         >
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-6">
                 <div class="space-y-2">
                     <label
                         for="name"
@@ -99,11 +113,14 @@ const t = i18n[lang];
                         id="name"
                         name="name"
                         type="text"
-                        required
                         maxlength="50"
                         placeholder={t.namePlaceholder}
-                        class="w-full rounded-2xl border border-gray-300 px-5 py-4 text-primary transition-all outline-none"
+                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary"
                     />
+                    <span
+                        id="nameError"
+                        class="text-[12px] text-red-500 font-semibold ml-2 hidden"
+                    ></span>
                 </div>
 
                 <div class="space-y-2">
@@ -117,12 +134,15 @@ const t = i18n[lang];
                     <input
                         id="email"
                         name="email"
+                        maxlength="100"
                         type="email"
-                        required
-                        maxlength="30"
                         placeholder={t.emailPlaceholder}
-                        class="w-full rounded-2xl border border-gray-300 px-5 py-4 text-primary transition-all outline-none"
+                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary focus:ring-secondary/10"
                     />
+                    <span
+                        id="emailError"
+                        class="text-[12px] text-red-500 font-semibold ml-2 hidden"
+                    ></span>
                 </div>
             </div>
 
@@ -137,23 +157,25 @@ const t = i18n[lang];
                 <textarea
                     id="message"
                     name="message"
-                    rows="6"
-                    required
-                    maxlength="3000"
+                    rows="10"
+                    maxlength="8000"
                     placeholder={t.messagePlaceholder}
-                    class="w-full rounded-2xl border border-gray-300 px-5 py-4 text-primary transition-all outline-none resize-none"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary focus:ring-secondary/10 resize-none"
                 ></textarea>
+                <span
+                    id="messageError"
+                    class="text-[12px] text-red-500 font-semibold ml-2 hidden"
+                ></span>
+
                 <div class="flex items-start gap-2 mt-3 px-1">
                     <Zap size={14} class="text-secondary mt-0.5" />
-                    <p class="text-xs text-gray-400 italic">
-                        {t.hint}
-                    </p>
+                    <p class="text-xs text-gray-400 italic">{t.hint}</p>
                 </div>
             </div>
 
             <button
                 type="submit"
-                class="group relative w-full cursor-pointer flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary py-5 font-bold text-white transition-all hover:bg-accent active:scale-[0.98] shadow-xl shadow-primary/10"
+                class="group relative w-full cursor-pointer flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary py-5 font-bold text-white transition-all hover:bg-secondary active:scale-[0.98] shadow-xl shadow-primary/10"
             >
                 <span class="relative z-10">{t.button}</span>
                 <Send
@@ -163,7 +185,7 @@ const t = i18n[lang];
             </button>
 
             <div
-                class="mt-8 flex items-center justify-center gap-4 py-4 border-t border-gray-50"
+                class="mt-8 flex items-center justify-center gap-4 py-4 border-t border-slate-50"
             >
                 <div
                     class="flex items-center gap-2 text-[10px] text-gray-400 font-medium"
@@ -176,23 +198,80 @@ const t = i18n[lang];
     </div>
 </section>
 
-<script is:inline define:vars={{ whatsappIntro: t.whatsappIntro }}>
+<script
+    is:inline
+    define:vars={{ whatsappIntro: t.whatsappIntro, errorMsgs: t.errors }}
+>
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contactForm");
         if (!form) return;
 
+        const inputs = {
+            name: document.getElementById("name"),
+            email: document.getElementById("email"),
+            message: document.getElementById("message"),
+        };
+
+        const errors = {
+            name: document.getElementById("nameError"),
+            email: document.getElementById("emailError"),
+            message: document.getElementById("messageError"),
+        };
+
+        const validateEmail = (email) => {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                );
+        };
+
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const data = new FormData(form);
+            let isValid = true;
 
-            const name = data.get("name");
-            const email = data.get("email");
-            const message = data.get("message");
+            // Limpiar errores previos
+            Object.values(errors).forEach((el) => el.classList.add("hidden"));
+            Object.values(inputs).forEach((el) =>
+                el.classList.remove("border-red-400", "ring-red-100"),
+            );
 
-            const whatsappMessage = `${whatsappIntro} *${name}* 🚀\n\n📧 *Email:* ${email}\n\n📝 *Proyecto:* \n${message}`;
+            // Validación Nombre
+            if (inputs.name.value.trim().length < 3) {
+                errors.name.textContent = errorMsgs.name;
+                errors.name.classList.remove("hidden");
+                inputs.name.classList.add("border-red-400", "ring-red-100");
+                isValid = false;
+            }
 
-            const url = `https://wa.me/51997676432?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(url, "_blank");
+            // Validación Email
+            if (!validateEmail(inputs.email.value.trim())) {
+                errors.email.textContent = errorMsgs.email;
+                errors.email.classList.remove("hidden");
+                inputs.email.classList.add("border-red-400", "ring-red-100");
+                isValid = false;
+            }
+
+            // Validación Mensaje
+            if (inputs.message.value.trim().length < 10) {
+                errors.message.textContent = errorMsgs.message;
+                errors.message.classList.remove("hidden");
+                inputs.message.classList.add("border-red-400", "ring-red-100");
+                isValid = false;
+            }
+
+            if (isValid) {
+                const whatsappMessage = `${whatsappIntro} *${inputs.name.value.trim()}* 🚀\n\n📧 *Email:* ${inputs.email.value.trim()}\n\n📝 *Proyecto:* \n${inputs.message.value.trim()}`;
+                const url = `https://wa.me/51997676432?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(url, "_blank");
+            }
+        });
+
+        Object.keys(inputs).forEach((key) => {
+            inputs[key].addEventListener("input", () => {
+                errors[key].classList.add("hidden");
+                inputs[key].classList.remove("border-red-400", "ring-red-100");
+            });
         });
     });
 </script>

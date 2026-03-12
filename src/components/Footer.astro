@@ -18,6 +18,11 @@ const i18n = {
         contact: "Conecta con nosotros",
         rights: "Todos los derechos reservados.",
         legal: "Legal",
+        ssl: "Seguridad SSL",
+        vitals: "Core Web Vitals",
+        waSub: "Chatea con nosotros",
+        partner: "Socio tecnológico de confianza",
+        performance: "Optimizado para carga ultra-rápida.",
         links: {
             home: "Inicio",
             services: "Servicios Especializados",
@@ -32,6 +37,11 @@ const i18n = {
         contact: "Connect with us",
         rights: "All rights reserved.",
         legal: "Legal",
+        ssl: "SSL Security",
+        vitals: "Core Web Vitals",
+        waSub: "Chat with us",
+        partner: "Trusted technology partner",
+        performance: "Optimized for ultra-fast loading.",
         links: {
             home: "Home",
             services: "Specialized Services",
@@ -90,8 +100,9 @@ const t = i18n;
                         <ShieldCheck size={14} class="text-secondary" />
                         <span
                             class="text-[10px] uppercase tracking-wider font-medium text-white/70"
-                            >Seguridad SSL</span
                         >
+                            {t.ssl}
+                        </span>
                     </div>
                     <div
                         class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10"
@@ -99,8 +110,9 @@ const t = i18n;
                         <Cpu size={14} class="text-secondary" />
                         <span
                             class="text-[10px] uppercase tracking-wider font-medium text-white/70"
-                            >Core Web Vitals</span
                         >
+                            {t.vitals}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -186,9 +198,7 @@ const t = i18n;
                             >
                                 WhatsApp
                             </p>
-                            <p class="text-sm text-white/80">
-                                Chatea con nosotros
-                            </p>
+                            <p class="text-sm text-white/80">{t.waSub}</p>
                         </div>
                     </a>
                 </div>
@@ -203,12 +213,13 @@ const t = i18n;
                     <p
                         class="text-white text-[11px] font-medium uppercase tracking-widest text-center md:text-left"
                     >
-                        © {new Date().getFullYear()} VelyonSoft Agencia Digital
+                        © {new Date().getFullYear()} VelyonSoft Digital Agency
                     </p>
                     <p
                         class="text-white/60 text-[10px] text-center md:text-left"
                     >
-                        {t.rights} Optimizado para carga ultra-rápida.
+                        {t.rights}
+                        {t.performance}
                     </p>
                 </div>
 
@@ -226,7 +237,7 @@ const t = i18n;
                     <span
                         class="text-[10px] text-white/60 font-bold tracking-tighter uppercase group-hover:text-white transition-colors"
                     >
-                        Socio tecnológico de confianza
+                        {t.partner}
                     </span>
                 </div>
             </div>

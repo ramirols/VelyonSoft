@@ -44,6 +44,30 @@ const i18n = {
     badge: "Feedback",
     title: "Success Stories",
     testimonials: [
+      {
+        name: "Carlos Fernández",
+        role: "Business",
+        message: "They created a fast, modern, and fully optimized website. Our client base started growing from the very first month.",
+        avatar: "https://i.pravatar.cc/150?img=12",
+      },
+      {
+        name: "María Valdivia",
+        role: "Entrepreneur",
+        message: "The level of detail and professionalism was incredible. I am very happy with my landing page. Highly recommended.",
+        avatar: "https://i.pravatar.cc/150?img=32",
+      },
+      {
+        name: "Viviana Vargas",
+        role: "Corporate",
+        message: "We needed a serious and optimized corporate website. The final result truly exceeded our expectations.",
+        avatar: "https://i.pravatar.cc/150?img=45",
+      },
+      {
+        name: "Andrea Ríos",
+        role: "Marketing",
+        message: "Now the web loads faster and converts better. It was a great decision for our brand's growth.",
+        avatar: "https://i.pravatar.cc/150?img=47",
+      },
     ],
   },
 };
