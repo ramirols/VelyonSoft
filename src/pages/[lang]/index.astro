@@ -23,8 +23,8 @@ const { lang } = Astro.params as { lang: Lang };
 		? "VelyonSoft | Desarrollo de Software y Páginas Web"
 		: "VelyonSoft | Software & Web Development"}
 	description={lang === "es"
-		? "Desarrollo de software, páginas web y SEO"
-		: "Custom software, websites and SEO"}
+		? "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y estrategias SEO para empresas que buscan crecer y posicionarse en Google."
+		: "Custom software development, professional websites, mobile apps and SEO strategies for companies that want to grow and rank on Google."}
 >
 	<Hero lang={lang} client:load />
 	<Services lang={lang} onlyFeatured />

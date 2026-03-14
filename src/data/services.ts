@@ -70,7 +70,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             highlight: true,
             features: [
                 { icon: "check", textKey: "responsive" },
-                { icon: "check", textKey: "seoAdvanced" },
+                { icon: "check", textKey: "seoBasic" },
                 { icon: "check", textKey: "speed" },
                 { icon: "check", textKey: "contact" },
             ],
@@ -149,6 +149,42 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             cta: { type: "services" },
         },
         {
+            slug: "intranet-empresarial",
+            nombre: "Intranets Empresariales",
+            price: {
+                original: { pen: "S/ 3,999" },
+                offer: { pen: "S/ 3,499", note: "Eficiencia" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
+            slug: "paneles-administrativos",
+            nombre: "Paneles Administrativos",
+            price: {
+                original: { pen: "S/ 2,999" },
+                offer: { pen: "S/ 2,499", note: "Eficiencia" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
             slug: "soporte-informatico",
             nombre: "Soporte General Informático",
             price: {
@@ -198,7 +234,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
                 { icon: "check", textKey: "scale" },
                 { icon: "check", textKey: "support" },
             ],
-            cta: { type: "services" },
+            cta: { type: "contact" },
         },
     ],
     en: [
@@ -312,6 +348,42 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             cta: { type: "services" },
         },
         {
+            slug: "business-intranets",
+            nombre: "Business Intranets",
+            price: {
+                original: { pen: "$ 348" },
+                offer: { pen: "$ 290", note: "Efficiency" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
+            slug: "administrative-panels",
+            nombre: "Administrative Panels",
+            price: {
+                original: { pen: "$ 290" },
+                offer: { pen: "$ 240", note: "Efficiency" },
+            },
+            featured: true,
+            icon: "laptop",
+            badgeKey: "business",
+            features: [
+                { icon: "zap", textKey: "automation" },
+                { icon: "check", textKey: "custom" },
+                { icon: "check", textKey: "scale" },
+                { icon: "check", textKey: "support" },
+            ],
+            cta: { type: "services" },
+        },
+        {
             slug: "it-support",
             nombre: "General IT Support",
             price: {
@@ -325,6 +397,23 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
                 { icon: "shield", textKey: "itSupport" },
                 { icon: "check", textKey: "support" },
                 { icon: "check", textKey: "contact" },
+            ],
+            cta: { type: "contact" },
+        },
+        {
+            slug: "office-automation",
+            nombre: "Office Automation",
+            price: {
+                original: { pen: "$ 145" },
+                offer: { pen: "$ 120", note: "Productivity" },
+            },
+            featured: false,
+            icon: "boxes",
+            badgeKey: "popular",
+            features: [
+                { icon: "check", textKey: "office" },
+                { icon: "check", textKey: "support" },
+                { icon: "check", textKey: "automation" },
             ],
             cta: { type: "contact" },
         },
@@ -344,7 +433,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
                 { icon: "check", textKey: "scale" },
                 { icon: "check", textKey: "support" },
             ],
-            cta: { type: "services" },
+            cta: { type: "contact" },
         },
     ],
 };

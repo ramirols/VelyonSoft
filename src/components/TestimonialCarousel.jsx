@@ -38,6 +38,55 @@ const i18n = {
         message: "Ahora la web carga rápido y convierte mejor. Fue una gran decisión para nuestra marca.",
         avatar: "https://i.pravatar.cc/150?img=47",
       },
+      // Nuevos basados en tus servicios
+      {
+        name: "Javier Morales",
+        role: "Emprendedor",
+        message: "Mi landing page profesional quedó espectacular: diseño moderno, carga rapidísima y ya estoy captando leads todos los días. Precio justo y entrega rápida.",
+        avatar: "https://i.pravatar.cc/150?img=68",
+      },
+      {
+        name: "Lucía Mendoza",
+        role: "Dueña de Empresa",
+        message: "La web corporativa que nos hicieron es impecable: responsive, SEO avanzado y muy profesional. Las consultas de clientes subieron notablemente.",
+        avatar: "https://i.pravatar.cc/150?img=59",
+      },
+      {
+        name: "Roberto Castillo",
+        role: "Gerente de Marketing",
+        message: "Optamos por desarrollo en WordPress y ahora manejamos todo nosotros mismos. Diseño actual, SEO optimizado y soporte prioritario excelente.",
+        avatar: "https://i.pravatar.cc/150?img=33",
+      },
+      {
+        name: "Sofía Ramírez",
+        role: "Directora Creativa",
+        message: "El plan de marketing digital está dando resultados brutales: posiciones altas en Google, más tráfico y conversiones reales. Muy contentos.",
+        avatar: "https://i.pravatar.cc/150?img=41",
+      },
+      {
+        name: "Diego Salazar",
+        role: "CEO Startup",
+        message: "Desarrollaron nuestra app móvil para Android e iOS con calidad premium. Funciona perfecto y el soporte ha sido clave en cada paso.",
+        avatar: "https://i.pravatar.cc/150?img=55",
+      },
+      {
+        name: "Patricia López",
+        role: "Gerente Operaciones",
+        message: "Las automatizaciones de procesos nos ahorraron horas diarias. Todo personalizado, escalable y con soporte prioritario. Inversión que se paga sola.",
+        avatar: "https://i.pravatar.cc/150?img=64",
+      },
+      {
+        name: "Miguel Torres",
+        role: "Administrador",
+        message: "El soporte informático general y manejo de ofimática nos salvó en momentos críticos. Respuesta rápida, eficiente y precios accesibles.",
+        avatar: "https://i.pravatar.cc/150?img=22",
+      },
+      {
+        name: "Elena Gutiérrez",
+        role: "Emprendedora Tech",
+        message: "Software a medida que nos pidieron cotización y superó todo lo esperado: automatizaciones integradas, escalable y muy bien soportado. Recomendado al 100%.",
+        avatar: "https://i.pravatar.cc/150?img=38",
+      },
     ],
   },
   en: {
@@ -67,6 +116,55 @@ const i18n = {
         role: "Marketing",
         message: "Now the web loads faster and converts better. It was a great decision for our brand's growth.",
         avatar: "https://i.pravatar.cc/150?img=47",
+      },
+      // New ones based on your services
+      {
+        name: "Javier Morales",
+        role: "Entrepreneur",
+        message: "My professional landing page turned out spectacular: modern design, super fast loading, and I'm already capturing leads every day. Fair price and quick delivery.",
+        avatar: "https://i.pravatar.cc/150?img=68",
+      },
+      {
+        name: "Lucía Mendoza",
+        role: "Business Owner",
+        message: "The corporate website they built for us is flawless: responsive, advanced SEO, and very professional. Client inquiries increased noticeably.",
+        avatar: "https://i.pravatar.cc/150?img=59",
+      },
+      {
+        name: "Roberto Castillo",
+        role: "Marketing Manager",
+        message: "We went with WordPress development and now manage everything ourselves. Modern design, optimized SEO, and excellent priority support.",
+        avatar: "https://i.pravatar.cc/150?img=33",
+      },
+      {
+        name: "Sofía Ramírez",
+        role: "Creative Director",
+        message: "The digital marketing plan is delivering brutal results: top Google rankings, more traffic, and real conversions. Very happy.",
+        avatar: "https://i.pravatar.cc/150?img=41",
+      },
+      {
+        name: "Diego Salazar",
+        role: "Startup CEO",
+        message: "They developed our mobile app for Android and iOS with premium quality. It works perfectly and the support has been key every step of the way.",
+        avatar: "https://i.pravatar.cc/150?img=55",
+      },
+      {
+        name: "Patricia López",
+        role: "Operations Manager",
+        message: "The process automations saved us hours every day. Fully customized, scalable, and with priority support. An investment that pays for itself.",
+        avatar: "https://i.pravatar.cc/150?img=64",
+      },
+      {
+        name: "Miguel Torres",
+        role: "Administrator",
+        message: "The general IT support and office suite management saved us in critical moments. Fast response, efficient, and affordable prices.",
+        avatar: "https://i.pravatar.cc/150?img=22",
+      },
+      {
+        name: "Elena Gutiérrez",
+        role: "Tech Entrepreneur",
+        message: "Custom software that required a quote and exceeded all expectations: integrated automations, scalable, and very well supported. 100% recommended.",
+        avatar: "https://i.pravatar.cc/150?img=38",
       },
     ],
   },
@@ -137,9 +235,9 @@ export default function TestimonialCarousel({ lang = "es" }) {
                       />
                       <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
                     </div>
-                    <h4 className="font-bold text-primary text-sm tracking-tight">
+                    <h6 className="font-bold text-primary text-sm tracking-tight">
                       {item.name}
-                    </h4>
+                    </h6>
                   </div>
                 </div>
               </CarouselItem>

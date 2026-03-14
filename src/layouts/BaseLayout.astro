@@ -6,14 +6,14 @@ import { AstroSEO } from "astro-seo-plugin";
 
 const {
     lang = "es",
-    title = "VelyonSoft | Desarrollo Web Profesional",
-    description = "Desarrollo de páginas web modernas, rápidas y optimizadas para negocios.",
+    title = "VelyonSoft | Desarrollo de Software y Páginas Web",
+    description = "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y estrategias SEO para empresas que buscan crecer, vender más y posicionarse en Google.",
     image = "/og-default.jpg",
     type = "website",
 } = Astro.props;
 
-const canonical = Astro.url.href;
-
+const site = "https://velyonsoft.vercel.app";
+const canonical = `${site}/${lang}${Astro.url.pathname.replace(/^\/(es|en)/, "")}`;
 ---
 
 <Layout lang={lang}>
@@ -26,24 +26,46 @@ const canonical = Astro.url.href;
             locale: lang === "es" ? "es_ES" : "en_US",
             url: canonical,
             siteName: "VelyonSoft",
+            title,
+            description,
             images: [
                 {
-                    url: `https://VelyonSoft.vercel.app${image}`,
+                    url: `https://velyonsoft.vercel.app${image}`,
                     width: 1200,
                     height: 630,
-                    alt: title,
+                    alt: "VelyonSoft - Desarrollo de Software y Páginas Web",
                 },
             ],
         }}
         twitter={{
             card: "summary_large_image",
             site: "@VelyonSoft",
+            creator: "@VelyonSoft",
+            title,
+            description,
+            image: `https://velyonsoft.vercel.app${image}`,
         }}
         jsonLd={{
             "@context": "https://schema.org",
-            "@type": type === "article" ? "Article" : "Organization",
-            name: title,
-            url: canonical,
+            "@type": "Organization",
+            name: "VelyonSoft",
+            url: "https://velyonsoft.vercel.app",
+            logo: "https://velyonsoft.vercel.app/logo.png",
+            description: description,
+            foundingDate: "2024",
+            contactPoint: [
+                {
+                    "@type": "ContactPoint",
+                    contactType: "sales",
+                    availableLanguage: ["Spanish", "English"],
+                },
+            ],
+            sameAs: [
+                "https://facebook.com/velyonsoft",
+                "https://instagram.com/velyonsoft",
+                "https://linkedin.com/company/velyonsoft",
+                "https://twitter.com/velyonsoft",
+            ],
         }}
     />
 

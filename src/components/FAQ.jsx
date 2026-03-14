@@ -9,42 +9,122 @@ import {
 
 const i18n = {
     es: {
-        badge: "Soporte",
-        title: "Preguntas frecuentes",
-        subtitle: "Resolvemos tus dudas para que des el siguiente paso con total seguridad y claridad.",
+        badge: "Soporte y Consultoría Digital",
+        title: "Preguntas Frecuentes: Desarrollo Web y SEO en Perú",
+        subtitle: "Resolvemos tus dudas sobre landing pages, webs corporativas, WordPress y apps móviles. Todo lo que necesitas para digitalizar tu empresa en Perú con resultados reales.",
         faqs: [
-            { q: "¿En cuánto tiempo entregan un proyecto web?", a: "Depende de la complejidad. Una landing page toma de 3 a 7 días, mientras que", str: "webs corporativas o e-commerce suelen estar listas en 2 a 4 semanas." },
-            { q: "¿El diseño será único o usan plantillas?", a: "No usamos plantillas genéricas.", str: "Cada diseño es 100% personalizado para destacar tu marca frente a la competencia." },
-            { q: "¿Ofrecen mantenimiento después de la entrega?", a: "Sí. Contamos con", str: "planes de soporte técnico, actualizaciones y seguridad para que nunca te preocupes por nada." },
-            { q: "¿Mi web aparecerá en Google?", a: "Absolutamente. Todos nuestros desarrollos incluyen", str: "SEO técnico avanzado y optimización de velocidad para que tus clientes te encuentren." },
-            { q: "¿Soy el dueño total de mi código y web?", a: "Sí, al finalizar el proyecto,", str: "la propiedad total de los archivos y licencias te pertenece. Sin letras pequeñas." },
-            { q: "¿Qué tecnologías utilizan?", a: "Trabajamos con el stack más moderno:", str: "React, Next.js, Tailwind CSS y Node.js, garantizando escalabilidad y rapidez extrema." },
-            { q: "¿Puedo autogestionar mi contenido?", a: "Sí. Implementamos", str: "paneles de administración intuitivos para que puedas subir fotos o textos sin depender de un programador." },
-            { q: "¿Cómo se manejan los pagos?", a: "Normalmente dividimos el proyecto en", str: "dos fases: un pago inicial para comenzar y el saldo final tras la aprobación y entrega." },
-            { q: "¿Desarrollan aplicaciones móviles también?", a: "Sí. Creamos", str: "apps nativas e híbridas para iOS y Android con experiencias de usuario fluidas." },
-            { q: "¿Por qué elegirlos a ustedes y no a otros?", a: "Porque no solo entregamos código.", str: "Entregamos herramientas de venta optimizadas para maximizar tu ROI desde el primer día." },
+            {
+                q: "¿Cuál es el tiempo de entrega para una landing page o web corporativa?",
+                a: "Los plazos dependen de la complejidad del proyecto digital.",
+                str: "Una landing page profesional optimizada para ventas suele entregarse en 3 a 7 días, mientras que una web corporativa avanzada o e-commerce toma entre 2 a 4 semanas en Perú.",
+            },
+            {
+                q: "¿El diseño será personalizado o utilizan plantillas genéricas?",
+                a: "En VelyonSoft no creemos en soluciones masivas.",
+                str: "Cada diseño es 100% único y personalizado, desarrollado con un enfoque en User Experience (UX) y conversión para que tu marca destaque frente a la competencia en el mercado peruano.",
+            },
+            {
+                q: "¿Ofrecen mantenimiento y soporte técnico tras finalizar la web?",
+                a: "Garantizamos que tu plataforma siempre esté operativa.",
+                str: "Contamos con planes de soporte prioritario, actualizaciones de seguridad y optimización de Core Web Vitals para que tu web corporativa sea rápida y segura los 365 días del año.",
+            },
+            {
+                q: "¿Mi página web aparecerá en los primeros resultados de Google?",
+                a: "Diseñamos pensando en el posicionamiento orgánico desde el primer día.",
+                str: "Implementamos SEO técnico avanzado (arquitectura, velocidad de carga y etiquetas meta) para que tus clientes te encuentren fácilmente al buscar servicios en Lima y todo Perú.",
+            },
+            {
+                q: "¿Soy el dueño legal de mi código, dominio y archivos?",
+                a: "La propiedad total del proyecto es tuya.",
+                str: "Al finalizar, transferimos todos los accesos, licencias y código fuente. Eres el dueño absoluto de tu activo digital, sin letras pequeñas ni contratos de permanencia forzosa.",
+            },
+            {
+                q: "¿Qué tecnologías utilizan para el desarrollo de software y apps?",
+                a: "Trabajamos con el stack tecnológico más moderno del 2026.",
+                str: "Especialistas en Next.js, React, Tailwind CSS y Node.js para web; y React Native para aplicaciones móviles Android e iOS, garantizando escalabilidad y rapidez extrema.",
+            },
+            {
+                q: "¿Podré editar el contenido de mi sitio web yo mismo?",
+                a: "Implementamos sistemas autogestionables e intuitivos.",
+                str: "Ya sea mediante WordPress optimizado o un CMS a medida, podrás actualizar textos, imágenes y precios sin depender de un programador, dándote autonomía total sobre tu negocio.",
+            },
+            {
+                q: "¿Cómo se manejan los pagos y las cotizaciones en Perú?",
+                a: "Manejamos un proceso de pago transparente y por hitos.",
+                str: "Generalmente se requiere un 50% de adelanto para iniciar y el 50% restante contra entrega. Aceptamos transferencias bancarias locales, Yape, Plin y tarjetas de crédito.",
+            },
+            {
+                q: "¿Desarrollan aplicaciones móviles personalizadas?",
+                a: "Creamos soluciones móviles de alto impacto.",
+                str: "Desarrollamos aplicaciones nativas e híbridas para Android e iOS, enfocadas en resolver problemas específicos de tu empresa o crear nuevos canales de venta digitales.",
+            },
+            {
+                q: "¿Por qué elegir a VelyonSoft frente a otras agencias en Perú?",
+                a: "No solo entregamos código, entregamos resultados de negocio.",
+                str: "Nuestra metodología combina marketing digital estratégico con desarrollo de alto rendimiento para maximizar tu retorno de inversión (ROI) y acelerar tu crecimiento digital.",
+            },
         ],
-        footer: "¿Aún tienes dudas?",
-        cta: "Contáctanos ahora →",
+        footer: "¿Aún tienes preguntas sobre tu próximo proyecto?",
+        cta: "Solicita una asesoría gratuita por WhatsApp ahora →",
     },
     en: {
-        badge: "Support",
-        title: "Frequently Asked Questions",
-        subtitle: "Answering your questions so you can take the next step with total confidence and clarity.",
+        badge: "Support & Digital Consulting",
+        title: "Frequently Asked Questions: Web Development & SEO Peru",
+        subtitle: "Answering your questions about landing pages, corporate websites, WordPress, and mobile apps. Everything you need to digitize your business in Peru with real results.",
         faqs: [
-            { q: "How long does a web project take?", a: "It depends on complexity. A landing page takes 3-7 days, while", str: "corporate sites or e-commerce are usually ready in 2 to 4 weeks." },
-            { q: "Is the design unique or do you use templates?", a: "We don't use generic templates.", str: "Every design is 100% custom-made to make your brand stand out from the competition." },
-            { q: "Do you offer maintenance after delivery?", a: "Yes. We provide", str: "technical support, updates, and security plans so you never have to worry about a thing." },
-            { q: "Will my website appear on Google?", a: "Absolutely. All our builds include", str: "advanced technical SEO and speed optimization so customers can find you." },
-            { q: "Do I fully own the code and website?", a: "Yes, upon project completion,", str: "total ownership of files and licenses belongs to you. No fine print." },
-            { q: "What technologies do you use?", a: "We work with the most modern stack:", str: "React, Next.js, Tailwind CSS, and Node.js, ensuring scalability and extreme speed." },
-            { q: "Can I manage my own content?", a: "Yes. We implement", str: "intuitive admin panels so you can upload photos or text without needing a developer." },
-            { q: "How do you handle payments?", a: "We typically split the project into", str: "two phases: an initial deposit to start and the final balance upon approval and delivery." },
-            { q: "Do you develop mobile applications too?", a: "Yes. We create", str: "native and hybrid apps for iOS and Android with seamless user experiences." },
-            { q: "Why choose you over others?", a: "Because we don't just deliver code.", str: "We deliver sales tools optimized to maximize your ROI from day one." },
+            {
+                q: "What is the delivery time for a landing page or corporate website?",
+                a: "Deadlines depend on the technical complexity of the digital project.",
+                str: "A sales-optimized professional landing page is usually delivered in 3 to 7 days, while an advanced corporate website or e-commerce takes 2 to 4 weeks in Peru.",
+            },
+            {
+                q: "Is the design custom-made or do you use generic templates?",
+                a: "At VelyonSoft, we don't believe in mass-market solutions.",
+                str: "Every design is 100% unique and custom-built, developed with a focus on User Experience (UX) and conversion to make your brand stand out in the Peruvian market.",
+            },
+            {
+                q: "Do you offer maintenance and technical support after the site is finished?",
+                a: "We ensure your platform is always up and running.",
+                str: "We provide priority support plans, security updates, and Core Web Vitals optimization so your corporate site remains fast and secure 365 days a year.",
+            },
+            {
+                q: "Will my website appear in the top Google search results?",
+                a: "We design with organic positioning in mind from day one.",
+                str: "We implement advanced technical SEO (architecture, loading speed, and meta tags) so your customers can easily find you when searching for services in Lima and across Peru.",
+            },
+            {
+                q: "Do I legally own my code, domain, and files?",
+                a: "Full project ownership belongs to you.",
+                str: "Upon completion, we transfer all access, licenses, and source code. You are the absolute owner of your digital asset, with no fine print or forced contracts.",
+            },
+            {
+                q: "What technologies do you use for software and app development?",
+                a: "We work with the most modern tech stack of 2026.",
+                str: "Experts in Next.js, React, Tailwind CSS, and Node.js for web; and React Native for Android and iOS mobile apps, ensuring scalability and extreme speed.",
+            },
+            {
+                q: "Will I be able to edit my website content myself?",
+                a: "We implement intuitive self-managed systems.",
+                str: "Whether through optimized WordPress or a custom CMS, you can update text, images, and prices without needing a developer, giving you full autonomy over your business.",
+            },
+            {
+                q: "How are payments and quotes handled in Peru?",
+                a: "We manage a transparent, milestone-based payment process.",
+                str: "Generally, a 50% deposit is required to start and the remaining 50% upon delivery. We accept local bank transfers, Yape, Plin, and credit cards.",
+            },
+            {
+                q: "Do you develop custom mobile applications?",
+                a: "We create high-impact mobile solutions.",
+                str: "We develop native and hybrid applications for Android and iOS, focused on solving specific business problems or creating new digital sales channels.",
+            },
+            {
+                q: "Why choose VelyonSoft over other agencies in Peru?",
+                a: "We don't just deliver code, we deliver business results.",
+                str: "Our methodology combines strategic digital marketing with high-performance development to maximize your ROI and accelerate your digital growth.",
+            },
         ],
-        footer: "Still have questions?",
-        cta: "Contact us now →",
+        footer: "Still have questions about your next project?",
+        cta: "Request a free consultation on WhatsApp now →",
     },
 };
 
@@ -72,11 +152,15 @@ export default function FAQ({ lang = "es" }) {
                 </header>
 
                 {/* Accordion */}
+                {/* Accordion */}
                 <Accordion type="single" collapsible className="space-y-4">
                     {t.faqs.map((faq, index) => (
                         <AccordionItem
                             key={index}
                             value={`item-${index}`}
+                            // Añadimos itemScope para Microdatos (SEO Avanzado)
+                            itemScope
+                            itemType="https://schema.org/Question"
                             className="group border border-gray-400 rounded-2xl bg-zinc-50/50 px-4 transition-all duration-500 data-[state=open]:bg-white data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
                         >
                             <AccordionTrigger className="hover:no-underline py-7 px-4">
@@ -84,7 +168,8 @@ export default function FAQ({ lang = "es" }) {
                                     <span className="hidden sm:block text-[11px] font-bold text-gray-400 group-data-[state=open]:text-secondary transition-colors duration-500">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <h3 className="text-lg font-medium text-gray-700 group-data-[state=open]:text-primary transition-colors duration-500">
+                                    {/* Quitamos el H3 repetido y lo dejamos solo aquí con itemProp */}
+                                    <h3 itemProp="name" className="text-lg font-medium text-gray-700 group-data-[state=open]:text-primary transition-colors duration-500">
                                         {faq.q}
                                     </h3>
                                 </div>
@@ -93,8 +178,12 @@ export default function FAQ({ lang = "es" }) {
                                 </div>
                             </AccordionTrigger>
 
-                            <AccordionContent className="px-4 pb-8 pt-0 sm:pl-16">
-                                <div className="text-zinc-500 leading-relaxed font-light text-[17px]">
+                            <AccordionContent
+                                itemScope
+                                itemType="https://schema.org/Answer"
+                                className="px-4 pb-8 pt-0 sm:pl-16"
+                            >
+                                <div itemProp="text" className="text-zinc-500 leading-relaxed font-light text-[17px]">
                                     {faq.a}{" "}
                                     <strong className="font-medium text-primary">
                                         {faq.str}

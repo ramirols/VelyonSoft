@@ -125,7 +125,7 @@ export default function Header({ lang = "es" }) {
                                 className="transition-all duration-500 ease-in-out"
                             >
                                 <img
-                                    src="/logo-velyonsoft.png"
+                                    src="/logo.png"
                                     alt="Velyon Soft Logo"
                                     className="h-10 w-auto rounded-lg object-cover shadow-sm"
                                 />

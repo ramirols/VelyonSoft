@@ -203,9 +203,9 @@ export default function Slider({ lang = "es" }) {
                                             </span>
                                         </div>
 
-                                        <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
+                                        <h2 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
                                             {slide.title}
-                                        </h1>
+                                        </h2>
 
                                         <div className="flex justify-center mb-8 min-h-[40px]">
                                             {isActive && (

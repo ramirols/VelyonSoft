@@ -10,7 +10,32 @@ const { lang = "es" } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="apple-touch-icon" href="/icon-192.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
 		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="VelyonSoft" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="robots" content="index, follow, max-image-preview:large" />
+		<meta
+			name="googlebot"
+			content="index, follow, max-image-preview:large"
+		/>
+
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="mobile-web-app-capable" content="yes" />
+
+		<meta name="application-name" content="VelyonSoft" />
+		<meta name="apple-mobile-web-app-title" content="VelyonSoft" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
+
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+
 		<link
 			rel="stylesheet"
 			href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
