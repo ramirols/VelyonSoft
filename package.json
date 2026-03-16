@@ -30,7 +30,6 @@
     "framer-motion": "^12.23.26",
     "gsap": "^3.14.1",
     "html-to-image": "^1.11.13",
-    "html2canvas": "^1.4.1",
     "jspdf": "^4.2.0",
     "lucide-astro": "^0.556.0",
     "lucide-react": "^0.576.0",

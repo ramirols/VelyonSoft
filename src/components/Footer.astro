@@ -5,6 +5,9 @@ import {
     ArrowRight,
     ShieldCheck,
     Cpu,
+    Instagram,
+    Facebook,
+    Music,
 } from "lucide-astro";
 
 type Lang = "es" | "en";
@@ -72,7 +75,7 @@ const t = i18n;
 
     <div class="relative z-10 py-20">
         <div
-            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8"
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-16 gap-12 md:gap-8"
         >
             <div class="md:col-span-5 space-y-8">
                 <div>
@@ -90,7 +93,7 @@ const t = i18n;
                         class="mt-6 text-white/80 leading-relaxed text-balance max-w-md"
                     >
                         {t.description}
-                </h1>
+                    </h1>
                 </div>
 
                 <div class="flex flex-wrap gap-4">
@@ -161,7 +164,7 @@ const t = i18n;
                 </h4>
                 <div class="space-y-5">
                     <a
-                        href="mailto:ramirols.dev@gmail.com"
+                        href="mailto:contacto.velyon@gmail.com"
                         class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-400/50 transition-all group"
                     >
                         <div
@@ -176,7 +179,7 @@ const t = i18n;
                                 Email
                             </p>
                             <p class="text-sm text-white/80">
-                                ramirols.dev@gmail.com
+                                contacto.velyon@gmail.com
                             </p>
                         </div>
                     </a>
@@ -201,6 +204,58 @@ const t = i18n;
                             <p class="text-sm text-white/80">{t.waSub}</p>
                         </div>
                     </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="text-sm font-bold text-white uppercase mb-8">
+                    {lang === "es" ? "Síguenos" : "Follow us"}
+                </h4>
+                <div class="flex flex-col gap-3">
+                    {
+                        [
+                            {
+                                href: "https://www.instagram.com/velyonsoft/",
+                                label: "Instagram",
+                                icon: Instagram,
+                                color: "hover:border-pink-500/50",
+                                iconColor: "text-pink-400",
+                                bgColor: "bg-pink-400/10",
+                            },
+                            {
+                                href: "https://tiktok.com/@velyonsoft",
+                                label: "TikTok",
+                                icon: Music,
+                                color: "hover:border-zinc-200/50",
+                                iconColor: "text-zinc-200",
+                                bgColor: "bg-zinc-200/10",
+                            },
+                            {
+                                href: "https://facebook.com/velyonsoft",
+                                label: "Facebook",
+                                icon: Facebook,
+                                color: "hover:border-blue-500/50",
+                                iconColor: "text-blue-400",
+                                bgColor: "bg-blue-400/10",
+                            },
+                        ].map((social) => (
+                            <a
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class={`flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 transition-all group ${social.color} backdrop-blur-sm`}
+                            >
+                                <div
+                                    class={`p-2 rounded-lg ${social.bgColor} ${social.iconColor} group-hover:scale-110 transition-transform`}
+                                >
+                                    <social.icon size={18} />
+                                </div>
+                                <span class="text-sm text-white/80 group-hover:text-white transition-colors">
+                                    {social.label}
+                                </span>
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
         </div>

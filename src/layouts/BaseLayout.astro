@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.astro";
 import { AstroSEO } from "astro-seo-plugin";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const {
     lang = "es",
@@ -76,4 +77,5 @@ const canonical = `${site}/${lang}${Astro.url.pathname.replace(/^\/(es|en)/, "")
     </main>
 
     <Footer lang={lang} />
+    <WhatsAppWidget client:load />
 </Layout>

@@ -1,0 +1,424 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Rocket, Eye, Target, ArrowDown } from "lucide-astro";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+type Language = "es" | "en";
+const { lang } = Astro.params as { lang: Language };
+
+const i18n = {
+    es: {
+        title: "Sobre Nosotros | Agencia de Desarrollo Web VelyonSoft",
+        description:
+            "En VelyonSoft combinamos años de experiencia en ingeniería de software y SEO para crear productos digitales que dominan el mercado.",
+        hero: {
+            tag: "Nuestra Historia",
+            h1: "Transformamos código en valor de negocio",
+            subtitle:
+                "Más que una agencia, somos tu socio tecnológico estratégico.",
+            experience: "Años de Innovación",
+            projects: "Casos de Éxito",
+        },
+        mission: {
+            title: "Misión",
+            desc: "Democratizar el acceso a tecnología de alto rendimiento, permitiendo que empresas escalen mediante software optimizado.",
+        },
+        vision: {
+            title: "Visión",
+            desc: "Ser el referente global en desarrollo web donde el diseño minimalista se encuentra con el SEO.",
+        },
+        motto: "Construimos hoy el internet del mañana.",
+        howWeWork: {
+            title: "Metodología",
+            steps: [
+                {
+                    t: "Análisis Estratégico",
+                    d: "Entendemos tu negocio antes de tocar una sola línea de código.",
+                },
+                {
+                    t: "Desarrollo Ágil",
+                    d: "Iteraciones rápidas con Astro y React para máxima velocidad.",
+                },
+                {
+                    t: "Optimización Core",
+                    d: "SEO técnico integrado desde el día uno.",
+                },
+            ],
+        },
+    },
+    en: {
+        title: "About Us | VelyonSoft Web Development Agency",
+        description:
+            "At VelyonSoft we combine years of software engineering and SEO experience.",
+        hero: {
+            tag: "Our Story",
+            h1: "Turning code into business value",
+            subtitle:
+                "More than an agency, we are your strategic technology partner.",
+            experience: "Years of Innovation",
+            projects: "Success Stories",
+        },
+        mission: {
+            title: "Mission",
+            desc: "Democratizing access to high-performance technology.",
+        },
+        vision: {
+            title: "Vision",
+            desc: "To be the global benchmark in web development.",
+        },
+        motto: "Building tomorrow's internet today.",
+        howWeWork: {
+            title: "Methodology",
+            steps: [
+                {
+                    t: "Strategic Analysis",
+                    d: "We understand your business first.",
+                },
+                {
+                    t: "Agile Development",
+                    d: "Fast iterations with Astro and React.",
+                },
+                { t: "Core Optimization", d: "Technical SEO from day one." },
+            ],
+        },
+    },
+};
+
+const t = i18n[lang];
+---
+
+<BaseLayout
+    lang={lang}
+    title={t.title}
+    description={t.description}
+    type="website"
+>
+    <section
+        class="relative min-h-screen flex items-center justify-center pt-20 bg-background overflow-hidden"
+        id="hero-about"
+    >
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[1000px] opacity-60"
+            >
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(30,172,204,0.40)_0%,rgba(30,172,204,0.1)_35%,transparent_70%)]"
+                >
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span
+                class="reveal inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-secondary/10 text-secondary border border-secondary/20 rounded-full"
+            >
+                {t.hero.tag}
+            </span>
+            <h1
+                class="reveal text-6xl md:text-[7.5rem] font-bold text-primary tracking-tighter leading-[0.85] mb-10"
+            >
+                {t.hero.h1}
+            </h1>
+            <p
+                class="reveal text-xl md:text-2xl text-foreground/50 max-w-3xl mx-auto mb-16 leading-relaxed"
+            >
+                {t.hero.subtitle}
+            </p>
+
+            <div
+                class="reveal grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-border pt-12"
+            >
+                {
+                    [
+                        { v: "+5", l: t.hero.experience },
+                        { v: "+50", l: t.hero.projects },
+                        { v: "100%", l: "SEO" },
+                        { v: "24/7", l: "Support" },
+                    ].map((s) => (
+                        <div class="stat-item">
+                            <p class="text-4xl font-bold text-primary tracking-tighter">
+                                {s.v}
+                            </p>
+                            <p class="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
+                                {s.l}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-secondary/40"
+        >
+            <ArrowDown size={24} />
+        </div>
+    </section>
+
+    <section class="py-15 bg-background relative z-10" id="mission-vision">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+            {
+                [t.mission, t.vision].map((item, i) => (
+                    <div class="mission-card group p-12 rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
+                        <div
+                            class={`w-14 h-14 ${i === 0 ? "bg-secondary" : "bg-primary"} text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-black/5`}
+                        >
+                            {i === 0 ? <Target size={28} /> : <Eye size={28} />}
+                        </div>
+                        <h2 class="text-4xl font-bold text-primary mb-6">
+                            {item.title}
+                        </h2>
+                        <p class="text-lg text-foreground leading-relaxed pl-6 border-l-2 border-secondary/20">
+                            {item.desc}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section
+        class="method-wrapper bg-white relative overflow-hidden border-t border-border"
+        id="method-pin"
+    >
+        <div
+            class="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20 hidden md:flex"
+        >
+            {
+                t.howWeWork.steps.map((_, i) => (
+                    <div class="group flex items-center gap-4">
+                        <span class="text-[10px] font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+                            PASO 0{i + 1}
+                        </span>
+                        <div
+                            class="progress-dot w-2 h-2 rounded-full border border-secondary transition-all duration-300"
+                            data-index={i}
+                        />
+                    </div>
+                ))
+            }
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 min-h-screen flex flex-col justify-center py-20"
+        >
+            <div class="grid md:grid-cols-2 gap-16 lg:gap-32 items-center">
+                <div class="method-intro space-y-8">
+                    <div>
+                        <span
+                            class="text-secondary font-bold tracking-[0.2em] uppercase text-xs block mb-4"
+                        >
+                            // {t.howWeWork.title}
+                        </span>
+                        <h2
+                            class="text-5xl md:text-7xl font-bold text-primary tracking-tighter leading-[0.9] mb-6"
+                        >
+                            Ingeniería <br />
+                            <span class="text-secondary">sin fricción.</span>
+                        </h2>
+                        <p
+                            class="text-xl text-foreground leading-relaxed max-w-md"
+                        >
+                            Nuestra metodología está diseñada para eliminar
+                            cuellos de botella técnicos, asegurando que tu
+                            visión se convierta en un producto escalable y de
+                            alto rendimiento.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-10 border-t border-border pt-8">
+                        <div>
+                            <p class="text-2xl font-bold text-primary">Agile</p>
+                            <p
+                                class="text-xs uppercase text-muted-foreground tracking-widest"
+                            >
+                                Mindset
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-primary">SEO</p>
+                            <p
+                                class="text-xs uppercase text-muted-foreground tracking-widest"
+                            >
+                                Driven
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-[500px] flex items-center">
+                    {
+                        t.howWeWork.steps.map((step, idx) => (
+                            <div class="method-step-card absolute inset-0 flex flex-col justify-center p-8 md:p-14 rounded-[3rem] bg-muted/30 border border-border opacity-0 translate-y-12 backdrop-blur-sm">
+                                <div class="flex justify-between items-start mb-6">
+                                    <span class="text-7xl font-black text-secondary">
+                                        0{idx + 1}
+                                    </span>
+                                    <span class="px-4 py-1 rounded-full border border-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-widest mt-4">
+                                        Fase de Ejecución
+                                    </span>
+                                </div>
+
+                                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+                                    {step.t}
+                                </h3>
+
+                                <p class="text-foreground text-lg md:text-xl leading-relaxed">
+                                    {step.d}
+                                    <span class="block mt-4 text-sm font-medium text-primary/80 italic">
+                                        Garantizamos transparencia y control
+                                        total sobre los entregables en esta
+                                        etapa.
+                                    </span>
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-15 bg-background text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="cta-reveal border-t border-border pt-20">
+                <p
+                    class="text-secondary font-bold tracking-[0.3em] uppercase text-xs mb-8"
+                >
+                    {t.motto}
+                </p>
+                <h2
+                    class="text-5xl md:text-[6rem] font-bold text-primary leading-[0.85] mb-12 tracking-tighter"
+                >
+                    Hablemos de <br /> tu próximo éxito.
+                </h2>
+                <a
+                    href={`/${lang}/proyectos`}
+                    class="inline-flex items-center gap-4 px-12 py-6 bg-primary text-white font-bold rounded-2xl hover:bg-secondary transition-all duration-500 group shadow-xl shadow-primary/30"
+                >
+                    Ver Proyectos <Rocket
+                        size={20}
+                        class="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"
+                    />
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. INTRO
+    const introTl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    introTl
+        .from(".reveal", {
+            y: 80,
+            autoAlpha: 0,
+            duration: 1.5,
+            stagger: 0.1,
+            delay: 0.2,
+        })
+        .from(
+            ".stat-item",
+            { y: 20, autoAlpha: 0, stagger: 0.1, duration: 1 },
+            "-=1",
+        );
+
+    // 2. MISSION
+    gsap.from(".mission-card", {
+        scrollTrigger: { trigger: "#mission-vision", start: "top 85%" },
+        y: 60,
+        autoAlpha: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out",
+    });
+
+    // 3. THE MAGIC (FIXED ERROR)
+    const pinTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#method-pin",
+            start: "top top",
+            end: "+=2500",
+            pin: true,
+            scrub: 1.2,
+            onUpdate: (self) => {
+                const progress = self.progress;
+                const dots = document.querySelectorAll(".progress-dot");
+                const activeIndex = Math.min(
+                    Math.floor(progress * dots.length),
+                    dots.length - 1,
+                );
+                dots.forEach((dot, i) => {
+                    if (i === activeIndex) {
+                        dot.classList.add("bg-secondary", "scale-150");
+                    } else {
+                        dot.classList.remove("bg-secondary", "scale-150");
+                    }
+                });
+            },
+        },
+    });
+
+    // Solución al error de TypeScript: Casteamos el array a HTMLElement[]
+    const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
+
+    cards.forEach((card, i) => {
+        pinTl.to(card, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.inOut",
+        });
+
+        pinTl.to({}, { duration: 0.8 }); // Pausa sutil
+
+        if (i < cards.length - 1) {
+            pinTl.to(card, {
+                autoAlpha: 0,
+                y: -60,
+                scale: 0.95,
+                duration: 1.5,
+                ease: "power2.inOut",
+            });
+        }
+    });
+
+    // 4. CTA
+    gsap.from(".cta-reveal", {
+        scrollTrigger: { trigger: ".cta-reveal", start: "top 90%" },
+        y: 50,
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "expo.out",
+    });
+</script>
+
+<style>
+    h1,
+    h2 {
+        text-wrap: balance;
+    }
+
+    /* Optimización de rendimiento para ScrollTrigger */
+    #method-pin {
+        will-change: transform;
+        background: linear-gradient(to bottom, #ffffff, #fcfcfc);
+    }
+
+    .method-step-card {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Suavizar el scroll en navegadores modernos */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

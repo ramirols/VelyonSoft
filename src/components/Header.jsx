@@ -9,12 +9,14 @@ export default function Header({ lang = "es" }) {
     const t = {
         es: {
             inicio: "Inicio",
+            sobre_nosotros: "Sobre Nosotros",
             servicios: "Servicios",
             proyectos: "Proyectos",
             blog: "Blog",
             contacto: "Contacto",
         },
         en: {
+            sobre_nosotros: "About Us",
             inicio: "Home",
             servicios: "Services",
             proyectos: "Projects",
@@ -25,6 +27,7 @@ export default function Header({ lang = "es" }) {
 
     const navLinks = [
         { name: t.inicio, href: `/${lang}#inicio`, icon: <Home size={18} /> },
+        { name: t.sobre_nosotros, href: `/${lang}/sobre-nosotros`, icon: <BookOpen size={18} /> },
         { name: t.servicios, href: `/${lang}/servicios`, icon: <Grid3X3 size={18} /> },
         { name: t.proyectos, href: `/${lang}/proyectos`, icon: <Briefcase size={18} /> },
         { name: t.blog, href: `/${lang}/blog`, icon: <BookOpen size={18} /> },
