@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
 
+export const handleSendMessage = () => {
+    const mensaje = encodeURIComponent("¡Hola! vengo de la página de VelyonSoft 👋 Necesito Ayuda");
+    window.open(`https://wa.me/+51997676432?text=${mensaje}`, '_blank');
+};
+
 const WhatsAppWidget = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleWhatsAppClick = () => {
         setIsOpen(!isOpen);
-    };
-
-    const handleSendMessage = () => {
-        const mensaje = encodeURIComponent("¡Hola! vengo de la página de VelyonSoft 👋 Necesito Ayuda");
-        window.open(`https://wa.me/+51933509950?text=${mensaje}`, '_blank');
     };
 
     return (
