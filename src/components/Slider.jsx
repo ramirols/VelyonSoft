@@ -223,6 +223,7 @@ export default function Slider({ lang = "es" }) {
                                         <div className="flex flex-col sm:flex-row gap-4 justify-center justify-center items-center">
                                             <a
                                                 href={`/${lang}#contacto`}
+                                                rel="noopener noreferrer"
                                                 className="px-10 py-3 rounded-full bg-cyan-400 text-black font-semibold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all flex items-center justify-center gap-2"
                                             >
                                                 {t.ctaPrimary}
@@ -231,6 +232,7 @@ export default function Slider({ lang = "es" }) {
 
                                             <a
                                                 href={`/${lang}/proyectos`}
+                                                rel="noopener noreferrer"
                                                 className="px-10 py-3 rounded-full border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center gap-2"
                                             >
                                                 {t.ctaSecondary}

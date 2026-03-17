@@ -60,6 +60,7 @@ const i18n = lang === "es" ? t.es : t.en;
 
       <a
         href={`/${lang}/proyectos`}
+        rel="noopener noreferrer"
         class="group inline-flex items-center gap-3 text-sm font-bold text-primary hover:text-secondary transition-colors w-fit"
       >
         {i18n.viewAll}
@@ -79,6 +80,7 @@ const i18n = lang === "es" ? t.es : t.en;
           <article class="group relative bg-zinc-50/50 rounded-[2rem] md:rounded-[2.5rem] border border-gray-300 p-4 transition-all duration-500 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:border-secondary">
             <a
               href={`/${lang}/proyectos/${project.id}`}
+              rel="noopener noreferrer"
               class="after:absolute after:inset-0 after:z-10"
             >
               <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] md:rounded-[1.8rem] mb-6">

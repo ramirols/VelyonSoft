@@ -96,7 +96,7 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                 <div class="mb-16">
                     <a
                         href={project.data.url}
-                        target="_blank"
+                        data-external-link
                         class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition"
                     >
                         {ctaLabel}
@@ -107,3 +107,16 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
         }
     </article>
 </BaseLayout>
+
+<script is:inline>
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+    const links = document.querySelectorAll("[data-external-link]");
+
+    links.forEach((link) => {
+        if (!isTouch) {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener noreferrer");
+        }
+    });
+</script>
