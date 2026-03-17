@@ -97,12 +97,12 @@ const t = i18n[lang];
     type="website"
 >
     <section
-        class="relative min-h-screen flex items-center justify-center pt-20 bg-background overflow-hidden"
+        class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 pb-12 bg-background overflow-hidden"
         id="hero-about"
     >
         <div class="absolute inset-0 z-0">
             <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[1000px] opacity-60"
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[600px] md:h-[1000px] opacity-60"
             >
                 <div
                     class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(30,172,204,0.40)_0%,rgba(30,172,204,0.1)_35%,transparent_70%)]"
@@ -113,23 +113,23 @@ const t = i18n[lang];
 
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <span
-                class="reveal inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-secondary/10 text-secondary border border-secondary/20 rounded-full"
+                class="reveal inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase bg-secondary/10 text-secondary border border-secondary/20 rounded-full"
             >
                 {t.hero.tag}
             </span>
             <h1
-                class="reveal text-6xl md:text-[7.5rem] font-bold text-primary tracking-tighter leading-[0.85] mb-10"
+                class="reveal text-5xl sm:text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-primary tracking-tighter leading-[0.9] md:leading-[0.85] mb-8 md:mb-10"
             >
                 {t.hero.h1}
             </h1>
             <p
-                class="reveal text-xl md:text-2xl text-foreground/50 max-w-3xl mx-auto mb-16 leading-relaxed"
+                class="reveal text-lg md:text-2xl text-foreground/60 max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed px-4"
             >
                 {t.hero.subtitle}
             </p>
 
             <div
-                class="reveal grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-border pt-12"
+                class="reveal grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto border-t border-border pt-10 md:pt-12"
             >
                 {
                     [
@@ -139,10 +139,10 @@ const t = i18n[lang];
                         { v: "24/7", l: "Support" },
                     ].map((s) => (
                         <div class="stat-item">
-                            <p class="text-4xl font-bold text-primary tracking-tighter">
+                            <p class="text-3xl md:text-4xl font-bold text-primary tracking-tighter">
                                 {s.v}
                             </p>
-                            <p class="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
+                            <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
                                 {s.l}
                             </p>
                         </div>
@@ -152,26 +152,31 @@ const t = i18n[lang];
         </div>
 
         <div
-            class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-secondary/40"
+            class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-secondary/40 hidden sm:block"
         >
             <ArrowDown size={24} />
         </div>
     </section>
 
-    <section class="py-15 bg-background relative z-10" id="mission-vision">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+    <section
+        class="py-16 md:py-24 bg-background relative z-10"
+        id="mission-vision"
+    >
+        <div
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+        >
             {
                 [t.mission, t.vision].map((item, i) => (
-                    <div class="mission-card group p-12 rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
+                    <div class="mission-card group p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
                         <div
-                            class={`w-14 h-14 ${i === 0 ? "bg-secondary" : "bg-primary"} text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-black/5`}
+                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary" : "bg-primary"} text-white rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg`}
                         >
-                            {i === 0 ? <Target size={28} /> : <Eye size={28} />}
+                            {i === 0 ? <Target size={26} /> : <Eye size={26} />}
                         </div>
-                        <h2 class="text-4xl font-bold text-primary mb-6">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6">
                             {item.title}
                         </h2>
-                        <p class="text-lg text-foreground leading-relaxed pl-6 border-l-2 border-secondary/20">
+                        <p class="text-base md:text-lg text-foreground/80 leading-relaxed pl-5 border-l-2 border-secondary/20">
                             {item.desc}
                         </p>
                     </div>
@@ -181,11 +186,11 @@ const t = i18n[lang];
     </section>
 
     <section
-        class="method-wrapper bg-white relative overflow-hidden border-t border-border"
+        class="method-wrapper bg-white relative overflow-hidden border-y border-border"
         id="method-pin"
     >
         <div
-            class="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20 hidden md:flex"
+            class="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20 hidden lg:flex"
         >
             {
                 t.howWeWork.steps.map((_, i) => (
@@ -203,45 +208,56 @@ const t = i18n[lang];
         </div>
 
         <div
-            class="max-w-7xl mx-auto px-6 min-h-screen flex flex-col justify-center py-15"
+            class="max-w-7xl mx-auto px-6 py-16 md:py-24 lg:min-h-screen flex flex-col justify-center"
         >
-            <div class="grid md:grid-cols-2 gap-16 lg:gap-32 items-center">
-                <div class="method-intro space-y-8">
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start lg:items-center"
+            >
+                <div class="method-intro space-y-6 md:space-y-8">
                     <div>
                         <span
-                            class="text-secondary font-bold tracking-[0.2em] uppercase text-xs block mb-4"
+                            class="text-secondary font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs block mb-4"
                         >
                             // {t.howWeWork.title}
                         </span>
                         <h2
-                            class="text-5xl md:text-7xl font-bold text-primary tracking-tighter leading-[0.9] mb-6"
+                            class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary tracking-tighter leading-[1.1] lg:leading-[1] mb-6"
                         >
-                            Ingeniería <br />
+                            Ingeniería <br class="hidden md:block" />
                             <span class="text-secondary">sin fricción.</span>
                         </h2>
                         <p
-                            class="text-xl text-foreground leading-relaxed max-w-md"
+                            class="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-md"
                         >
                             Nuestra metodología está diseñada para eliminar
-                            cuellos de botella técnicos, asegurando que tu
-                            visión se convierta en un producto escalable y de
-                            alto rendimiento.
+                            cuellos de botella técnicos, asegurando
+                            escalabilidad y rendimiento.
                         </p>
                     </div>
 
-                    <div class="flex gap-10 border-t border-border pt-8">
+                    <div
+                        class="flex gap-8 md:gap-10 border-t border-border pt-8"
+                    >
                         <div>
-                            <p class="text-2xl font-bold text-primary">Agile</p>
                             <p
-                                class="text-xs uppercase text-muted-foreground tracking-widest"
+                                class="text-xl md:text-2xl font-bold text-primary"
+                            >
+                                Agile
+                            </p>
+                            <p
+                                class="text-[10px] uppercase text-muted-foreground tracking-widest font-bold"
                             >
                                 Mindset
                             </p>
                         </div>
                         <div>
-                            <p class="text-2xl font-bold text-primary">SEO</p>
                             <p
-                                class="text-xs uppercase text-muted-foreground tracking-widest"
+                                class="text-xl md:text-2xl font-bold text-primary"
+                            >
+                                SEO
+                            </p>
+                            <p
+                                class="text-[10px] uppercase text-muted-foreground tracking-widest font-bold"
                             >
                                 Driven
                             </p>
@@ -249,29 +265,28 @@ const t = i18n[lang];
                     </div>
                 </div>
 
-                <div class="relative h-[500px] flex items-center">
+                <div
+                    class="relative w-full h-auto lg:min-h-[550px] flex flex-col justify-center"
+                >
                     {
                         t.howWeWork.steps.map((step, idx) => (
-                            <div class="method-step-card absolute inset-0 flex flex-col justify-center p-8 md:p-14 rounded-[3rem] bg-muted/30 border border-border opacity-0 translate-y-12 backdrop-blur-sm">
+                            <div class="method-step-card relative lg:absolute inset-0 flex flex-col justify-center p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] bg-muted/40 border border-border opacity-100 lg:opacity-0 translate-y-0 lg:translate-y-12 backdrop-blur-sm mb-6 lg:mb-0 last:mb-0">
                                 <div class="flex justify-between items-start mb-6">
-                                    <span class="text-7xl font-black text-secondary">
+                                    <span class="text-5xl md:text-7xl font-black text-secondary/30 lg:text-secondary">
                                         0{idx + 1}
                                     </span>
-                                    <span class="px-4 py-1 rounded-full border border-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-widest mt-4">
+                                    <span class="px-3 py-1 rounded-full border border-secondary/20 text-secondary text-[9px] font-bold uppercase tracking-widest mt-2">
                                         Fase de Ejecución
                                     </span>
                                 </div>
-
-                                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+                                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">
                                     {step.t}
                                 </h3>
-
-                                <p class="text-foreground text-lg md:text-xl leading-relaxed">
+                                <p class="text-foreground/80 text-base md:text-lg leading-relaxed">
                                     {step.d}
-                                    <span class="block mt-4 text-sm font-medium text-primary/80 italic">
+                                    <span class="block mt-4 text-xs md:text-sm font-medium text-primary/60 italic">
                                         Garantizamos transparencia y control
-                                        total sobre los entregables en esta
-                                        etapa.
+                                        total.
                                     </span>
                                 </p>
                             </div>
@@ -282,24 +297,25 @@ const t = i18n[lang];
         </div>
     </section>
 
-    <section class="py-15 bg-background text-center">
+    <section class="py-20 md:py-32 bg-background text-center">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="cta-reveal border-t border-border pt-20">
+            <div class="cta-reveal border-t border-border pt-16 md:pt-20">
                 <p
-                    class="text-secondary font-bold tracking-[0.3em] uppercase text-xs mb-8"
+                    class="text-secondary font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-8"
                 >
                     {t.motto}
                 </p>
                 <h2
-                    class="text-5xl md:text-[6rem] font-bold text-primary leading-[0.85] mb-12 tracking-tighter"
+                    class="text-4xl md:text-7xl lg:text-[6rem] font-bold text-primary leading-[1] md:leading-[0.85] mb-10 md:mb-12 tracking-tighter"
                 >
-                    Hablemos de <br /> tu próximo éxito.
+                    Hablemos de <br class="hidden md:block" /> tu próximo éxito.
                 </h2>
                 <a
                     href={`/${lang}/proyectos`}
-                    class="inline-flex items-center gap-4 px-12 py-6 bg-primary text-white font-bold rounded-2xl hover:bg-secondary transition-all duration-500 group shadow-xl shadow-primary/30"
+                    class="inline-flex items-center gap-4 px-8 py-5 md:px-12 md:py-6 bg-primary text-white font-bold rounded-xl md:rounded-2xl hover:bg-secondary transition-all duration-500 group shadow-xl shadow-primary/20"
                 >
-                    Ver Proyectos <Rocket
+                    Ver Proyectos
+                    <Rocket
                         size={20}
                         class="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"
                     />
@@ -315,8 +331,8 @@ const t = i18n[lang];
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. INTRO
     const introTl = gsap.timeline({ defaults: { ease: "expo.out" } });
+
     introTl
         .from(".reveal", {
             y: 80,
@@ -331,7 +347,6 @@ const t = i18n[lang];
             "-=1",
         );
 
-    // 2. MISSION
     gsap.from(".mission-card", {
         scrollTrigger: { trigger: "#mission-vision", start: "top 85%" },
         y: 60,
@@ -341,57 +356,6 @@ const t = i18n[lang];
         ease: "power3.out",
     });
 
-    // 3. THE MAGIC (FIXED ERROR)
-    const pinTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#method-pin",
-            start: "top top",
-            end: "+=2500",
-            pin: true,
-            scrub: 1.2,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const dots = document.querySelectorAll(".progress-dot");
-                const activeIndex = Math.min(
-                    Math.floor(progress * dots.length),
-                    dots.length - 1,
-                );
-                dots.forEach((dot, i) => {
-                    if (i === activeIndex) {
-                        dot.classList.add("bg-secondary", "scale-150");
-                    } else {
-                        dot.classList.remove("bg-secondary", "scale-150");
-                    }
-                });
-            },
-        },
-    });
-
-    // Solución al error de TypeScript: Casteamos el array a HTMLElement[]
-    const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
-
-    cards.forEach((card, i) => {
-        pinTl.to(card, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 1.5,
-            ease: "power2.inOut",
-        });
-
-        pinTl.to({}, { duration: 0.8 }); // Pausa sutil
-
-        if (i < cards.length - 1) {
-            pinTl.to(card, {
-                autoAlpha: 0,
-                y: -60,
-                scale: 0.95,
-                duration: 1.5,
-                ease: "power2.inOut",
-            });
-        }
-    });
-
-    // 4. CTA
     gsap.from(".cta-reveal", {
         scrollTrigger: { trigger: ".cta-reveal", start: "top 90%" },
         y: 50,
@@ -399,15 +363,88 @@ const t = i18n[lang];
         duration: 1.5,
         ease: "expo.out",
     });
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+        const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
+        const dots = document.querySelectorAll(".progress-dot");
+
+        const pinTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#method-pin",
+                start: "top top",
+                end: "+=3000",
+                pin: true,
+                scrub: 1.2,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    const activeIndex = Math.min(
+                        Math.floor(progress * cards.length),
+                        cards.length - 1,
+                    );
+                    dots.forEach((dot, i) => {
+                        if (i === activeIndex) {
+                            dot.classList.add("bg-secondary", "scale-150");
+                        } else {
+                            dot.classList.remove("bg-secondary", "scale-150");
+                        }
+                    });
+                },
+            },
+        });
+
+        cards.forEach((card, i) => {
+            pinTl.to(card, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "power2.inOut",
+            });
+
+            pinTl.to({}, { duration: 0.8 });
+
+            if (i < cards.length - 1) {
+                pinTl.to(card, {
+                    autoAlpha: 0,
+                    y: -60,
+                    scale: 0.95,
+                    duration: 1.5,
+                    ease: "power2.inOut",
+                });
+            }
+        });
+
+        return () => {
+            dots.forEach((dot) =>
+                dot.classList.remove("bg-secondary", "scale-150"),
+            );
+        };
+    });
+
+    mm.add("(max-width: 1023px)", () => {
+        const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
+
+        cards.forEach((card) => {
+            gsap.fromTo(
+                card,
+                { autoAlpha: 0, y: 40 },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse",
+                    },
+                },
+            );
+        });
+    });
 </script>
 
 <style>
-    h1,
-    h2 {
-        text-wrap: balance;
-    }
-
-    /* Optimización de rendimiento para ScrollTrigger */
     #method-pin {
         will-change: transform;
         background: linear-gradient(to bottom, #ffffff, #fcfcfc);
@@ -415,10 +452,5 @@ const t = i18n[lang];
 
     .method-step-card {
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
-    }
-
-    /* Suavizar el scroll en navegadores modernos */
-    html {
-        scroll-behavior: smooth;
     }
 </style>

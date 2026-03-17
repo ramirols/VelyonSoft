@@ -98,13 +98,18 @@ const t = i18n[lang];
         <form
             id="contactForm"
             novalidate
-            class="relative bg-white border border-slate-400 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:border-secondary/30"
+            class="relative bg-white border border-slate-200 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.08)] group/form"
         >
+            <div
+                class="absolute -top-24 -right-24 w-48 h-48 bg-secondary/5 rounded-full blur-3xl -z-10 group-hover/form:bg-secondary/10 transition-colors duration-700"
+            >
+            </div>
+
             <div class="grid md:grid-cols-2 gap-8 mb-6">
-                <div class="space-y-2">
+                <div class="space-y-2.5">
                     <label
                         for="name"
-                        class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                        class="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-primary/80 ml-1"
                     >
                         <User size={14} class="text-secondary" />
                         {t.nameLabel}
@@ -115,7 +120,7 @@ const t = i18n[lang];
                         type="text"
                         maxlength="50"
                         placeholder={t.namePlaceholder}
-                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary"
+                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-5 py-4 text-primary transition-all duration-300 outline-none placeholder:text-slate-400 focus:bg-white focus:border-secondary focus:ring-secondary/5"
                     />
                     <span
                         id="nameError"
@@ -123,10 +128,10 @@ const t = i18n[lang];
                     ></span>
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-2.5">
                     <label
                         for="email"
-                        class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                        class="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-primary/80 ml-1"
                     >
                         <Mail size={14} class="text-secondary" />
                         {t.emailLabel}
@@ -137,7 +142,7 @@ const t = i18n[lang];
                         maxlength="100"
                         type="email"
                         placeholder={t.emailPlaceholder}
-                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary focus:ring-secondary/10"
+                        class="w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-5 py-4 text-primary transition-all duration-300 outline-none placeholder:text-slate-400 focus:bg-white focus:border-secondary focus:ring-secondary/5"
                     />
                     <span
                         id="emailError"
@@ -146,10 +151,10 @@ const t = i18n[lang];
                 </div>
             </div>
 
-            <div class="space-y-2 mb-8">
+            <div class="space-y-2.5 mb-8">
                 <label
                     for="message"
-                    class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-primary/60 ml-1"
+                    class="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-primary/80 ml-1"
                 >
                     <MessageSquare size={14} class="text-secondary" />
                     {t.messageLabel}
@@ -157,30 +162,39 @@ const t = i18n[lang];
                 <textarea
                     id="message"
                     name="message"
-                    rows="10"
+                    rows="6"
                     maxlength="8000"
                     placeholder={t.messagePlaceholder}
-                    class="w-full rounded-2xl border border-slate-200 bg-slate-50/30 px-5 py-4 text-primary transition-all outline-none focus:bg-white focus:border-secondary focus:ring-secondary/10 resize-none"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-50/50 px-5 py-4 text-primary transition-all duration-300 outline-none placeholder:text-slate-400 focus:bg-white focus:border-secondary focus:ring-secondary/5 resize-none"
                 ></textarea>
                 <span
                     id="messageError"
                     class="text-[12px] text-red-500 font-semibold ml-2 hidden"
                 ></span>
 
-                <div class="flex items-start gap-2 mt-3 px-1">
-                    <Zap size={14} class="text-secondary mt-0.5" />
-                    <p class="text-xs text-gray-400 italic">{t.hint}</p>
+                <div class="flex items-start gap-2 mt-4 px-1">
+                    <div class="bg-secondary/10 p-1 rounded-md">
+                        <Zap size={12} class="text-secondary" />
+                    </div>
+                    <p class="text-[13px] text-slate-400 italic leading-tight">
+                        {t.hint}
+                    </p>
                 </div>
             </div>
 
             <button
                 type="submit"
-                class="group relative w-full cursor-pointer flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary py-5 font-bold text-white transition-all hover:bg-secondary active:scale-[0.98] shadow-xl shadow-primary/10"
+                class="group relative w-full cursor-pointer flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary py-5 font-bold text-white transition-all duration-300 hover:bg-secondary hover:shadow-[0_20px_40px_-10px_rgba(var(--color-secondary),0.3)] active:scale-[0.98] shadow-xl shadow-primary/20"
             >
-                <span class="relative z-10">{t.button}</span>
+                <div
+                    class="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-25deg] -translate-x-full group-hover:animate-[shimmer_0.75s_infinite]"
+                >
+                </div>
+
+                <span class="relative z-10 tracking-wide">{t.button}</span>
                 <Send
                     size={18}
-                    class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                    class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
                 />
             </button>
 
@@ -188,9 +202,11 @@ const t = i18n[lang];
                 class="mt-8 flex items-center justify-center gap-4 py-4 border-t border-slate-50"
             >
                 <div
-                    class="flex items-center gap-2 text-[10px] text-gray-400 font-medium"
+                    class="flex items-center gap-2.5 text-[12px] text-slate-800 font-bold uppercase tracking-widest"
                 >
-                    <ShieldCheck size={14} class="text-green-500" />
+                    <div class="bg-green-500/10 p-1 rounded-full">
+                        <ShieldCheck size={14} class="text-green-600" />
+                    </div>
                     {t.trust}
                 </div>
             </div>

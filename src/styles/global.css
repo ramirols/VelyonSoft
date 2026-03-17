@@ -19,6 +19,11 @@ html {
     scrollbar-width: thin;
 }
 
+h1,
+h2 {
+    text-wrap: balance;
+}
+
 strong {
     color: var(--color-secondary);
 }
@@ -168,5 +173,11 @@ select:-webkit-autofill {
 
     html {
         @apply font-sans;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(250%) skewX(-25deg);
     }
 }
