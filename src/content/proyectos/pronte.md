@@ -5,7 +5,7 @@ result: "Fortalecimiento de la presencia digital y mejor presentación de proyec
 date: "2025-02-20"
 cover: "/images/portafolio/pronte.png"
 url: "https://pronte.com.pe/"
-featured: true
+featured: false
 ---
 
 ## El reto

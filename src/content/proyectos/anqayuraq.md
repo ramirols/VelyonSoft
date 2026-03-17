@@ -5,7 +5,7 @@ result: "Mayor visibilidad digital y mejor presentación de servicios industrial
 date: "2025-05-05"
 cover: "/images/portafolio/anqayuraq.png"
 url: "https://anqayuraq.com/"
-featured: true
+featured: false
 ---
 
 ## El reto

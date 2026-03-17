@@ -5,7 +5,7 @@ result: "Mejor presencia digital y mayor acceso a servicios legales especializad
 date: "2025-04-08"
 cover: "/images/portafolio/eduval-law.png"
 url: "https://law.corporacioneduval.com/"
-featured: true
+featured: false
 ---
 
 ## El reto
