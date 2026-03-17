@@ -94,18 +94,23 @@ const t = i18n[lang];
         </p>
     </header>
 
-    <div class="grid md:grid-cols-1">
+    <div class="grid md:grid-cols-1 relative px-4">
+        <div
+            class="absolute -top-10 -right-4 md:-top-20 md:-right-10 w-40 h-40 md:w-80 md:h-80 bg-secondary/50 rounded-full blur-3xl -z-10 pointer-events-none"
+        >
+        </div>
+
+        <div
+            class="absolute -bottom-10 -left-4 md:-bottom-20 md:-left-10 w-32 h-32 md:w-64 md:h-64 bg-secondary/60 rounded-full blur-2xl md:blur-3xl -z-10 pointer-events-none"
+        >
+        </div>
+
         <form
             id="contactForm"
             novalidate
-            class="relative bg-white border border-slate-200 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.08)] group/form"
+            class="relative overflow-hidden bg-white border border-slate-200 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.08)] group/form"
         >
-            <div
-                class="absolute -top-24 -right-24 w-48 h-48 bg-secondary/5 rounded-full blur-3xl -z-10 group-hover/form:bg-secondary/10 transition-colors duration-700"
-            >
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-6">
+            <div class="relative z-10 grid md:grid-cols-2 gap-8 mb-6">
                 <div class="space-y-2.5">
                     <label
                         for="name"
