@@ -20,6 +20,7 @@ const proyectosCollection = defineCollection({
         cover: z.string(),
         url: z.string().optional(),
         featured: z.boolean().default(false),
+        tags: z.array(z.string()).default([]),
     }),
 });
 

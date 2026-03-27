@@ -14,7 +14,8 @@ const { lang = "es", onlyFeatured = false } = Astro.props;
 const t = {
     es: {
         badge: "Soluciones",
-        sectionTitle: "Planes y precios de nuestros servicios",
+        sectionTitle: "Planes y precios",
+        sectionTitleAccent: "de nuestros servicios",
         sectionDesc:
             "Estos son nuestros servicios más contratados. Todos incluyen optimización SEO, alto rendimiento y soporte profesional.",
         badges: {
@@ -44,13 +45,13 @@ const t = {
             itSupport: "Soporte técnico general",
             wordpress: "Desarrollo de sitios web con WordPress",
         },
-
         ctaStart: "Comenzar ahora",
         ctaAll: "Ver todos los servicios",
     },
     en: {
         badge: "Solutions",
-        sectionTitle: "Service plans & pricing",
+        sectionTitle: "Service plans &",
+        sectionTitleAccent: "pricing",
         sectionDesc:
             "These are our most popular services. All include SEO optimization, high performance and professional support.",
         badges: {
@@ -80,7 +81,6 @@ const t = {
             itSupport: "IT support",
             wordpress: "WordPress development",
         },
-
         ctaStart: "Get started",
         ctaAll: "View all services",
     },
@@ -96,60 +96,164 @@ const serviceIcons = {
     boxes: Boxes,
     phone: Phone,
 };
+
+// JSON-LD SEO
+const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name:
+        lang === "es"
+            ? "Planes y precios de servicios"
+            : "Service plans & pricing",
+    description: t.sectionDesc,
+    itemListElement: plans.map((plan, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+            "@type": "Service",
+            name: plan.nombre,
+            offers: {
+                "@type": "Offer",
+                price: plan.price?.original?.pen ?? "",
+                priceCurrency: "USD",
+            },
+        },
+    })),
+};
 ---
 
-<section id="planes-precios" class="bg-white py-15">
-    <div class="max-w-6xl mx-auto px-6">
-        <header class="text-center mb-20 space-y-4">
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+<section
+    id="planes-precios"
+    aria-label={lang === "es"
+        ? "Planes y precios de servicios"
+        : "Service plans and pricing"}
+    class="relative bg-[#fafaf8] py-15 md:py-15 overflow-hidden"
+>
+    <!-- Background decoration -->
+    <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <div
+            class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-30"
+            style="background: radial-gradient(circle, #d4eef5 0%, transparent 70%); filter: blur(80px);"
+        >
+        </div>
+        <div
+            class="absolute -bottom-32 -right-32 w-[450px] h-[450px] rounded-full opacity-20"
+            style="background: radial-gradient(circle, #cce9f0 0%, transparent 70%); filter: blur(80px);"
+        >
+        </div>
+        <div
+            class="absolute inset-0 opacity-[0.35]"
+            style="
+                background-image: linear-gradient(var(--color-border) 1px, transparent 1px),
+                                  linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+                background-size: 60px 60px;
+                mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+            "
+        >
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+        <!-- Header -->
+        <header
+            class="text-center mb-16 md:mb-20 opacity-0 animate-fade-up"
+            style="animation-delay: 0.05s;"
+        >
+            <!-- Eyebrow badge -->
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary"
+                class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary mb-7"
             >
-                <LayoutGrid size={14} />
-                <span class="text-[10px] font-bold uppercase tracking-[0.2em]">
+                <LayoutGrid size={13} client:load />
+                <span
+                    class="text-[0.6rem] font-bold uppercase tracking-[0.25em]"
+                >
                     {t.badge}
                 </span>
             </div>
+
+            <!-- Title: Clash Display desde Layout -->
             <h2
-                class="text-4xl md:text-5xl font-bold tracking-tight text-primary"
+                class="font-display text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] text-primary mb-5 tracking-tight"
             >
                 {t.sectionTitle}
+                <br />
+                <em class="not-italic italic text-secondary"
+                    >{t.sectionTitleAccent}</em
+                >
             </h2>
+
             <p
-                class="text-zinc-500 max-w-2xl mx-auto text-lg font-light leading-relaxed"
+                class="text-muted-foreground max-w-xl mx-auto text-base font-light leading-relaxed"
             >
                 {t.sectionDesc}
             </p>
         </header>
 
-        <div class="grid gap-10 md:grid-cols-3">
+        <!-- Cards grid — items-stretch para igual altura -->
+        <ul
+            class="grid gap-6 md:grid-cols-3 items-stretch list-none p-0 m-0"
+            role="list"
+            aria-label={lang === "es" ? "Planes de servicio" : "Service plans"}
+        >
             {
-                plans.map((plan) => (
-                    <ServiceCard
-                        lang={lang}
-                        icon={serviceIcons[plan.icon]}
-                        badge={
-                            plan.badgeKey ? t.badges[plan.badgeKey] : undefined
-                        }
-                        title={plan.nombre}
-                        price={plan.price}
-                        highlight={plan.highlight}
-                        features={plan.features.map((f) => ({
-                            icon: f.icon,
-                            text: (t.features as Record<string, string>)[
-                                f.textKey
-                            ],
-                        }))}
-                        ctaText={
-                            plan.cta.type === "contact" ? t.ctaStart : t.ctaAll
-                        }
-                        ctaHref={
-                            plan.cta.type === "contact"
-                                ? `/${lang}#contacto`
-                                : `/${lang}/servicios`
-                        }
-                    />
+                plans.map((plan, i) => (
+                    <li
+                        class="flex opacity-0 animate-fade-up"
+                        style={`animation-delay: ${0.15 + i * 0.1}s`}
+                    >
+                        <ServiceCard
+                            lang={lang}
+                            icon={serviceIcons[plan.icon]}
+                            badge={
+                                plan.badgeKey
+                                    ? t.badges[plan.badgeKey]
+                                    : undefined
+                            }
+                            title={plan.nombre}
+                            price={plan.price}
+                            highlight={plan.highlight}
+                            features={plan.features.map((f) => ({
+                                icon: f.icon,
+                                text: (t.features as Record<string, string>)[
+                                    f.textKey
+                                ],
+                            }))}
+                            ctaText={
+                                plan.cta.type === "contact"
+                                    ? t.ctaStart
+                                    : t.ctaAll
+                            }
+                            ctaHref={
+                                plan.cta.type === "contact"
+                                    ? `/${lang}#contacto`
+                                    : `/${lang}/servicios`
+                            }
+                        />
+                    </li>
                 ))
             }
-        </div>
+        </ul>
     </div>
 </section>
+
+<style>
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-up {
+        animation: fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    /* Clash Display cargado via Layout.astro */
+    .font-display {
+        font-family: "Clash Display", "Fraunces Variable", Georgia, serif;
+    }
+</style>

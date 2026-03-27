@@ -20,8 +20,10 @@ html {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     text-wrap: balance;
+    font-family: 'Geist Variable', Georgia, serif;
 }
 
 strong {
@@ -62,7 +64,6 @@ select:-webkit-autofill {
 }
 
 :root {
-    /* Fondos y superficies - Convertidos de oklch(1 0 0) */
     --background: #ffffff;
     --foreground: #252525;
     --card: #ffffff;
@@ -70,22 +71,16 @@ select:-webkit-autofill {
     --popover: #ffffff;
     --popover-foreground: #252525;
 
-    /* --- MAPEO COMPATIBLE --- */
-
-    /* --primary: oklch(0.322 0 0) -> #525252 aprox (basado en tu #333333 anterior) */
     --primary: #333333;
     --primary-foreground: #ffffff;
 
-    /* --secondary: oklch(0.701 0.143 225.89) -> #1eaccc */
     --secondary: #1eaccc;
     --secondary-foreground: #ffffff;
     --ring: #1eaccc;
 
-    /* --accent: oklch(0 0 0) */
     --accent: #000000;
     --accent-foreground: #ffffff;
 
-    /* --- RESTO DE VARIABLES --- */
     --muted: #f1f5f9;
     --muted-foreground: #64748b;
     --destructive: #ef4444;
@@ -94,7 +89,6 @@ select:-webkit-autofill {
 
     --radius: 0.625rem;
 
-    /* Sidebar */
     --sidebar: #f8fafc;
     --sidebar-foreground: #1e293b;
     --sidebar-primary: var(--primary);
@@ -107,8 +101,8 @@ select:-webkit-autofill {
 
 @theme inline {
     --font-sans: 'Geist Variable', sans-serif;
+    --font-display: 'Fraunces Variable', Georgia, serif;
 
-    /* --- MAPEO DE COLORES DINÁMICOS --- */
     --color-background: var(--background);
     --color-foreground: var(--foreground);
 
@@ -135,7 +129,6 @@ select:-webkit-autofill {
     --color-input: var(--input);
     --color-ring: var(--ring);
 
-    /* --- SIDEBAR --- */
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -145,14 +138,12 @@ select:-webkit-autofill {
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
 
-    /* --- CHARTS --- */
     --color-chart-1: var(--chart-1);
     --color-chart-2: var(--chart-2);
     --color-chart-3: var(--chart-3);
     --color-chart-4: var(--chart-4);
     --color-chart-5: var(--chart-5);
 
-    /* --- RADIUS SYSTEM --- */
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
