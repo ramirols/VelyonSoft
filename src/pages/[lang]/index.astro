@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Slider";
 import Services from "../../components/Services.astro";
 import ProyectosGrid from "../../components/ProyectosGrid.astro";
+import Partners from "@/components/Partners.astro";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import BlogGrid from "@/components/BlogGrid.astro";
 import FAQ from "../../components/FAQ";
@@ -29,6 +30,7 @@ const { lang } = Astro.params as { lang: Lang };
 	<Hero lang={lang} client:load />
 	<Services lang={lang} onlyFeatured />
 	<ProyectosGrid lang={lang} />
+	<Partners lang={lang} />
 	<TestimonialCarousel client:load lang={lang} />
 	<BlogGrid lang={lang} />
 	<FAQ client:load lang={lang} />

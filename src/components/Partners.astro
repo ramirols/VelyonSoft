@@ -1,0 +1,343 @@
+---
+import { Image } from "astro:assets";
+import pandxLogo from "../assets/partners/pandx.jpg";
+import {
+    Handshake,
+    Rocket,
+    Target,
+    ExternalLink,
+    TrendingUp,
+    Megaphone,
+} from "lucide-astro";
+
+interface Props {
+    lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+
+const partners = [
+    {
+        id: "marketing-partner",
+        badgeKey: "strategic",
+        nameKey: "partner1Name",
+        descKey: "partner1Desc",
+        pills: ["pill1", "pill2", "pill3"],
+        ctaHref: "https://www.facebook.com/pandx.digital",
+        logo: pandxLogo,
+    },
+    // {
+    //   id: "design-partner",
+    //   badgeKey: "creative",
+    //   nameKey: "partner2Name",
+    //   descKey: "partner2Desc",
+    //   pills: ["pill4", "pill5"],
+    //   ctaHref: "https://...",
+    //   logo: designLogo,
+    // },
+];
+
+const content = {
+    es: {
+        eyebrow: "Alianzas",
+        title: "Nuestro",
+        titleAccent: "Ecosistema",
+        description:
+            "Colaboramos con expertos seleccionados para ofrecer una solución 360°. Tecnología sólida y estrategia digital en un solo lugar.",
+        together: "Juntos ofrecemos una solución completa",
+        cta: "Conocer más",
+        badges: {
+            strategic: "Partner Estratégico",
+            creative: "Partner Creativo",
+        },
+        partner1Name: "Pandx",
+        partner1Desc:
+            "Especialistas en Growth Marketing, gestión de pautas publicitarias y branding estratégico para marcas que quieren crecer.",
+        pills: {
+            pill1: "Estrategia de Crecimiento",
+            pill2: "Integración nativa con VelyonSoft",
+            pill3: "Pauta & Branding",
+        },
+    },
+    en: {
+        eyebrow: "Alliances",
+        title: "Our",
+        titleAccent: "Ecosystem",
+        description:
+            "We collaborate with selected experts to offer a 360° solution. Solid technology and digital strategy in one place.",
+        together: "Together we offer a complete solution",
+        cta: "Learn more",
+        badges: {
+            strategic: "Strategic Partner",
+            creative: "Creative Partner",
+        },
+        partner1Name: "Pandx",
+        partner1Desc:
+            "Specialists in Growth Marketing, ad management, and strategic branding for brands that want to scale.",
+        pills: {
+            pill1: "Growth Strategy",
+            pill2: "Native integration with VelyonSoft",
+            pill3: "Ads & Branding",
+        },
+    },
+};
+
+const t = content[lang];
+
+const pillIcons = {
+    pill1: Target,
+    pill2: Handshake,
+    pill3: Megaphone,
+    pill4: TrendingUp,
+    pill5: Rocket,
+};
+
+const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "VelyonSoft",
+    description: t.description,
+    member: partners.map((p) => ({
+        "@type": "Organization",
+        name: t[p.nameKey as keyof typeof t] as string,
+        description: t[p.descKey as keyof typeof t] as string,
+    })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+<section
+    id="ecosistema"
+    aria-label={t.title + " " + t.titleAccent}
+    class="relative py-15 md:py-15 overflow-hidden"
+>
+    <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-25"
+            style="background: radial-gradient(ellipse, #d4eef5 0%, transparent 70%); filter: blur(80px);"
+        >
+        </div>
+        <div
+            class="absolute inset-0 opacity-[0.35]"
+            style="
+                background-image: linear-gradient(var(--color-border) 1px, transparent 1px),
+                                  linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+                background-size: 60px 60px;
+                mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
+            "
+        >
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+        <header
+            class="text-center mb-16 md:mb-20 opacity-0 animate-fade-up"
+            style="animation-delay: 0.05s;"
+        >
+            <div
+                class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary mb-7"
+            >
+                <Handshake size={13} aria-hidden="true" />
+                <span
+                    class="text-[0.6rem] font-bold uppercase tracking-[0.25em]"
+                    >{t.eyebrow}</span
+                >
+            </div>
+
+            <h2
+                class="font-display text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] text-primary mb-5 tracking-tight"
+            >
+                {t.title}
+                <em class="not-italic italic text-secondary">
+                    {t.titleAccent}</em
+                >
+            </h2>
+
+            <p
+                class="text-muted-foreground max-w-lg mx-auto text-base font-light leading-relaxed"
+            >
+                {t.description}
+            </p>
+        </header>
+
+        <div
+            class:list={[
+                "opacity-0 animate-fade-up",
+                partners.length === 1
+                    ? "flex justify-center"
+                    : partners.length === 2
+                      ? "grid grid-cols-1 md:grid-cols-2 gap-6"
+                      : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+            ]}
+            style="animation-delay: 0.2s;"
+        >
+            {
+                partners.map((partner, i) => {
+                    const partnerName = t[
+                        partner.nameKey as keyof typeof t
+                    ] as string;
+                    const partnerDesc = t[
+                        partner.descKey as keyof typeof t
+                    ] as string;
+                    const badge =
+                        t.badges[partner.badgeKey as keyof typeof t.badges];
+
+                    return (
+                        <article
+                            class:list={[
+                                "group relative flex flex-col rounded-[1.5rem] border border-border bg-white overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-secondary/30",
+                                partners.length === 1
+                                    ? "w-full max-w-lg"
+                                    : "w-full",
+                            ]}
+                            style={`box-shadow: 0 4px 32px rgba(30,172,204,0.05);`}
+                            itemscope
+                            itemtype="https://schema.org/Organization"
+                        >
+                            <div
+                                class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-secondary/60 via-secondary/20 to-transparent"
+                                aria-hidden="true"
+                            />
+
+                            <div class="flex flex-col flex-1 p-8">
+                                <div class="flex items-start justify-between mb-8">
+                                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.57rem] font-bold uppercase tracking-[0.18em] bg-secondary/10 text-secondary border border-secondary/20">
+                                        <Rocket size={10} aria-hidden="true" />
+                                        {badge}
+                                    </div>
+
+                                    {partner.logo &&
+                                    typeof partner.logo === "object" ? (
+                                        <Image
+                                            src={partner.logo}
+                                            alt={`Logo de ${partnerName}`}
+                                            height={32}
+                                            class="h-8 w-auto object-contain rounded-full transition-opacity duration-300"
+                                        />
+                                    ) : partner.logo &&
+                                      typeof partner.logo === "string" ? (
+                                        <img
+                                            src={partner.logo}
+                                            alt={`Logo de ${partnerName}`}
+                                            height={32}
+                                            class="h-8 w-auto object-contain rounded-full transition-opacity duration-300"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    ) : (
+                                        <div
+                                            class="flex items-center justify-center h-8 px-4 rounded-full border border-dashed border-border bg-muted/40"
+                                            aria-label={`Logo de ${partnerName} próximamente`}
+                                        >
+                                            <span class="text-[0.55rem] font-bold uppercase tracking-widest text-muted-foreground/40 font-display">
+                                                Logo
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <h3
+                                    class="font-display text-xl font-bold text-primary mb-3 tracking-tight leading-snug"
+                                    itemprop="name"
+                                >
+                                    {partnerName}
+                                </h3>
+
+                                <p
+                                    class="text-[0.86rem] font-light text-muted-foreground leading-relaxed mb-7 flex-1"
+                                    itemprop="description"
+                                >
+                                    {partnerDesc}
+                                </p>
+
+                                <ul class="space-y-2.5 mb-8">
+                                    {partner.pills.map((pillKey) => {
+                                        const PillIcon =
+                                            pillIcons[
+                                                pillKey as keyof typeof pillIcons
+                                            ];
+                                        const pillLabel =
+                                            t.pills[
+                                                pillKey as keyof typeof t.pills
+                                            ];
+                                        return (
+                                            <li class="flex items-center gap-3 text-[0.82rem] text-primary/70">
+                                                <span
+                                                    class="flex items-center justify-center w-5 h-5 rounded-full bg-secondary/10 text-secondary flex-shrink-0"
+                                                    aria-hidden="true"
+                                                >
+                                                    <PillIcon
+                                                        size={11}
+                                                        strokeWidth={2.5}
+                                                    />
+                                                </span>
+                                                {pillLabel}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+
+                                <div
+                                    class="h-px bg-border mb-6"
+                                    aria-hidden="true"
+                                />
+
+                                <a
+                                    href={partner.ctaHref}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group/cta inline-flex items-center gap-2 text-[0.78rem] font-bold text-secondary no-underline hover:gap-3 transition-all duration-200 mt-auto"
+                                    aria-label={`${t.cta} sobre ${partnerName}`}
+                                >
+                                    {t.cta}
+                                    <ExternalLink
+                                        size={13}
+                                        class="transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+                                        aria-hidden="true"
+                                    />
+                                </a>
+                            </div>
+                        </article>
+                    );
+                })
+            }
+        </div>
+
+        <div
+            class="flex items-center justify-center gap-3 mt-10 opacity-0 animate-fade-up"
+            style="animation-delay: 0.35s;"
+        >
+            <span
+                class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"
+                aria-hidden="true"></span>
+            <p
+                class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground"
+            >
+                {t.together}
+            </p>
+            <span
+                class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"
+                aria-hidden="true"></span>
+        </div>
+    </div>
+</section>
+
+<style>
+    .font-display {
+        font-family: "Clash Display", "Fraunces Variable", Georgia, serif;
+    }
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-up {
+        animation: fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+</style>

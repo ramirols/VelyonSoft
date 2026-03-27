@@ -7,72 +7,131 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const {
     lang = "es",
-    title = "VelyonSoft | Desarrollo de Software y Páginas Web",
-    description = "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y estrategias SEO para empresas que buscan crecer, vender más y posicionarse en Google.",
+    title = lang === "es"
+        ? "VelyonSoft | Desarrollo de Software y Páginas Web Profesionales"
+        : "VelyonSoft | Custom Software & Professional Web Development",
+    description = "Desarrollo de software a medida, páginas web profesionales y estrategias SEO para empresas que buscan crecer y posicionarse en Google.",
     image = "/og-default.jpg",
     type = "website",
 } = Astro.props;
 
 const site = "https://velyonsoft.vercel.app";
 const canonical = `${site}/${lang}${Astro.url.pathname.replace(/^\/(es|en)/, "")}`;
----
 
-<Layout lang={lang}>
-    <AstroSEO
-        title={title}
-        description={description}
-        canonical={canonical}
-        openGraph={{
-            type,
-            locale: lang === "es" ? "es_ES" : "en_US",
-            url: canonical,
-            siteName: "VelyonSoft",
-            title,
-            description,
-            images: [
-                {
-                    url: `https://velyonsoft.vercel.app${image}`,
-                    width: 1200,
-                    height: 630,
-                    alt: "VelyonSoft - Desarrollo de Software y Páginas Web",
-                },
-            ],
-        }}
-        twitter={{
-            card: "summary_large_image",
-            site: "@VelyonSoft",
-            creator: "@VelyonSoft",
-            title,
-            description,
-            image: `https://velyonsoft.vercel.app${image}`,
-        }}
-        jsonLd={{
-            "@context": "https://schema.org",
+const ldData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
             "@type": "Organization",
+            "@id": `${site}/#organization`,
             name: "VelyonSoft",
-            url: "https://velyonsoft.vercel.app",
-            logo: "https://velyonsoft.vercel.app/logo.png",
-            description: description,
-            foundingDate: "2024",
-            contactPoint: [
-                {
-                    "@type": "ContactPoint",
-                    contactType: "sales",
-                    availableLanguage: ["Spanish", "English"],
-                },
-            ],
+            url: site,
+            logo: `${site}/logo.png`,
             sameAs: [
                 "https://facebook.com/velyonsoft",
                 "https://instagram.com/velyonsoft",
                 "https://linkedin.com/company/velyonsoft",
-                "https://twitter.com/velyonsoft",
+                "https://x.com/VelyonSoft",
             ],
-        }}
-    />
+        },
+        {
+            "@type": "LocalBusiness",
+            name: "VelyonSoft",
+            image: `${site}${image}`,
+            "@id": `${site}/#localbusiness`,
+            url: site,
+            telephone: "+51997676432",
+            priceRange: "$$",
+            address: {
+                "@type": "PostalAddress",
+                streetAddress: "Av. Argentina 358",
+                addressLocality: "Comas",
+                addressRegion: "Lima",
+                addressCountry: "PE",
+            },
+            openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                ],
+                opens: "09:00",
+                closes: "18:00",
+            },
+        },
+    ],
+};
+---
+
+<Layout lang={lang}>
+    <Fragment slot="head">
+        <AstroSEO
+            title={title}
+            description={description}
+            canonical={canonical}
+            openGraph={{
+                type,
+                locale: lang === "es" ? "es_ES" : "en_US",
+                url: canonical,
+                siteName: "VelyonSoft",
+                title,
+                description,
+                images: [
+                    {
+                        url: `${site}${image}`,
+                        width: 1200,
+                        height: 630,
+                        alt: title,
+                    },
+                ],
+            }}
+            twitter={{
+                card: "summary_large_image",
+                site: "@VelyonSoft",
+                creator: "@VelyonSoft",
+                title,
+                description,
+                image: `${site}${image}`,
+            }}
+        />
+
+        <script type="application/ld+json" set:html={JSON.stringify(ldData)} />
+
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-D74ZW26T1V"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-D74ZW26T1V");
+        </script>
+
+        <script is:inline>
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "w2dxs0wpy6");
+        </script>
+    </Fragment>
 
     <Header client:load lang={lang} />
 
-    <main>
+    <main id="main-content">
         <slot />
     </main>
 

@@ -17,7 +17,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve('./src'), // Esto le dice a Vite que @ = carpeta src
+        '@': path.resolve('./src'),
       },
     },
   },

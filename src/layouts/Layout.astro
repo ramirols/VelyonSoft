@@ -1,35 +1,70 @@
 ---
 import "../styles/global.css";
 
+interface Props {
+	lang?: string;
+}
+
 const { lang = "es" } = Astro.props;
+
+const baseUrl = "https://velyonsoft.vercel.app";
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.png" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="apple-touch-icon" href="/icon-192.png" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+
+		<link rel="dns-prefetch" href="https://api.fontshare.com" />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+		<link rel="dns-prefetch" href="https://www.clarity.ms" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="96x96"
+			href="/favicon-96x96.png"
+		/>
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
 		<link rel="manifest" href="/site.webmanifest" />
+
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="alternate" hreflang="es" href={`${baseUrl}/es/`} />
+		<link rel="alternate" hreflang="en" href={`${baseUrl}/en/`} />
+		<link rel="alternate" hreflang="x-default" href={`${baseUrl}/es/`} />
+		<link rel="canonical" href={new URL(Astro.url.pathname, baseUrl)} />
+
 		<link rel="preconnect" href="https://api.fontshare.com" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+			media="print"
+			onload="this.media='all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
+			media="print"
+			onload="this.media='all'"
+		/>
+
 		<meta name="generator" content={Astro.generator} />
 		<meta name="author" content="VelyonSoft" />
 		<meta name="theme-color" content="#000000" />
-		<meta name="robots" content="index, follow, max-image-preview:large" />
-		<meta
-			name="googlebot"
-			content="index, follow, max-image-preview:large"
-		/>
-
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="mobile-web-app-capable" content="yes" />
-
 		<meta name="application-name" content="VelyonSoft" />
 		<meta name="apple-mobile-web-app-title" content="VelyonSoft" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -38,29 +73,47 @@ const { lang = "es" } = Astro.props;
 			content="black-translucent"
 		/>
 
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+		<meta
+			name="googlebot"
+			content="index, follow, max-image-preview:large"
+		/>
+		<meta
+			name="format-detection"
+			content="telephone=no, email=no, address=no"
+		/>
+
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
-		<link
-			rel="stylesheet"
-			href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
-		/>
+		<slot name="head" />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
 		height: 100%;
-	}
-
-	.container {
-		width: 100%;
-		height: 100%;
-		margin: 0 auto;
+		scroll-behavior: smooth;
+		scrollbar-color: var(--color-secondary) white;
+		scrollbar-width: thin;
+		scrollbar-3dlight-color: var(--color-secondary);
+		scrollbar-3dshadow-color: var(--color-secondary);
+		scrollbar-arrow-color: var(--color-secondary);
+		scrollbar-base-color: var(--color-secondary);
+		scrollbar-darkshadow-color: var(--color-secondary);
+		scrollbar-face-color: var(--color-secondary);
+		scrollbar-highlight-color: var(--color-secondary);
+		scrollbar-track-color: var(--color-secondary);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 </style>

@@ -12,13 +12,6 @@
     --color-accent: #000000;
 }
 
-body,
-html {
-    scroll-behavior: smooth;
-    scrollbar-color: var(--color-secondary) white;
-    scrollbar-width: thin;
-}
-
 h1,
 h2,
 h3 {

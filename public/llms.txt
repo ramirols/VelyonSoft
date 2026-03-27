@@ -1,0 +1,13 @@
+# VelyonSoft
+
+Empresa de desarrollo de software y páginas web profesionales en Lima, Perú. Especialistas en Astro, React, SEO y automatizaciones.
+
+## Servicios
+- Desarrollo Web a medida (Astro, Next.js)
+- Aplicaciones Móviles
+- Estrategias SEO Avanzadas
+- Automatización de procesos (n8n)
+
+## Contacto
+- Web: https://velyonsoft.vercel.app
+- WhatsApp: +51 997 676 432

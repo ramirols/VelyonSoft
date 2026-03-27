@@ -16,19 +16,19 @@ const i18n = {
     testimonials: [
       {
         name: "Carlos Fernández",
-        role: "Business",
+        role: "Empresario",
         message: "Crearon una web rápida, moderna y totalmente optimizada. Desde el primer mes aumentaron los clientes.",
         avatar: "https://i.pravatar.cc/150?img=12",
       },
       {
         name: "María Valdivia",
-        role: "Entrepreneur",
+        role: "Emprendedora",
         message: "El nivel de detalle y profesionalismo fue increíble. Quedé muy feliz con mi landing page. Muy recomendable.",
         avatar: "https://i.pravatar.cc/150?img=32",
       },
       {
         name: "Viviana Vargas",
-        role: "Corporate",
+        role: "Corporativa",
         message: "Necesitábamos una web corporativa seria y optimizada. El resultado superó expectativas.",
         avatar: "https://i.pravatar.cc/150?img=45",
       },
@@ -42,7 +42,7 @@ const i18n = {
       {
         name: "Javier Morales",
         role: "Emprendedor",
-        message: "Mi landing page profesional quedó espectacular: diseño moderno, carga rapidísima y ya estoy captando leads todos los días. Precio justo y entrega rápida.",
+        message: "Mi página profesional quedó espectacular: diseño moderno, carga rapidísima y ya estoy captando leads todos los días. Precio justo y entrega rápida.",
         avatar: "https://i.pravatar.cc/150?img=68",
       },
       {
