@@ -51,58 +51,66 @@ const originalPrice = price.offer ? price.original.pen : null;
     itemscope
     itemtype="https://schema.org/Service"
 >
-    <!-- Glow ring (highlight only) -->
-    {highlight && (
-        <div
-            class="absolute -inset-[1px] rounded-[1.6rem] -z-10 opacity-80"
-            style="background: linear-gradient(160deg, var(--color-secondary) 0%, rgba(30,172,204,0.4) 50%, transparent 100%);"
-            aria-hidden="true"
-        />
-    )}
-
-    <div class:list={[
-        "relative flex flex-col flex-1 rounded-[1.5rem] overflow-hidden",
-        highlight ? "bg-white" : "bg-white border border-border",
-    ]}>
-
-        <!-- ✦ Animated corner orb (highlight only) -->
-        {highlight && (
-            <div class="orb-wrapper absolute top-0 right-0 w-40 h-40 pointer-events-none overflow-hidden rounded-tr-[1.5rem]" aria-hidden="true">
-                <!-- Orb 1: slow rotate -->
-                <div class="orb orb-1" />
-                <!-- Orb 2: counter-rotate, offset -->
-                <div class="orb orb-2" />
-                <!-- Shimmer streak -->
-                <div class="shimmer-streak" />
-            </div>
-        )}
-
-        <!-- Soft top wash (highlight only) -->
-        {highlight && (
+    {
+        highlight && (
             <div
-                class="absolute top-0 inset-x-0 h-32 pointer-events-none z-0"
-                style="background: linear-gradient(180deg, rgba(30,172,204,0.05) 0%, transparent 100%);"
+                class="absolute -inset-[1px] rounded-[1.6rem] -z-10 opacity-80"
+                style="background: linear-gradient(160deg, var(--color-secondary) 0%, rgba(30,172,204,0.4) 50%, transparent 100%);"
                 aria-hidden="true"
             />
-        )}
+        )
+    }
+
+    <div
+        class:list={[
+            "relative flex flex-col flex-1 rounded-[1.5rem] overflow-hidden",
+            highlight ? "bg-white" : "bg-white border border-border",
+        ]}
+    >
+        {
+            highlight && (
+                <div
+                    class="orb-wrapper absolute top-0 right-0 w-40 h-40 pointer-events-none overflow-hidden rounded-tr-[1.5rem]"
+                    aria-hidden="true"
+                >
+                    <div class="orb orb-1" />
+                    <div class="orb orb-2" />
+                    <div class="shimmer-streak" />
+                </div>
+            )
+        }
+
+        {
+            highlight && (
+                <div
+                    class="absolute top-0 inset-x-0 h-32 pointer-events-none z-0"
+                    style="background: linear-gradient(180deg, rgba(30,172,204,0.05) 0%, transparent 100%);"
+                    aria-hidden="true"
+                />
+            )
+        }
 
         <div class="relative z-10 flex flex-col flex-1 p-8">
-
-            <!-- Header row: badge + icon -->
             <div class="flex items-start justify-between mb-8">
-                {badge ? (
-                    <div class:list={[
-                        "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.57rem] font-bold uppercase tracking-[0.18em]",
-                        highlight
-                            ? "bg-secondary/10 text-secondary border border-secondary/20"
-                            : "bg-muted text-muted-foreground border border-border",
-                    ]}>
-                        {highlight && <Sparkles size={10} aria-hidden="true" />}
-                        {badge}
-                    </div>
-                ) : (
-                    <span />
-                )}
+                {
+                    badge ? (
+                        <div
+                            class:list={[
+                                "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[0.57rem] font-bold uppercase tracking-[0.18em]",
+                                highlight
+                                    ? "bg-secondary/10 text-secondary border border-secondary/20"
+                                    : "bg-muted text-muted-foreground border border-border",
+                            ]}
+                        >
+                            {highlight && (
+                                <Sparkles size={10} aria-hidden="true" />
+                            )}
+                            {badge}
+                        </div>
+                    ) : (
+                        <span />
+                    )
+                }
 
                 <div
                     class:list={[
@@ -117,7 +125,6 @@ const originalPrice = price.offer ? price.original.pen : null;
                 </div>
             </div>
 
-            <!-- Title -->
             <h3
                 class="font-display text-[1.35rem] font-bold text-primary mb-1 tracking-tight leading-snug"
                 itemprop="name"
@@ -125,13 +132,14 @@ const originalPrice = price.offer ? price.original.pen : null;
                 {title}
             </h3>
 
-            <!-- Price -->
             <div class="relative group/tooltip mb-8 mt-3">
-                {originalPrice && (
-                    <span class="text-xs text-muted-foreground line-through block mb-0.5">
-                        {originalPrice}
-                    </span>
-                )}
+                {
+                    originalPrice && (
+                        <span class="text-xs text-muted-foreground line-through block mb-0.5">
+                            {originalPrice}
+                        </span>
+                    )
+                }
 
                 <div class="flex items-end gap-2.5">
                     <span
@@ -159,46 +167,57 @@ const originalPrice = price.offer ? price.original.pen : null;
                     </button>
                 </div>
 
-                {price.offer?.note && (
-                    <span class="text-[0.62rem] text-secondary font-semibold uppercase tracking-wider mt-1.5 block">
-                        {price.offer.note}
-                    </span>
-                )}
+                {
+                    price.offer?.note && (
+                        <span class="text-[0.62rem] text-secondary font-semibold uppercase tracking-wider mt-1.5 block">
+                            {price.offer.note}
+                        </span>
+                    )
+                }
 
-                <!-- Tooltip -->
                 <div
                     role="tooltip"
                     class="absolute bottom-full left-0 mb-3 w-64 p-4 bg-primary text-white rounded-2xl text-[0.7rem] leading-relaxed opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-30 shadow-2xl pointer-events-none"
                 >
                     {t.info}
-                    <div class="absolute top-full left-5 border-8 border-transparent border-t-primary" aria-hidden="true" />
+                    <div
+                        class="absolute top-full left-5 border-8 border-transparent border-t-primary"
+                        aria-hidden="true"
+                    >
+                    </div>
                 </div>
             </div>
 
-            <!-- Divider -->
-            <div class:list={["h-px mb-6", highlight ? "bg-secondary/12" : "bg-border"]} aria-hidden="true" />
+            <div
+                class:list={[
+                    "h-px mb-6",
+                    highlight ? "bg-secondary/12" : "bg-border",
+                ]}
+                aria-hidden="true"
+            >
+            </div>
 
-            <!-- Features -->
             <ul class="space-y-3.5 flex-1 mb-8" itemprop="description">
-                {features.map((f) => (
-                    <li class="flex items-center gap-3 text-[0.84rem] text-primary/75">
-                        <span
-                            class:list={[
-                                "flex-shrink-0 flex items-center justify-center w-[18px] h-[18px] rounded-full",
-                                highlight
-                                    ? "bg-secondary text-white"
-                                    : "bg-secondary/10 text-secondary",
-                            ]}
-                            aria-hidden="true"
-                        >
-                            <Check size={10} strokeWidth={3} />
-                        </span>
-                        {f.text}
-                    </li>
-                ))}
+                {
+                    features.map((f) => (
+                        <li class="flex items-center gap-3 text-[0.84rem] text-primary/75">
+                            <span
+                                class:list={[
+                                    "flex-shrink-0 flex items-center justify-center w-[18px] h-[18px] rounded-full",
+                                    highlight
+                                        ? "bg-secondary text-white"
+                                        : "bg-secondary text-white",
+                                ]}
+                                aria-hidden="true"
+                            >
+                                <Check size={10} strokeWidth={3} />
+                            </span>
+                            {f.text}
+                        </li>
+                    ))
+                }
             </ul>
 
-            <!-- CTA -->
             <a
                 href={ctaHref}
                 rel="noopener noreferrer"
@@ -220,13 +239,11 @@ const originalPrice = price.offer ? price.original.pen : null;
         font-family: "Clash Display", "Fraunces Variable", Georgia, serif;
     }
 
-    /* ── Highlight card ───────────────────────────── */
     .card--highlight {
         filter: drop-shadow(0 28px 56px rgba(30, 172, 204, 0.13));
         transform: translateY(-6px);
     }
 
-    /* ── Default card hover ───────────────────────── */
     .card--default:hover {
         transform: translateY(-4px);
     }
@@ -235,11 +252,9 @@ const originalPrice = price.offer ? price.original.pen : null;
         box-shadow: 0 20px 48px rgba(30, 172, 204, 0.07);
     }
 
-    /* ── Animated corner orbs ─────────────────────── */
     .orb {
         position: absolute;
         border-radius: 50%;
-        /* respects prefers-reduced-motion */
     }
 
     .orb-1 {
@@ -247,7 +262,11 @@ const originalPrice = price.offer ? price.original.pen : null;
         height: 110px;
         top: -30px;
         right: -30px;
-        background: radial-gradient(circle at 40% 40%, rgba(30,172,204,0.35) 0%, transparent 70%);
+        background: radial-gradient(
+            circle at 40% 40%,
+            rgba(30, 172, 204, 0.35) 0%,
+            transparent 70%
+        );
         animation: orb-spin 8s linear infinite;
     }
 
@@ -256,11 +275,14 @@ const originalPrice = price.offer ? price.original.pen : null;
         height: 70px;
         top: 10px;
         right: 10px;
-        background: radial-gradient(circle at 60% 60%, rgba(30,172,204,0.2) 0%, transparent 70%);
+        background: radial-gradient(
+            circle at 60% 60%,
+            rgba(30, 172, 204, 0.2) 0%,
+            transparent 70%
+        );
         animation: orb-spin 5s linear infinite reverse;
     }
 
-    /* Shimmer streak that crosses the corner */
     .shimmer-streak {
         position: absolute;
         top: -10px;
@@ -270,9 +292,9 @@ const originalPrice = price.offer ? price.original.pen : null;
         background: linear-gradient(
             180deg,
             transparent 0%,
-            rgba(255,255,255,0.55) 40%,
-            rgba(255,255,255,0.7) 50%,
-            rgba(255,255,255,0.55) 60%,
+            rgba(255, 255, 255, 0.55) 40%,
+            rgba(255, 255, 255, 0.7) 50%,
+            rgba(255, 255, 255, 0.55) 60%,
             transparent 100%
         );
         border-radius: 999px;
@@ -281,23 +303,51 @@ const originalPrice = price.offer ? price.original.pen : null;
     }
 
     @keyframes orb-spin {
-        0%   { transform: rotate(0deg)   scale(1);    opacity: 0.9; }
-        25%  { transform: rotate(90deg)  scale(1.08); opacity: 1;   }
-        50%  { transform: rotate(180deg) scale(1);    opacity: 0.75;}
-        75%  { transform: rotate(270deg) scale(0.95); opacity: 1;   }
-        100% { transform: rotate(360deg) scale(1);    opacity: 0.9; }
+        0% {
+            transform: rotate(0deg) scale(1);
+            opacity: 0.9;
+        }
+        25% {
+            transform: rotate(90deg) scale(1.08);
+            opacity: 1;
+        }
+        50% {
+            transform: rotate(180deg) scale(1);
+            opacity: 0.75;
+        }
+        75% {
+            transform: rotate(270deg) scale(0.95);
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+            opacity: 0.9;
+        }
     }
 
     @keyframes shimmer-move {
-        0%   { opacity: 0;   transform: rotate(-40deg) translateY(0px);   }
-        20%  { opacity: 1;   transform: rotate(-40deg) translateY(10px);  }
-        60%  { opacity: 0.6; transform: rotate(-40deg) translateY(30px);  }
-        100% { opacity: 0;   transform: rotate(-40deg) translateY(60px);  }
+        0% {
+            opacity: 0;
+            transform: rotate(-40deg) translateY(0px);
+        }
+        20% {
+            opacity: 1;
+            transform: rotate(-40deg) translateY(10px);
+        }
+        60% {
+            opacity: 0.6;
+            transform: rotate(-40deg) translateY(30px);
+        }
+        100% {
+            opacity: 0;
+            transform: rotate(-40deg) translateY(60px);
+        }
     }
 
-    /* Respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
-        .orb-1, .orb-2, .shimmer-streak {
+        .orb-1,
+        .orb-2,
+        .shimmer-streak {
             animation: none;
         }
     }

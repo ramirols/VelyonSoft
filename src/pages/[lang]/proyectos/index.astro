@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { ArrowUpRight } from "lucide-astro";
 
 export async function getStaticPaths() {
     return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -8,82 +9,228 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 
+const t = {
+    es: {
+        pageTitle: "Portafolio de Proyectos | VelyonSoft",
+        pageDesc: "Explora nuestros proyectos de desarrollo web, aplicaciones móviles y soluciones digitales a medida. Casos de éxito reales con resultados medibles.",
+        eyebrow: "Portafolio",
+        title: "Todos nuestros",
+        titleAccent: "Proyectos",
+        subtitle: "Soluciones digitales que generan resultados reales para marcas que quieren crecer.",
+        viewProject: "Ver caso de estudio",
+        count: (n: number) => `${n} proyecto${n !== 1 ? "s" : ""}`,
+    },
+    en: {
+        pageTitle: "Project Portfolio | VelyonSoft",
+        pageDesc: "Explore our web development, mobile apps and custom digital solutions. Real success stories with measurable results.",
+        eyebrow: "Portfolio",
+        title: "All our",
+        titleAccent: "Projects",
+        subtitle: "Digital solutions that generate real results for brands looking to grow.",
+        viewProject: "View case study",
+        count: (n: number) => `${n} project${n !== 1 ? "s" : ""}`,
+    },
+}[lang as "es" | "en"];
+
 const projects = await getCollection("proyectos");
+
+const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": t.pageTitle,
+    "description": t.pageDesc,
+    "url": `https://velyonsoft.vercel.app/${lang}/proyectos`,
+    "hasPart": projects.map((p, i) => ({
+        "@type": "CreativeWork",
+        "position": i + 1,
+        "name": p.data.title,
+        "description": p.data.description,
+        "image": p.data.cover,
+        "url": `https://velyonsoft.vercel.app/${lang}/proyectos/${p.id}`,
+    })),
+};
 ---
 
-<BaseLayout lang={lang} title={lang === "es" ? "Proyectos" : "Projects"}>
-    <section class="max-w-6xl mx-auto px-6 py-16 mt-[50px]">
-        <h2 class="text-4xl font-bold mb-10 text-neutral-900 tracking-tight">
-            {lang === "es" ? "Proyectos" : "Projects"}
-        </h2>
+<BaseLayout lang={lang} title={t.pageTitle} description={t.pageDesc}>
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
-        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {
-                projects.map((project) => (
-                    <a
-                        href={`/${lang}/proyectos/${project.id}`}
-                        class="group relative block overflow-hidden rounded-2xl border border-neutral-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                    >
-                        {" "}
-                        <div class="aspect-video w-full overflow-hidden rounded-xl mb-6">
-                            {" "}
-                            <img
-                                src={project.data.cover}
-                                alt={project.data.title}
-                                class="h-full w-full object-cover transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-105"
-                            />
-                            {" "}
-                        </div>
-                        {" "}
-                        <div class="flex flex-col gap-2 mb-10">
-                            {" "}
-                            <h2 class="text-2xl font-semibold text-neutral-900 tracking-tight group-hover:text-primary transition-colors">
-                                {" "}
-                                {project.data.title}
-                                {" "}
-                            </h2>
-                            {" "}
-                            <p class="text-neutral-600 text-sm leading-relaxed line-clamp-2">
-                                {" "}
-                                {project.data.description}
-                                {" "}
-                            </p>
-                            {" "}
-                        </div>
-                        {" "}
-                        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-primary font-medium text-sm pt-4 border-t border-neutral-100">
-                            {" "}
-                            <span>
-                                {" "}
-                                {lang === "es"
-                                    ? "Ver Detalles"
-                                    : "View Details"}
-                                {" "}
-                            </span>
-                            {" "}
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="w-5 h-5 transition-transform group-hover:translate-x-1"
-                            >
-                                <>
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </>
-                            </svg>
-                           {" "}
-                        </div>
-                        {" "}
-                    </a>
-                ))
-            }
+    <main class="relative bg-[#fafaf8] min-h-screen">
+
+        <!-- Background -->
+        <div class="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+            <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-30"
+                style="background: radial-gradient(circle, #d4eef5 0%, transparent 70%); filter: blur(90px);"></div>
+            <div class="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full opacity-20"
+                style="background: radial-gradient(circle, #cce9f0 0%, transparent 70%); filter: blur(80px);"></div>
+            <div class="absolute inset-0 opacity-[0.3]"
+                style="
+                    background-image: linear-gradient(rgba(13,13,13,0.06) 1px, transparent 1px),
+                                      linear-gradient(90deg, rgba(13,13,13,0.06) 1px, transparent 1px);
+                    background-size: 60px 60px;
+                    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 100%);
+                "></div>
         </div>
-    </section>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24">
+
+            <!-- Header -->
+            <header class="mb-16 md:mb-20 opacity-0 anim-up" style="animation-delay:0.05s">
+                <div class="flex items-center gap-3 mb-7">
+                    <span class="block w-8 h-px bg-secondary"></span>
+                    <span class="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-secondary">{t.eyebrow}</span>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <h1 class="font-display text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.02] text-primary tracking-tight m-0">
+                        {t.title}<br />
+                        <em class="not-italic italic text-secondary">{t.titleAccent}</em>
+                    </h1>
+                    <div class="md:pb-2 max-w-xs">
+                        <p class="text-sm font-light text-muted-foreground leading-relaxed">{t.subtitle}</p>
+                        <p class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/40 mt-3">{t.count(projects.length)}</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Grid -->
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0 m-0" role="list">
+                {projects.map((project, i) => (
+                    <li class="flex opacity-0 anim-up" style={`animation-delay:${0.12 + i * 0.07}s`}>
+                        <article class="group flex flex-col w-full" itemscope itemtype="https://schema.org/CreativeWork">
+                            <meta itemprop="name" content={project.data.title} />
+                            <meta itemprop="description" content={project.data.description} />
+                            <meta itemprop="image" content={project.data.cover} />
+
+                            <a
+                                href={`/${lang}/proyectos/${project.id}`}
+                                itemprop="url"
+                                aria-label={`${project.data.title} — ${t.viewProject}`}
+                                class="card flex flex-col flex-1 no-underline bg-white border border-border rounded-2xl overflow-hidden"
+                            >
+                                <!-- Image: taller ratio, image does the heavy lifting -->
+                                <div class="relative overflow-hidden" style="aspect-ratio: 3/2;">
+                                    <img
+                                        src={project.data.cover}
+                                        alt={project.data.title}
+                                        width="640" height="427"
+                                        loading="lazy" decoding="async"
+                                        class="card-img w-full h-full object-cover"
+                                    />
+                                    <!-- Soft gradient at bottom of image -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                                    <!-- Tags: top-left -->
+                                    {project.data.tags?.length > 0 && (
+                                        <div class="absolute top-3 left-3 flex gap-1.5">
+                                            {project.data.tags.slice(0, 2).map((tag: string) => (
+                                                <span class="text-[0.55rem] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/85 text-primary/80 backdrop-blur-sm">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <!-- Content: light, airy, minimal -->
+                                <div class="flex flex-col flex-1 px-5 pt-4 pb-5">
+
+                                    <!-- Title: medium weight, not bold -->
+                                    <h2 class="card-title text-[1rem] font-medium text-primary leading-snug mb-1.5 tracking-tight">
+                                        {project.data.title}
+                                    </h2>
+
+                                    <!-- Description: the real content -->
+                                    <p class="text-[0.8rem] text-muted-foreground font-light leading-relaxed line-clamp-2 flex-1">
+                                        {project.data.description}
+                                    </p>
+
+                                    <!-- Bottom row: just a subtle link, no divider clutter -->
+                                    <div class="flex items-center justify-between mt-4">
+                                        <span class="card-cta text-[0.68rem] font-medium text-muted-foreground/60 tracking-wide">
+                                            {t.viewProject}
+                                        </span>
+                                        <span class="card-arrow flex items-center justify-center w-7 h-7 rounded-full border border-border text-muted-foreground/40">
+                                            <ArrowUpRight size={13} />
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </main>
 </BaseLayout>
+
+<style>
+    .font-display {
+        font-family: "Clash Display", "Fraunces Variable", Georgia, serif;
+    }
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-up {
+        animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* ── Card ── */
+    .card {
+        transition:
+            transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            border-color 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(30, 172, 204, 0.09);
+        border-color: rgba(30, 172, 204, 0.3);
+    }
+
+    /* Image zoom */
+    .card-img {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card:hover .card-img {
+        transform: scale(1.04);
+    }
+
+    /* Title: quietly shifts to secondary */
+    .card-title {
+        transition: color 0.25s ease;
+    }
+    .card:hover .card-title {
+        color: var(--color-secondary);
+    }
+
+    /* CTA text */
+    .card-cta {
+        transition: color 0.25s ease;
+    }
+    .card:hover .card-cta {
+        color: var(--color-secondary);
+    }
+
+    /* Arrow circle fills on hover */
+    .card-arrow {
+        transition:
+            background-color 0.25s ease,
+            border-color 0.25s ease,
+            color 0.25s ease,
+            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card:hover .card-arrow {
+        background-color: var(--color-secondary);
+        border-color: var(--color-secondary);
+        color: white;
+        transform: rotate(45deg);
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

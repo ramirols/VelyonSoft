@@ -18,6 +18,7 @@ const t = {
         sectionTitleAccent: "de nuestros servicios",
         sectionDesc:
             "Estos son nuestros servicios más contratados. Todos incluyen optimización SEO, alto rendimiento y soporte profesional.",
+        note: "Nota: Todos los precios son referenciales. El costo final depende de las funcionalidades y personalización solicitadas.",
         badges: {
             starter: "Ideal para emprendedores",
             popular: "Más vendido",
@@ -54,6 +55,7 @@ const t = {
         sectionTitleAccent: "pricing",
         sectionDesc:
             "These are our most popular services. All include SEO optimization, high performance and professional support.",
+        note: "Note: All prices are referential. The final cost depends on the functionalities and customization requested.",
         badges: {
             starter: "Perfect for startups",
             popular: "Best seller",
@@ -155,12 +157,10 @@ const schemaData = {
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-        <!-- Header -->
         <header
             class="text-center mb-16 md:mb-20 opacity-0 animate-fade-up"
             style="animation-delay: 0.05s;"
         >
-            <!-- Eyebrow badge -->
             <div
                 class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary mb-7"
             >
@@ -172,7 +172,6 @@ const schemaData = {
                 </span>
             </div>
 
-            <!-- Title: Clash Display desde Layout -->
             <h2
                 class="font-display text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] text-primary mb-5 tracking-tight"
             >
@@ -183,14 +182,18 @@ const schemaData = {
                 >
             </h2>
 
-            <p
+            <p 
                 class="text-muted-foreground max-w-xl mx-auto text-base font-light leading-relaxed"
             >
                 {t.sectionDesc}
             </p>
+
+            <p
+                class="text-primary max-w-xl mx-auto text-base font-bold leading-relaxed"
+                >{t.note}
+            </p>
         </header>
 
-        <!-- Cards grid — items-stretch para igual altura -->
         <ul
             class="grid gap-6 md:grid-cols-3 items-stretch list-none p-0 m-0"
             role="list"
@@ -251,7 +254,6 @@ const schemaData = {
     .animate-fade-up {
         animation: fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    /* Clash Display cargado via Layout.astro */
     .font-display {
         font-family: "Clash Display", "Fraunces Variable", Georgia, serif;
     }

@@ -61,8 +61,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "web-corporativa",
             nombre: "Web Corporativa",
             price: {
-                original: { pen: "S/ 2,799" },
-                offer: { pen: "S/ 2,199", note: "Más Solicitado" },
+                original: { pen: "S/ 1,599" },
+                offer: { pen: "S/ 1,399", note: "Más Solicitado" },
             },
             featured: true,
             icon: "code",
@@ -80,8 +80,8 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             slug: "wordpress-desarrollo",
             nombre: "Desarrollo en WordPress",
             price: {
-                original: { pen: "S/ 1,499" },
-                offer: { pen: "S/ 1,299", note: "Auto-gestionable" },
+                original: { pen: "S/ 1,299" },
+                offer: { pen: "S/ 1,099", note: "Auto-gestionable" },
             },
             featured: true,
             icon: "code",
@@ -124,7 +124,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             badgeKey: "starter",
             features: [
                 { icon: "check", textKey: "marketing" },
-                { icon: "check", textKey: "seoAdvanced" },
+                { icon: "check", textKey: "seoBasic" },
                 { icon: "check", textKey: "contact" },
                 { icon: "check", textKey: "support" },
             ],
@@ -269,7 +269,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             highlight: true,
             features: [
                 { icon: "check", textKey: "responsive" },
-                { icon: "check", textKey: "seoAdvanced" },
+                { icon: "check", textKey: "seoBasic" },
                 { icon: "check", textKey: "speed" },
                 { icon: "check", textKey: "contact" },
             ],
@@ -323,7 +323,7 @@ export const servicesData: Record<"es" | "en", ServicePlan[]> = {
             badgeKey: "starter",
             features: [
                 { icon: "check", textKey: "marketing" },
-                { icon: "check", textKey: "seoAdvanced" },
+                { icon: "check", textKey: "seoBasic" },
                 { icon: "check", textKey: "contact" },
                 { icon: "check", textKey: "support" },
             ],
