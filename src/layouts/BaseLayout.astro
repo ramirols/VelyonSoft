@@ -8,15 +8,24 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 const {
     lang = "es",
     title = lang === "es"
-        ? "VelyonSoft | Desarrollo de Software y Páginas Web Profesionales"
-        : "VelyonSoft | Custom Software & Professional Web Development",
-    description = "Desarrollo de software a medida, páginas web profesionales y estrategias SEO para empresas que buscan crecer y posicionarse en Google.",
+        ? "VelyonSoft | Desarrollo de Software, Páginas Web y SEO en Perú"
+        : "VelyonSoft | Software, Web Development & SEO in Peru",
+    description = lang === "es"
+        ? "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y SEO para empresas en Perú."
+        : "Custom software development, professional websites, mobile apps and SEO for companies in Peru.",
     image = "/og-default.jpg",
     type = "website",
 } = Astro.props;
 
-const site = "https://velyonsoft.vercel.app";
-const canonical = `${site}/${lang}${Astro.url.pathname.replace(/^\/(es|en)/, "")}`;
+const site = "https://www.velyonsoft.com";
+const pathname = Astro.url.pathname;
+const cleanPath = pathname.replace(/^\/(es|en)(\/|$)/, "/");
+const normalizedPath = cleanPath === "" ? "/" : cleanPath;
+
+const canonical =
+    lang === "es"
+        ? `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`
+        : `${site}/en${normalizedPath === "/" ? "" : normalizedPath}`;
 
 const ldData = {
     "@context": "https://schema.org",
@@ -35,13 +44,14 @@ const ldData = {
             ],
         },
         {
-            "@type": "LocalBusiness",
+            "@type": "ProfessionalService",
+            "@id": `${canonical}#service`,
             name: "VelyonSoft",
+            url: canonical,
             image: `${site}${image}`,
-            "@id": `${site}/#localbusiness`,
-            url: site,
             telephone: "+51997676432",
             priceRange: "$$",
+            areaServed: "PE",
             address: {
                 "@type": "PostalAddress",
                 streetAddress: "Av. Argentina 358",
@@ -61,6 +71,13 @@ const ldData = {
                 opens: "09:00",
                 closes: "18:00",
             },
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${site}/#website`,
+            url: site,
+            name: "VelyonSoft",
+            inLanguage: lang === "es" ? "es" : "en",
         },
     ],
 };

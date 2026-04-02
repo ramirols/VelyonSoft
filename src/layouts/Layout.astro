@@ -2,12 +2,25 @@
 import "../styles/global.css";
 
 interface Props {
-	lang?: string;
+	lang?: "es" | "en";
 }
 
 const { lang = "es" } = Astro.props;
 
-const baseUrl = "https://velyonsoft.vercel.app";
+const site = "https://www.velyonsoft.com";
+const pathname = Astro.url.pathname;
+
+const cleanPath = pathname.replace(/^\/(es|en)(\/|$)/, "/");
+const normalizedPath = cleanPath === "" ? "/" : cleanPath;
+
+const canonical =
+	lang === "es"
+		? `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`
+		: `${site}/en${normalizedPath === "/" ? "" : normalizedPath}`;
+
+const alternateEs = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
+const alternateEn = `${site}/en${normalizedPath === "/" ? "" : normalizedPath}`;
+const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 ---
 
 <!doctype html>
@@ -40,10 +53,11 @@ const baseUrl = "https://velyonsoft.vercel.app";
 		<link rel="manifest" href="/site.webmanifest" />
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="alternate" hreflang="es" href={`${baseUrl}/es/`} />
-		<link rel="alternate" hreflang="en" href={`${baseUrl}/en/`} />
-		<link rel="alternate" hreflang="x-default" href={`${baseUrl}/es/`} />
-		<link rel="canonical" href={new URL(Astro.url.pathname, baseUrl)} />
+
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="es" href={alternateEs} />
+		<link rel="alternate" hreflang="en" href={alternateEn} />
+		<link rel="alternate" hreflang="x-default" href={xDefault} />
 
 		<link rel="preconnect" href="https://api.fontshare.com" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,17 +89,13 @@ const baseUrl = "https://velyonsoft.vercel.app";
 
 		<meta
 			name="robots"
-			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+			content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
 		/>
-		<meta
-			name="googlebot"
-			content="index, follow, max-image-preview:large"
-		/>
+		<meta name="googlebot" content="index,follow,max-image-preview:large" />
 		<meta
 			name="format-detection"
 			content="telephone=no, email=no, address=no"
 		/>
-
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 		<slot name="head" />

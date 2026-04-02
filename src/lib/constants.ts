@@ -4,7 +4,7 @@ export const CONTACT_CONFIG = {
         rawNumber: "997676432",
         message: "¡Hola VelyonSoft! 🚀\n\nHe visto su sitio web y me interesa llevar mi proyecto al siguiente nivel con su tecnología. 📈\n\n¿Podrían brindarme información sobre sus servicios de desarrollo? ¡Muchas gracias!"
     },
-    email: "contacto.velyon@gmail.com"
+    email: "contacto@velyonsoft.com"
 };
 
 export const SOCIAL_LINKS = [

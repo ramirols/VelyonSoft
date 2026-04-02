@@ -22,7 +22,7 @@ export default defineConfig({
     },
   },
   integrations: [react(), sitemap(), mdx()],
-  site: 'https://VelyonSoft.vercel.app',
+  site: 'https://www.velyonsoft.com',
   markdown: {
     shikiConfig: {
       wrap: true,
