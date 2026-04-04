@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { ArrowUpRight } from "lucide-astro";
 
@@ -15,18 +15,28 @@ export async function getStaticPaths() {
                 lang,
                 slug: project.id,
             },
-            props: {
-                project,
-                lang,
-            },
         })),
     );
 }
 
-const { project, lang } = Astro.props as { project: any; lang: Lang };
-const { Content } = await project.render();
+const lang: Lang = Astro.params.lang === "en" ? "en" : "es";
+const slug = Astro.params.slug;
 
-// Configuración de rutas según el idioma
+if (!slug) {
+    throw new Error("Missing project slug");
+}
+
+const allProjects = await getCollection("proyectos");
+const project = allProjects.find((p) => p.id === slug) as
+    | CollectionEntry<"proyectos">
+    | undefined;
+
+if (!project) {
+    throw new Error(`Project not found: ${slug}`);
+}
+
+const { Content } = await render(project);
+
 const projectsHref = lang === "en" ? "/en/projects" : "/es/proyectos";
 const projectsLabel = lang === "en" ? "Projects" : "Proyectos";
 const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
@@ -34,9 +44,7 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
 
 <BaseLayout
     lang={lang}
-    title={`${project.data.title} | ${
-        lang === "es" ? "Proyectos" : "Projects"
-    }`}
+    title={`${project.data.title} | ${lang === "es" ? "Proyectos" : "Projects"}`}
     description={project.data.description}
     image={project.data.cover}
     type="article"
@@ -58,8 +66,9 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                         stroke-width="2.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        ><path d="m15 18-6-6 6-6"></path></svg
                     >
+                        <path d="m15 18-6-6 6-6"></path>
+                    </svg>
                     {projectsLabel}
                 </a>
                 <span class="text-neutral-300">/</span>
@@ -112,7 +121,6 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
 
 <script is:inline>
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
-
     const links = document.querySelectorAll("[data-external-link]");
 
     links.forEach((link) => {

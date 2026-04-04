@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 
 type Lang = "es" | "en";
@@ -10,18 +10,31 @@ export async function getStaticPaths() {
 
     return posts.flatMap((post) =>
         langs.map((lang) => ({
-            params: { slug: post.id, lang },
-            props: { post, lang },
+            params: {
+                lang,
+                slug: post.id,
+            },
         })),
     );
 }
 
-const { post, lang } = Astro.props as { post: any; lang: Lang };
+const lang: Lang = Astro.params.lang === "en" ? "en" : "es";
+const slug = Astro.params.slug;
 
-const { Content } = await post.render();
+if (!slug) {
+    throw new Error("Missing blog slug");
+}
 
 const allPosts = await getCollection("blog");
+const post = allPosts.find((p) => p.id === slug) as
+    | CollectionEntry<"blog">
+    | undefined;
 
+if (!post) {
+    throw new Error(`Blog post not found: ${slug}`);
+}
+
+const { Content } = await render(post);
 const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 ---
 
@@ -30,31 +43,30 @@ const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
         <Content />
     </div>
 
-    <div slot="related">
-        {
-            related.map((r) => (
-                <a
-                    href={`/${lang}/blog/${r.id}`}
-                    class="group block border rounded-2xl overflow-hidden hover:shadow-lg transition"
-                >
-                    {r.data.cover && (
-                        <img
-                            src={r.data.cover}
-                            alt={r.data.title}
-                            class="h-40 w-full object-cover group-hover:scale-105 transition"
-                        />
-                    )}
+    {
+        related.map((r) => (
+            <a
+                slot="related"
+                href={`/${lang}/blog/${r.id}`}
+                class="group block border rounded-2xl overflow-hidden hover:shadow-lg transition"
+            >
+                {r.data.cover && (
+                    <img
+                        src={r.data.cover}
+                        alt={r.data.title}
+                        class="h-40 w-full object-cover group-hover:scale-105 transition"
+                    />
+                )}
 
-                    <div class="p-5">
-                        <h3 class="font-semibold text-lg leading-snug">
-                            {r.data.title}
-                        </h3>
-                        <p class="text-sm text-gray-600 mt-2">
-                            {r.data.description}
-                        </p>
-                    </div>
-                </a>
-            ))
-        }
-    </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg leading-snug">
+                        {r.data.title}
+                    </h3>
+                    <p class="text-sm text-gray-600 mt-2">
+                        {r.data.description}
+                    </p>
+                </div>
+            </a>
+        ))
+    }
 </BlogLayout>
