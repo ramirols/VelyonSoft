@@ -3,9 +3,11 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { ArrowUpRight } from "lucide-astro";
 
+type Lang = "es" | "en";
+
 export async function getStaticPaths() {
     const projects = await getCollection("proyectos");
-    const langs = ["es", "en"];
+    const langs: Lang[] = ["es", "en"];
 
     return projects.flatMap((project) =>
         langs.map((lang) => ({
@@ -21,7 +23,7 @@ export async function getStaticPaths() {
     );
 }
 
-const { project, lang } = Astro.props;
+const { project, lang } = Astro.props as { project: any; lang: Lang };
 const { Content } = await project.render();
 
 // Configuración de rutas según el idioma

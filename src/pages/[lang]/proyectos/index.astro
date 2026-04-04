@@ -3,11 +3,13 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { ArrowUpRight } from "lucide-astro";
 
+type Lang = "es" | "en";
+
 export async function getStaticPaths() {
     return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 
-const { lang } = Astro.params;
+const { lang } = Astro.params as { lang: Lang };
 
 const t = {
     es: {
@@ -39,14 +41,14 @@ const schemaData = {
     "@type": "CollectionPage",
     "name": t.pageTitle,
     "description": t.pageDesc,
-    "url": `https://velyonsoft.vercel.app/${lang}/proyectos`,
+    "url": `https://velyonsoft.com/${lang}/proyectos`,
     "hasPart": projects.map((p, i) => ({
         "@type": "CreativeWork",
         "position": i + 1,
         "name": p.data.title,
         "description": p.data.description,
         "image": p.data.cover,
-        "url": `https://velyonsoft.vercel.app/${lang}/proyectos/${p.id}`,
+        "url": `https://velyonsoft.com/${lang}/proyectos/${p.id}`,
     })),
 };
 ---

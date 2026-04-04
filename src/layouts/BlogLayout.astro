@@ -1,11 +1,10 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
-const { lang } = Astro.params;
+type Lang = "es" | "en";
+const lang: Lang = Astro.params.lang === "en" ? "en" : "es";
 const readingTime = Math.ceil(frontmatter.words / 200);
 
-// Detectamos el idioma y construimos la ruta base correctamente
-// Esto asegura que si estás en /es/blog/... regrese a /es/blog
 const blogHref = `/${lang}/blog`;
 
 const viewAllText =

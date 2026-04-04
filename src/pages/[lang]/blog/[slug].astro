@@ -2,21 +2,21 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 
+type Lang = "es" | "en";
+
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
-    const langs = ["es", "en"];
+    const langs: Lang[] = ["es", "en"];
 
     return posts.flatMap((post) =>
         langs.map((lang) => ({
             params: { slug: post.id, lang },
-            props: { post },
+            props: { post, lang },
         })),
     );
 }
 
-const { lang } = Astro.params;
-
-const { post } = Astro.props;
+const { post, lang } = Astro.props as { post: any; lang: Lang };
 
 const { Content } = await post.render();
 
