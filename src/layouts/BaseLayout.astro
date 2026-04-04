@@ -10,6 +10,7 @@ interface Props {
     description?: string;
     image?: string;
     type?: "website" | "article";
+    canonical?: string;
 }
 
 const {
@@ -99,7 +100,6 @@ const ldData = {
     <Fragment slot="head">
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
 
         <meta property="og:type" content={type} />
         <meta property="og:locale" content={ogLocale} />
