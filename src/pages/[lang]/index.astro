@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Slider";
+import Hero from "../../components/Hero.astro";
 import Services from "../../components/Services.astro";
 import ProyectosGrid from "../../components/ProyectosGrid.astro";
 import Partners from "@/components/Partners.astro";
@@ -27,7 +27,7 @@ const { lang } = Astro.params as { lang: Lang };
 		? "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y SEO para empresas en Perú."
 		: "Custom software development, professional websites, mobile apps and SEO for companies in Peru."}
 >
-	<Hero lang={lang} client:load />
+	<Hero lang={lang} />
 	<Services lang={lang} onlyFeatured />
 	<ProyectosGrid lang={lang} />
 	<Partners lang={lang} />

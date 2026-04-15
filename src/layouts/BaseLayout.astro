@@ -14,21 +14,20 @@ interface Props {
 }
 
 const {
-    lang = "es",
-    title = lang === "es"
-        ? "VelyonSoft | Desarrollo de Software, Páginas Web y SEO en Perú"
-        : "VelyonSoft | Software, Web Development & SEO in Peru",
-    description = lang === "es"
-        ? "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y SEO para empresas en Perú."
-        : "Custom software development, professional websites, mobile apps and SEO for companies in Peru.",
-    image = "/og-default.jpg",
-    type = "website",
+  lang = "es",
+  title = lang === "es"
+    ? "Desarrollo web y software para negocios en Perú | VelyonSoft"
+    : "Web development and software for businesses in Peru | VelyonSoft",
+  description = lang === "es"
+    ? "Creamos páginas web, sistemas y automatizaciones para negocios en Perú."
+    : "We build websites, systems and automations for businesses in Peru.",
+  image = "/og-default.jpg",
+  type = "website",
 } = Astro.props as Props;
 
 const site = "https://www.velyonsoft.com";
 const pathname = Astro.url.pathname;
 
-// Quita el prefijo /es o /en para reconstruir URLs limpias por idioma
 const cleanPath = pathname.replace(/^\/(es|en)(\/|$)/, "/");
 const normalizedPath = cleanPath === "" ? "/" : cleanPath;
 

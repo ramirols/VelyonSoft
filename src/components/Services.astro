@@ -14,10 +14,10 @@ const { lang = "es", onlyFeatured = false } = Astro.props;
 const t = {
     es: {
         badge: "Soluciones",
-        sectionTitle: "Planes y precios",
-        sectionTitleAccent: "de nuestros servicios",
+        sectionTitle: "Soluciones digitales",
+        sectionTitleAccent: "para negocios",
         sectionDesc:
-            "Estos son nuestros servicios más contratados. Todos incluyen optimización SEO, alto rendimiento y soporte profesional.",
+            "Desarrollamos páginas web, sistemas y automatizaciones para empresas que buscan vender más, mejorar su atención y optimizar procesos.",
         note: "Nota: Todos los precios son referenciales. El costo final depende de las funcionalidades y personalización solicitadas.",
         badges: {
             starter: "Ideal para emprendedores",
@@ -51,10 +51,10 @@ const t = {
     },
     en: {
         badge: "Solutions",
-        sectionTitle: "Service plans &",
-        sectionTitleAccent: "pricing",
+        sectionTitle: "Digital solutions",
+        sectionTitleAccent: "for businesses",
         sectionDesc:
-            "These are our most popular services. All include SEO optimization, high performance and professional support.",
+            "We develop websites, systems and automations for companies looking to sell more, improve their customer service and optimize processes.",
         note: "Note: All prices are referential. The final cost depends on the functionalities and customization requested.",
         badges: {
             starter: "Perfect for startups",
@@ -182,7 +182,7 @@ const schemaData = {
                 >
             </h2>
 
-            <p 
+            <p
                 class="text-muted-foreground max-w-xl mx-auto text-base font-light leading-relaxed"
             >
                 {t.sectionDesc}
@@ -190,7 +190,8 @@ const schemaData = {
 
             <p
                 class="text-primary max-w-xl mx-auto text-base font-bold leading-relaxed"
-                >{t.note}
+            >
+                {t.note}
             </p>
         </header>
 

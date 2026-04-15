@@ -13,6 +13,14 @@ import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', "en"],
+    routing: {
+      prefixDefaultLocale: true,
+      fallbackType: 'redirect'
+    }
+  },
   vite: {
     plugins: [tailwindcss()],
     resolve: {

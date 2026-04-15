@@ -1,0 +1,155 @@
+---
+import { CheckCircle } from "lucide-astro";
+
+type Lang = "es" | "en";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+
+const t = {
+    es: {
+        badge: "Soluciones digitales para negocios en Perú",
+        title: "Desarrollo web y software para hacer crecer tu negocio",
+        subtitle:
+            "Creamos páginas web, sistemas y automatizaciones para empresas que quieren captar más clientes, ahorrar tiempo y digitalizar procesos.",
+        bullets: [
+            "Páginas web enfocadas en ventas",
+            "Software a medida para operaciones",
+            "Automatización de procesos y atención",
+            "Soluciones digitales para negocios en Perú",
+        ],
+        ctaPrimary: "Solicitar propuesta",
+        ctaSecondary: "Ver proyectos",
+        trust: "Atención para empresas, emprendedores y negocios locales",
+    },
+    en: {
+        badge: "Digital solutions for businesses in Peru",
+        title: "Web development and software to grow your business",
+        subtitle:
+            "We build websites, systems and automations for companies that want to win more customers, save time and digitize operations.",
+        bullets: [
+            "Websites focused on conversion",
+            "Custom software for operations",
+            "Process and customer service automation",
+            "Digital solutions for businesses in Peru",
+        ],
+        ctaPrimary: "Request a proposal",
+        ctaSecondary: "View projects",
+        trust: "Solutions for companies, startups and local businesses",
+    },
+}[lang];
+
+const heroSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name:
+        lang === "es"
+            ? "Desarrollo web y software para negocios en Perú"
+            : "Web development and software for businesses in Peru",
+    provider: {
+        "@type": "Organization",
+        name: "VelyonSoft",
+        url: "https://www.velyonsoft.com",
+    },
+    areaServed: {
+        "@type": "Country",
+        name: "Peru",
+    },
+    serviceType:
+        lang === "es"
+            ? "Desarrollo web, software a medida y automatización"
+            : "Web development, custom software and automation",
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(heroSchema)} />
+
+<section
+    id="inicio"
+    class="relative overflow-hidden bg-zinc-950 text-white"
+    aria-label={lang === "es" ? "Hero principal" : "Main hero"}
+>
+    <div
+        class="absolute inset-0 bg-cover bg-top"
+        style="background-image: url('/images/slider-font.webp');"
+    >
+    </div>
+
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-black/30 via-black/50 to-black/70"
+    >
+    </div>
+
+    <div class="absolute inset-0 backdrop-blur-[2px]"></div>
+
+    <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,211,238,0.12),transparent_45%)]"
+    >
+    </div>
+
+    <div
+        class="relative z-10 max-w-6xl mx-auto px-6 pt-15 pb-15 md:pt-40 md:pb-30"
+    >
+        <div class="max-w-3xl">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
+            >
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
+                ></span>
+                <span
+                    class="text-[11px] md:text-xs uppercase tracking-[0.18em] font-semibold text-white/75"
+                >
+                    {t.badge}
+                </span>
+            </div>
+
+            <h1
+                class="text-4xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6"
+            >
+                {t.title}
+            </h1>
+
+            <p
+                class="text-base md:text-xl text-white/75 leading-relaxed max-w-2xl mb-8"
+            >
+                {t.subtitle}
+            </p>
+
+            <ul class="grid sm:grid-cols-2 gap-3 mb-10 list-none p-0">
+                {
+                    t.bullets.map((item) => (
+                        <li class="flex items-start gap-3 text-sm md:text-base text-white/85">
+                            <CheckCircle class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
+                            <span>{item}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                    href={`/${lang}#contacto`}
+                    class="inline-flex items-center justify-center rounded-2xl bg-cyan-400 px-7 py-4 font-bold text-black transition hover:scale-[1.02] hover:bg-cyan-300"
+                >
+                    {t.ctaPrimary}
+                </a>
+
+                <a
+                    href={`/${lang}/proyectos`}
+                    class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-4 font-semibold text-white/90 transition hover:bg-white/5"
+                >
+                    {t.ctaSecondary}
+                </a>
+            </div>
+
+            <p class="mt-8 text-sm text-white/55">
+                {t.trust}
+            </p>
+        </div>
+    </div>
+</section>
