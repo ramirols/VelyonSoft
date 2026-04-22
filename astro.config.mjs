@@ -11,6 +11,8 @@ import mdx from '@astrojs/mdx';
 
 import path from 'path';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -21,6 +23,7 @@ export default defineConfig({
       fallbackType: 'redirect'
     }
   },
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -29,11 +32,15 @@ export default defineConfig({
       },
     },
   },
+
   integrations: [react(), sitemap(), mdx()],
   site: 'https://www.velyonsoft.com',
+
   markdown: {
     shikiConfig: {
       wrap: true,
     },
-  }
+  },
+
+  adapter: vercel()
 });
