@@ -21,11 +21,11 @@ const { lang } = Astro.params as { lang: Lang };
 <BaseLayout
 	lang={lang}
 	title={lang === "es"
-		? "Desarrollo de Software, Páginas Web y SEO en Perú | VelyonSoft"
-		: "Software, Web Development & SEO in Peru | VelyonSoft"}
+		? "Desarrollo de software a medida en Perú para empresas | VelyonSoft"
+		: "Custom software development in Peru for businesses | VelyonSoft"}
 	description={lang === "es"
-		? "Desarrollo de software a medida, páginas web profesionales, aplicaciones móviles y SEO para empresas en Perú."
-		: "Custom software development, professional websites, mobile apps and SEO for companies in Peru."}
+		? "Desarrollamos software a medida, sistemas web y automatizaciones para empresas en Perú. Soluciones escalables para optimizar procesos y vender más."
+		: "We build custom software, web systems and automations for businesses in Peru. Scalable solutions to optimize operations and grow faster."}
 >
 	<Hero lang={lang} />
 	<Services lang={lang} onlyFeatured />
@@ -33,6 +33,6 @@ const { lang } = Astro.params as { lang: Lang };
 	<Partners lang={lang} />
 	<TestimonialCarousel client:load lang={lang} />
 	<BlogGrid lang={lang} />
-	<FAQ client:load lang={lang} />
+	<FAQ lang={lang} />
 	<ContactForm lang={lang} />
 </BaseLayout>

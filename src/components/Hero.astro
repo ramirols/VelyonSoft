@@ -11,34 +11,34 @@ const { lang = "es" } = Astro.props;
 
 const t = {
     es: {
-        badge: "Soluciones digitales para negocios en Perú",
-        title: "Desarrollo web y software para hacer crecer tu negocio",
+        badge: "Empresa de desarrollo de software en Perú",
+        title: "Desarrollo de software a medida para empresas en Perú",
         subtitle:
-            "Creamos páginas web, sistemas y automatizaciones para empresas que quieren captar más clientes, ahorrar tiempo y digitalizar procesos.",
+            "Creamos sistemas web, automatizaciones y soluciones digitales para empresas que buscan optimizar procesos, ahorrar tiempo y crecer con tecnología.",
         bullets: [
-            "Páginas web enfocadas en ventas",
-            "Software a medida para operaciones",
-            "Automatización de procesos y atención",
-            "Soluciones digitales para negocios en Perú",
+            "Software a medida según tus procesos",
+            "Sistemas web para operaciones y ventas",
+            "Automatización de tareas y atención",
+            "Implementación para empresas en Perú",
         ],
         ctaPrimary: "Solicitar propuesta",
         ctaSecondary: "Ver proyectos",
-        trust: "Atención para empresas, emprendedores y negocios locales",
+        trust: "Soluciones para empresas, negocios y organizaciones que quieren digitalizarse",
     },
     en: {
-        badge: "Digital solutions for businesses in Peru",
-        title: "Web development and software to grow your business",
+        badge: "Software development company in Peru",
+        title: "Custom software development for businesses in Peru",
         subtitle:
-            "We build websites, systems and automations for companies that want to win more customers, save time and digitize operations.",
+            "We build web systems, automations and digital solutions for companies that want to optimize operations, save time and grow with technology.",
         bullets: [
-            "Websites focused on conversion",
-            "Custom software for operations",
-            "Process and customer service automation",
-            "Digital solutions for businesses in Peru",
+            "Custom software based on your processes",
+            "Web systems for operations and sales",
+            "Task and customer service automation",
+            "Implementation for businesses in Peru",
         ],
         ctaPrimary: "Request a proposal",
         ctaSecondary: "View projects",
-        trust: "Solutions for companies, startups and local businesses",
+        trust: "Solutions for companies and organizations looking to digitize operations",
     },
 }[lang];
 
@@ -47,8 +47,8 @@ const heroSchema = {
     "@type": "Service",
     name:
         lang === "es"
-            ? "Desarrollo web y software para negocios en Perú"
-            : "Web development and software for businesses in Peru",
+            ? "Desarrollo de software a medida para empresas en Perú"
+            : "Custom software development for businesses in Peru",
     provider: {
         "@type": "Organization",
         name: "VelyonSoft",
@@ -60,8 +60,8 @@ const heroSchema = {
     },
     serviceType:
         lang === "es"
-            ? "Desarrollo web, software a medida y automatización"
-            : "Web development, custom software and automation",
+            ? "Desarrollo de software a medida, sistemas web y automatización"
+            : "Custom software development, web systems and automation",
 };
 ---
 
@@ -77,23 +77,10 @@ const heroSchema = {
         style="background-image: url('/images/slider-font.webp');"
     >
     </div>
-
-    <div class="absolute inset-0 bg-black/40"></div>
-
-    <div
-        class="absolute inset-0 bg-gradient-to-br from-black/30 via-black/50 to-black/70"
-    >
-    </div>
-
-    <div class="absolute inset-0 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
 
     <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,211,238,0.12),transparent_45%)]"
-    >
-    </div>
-
-    <div
-        class="relative z-10 max-w-6xl mx-auto px-6 pt-15 pb-15 md:pt-40 md:pb-30"
+        class="relative z-10 max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-40 md:pb-28"
     >
         <div class="max-w-3xl">
             <div
@@ -115,7 +102,7 @@ const heroSchema = {
             </h1>
 
             <p
-                class="text-base md:text-xl text-white/75 leading-relaxed max-w-2xl mb-8"
+                class="text-base md:text-xl text-white/80 leading-relaxed max-w-2xl mb-8"
             >
                 {t.subtitle}
             </p>
@@ -123,7 +110,7 @@ const heroSchema = {
             <ul class="grid sm:grid-cols-2 gap-3 mb-10 list-none p-0">
                 {
                     t.bullets.map((item) => (
-                        <li class="flex items-start gap-3 text-sm md:text-base text-white/85">
+                        <li class="flex items-start gap-3 text-sm md:text-base text-white/90">
                             <CheckCircle class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
                             <span>{item}</span>
                         </li>
@@ -138,7 +125,6 @@ const heroSchema = {
                 >
                     {t.ctaPrimary}
                 </a>
-
                 <a
                     href={`/${lang}/proyectos`}
                     class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-4 font-semibold text-white/90 transition hover:bg-white/5"
@@ -147,9 +133,7 @@ const heroSchema = {
                 </a>
             </div>
 
-            <p class="mt-8 text-sm text-white/55">
-                {t.trust}
-            </p>
+            <p class="mt-8 text-sm text-white/60">{t.trust}</p>
         </div>
     </div>
 </section>
