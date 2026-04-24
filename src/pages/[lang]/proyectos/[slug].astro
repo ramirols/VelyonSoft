@@ -51,7 +51,7 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
 >
     <article class="max-w-4xl mx-auto mt-[130px] px-6 flex flex-col gap-5">
         <nav class="mb-4">
-            <div class="flex items-center gap-2 text-neutral-500 text-sm">
+            <div class="flex items-center gap-2 text-muted-foreground text-sm">
                 <a
                     href={projectsHref}
                     class="flex items-center gap-1 hover:text-primary transition-colors font-medium"
@@ -71,8 +71,8 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                     </svg>
                     {projectsLabel}
                 </a>
-                <span class="text-neutral-300">/</span>
-                <span class="truncate text-neutral-400"
+                <span class="text-border">/</span>
+                <span class="truncate text-muted-foreground"
                     >{project.data.title}</span
                 >
             </div>
@@ -83,6 +83,8 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                 <img
                     src={project.data.cover}
                     alt={project.data.title}
+                    loading="eager"
+                    decoding="async"
                     class="w-full rounded-2xl shadow-sm"
                 />
             )
@@ -93,12 +95,12 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                 {project.data.title}
             </h1>
 
-            <p class="text-gray-600 text-lg mt-4 max-w-2xl">
+            <p class="text-muted-foreground text-lg mt-4 max-w-2xl">
                 {project.data.description}
             </p>
         </header>
 
-        <div class="prose prose-neutral prose-lg max-w-none">
+        <div class="prose prose-neutral dark:prose-invert prose-lg max-w-none">
             <Content />
         </div>
 
@@ -108,7 +110,7 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                     <a
                         href={project.data.url}
                         data-external-link
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition"
                     >
                         {ctaLabel}
                         <ArrowUpRight class="w-5 h-5" />

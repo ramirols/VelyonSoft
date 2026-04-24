@@ -23,26 +23,6 @@ strong {
     color: var(--color-secondary);
 }
 
-.swiper-pagination {
-    bottom: 20px !important;
-}
-
-.swiper-pagination-bullet {
-    width: 10px !important;
-    height: 10px !important;
-    margin: 0 6px !important;
-    background: white !important;
-    opacity: 0.6 !important;
-    transition: all 0.3s ease !important;
-}
-
-.swiper-pagination-bullet-active {
-    width: 30px !important;
-    border-radius: 5px !important;
-    background: #1eaccc !important;
-    opacity: 1 !important;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -50,13 +30,14 @@ textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: #111827 !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--background) inset !important;
+    box-shadow: 0 0 0px 1000px var(--background) inset !important;
+    -webkit-text-fill-color: var(--foreground) !important;
     transition: background-color 5000s ease-in-out 0s;
 }
 
 :root {
+    color-scheme: light;
     --background: #ffffff;
     --foreground: #252525;
     --card: #ffffff;
@@ -89,6 +70,41 @@ select:-webkit-autofill {
     --sidebar-accent: #f1f5f9;
     --sidebar-accent-foreground: var(--primary);
     --sidebar-border: #e2e8f0;
+    --sidebar-ring: var(--ring);
+}
+
+:root.dark {
+    color-scheme: dark;
+    --background: #091017;
+    --foreground: #eef4f8;
+    --card: #101922;
+    --card-foreground: #eef4f8;
+    --popover: #101922;
+    --popover-foreground: #eef4f8;
+
+    --primary: #eef4f8;
+    --primary-foreground: #091017;
+
+    --secondary: #1eaccc;
+    --secondary-foreground: #ffffff;
+    --ring: #1eaccc;
+
+    --accent: #d9e4ec;
+    --accent-foreground: #091017;
+
+    --muted: #14212d;
+    --muted-foreground: #9eb0bf;
+    --destructive: #f87171;
+    --border: #223242;
+    --input: #223242;
+
+    --sidebar: #0d1822;
+    --sidebar-foreground: #eef4f8;
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: #14212d;
+    --sidebar-accent-foreground: var(--primary);
+    --sidebar-border: #223242;
     --sidebar-ring: var(--ring);
 }
 
@@ -153,6 +169,7 @@ select:-webkit-autofill {
 
     body {
         @apply bg-background text-foreground;
+        transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     html {

@@ -169,7 +169,7 @@ const t = i18n[lang];
                 [t.mission, t.vision].map((item, i) => (
                     <div class="mission-card group p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
                         <div
-                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary" : "bg-primary"} text-white rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg`}
+                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary text-white" : "bg-primary text-primary-foreground"} rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg`}
                         >
                             {i === 0 ? <Target size={26} /> : <Eye size={26} />}
                         </div>
@@ -186,7 +186,7 @@ const t = i18n[lang];
     </section>
 
     <section
-        class="method-wrapper bg-white relative overflow-hidden border-y border-border"
+        class="method-wrapper bg-background relative overflow-hidden border-y border-border"
         id="method-pin"
     >
         <div
@@ -312,7 +312,7 @@ const t = i18n[lang];
                 </h2>
                 <a
                     href={`/${lang}/proyectos`}
-                    class="inline-flex items-center gap-4 px-8 py-5 md:px-12 md:py-6 bg-primary text-white font-bold rounded-xl md:rounded-2xl hover:bg-secondary transition-all duration-500 group shadow-xl shadow-primary/20"
+                    class="inline-flex items-center gap-4 px-8 py-5 md:px-12 md:py-6 bg-primary text-primary-foreground font-bold rounded-xl md:rounded-2xl hover:bg-secondary hover:text-white transition-all duration-500 group shadow-xl shadow-primary/20"
                 >
                     Ver Proyectos
                     <Rocket
@@ -447,10 +447,14 @@ const t = i18n[lang];
 <style>
     #method-pin {
         will-change: transform;
-        background: linear-gradient(to bottom, #ffffff, #fcfcfc);
+        background: linear-gradient(
+            to bottom,
+            color-mix(in srgb, var(--background) 96%, white 4%),
+            var(--background)
+        );
     }
 
     .method-step-card {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+        box-shadow: 0 20px 40px color-mix(in srgb, var(--foreground) 10%, transparent);
     }
 </style>

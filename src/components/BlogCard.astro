@@ -16,7 +16,7 @@ const formattedDate = data.date.toLocaleDateString(
 ---
 
 <article
-    class="group relative bg-white rounded-[2rem] border border-gray-400 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:border-secondary"
+    class="group relative bg-card rounded-[2rem] border border-border overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:border-secondary"
 >
     <a href={`/${lang}/blog/${id}`} class="block">
         <div class="relative aspect-[16/10] overflow-hidden">
@@ -25,6 +25,8 @@ const formattedDate = data.date.toLocaleDateString(
                     <img
                         src={data.cover}
                         alt={data.title}
+                        loading="lazy"
+                        decoding="async"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                 )
@@ -37,7 +39,7 @@ const formattedDate = data.date.toLocaleDateString(
 
             <div class="absolute top-4 left-4">
                 <span
-                    class="px-3 py-1.5 bg-white/90 backdrop-blur-md border border-white/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm"
+                    class="px-3 py-1.5 bg-background/90 backdrop-blur-md border border-border/70 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm"
                 >
                     {data.category}
                 </span>
@@ -46,7 +48,7 @@ const formattedDate = data.date.toLocaleDateString(
 
         <div class="p-7">
             <div
-                class="flex items-center gap-4 mb-4 text-zinc-400 text-[11px] font-medium uppercase tracking-wider"
+                class="flex items-center gap-4 mb-4 text-muted-foreground text-[11px] font-medium uppercase tracking-wider"
             >
                 <div class="flex items-center gap-1.5">
                     <Calendar size={13} class="text-secondary" />
@@ -65,7 +67,7 @@ const formattedDate = data.date.toLocaleDateString(
             </h2>
 
             <p
-                class="text-zinc-500 text-sm font-light leading-relaxed mb-8 line-clamp-3"
+                class="text-muted-foreground text-sm font-light leading-relaxed mb-8 line-clamp-3"
             >
                 {data.description}
             </p>
@@ -75,11 +77,11 @@ const formattedDate = data.date.toLocaleDateString(
             >
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-7 h-7 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-400 border border-zinc-200"
+                        class="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-muted-foreground border border-border"
                     >
                         <User size={14} />
                     </div>
-                    <span class="text-xs font-bold text-zinc-700"
+                    <span class="text-xs font-bold text-foreground"
                         >{data.author}</span
                     >
                 </div>

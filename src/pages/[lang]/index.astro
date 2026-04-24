@@ -31,8 +31,8 @@ const { lang } = Astro.params as { lang: Lang };
 	<Services lang={lang} onlyFeatured />
 	<ProyectosGrid lang={lang} />
 	<Partners lang={lang} />
-	<TestimonialCarousel client:load lang={lang} />
+	<TestimonialCarousel client:visible lang={lang} />
 	<BlogGrid lang={lang} />
-	<FAQ lang={lang} />
+	<FAQ client:visible lang={lang} />
 	<ContactForm lang={lang} />
 </BaseLayout>

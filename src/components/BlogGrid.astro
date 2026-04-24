@@ -31,7 +31,7 @@ const t = {
 const i18n = lang === "es" ? t.es : t.en;
 ---
 
-<section id="blog" class="py-15 bg-white">
+<section id="blog" class="py-15 bg-background">
     <div class="max-w-6xl mx-auto px-6">
         <header class="text-center mb-20 space-y-4">
             <div
@@ -48,7 +48,7 @@ const i18n = lang === "es" ? t.es : t.en;
                 {i18n.title}
             </h2>
             <p
-                class="text-zinc-500 max-w-xl mx-auto text-lg font-light leading-relaxed"
+                class="text-muted-foreground max-w-xl mx-auto text-lg font-light leading-relaxed"
             >
                 {i18n.subtitle}
             </p>
@@ -62,7 +62,7 @@ const i18n = lang === "es" ? t.es : t.en;
             <a
                 href={`/${lang}/blog`}
                 rel="noopener noreferrer"
-                class="group inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-primary transition-all"
+                class="group inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary transition-all"
             >
                 {i18n.viewAll}
                 <ArrowRight

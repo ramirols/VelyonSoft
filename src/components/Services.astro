@@ -1,8 +1,7 @@
 ---
-import { Laptop, Code, Boxes, Phone } from "lucide-astro";
+import { Laptop, Code, Boxes, Phone, LayoutGrid } from "lucide-astro";
 import ServiceCard from "./ServiceCard.astro";
 import { servicesData } from "../data/services";
-import { LayoutGrid } from "lucide-react";
 
 interface Props {
     lang?: "es" | "en";
@@ -164,7 +163,7 @@ const schemaData = {
             <div
                 class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary mb-7"
             >
-                <LayoutGrid size={13} client:load />
+                <LayoutGrid size={13} />
                 <span
                     class="text-[0.6rem] font-bold uppercase tracking-[0.25em]"
                 >

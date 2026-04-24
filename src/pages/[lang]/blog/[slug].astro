@@ -48,12 +48,14 @@ const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
             <a
                 slot="related"
                 href={`/${lang}/blog/${r.id}`}
-                class="group block border rounded-2xl overflow-hidden hover:shadow-lg transition"
+                class="group block border border-border bg-card rounded-2xl overflow-hidden hover:shadow-lg transition"
             >
                 {r.data.cover && (
                     <img
                         src={r.data.cover}
                         alt={r.data.title}
+                        loading="lazy"
+                        decoding="async"
                         class="h-40 w-full object-cover group-hover:scale-105 transition"
                     />
                 )}
@@ -62,7 +64,7 @@ const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
                     <h3 class="font-semibold text-lg leading-snug">
                         {r.data.title}
                     </h3>
-                    <p class="text-sm text-gray-600 mt-2">
+                    <p class="text-sm text-muted-foreground mt-2">
                         {r.data.description}
                     </p>
                 </div>

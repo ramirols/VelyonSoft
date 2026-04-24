@@ -32,7 +32,7 @@ const t = i18n[lang];
 <BaseLayout title={t.seoTitle} lang={lang}>
     <section class="max-w-6xl mx-auto px-6 py-16 mt-[50px]">
         <h1
-            class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-12 tracking-tight"
+            class="text-4xl md:text-5xl font-extrabold text-primary mb-12 tracking-tight"
         >
             {t.title}
         </h1>
@@ -42,19 +42,21 @@ const t = i18n[lang];
                 posts.map((post) => (
                     <a
                         href={`/${lang}/blog/${post.id}`}
-                        class="group flex flex-col h-full border border-neutral-100 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                        class="group flex flex-col h-full border border-border rounded-2xl bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                     >
                         {post.data.cover && (
                             <div class="relative aspect-[16/9] overflow-hidden">
                                 <img
                                     src={post.data.cover}
                                     alt={post.data.title}
+                                    loading="lazy"
+                                    decoding="async"
                                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                 <div class="absolute top-4 left-4">
-                                    <span class="bg-white/90 backdrop-blur-md text-neutral-900 text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">
+                                    <span class="bg-background/90 backdrop-blur-md text-primary text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">
                                         {post.data.date.toLocaleDateString(
                                             lang === "es" ? "es-PE" : "en-US",
                                             { month: "short", day: "numeric" },
@@ -65,11 +67,11 @@ const t = i18n[lang];
                         )}
 
                         <div class="flex flex-col flex-1 p-6">
-                            <h2 class="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary transition-colors leading-snug">
+                            <h2 class="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
                                 {post.data.title}
                             </h2>
 
-                            <p class="text-neutral-600 text-sm line-clamp-3 mb-6 flex-1">
+                            <p class="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">
                                 {post.data.description}
                             </p>
 

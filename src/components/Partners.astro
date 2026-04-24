@@ -186,7 +186,7 @@ const schemaData = {
                     return (
                         <article
                             class:list={[
-                                "group relative flex flex-col rounded-[1.5rem] border border-border bg-white overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-secondary/30",
+                                "group relative flex flex-col rounded-[1.5rem] border border-border bg-card overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-secondary/30",
                                 partners.length === 1
                                     ? "w-full max-w-lg"
                                     : "w-full",
@@ -262,7 +262,7 @@ const schemaData = {
                                                 pillKey as keyof typeof t.pills
                                             ];
                                         return (
-                                            <li class="flex items-center gap-3 text-[0.82rem] text-primary/70">
+                                            <li class="flex items-center gap-3 text-[0.82rem] text-foreground/70">
                                                 <span
                                                     class="flex items-center justify-center w-5 h-5 rounded-full bg-secondary/10 text-secondary flex-shrink-0"
                                                     aria-hidden="true"

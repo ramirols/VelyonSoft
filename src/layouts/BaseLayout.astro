@@ -150,12 +150,12 @@ const ldData = {
         </script>
     </Fragment>
 
-    <Header client:load lang={lang} />
+    <Header client:load transition:persist lang={lang} />
 
     <main id="main-content">
         <slot />
     </main>
 
     <Footer lang={lang} />
-    <WhatsAppWidget client:load />
+    <WhatsAppWidget client:idle />
 </Layout>

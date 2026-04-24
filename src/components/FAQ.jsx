@@ -132,7 +132,7 @@ export default function FAQ({ lang = "es" }) {
     const t = i18n[lang] ?? i18n.es;
 
     return (
-        <section id="faq" className="py-15 bg-white">
+        <section id="faq" className="py-15 bg-background">
             <div className="max-w-4xl mx-auto px-6">
 
                 {/* Header */}
@@ -146,7 +146,7 @@ export default function FAQ({ lang = "es" }) {
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary">
                         {t.title}
                     </h2>
-                    <p className="text-zinc-500 max-w-xl mx-auto text-lg font-light leading-relaxed">
+                    <p className="text-muted-foreground max-w-xl mx-auto text-lg font-light leading-relaxed">
                         {t.subtitle}
                     </p>
                 </header>
@@ -161,19 +161,19 @@ export default function FAQ({ lang = "es" }) {
                             // Añadimos itemScope para Microdatos (SEO Avanzado)
                             itemScope
                             itemType="https://schema.org/Question"
-                            className="group border border-gray-400 rounded-2xl bg-zinc-50/50 px-4 transition-all duration-500 data-[state=open]:bg-white data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
+                            className="group border border-border rounded-2xl bg-muted/40 px-4 transition-all duration-500 data-[state=open]:bg-card data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
                         >
                             <AccordionTrigger className="hover:no-underline py-7 px-4">
                                 <div className="flex items-center gap-5 text-left">
-                                    <span className="hidden sm:block text-[11px] font-bold text-gray-400 group-data-[state=open]:text-secondary transition-colors duration-500">
+                                    <span className="hidden sm:block text-[11px] font-bold text-muted-foreground group-data-[state=open]:text-secondary transition-colors duration-500">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
                                     {/* Quitamos el H3 repetido y lo dejamos solo aquí con itemProp */}
-                                    <h3 itemProp="name" className="text-lg font-medium text-gray-700 group-data-[state=open]:text-primary transition-colors duration-500">
+                                    <h3 itemProp="name" className="text-lg font-medium text-foreground/80 group-data-[state=open]:text-primary transition-colors duration-500">
                                         {faq.q}
                                     </h3>
                                 </div>
-                                <div className="shrink-0 ml-4 p-2 rounded-xl bg-white border border-gray-400 text-gray-400 group-data-[state=open]:bg-secondary group-data-[state=open]:text-white group-data-[state=open]:border-secondary transition-all duration-500 shadow-sm">
+                                <div className="shrink-0 ml-4 p-2 rounded-xl bg-background border border-border text-muted-foreground group-data-[state=open]:bg-secondary group-data-[state=open]:text-white group-data-[state=open]:border-secondary transition-all duration-500 shadow-sm">
                                     <Plus className="w-4 h-4 transition-transform duration-500 group-data-[state=open]:rotate-45" />
                                 </div>
                             </AccordionTrigger>
@@ -183,7 +183,7 @@ export default function FAQ({ lang = "es" }) {
                                 itemType="https://schema.org/Answer"
                                 className="px-4 pb-8 pt-0 sm:pl-16"
                             >
-                                <div itemProp="text" className="text-zinc-500 leading-relaxed font-light text-[17px]">
+                                <div itemProp="text" className="text-muted-foreground leading-relaxed font-light text-[17px]">
                                     {faq.a}{" "}
                                     <strong className="font-medium text-primary">
                                         {faq.str}
@@ -196,7 +196,7 @@ export default function FAQ({ lang = "es" }) {
 
                 {/* Footer */}
                 <div className="mt-20 text-center">
-                    <p className="text-zinc-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                         {t.footer}
                         <a
                             href={`/${lang}#contacto`}

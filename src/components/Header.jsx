@@ -1,10 +1,10 @@
-import { Menu, X, Grid3X3, Briefcase, BookOpen, Mail, Home } from "lucide-react";
+import { Menu, X, Grid3X3, Briefcase, BookOpen, Mail, Moon, SunMedium } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header({ lang = "es" }) {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [theme, setTheme] = useState("light");
 
     const translations = {
         es: {
@@ -14,6 +14,7 @@ export default function Header({ lang = "es" }) {
             proyectos: "Proyectos",
             blog: "Blog",
             contacto: "Contacto",
+            toggleTheme: "Cambiar tema",
         },
         en: {
             inicio: "Home",
@@ -22,13 +23,13 @@ export default function Header({ lang = "es" }) {
             proyectos: "Projects",
             blog: "Blog",
             contacto: "Contact",
+            toggleTheme: "Toggle theme",
         },
     };
 
     const t = translations[lang] || translations.es;
 
     const navLinks = [
-        { name: t.inicio, href: `/${lang}#inicio`, icon: <Home size={18} /> },
         {
             name: t.sobre_nosotros,
             href: `/${lang}/sobre-nosotros`,
@@ -48,11 +49,31 @@ export default function Header({ lang = "es" }) {
     ];
 
     useEffect(() => {
-        const handleScroll = () => {
-            const slideSection = document.getElementById("inicio");
-            const blogHero = document.getElementById("blog-hero");
-            const footer = document.querySelector("footer");
+        const syncTheme = () => {
+            setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+        };
 
+        syncTheme();
+        document.addEventListener("themechange", syncTheme);
+
+        return () => {
+            document.removeEventListener("themechange", syncTheme);
+        };
+    }, []);
+
+    useEffect(() => {
+        let frame = 0;
+        let slideSection = null;
+        let blogHero = null;
+        let footer = null;
+
+        const refreshTargets = () => {
+            slideSection = document.getElementById("inicio");
+            blogHero = document.getElementById("blog-hero");
+            footer = document.querySelector("footer");
+        };
+
+        const handleScroll = () => {
             if (footer) {
                 const footerRect = footer.getBoundingClientRect();
                 if (footerRect.top < 80) {
@@ -80,12 +101,36 @@ export default function Header({ lang = "es" }) {
             setScrolled(true);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        const syncHeaderState = () => {
+            setOpen(false);
+            refreshTargets();
+            window.requestAnimationFrame(handleScroll);
+        };
+
+        const onScroll = () => {
+            if (frame) {
+                return;
+            }
+
+            frame = window.requestAnimationFrame(() => {
+                frame = 0;
+                handleScroll();
+            });
+        };
+
+        refreshTargets();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        document.addEventListener("astro:page-load", syncHeaderState);
 
         const timeout = setTimeout(handleScroll, 100);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            if (frame) {
+                window.cancelAnimationFrame(frame);
+            }
+
+            window.removeEventListener("scroll", onScroll);
+            document.removeEventListener("astro:page-load", syncHeaderState);
             clearTimeout(timeout);
         };
     }, []);
@@ -104,28 +149,46 @@ export default function Header({ lang = "es" }) {
         window.location.href = url.toString();
     };
 
+    const toggleTheme = () => {
+        const nextTheme = theme === "dark" ? "light" : "dark";
+
+        if (typeof window.__setTheme === "function") {
+            window.__setTheme(nextTheme);
+        } else {
+            document.documentElement.classList.toggle("dark", nextTheme === "dark");
+            document.documentElement.dataset.theme = nextTheme;
+            document.dispatchEvent(
+                new CustomEvent("themechange", { detail: { theme: nextTheme } }),
+            );
+        }
+
+        setTheme(nextTheme);
+    };
+
+    const themeButtonClass = scrolled
+        ? "border border-border/70 bg-card/80 text-primary hover:bg-muted"
+        : "border border-white/15 bg-white/10 text-white hover:bg-white/20";
+
     return (
         <header className="fixed top-6 left-0 w-full z-50 px-6 transition-all duration-500">
             <div className="max-w-7xl mx-auto">
                 <div
                     className={`relative flex items-center justify-between px-6 rounded-2xl transition-all duration-500 ease-out ${scrolled
-                            ? "py-3 bg-white/40 backdrop-blur-xl shadow-lg"
+                            ? "py-3 border border-border/60 bg-background/75 backdrop-blur-xl shadow-lg shadow-black/5"
                             : "py-4 bg-transparent"
                         }`}
                 >
                     <div className="flex items-center">
                         {!scrolled ? (
                             <a
-                                href={`/${lang}`}
+                                href={`/${lang}#inicio`}
                                 className="text-2xl font-black tracking-wide transition-all duration-500 ease-in-out"
                             >
                                 <span className="text-secondary">Velyon</span>
                                 <span className="text-white">Soft</span>
                             </a>
                         ) : (
-                            <motion.a
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
+                            <a
                                 href={`/${lang}#inicio`}
                                 className="transition-all duration-500 ease-in-out"
                             >
@@ -134,7 +197,7 @@ export default function Header({ lang = "es" }) {
                                     alt="VelyonSoft Logo"
                                     className="h-10 w-auto rounded-lg object-cover shadow-sm"
                                 />
-                            </motion.a>
+                            </a>
                         )}
                     </div>
 
@@ -146,7 +209,7 @@ export default function Header({ lang = "es" }) {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className={`flex items-center gap-2 transition-colors ${scrolled ? "hover:text-primary" : "hover:text-white"
+                                className={`flex items-center gap-2 transition-colors ${scrolled ? "hover:text-secondary" : "hover:text-white"
                                     }`}
                             >
                                 {link.icon}
@@ -156,6 +219,15 @@ export default function Header({ lang = "es" }) {
                     </nav>
 
                     <div className="hidden md:flex items-center gap-3">
+                        <button
+                            type="button"
+                            onClick={toggleTheme}
+                            aria-label={t.toggleTheme}
+                            className={`flex h-10 w-10 items-center justify-center rounded-xl transition ${themeButtonClass}`}
+                        >
+                            {theme === "dark" ? <SunMedium size={18} /> : <Moon size={18} />}
+                        </button>
+
                         <div className="flex gap-2">
                             <button
                                 type="button"
@@ -163,7 +235,7 @@ export default function Header({ lang = "es" }) {
                                 className={`px-3 py-1 rounded-lg text-sm font-bold transition cursor-pointer ${lang === "es"
                                         ? "bg-secondary text-white"
                                         : scrolled
-                                            ? "text-primary/70 hover:text-primary"
+                                            ? "text-muted-foreground hover:text-primary"
                                             : "text-white/60 hover:text-white"
                                     }`}
                             >
@@ -176,7 +248,7 @@ export default function Header({ lang = "es" }) {
                                 className={`px-3 py-1 rounded-lg text-sm font-bold transition cursor-pointer ${lang === "en"
                                         ? "bg-secondary text-white"
                                         : scrolled
-                                            ? "text-primary/70 hover:text-primary"
+                                            ? "text-muted-foreground hover:text-primary"
                                             : "text-white/60 hover:text-white"
                                     }`}
                             >
@@ -188,7 +260,7 @@ export default function Header({ lang = "es" }) {
                             href={`/${lang}#contacto`}
                             className={`flex items-center gap-2 px-5 py-2 rounded-xl font-semibold transition-all ${scrolled
                                     ? "bg-secondary text-white hover:opacity-90"
-                                    : "bg-white text-accent hover:bg-secondary hover:text-white"
+                                    : "bg-white text-[#091017] hover:bg-secondary hover:text-white"
                                 }`}
                         >
                             <Mail size={18} />
@@ -206,15 +278,10 @@ export default function Header({ lang = "es" }) {
                     </button>
                 </div>
 
-                <AnimatePresence>
-                    {open && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.25 }}
+                {open && (
+                        <div
                             className={`md:hidden mt-2 rounded-2xl backdrop-blur-xl p-6 space-y-6 transition-all duration-300 ${scrolled
-                                    ? "bg-white/20 border border-black/10 shadow-xl"
+                                    ? "bg-background/90 border border-border/60 shadow-xl"
                                     : "bg-black/20 border border-white/10"
                                 }`}
                         >
@@ -233,14 +300,23 @@ export default function Header({ lang = "es" }) {
                                 </a>
                             ))}
 
-                            <div className="pt-4 border-t border-white/10 flex justify-center gap-6">
+                            <div className={`pt-4 border-t flex items-center justify-center gap-4 ${scrolled ? "border-border/60" : "border-white/10"}`}>
+                                <button
+                                    type="button"
+                                    onClick={toggleTheme}
+                                    aria-label={t.toggleTheme}
+                                    className={`flex h-10 w-10 items-center justify-center rounded-xl transition ${themeButtonClass}`}
+                                >
+                                    {theme === "dark" ? <SunMedium size={18} /> : <Moon size={18} />}
+                                </button>
+
                                 <button
                                     type="button"
                                     onClick={() => switchLang("es")}
                                     className={`font-bold ${lang === "es"
                                             ? "text-secondary"
                                             : scrolled
-                                                ? "text-primary/70"
+                                                ? "text-muted-foreground"
                                                 : "text-white/60"
                                         }`}
                                 >
@@ -253,7 +329,7 @@ export default function Header({ lang = "es" }) {
                                     className={`font-bold ${lang === "en"
                                             ? "text-secondary"
                                             : scrolled
-                                                ? "text-primary/70"
+                                                ? "text-muted-foreground"
                                                 : "text-white/60"
                                         }`}
                                 >
@@ -266,15 +342,14 @@ export default function Header({ lang = "es" }) {
                                 onClick={() => setOpen(false)}
                                 className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold transition ${scrolled
                                         ? "bg-secondary text-white hover:opacity-90"
-                                        : "bg-white text-accent hover:bg-secondary"
+                                        : "bg-white text-[#091017] hover:bg-secondary hover:text-white"
                                     }`}
                             >
                                 <Mail size={18} />
                                 {t.contacto}
                             </a>
-                        </motion.div>
+                        </div>
                     )}
-                </AnimatePresence>
             </div>
         </header>
     );

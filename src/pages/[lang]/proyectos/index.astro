@@ -56,7 +56,7 @@ const schemaData = {
 <BaseLayout lang={lang} title={t.pageTitle} description={t.pageDesc}>
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
-    <main class="relative bg-[#fafaf8] min-h-screen">
+    <main class="relative bg-background min-h-screen">
 
         <!-- Background -->
         <div class="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
@@ -106,7 +106,7 @@ const schemaData = {
                                 href={`/${lang}/proyectos/${project.id}`}
                                 itemprop="url"
                                 aria-label={`${project.data.title} — ${t.viewProject}`}
-                                class="card flex flex-col flex-1 no-underline bg-white border border-border rounded-2xl overflow-hidden"
+                                class="card flex flex-col flex-1 no-underline bg-card border border-border rounded-2xl overflow-hidden"
                             >
                                 <!-- Image: taller ratio, image does the heavy lifting -->
                                 <div class="relative overflow-hidden" style="aspect-ratio: 3/2;">
@@ -124,7 +124,7 @@ const schemaData = {
                                     {project.data.tags?.length > 0 && (
                                         <div class="absolute top-3 left-3 flex gap-1.5">
                                             {project.data.tags.slice(0, 2).map((tag: string) => (
-                                                <span class="text-[0.55rem] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/85 text-primary/80 backdrop-blur-sm">
+                                                <span class="text-[0.55rem] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-background/85 text-primary/80 backdrop-blur-sm">
                                                     {tag}
                                                 </span>
                                             ))}
