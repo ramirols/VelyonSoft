@@ -3,7 +3,7 @@ title: "T-Asfalto – Landing web para soluciones de asfaltado e infraestructura
 description: "Diseño y desarrollo de una landing page corporativa para T-Asfalto, enfocada en presentar servicios de asfaltado, mantenimiento vial y soluciones para proyectos de infraestructura."
 result: "Mejor presencia digital y mayor visibilidad de servicios de asfaltado e infraestructura."
 date: "2025-05-12"
-cover: "/images/portafolio/t-asfalto.png"
+cover: "/images/portafolio/t-asfalto.webp"
 url: "https://t-asfalto.vercel.app/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío principal era crear una web que pudiera:
 - Presentar soluciones para **obras de construcción, urbanización y mantenimiento**
 - Facilitar el contacto con clientes interesados en solicitar cotizaciones
 
-El sector del asfaltado requiere comunicar de forma clara la **capacidad técnica y experiencia en proyectos de infraestructura**, ya que el asfalto y sus derivados se utilizan ampliamente en la construcción de carreteras, pistas y superficies de tránsito. :contentReference[oaicite:0]{index=0}  
+El sector del asfaltado requiere comunicar de forma clara la **capacidad técnica y experiencia en proyectos de infraestructura**, ya que el asfalto y sus derivados se utilizan ampliamente en la construcción de carreteras, pistas y superficies de tránsito.  
 
 ---
 

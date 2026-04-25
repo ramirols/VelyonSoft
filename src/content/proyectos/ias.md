@@ -3,7 +3,7 @@ title: "IAS LAT – Landing web para soluciones tecnológicas y automatización 
 description: "Diseño y desarrollo de una landing page para IAS LAT enfocada en presentar soluciones digitales basadas en inteligencia artificial, automatización y herramientas tecnológicas para empresas."
 result: "Mayor presencia digital y mejor comunicación de soluciones tecnológicas basadas en IA."
 date: "2025-05-26"
-cover: "/images/portafolio/ias.png"
+cover: "/images/portafolio/ias.webp"
 url: "https://www.ias.lat/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El objetivo principal era crear una web capaz de:
 - Transmitir innovación y profesionalismo en el sector tecnológico
 - Facilitar el contacto con empresas interesadas en implementar soluciones digitales
 
-La inteligencia artificial se está utilizando cada vez más en empresas para **automatizar procesos, mejorar la atención al cliente y optimizar estrategias digitales**, permitiendo aumentar la productividad y eficiencia en diferentes sectores. :contentReference[oaicite:0]{index=0}  
+La inteligencia artificial se está utilizando cada vez más en empresas para **automatizar procesos, mejorar la atención al cliente y optimizar estrategias digitales**, permitiendo aumentar la productividad y eficiencia en diferentes sectores.  
 
 ---
 

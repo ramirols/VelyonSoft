@@ -3,7 +3,7 @@ title: "EcuMotor – Landing web para gestión y mantenimiento de vehículos"
 description: "Diseño y desarrollo de una landing page para EcuMotor, una plataforma digital orientada a la gestión de vehículos y seguimiento de mantenimientos automotrices."
 result: "Creación de una presencia digital para presentar la plataforma de gestión vehicular."
 date: "2025-06-07"
-cover: "/images/portafolio/ecumotor.png"
+cover: "/images/portafolio/ecumotor.webp"
 url: "https://ecumotor-front.vercel.app/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El objetivo del proyecto era desarrollar una web capaz de:
 - Mostrar alertas o recordatorios relacionados con servicios automotrices
 - Transmitir una imagen moderna y tecnológica
 
-Las plataformas de gestión vehicular permiten centralizar información importante del automóvil, como mantenimientos, revisiones y notificaciones preventivas para asegurar su correcto funcionamiento. :contentReference[oaicite:0]{index=0}
+Las plataformas de gestión vehicular permiten centralizar información importante del automóvil, como mantenimientos, revisiones y notificaciones preventivas para asegurar su correcto funcionamiento.
 
 ---
 

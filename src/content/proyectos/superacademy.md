@@ -3,7 +3,7 @@ title: "SuperAcademy – Landing web para plataforma educativa y recursos acadé
 description: "Diseño y desarrollo de una landing page para SuperAcademy, una plataforma digital orientada a compartir recursos educativos, materiales de estudio y contenidos académicos para estudiantes."
 result: "Creación de una presencia digital clara para una plataforma de apoyo educativo."
 date: "2025-06-10"
-cover: "/images/portafolio/superacademy.png"
+cover: "/images/portafolio/superacademy.webp"
 url: "https://superacademy.vercel.app/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El objetivo del proyecto era desarrollar una landing page que pudiera:
 - Organizar contenidos de forma clara para los estudiantes  
 - Crear una experiencia simple y accesible desde cualquier dispositivo  
 
-Las plataformas educativas digitales permiten centralizar contenido académico como clases, materiales y recursos de apoyo, facilitando que los estudiantes puedan acceder al conocimiento desde cualquier lugar. :contentReference[oaicite:0]{index=0}
+Las plataformas educativas digitales permiten centralizar contenido académico como clases, materiales y recursos de apoyo, facilitando que los estudiantes puedan acceder al conocimiento desde cualquier lugar.
 
 ---
 

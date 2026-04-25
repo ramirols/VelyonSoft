@@ -3,7 +3,7 @@ title: "Unimaster – Plataforma web para formación técnica y software de inge
 description: "Diseño y desarrollo de un sitio web institucional para Unimaster, orientado a presentar sus programas académicos, cursos técnicos y formación especializada en software para ingeniería."
 result: "Mayor visibilidad digital y acceso simplificado a información académica y matrícula."
 date: "2025-02-10"
-cover: "/images/portafolio/unimaster.png"
+cover: "/images/portafolio/unimaster.webp"
 url: "https://uni-master.net/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío era estructurar un sitio que pudiera:
 - Comunicar la propuesta educativa de la institución
 - Permitir un contacto rápido para **informes y matrículas**
 
-Además, era importante que la web transmitiera el enfoque académico de la institución, que capacita en **computación, informática y software de ingeniería** con profesionales especializados. :contentReference[oaicite:2]{index=2}
+Además, era importante que la web transmitiera el enfoque académico de la institución, que capacita en **computación, informática y software de ingeniería** con profesionales especializados.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de formularios de contacto y canales de información
 - Diseño accesible para consulta desde distintos dispositivos
 
-La plataforma permite explorar programas orientados tanto a **estudiantes como profesionales**, incluyendo formación en herramientas ampliamente utilizadas en ingeniería y tecnología. :contentReference[oaicite:3]{index=3}
+La plataforma permite explorar programas orientados tanto a **estudiantes como profesionales**, incluyendo formación en herramientas ampliamente utilizadas en ingeniería y tecnología.
 
 ---
 

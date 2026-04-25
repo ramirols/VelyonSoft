@@ -3,7 +3,7 @@ title: "Pronte Ingenieros – Plataforma web corporativa para empresa de constru
 description: "Diseño y desarrollo de un sitio web corporativo para Pronte Ingenieros, enfocado en comunicar su experiencia en proyectos de infraestructura, construcción e ingeniería a nivel nacional."
 result: "Fortalecimiento de la presencia digital y mejor presentación de proyectos de infraestructura."
 date: "2025-02-20"
-cover: "/images/portafolio/pronte.png"
+cover: "/images/portafolio/pronte.webp"
 url: "https://pronte.com.pe/"
 featured: false
 ---
@@ -19,7 +19,7 @@ El desafío principal era desarrollar una plataforma que pudiera:
 - Presentar de forma clara los **servicios de ingeniería, planificación y construcción**
 - Facilitar el acceso a información institucional y de contacto
 
-Además, la empresa cuenta con **más de 27 años de experiencia en el sector construcción**, ejecutando proyectos de alta complejidad tanto para el sector público como privado. :contentReference[oaicite:0]{index=0}
+Además, la empresa cuenta con **más de 27 años de experiencia en el sector construcción**, ejecutando proyectos de alta complejidad tanto para el sector público como privado.
 
 ---
 
@@ -31,7 +31,7 @@ La solución incluyó:
 
 - Diseño UI/UX alineado con la identidad corporativa del sector ingeniería
 - Sección estructurada de **proyectos ejecutados** para destacar obras realizadas
-- Presentación clara de servicios como **ingeniería, planeamiento, construcción y puesta en marcha** :contentReference[oaicite:1]{index=1}
+- Presentación clara de servicios como **ingeniería, planeamiento, construcción y puesta en marcha**
 - Arquitectura de información optimizada para navegación simple
 - Optimización para dispositivos móviles y distintos navegadores
 

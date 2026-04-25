@@ -3,7 +3,7 @@ title: "Iventys – Landing web para plataforma de gestión y automatización de
 description: "Diseño y desarrollo de una landing page para Iventys, una plataforma digital enfocada en la gestión, organización y promoción de eventos mediante herramientas digitales modernas."
 result: "Creación de una presencia digital clara para presentar la plataforma y sus funcionalidades."
 date: "2025-06-03"
-cover: "/images/portafolio/iventys.png"
+cover: "/images/portafolio/iventys.webp"
 url: "https://iventys.vercel.app/"
 featured: true
 ---

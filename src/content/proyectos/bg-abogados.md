@@ -3,7 +3,7 @@ title: "BG Abogados – Plataforma web corporativa para firma legal"
 description: "Diseño y desarrollo de un sitio web corporativo moderno para BG Abogados, enfocado en transmitir confianza, profesionalismo y facilitar el acceso a información sobre sus servicios legales especializados."
 result: "Mejora en la presencia digital y fortalecimiento de la imagen profesional del estudio jurídico."
 date: "2025-01-15"
-cover: "/images/portafolio/bg-abogados.png"
+cover: "/images/portafolio/bg-abogados.webp"
 url: "https://bgabogados.pe/"
 featured: true
 ---

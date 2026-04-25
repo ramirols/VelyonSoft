@@ -3,7 +3,7 @@ title: "Brokogamershop – Tienda virtual de computadoras de alto rendimiento"
 description: "Diseño y desarrollo de una tienda virtual optimizada para la venta de computadoras de alto rendimiento, con gestión interna de productos y ventas mediante CMS Strapi."
 result: "Incremento del 40% en conversiones."
 date: "2025-12-24"
-cover: "/images/portafolio/brokogamershop.png"
+cover: "/images/portafolio/brokogamershop.webp"
 url: "https://brokogamershop.com"
 featured: true
 ---

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { ArrowRight } from "lucide-astro";
 
 type Lang = "es" | "en";
 
@@ -77,23 +78,10 @@ const t = i18n[lang];
 
                             <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
                                 <span>{t.readMore}</span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="transition-transform group-hover:translate-x-1"
-                                >
-                                    <>
-                                        <path d="M5 12h14" />
-                                        <path d="m12 5 7 7-7 7" />
-                                    </>
-                                </svg>
+                                <ArrowRight
+                                    class="h-4 w-4 transition-transform group-hover:translate-x-1"
+                                    stroke-width={3}
+                                />
                             </div>
                         </div>
                     </a>

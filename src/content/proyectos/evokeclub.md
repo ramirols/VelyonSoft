@@ -3,7 +3,7 @@ title: "Evoke Club – Plataforma web para experiencias de lujo y concierge glob
 description: "Diseño y desarrollo de una plataforma web para Evoke Club, enfocada en la presentación y reserva de experiencias de lujo como villas privadas, yates, jets y servicios de concierge personalizados."
 result: "Mejor posicionamiento digital y experiencia de reserva optimizada para clientes de alto perfil."
 date: "2025-03-10"
-cover: "/images/portafolio/evoke-club.png"
+cover: "/images/portafolio/evoke-club.webp"
 url: "https://evokeclub.com.mx/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío consistía en construir un sitio que permitiera:
 - Facilitar la exploración de destinos y servicios disponibles
 - Permitir que los usuarios contacten o gestionen experiencias personalizadas
 
-Además, la plataforma debía reflejar el enfoque de la marca en el **lifestyle management**, donde un equipo especializado gestiona viajes, eventos y servicios personalizados para optimizar el tiempo de los clientes. :contentReference[oaicite:0]{index=0}
+Además, la plataforma debía reflejar el enfoque de la marca en el **lifestyle management**, donde un equipo especializado gestiona viajes, eventos y servicios personalizados para optimizar el tiempo de los clientes.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Formularios para solicitud de experiencias personalizadas
 - Optimización para dispositivos móviles y navegación fluida
 
-El sitio permite a los usuarios descubrir y reservar experiencias exclusivas, desde **alquiler de villas y yates hasta vuelos privados y eventos especiales**, todo coordinado por un equipo de lifestyle managers y concierge especializados. :contentReference[oaicite:1]{index=1}
+El sitio permite a los usuarios descubrir y reservar experiencias exclusivas, desde **alquiler de villas y yates hasta vuelos privados y eventos especiales**, todo coordinado por un equipo de lifestyle managers y concierge especializados.
 
 ---
 

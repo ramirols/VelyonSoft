@@ -3,7 +3,7 @@ title: "The Olivar Apartments – Landing web para proyecto inmobiliario"
 description: "Diseño y desarrollo de una landing page moderna para The Olivar Apartments, enfocada en presentar un proyecto inmobiliario con una experiencia visual atractiva y una navegación optimizada."
 result: "Mejor presentación digital del proyecto inmobiliario y mayor interés de potenciales compradores."
 date: "2025-03-05"
-cover: "/images/portafolio/the-olivar-apartments.png"
+cover: "/images/portafolio/the-olivar-apartments.webp"
 url: "https://the-olivar-apartments.vercel.app/"
 featured: true
 ---
@@ -35,7 +35,7 @@ La solución incluyó:
 - Navegación clara para explorar la información del desarrollo
 - Optimización para dispositivos móviles y carga rápida
 
-El sitio fue desplegado utilizando tecnologías modernas que permiten **alto rendimiento y despliegue rápido en la web**, facilitando actualizaciones y escalabilidad del proyecto. :contentReference[oaicite:0]{index=0}
+El sitio fue desplegado utilizando tecnologías modernas que permiten **alto rendimiento y despliegue rápido en la web**, facilitando actualizaciones y escalabilidad del proyecto.
 
 ---
 

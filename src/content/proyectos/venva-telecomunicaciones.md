@@ -3,7 +3,7 @@ title: "Venva Comunicaciones – Plataforma web para consultora de comunicación
 description: "Diseño y desarrollo de un sitio web corporativo para Venva Comunicaciones, enfocado en presentar sus servicios de comunicación estratégica, publicidad social y asesoría para proyectos de desarrollo."
 result: "Fortalecimiento de la presencia digital y mejor visibilidad de servicios de comunicación estratégica."
 date: "2025-03-18"
-cover: "/images/portafolio/venva.png"
+cover: "/images/portafolio/venva.webp"
 url: "https://venva.com.pe/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era construir un sitio web que pudiera:
 - Transmitir una identidad creativa y profesional alineada a su trabajo con organizaciones internacionales
 - Facilitar el contacto con instituciones, organismos y aliados estratégicos
 
-Además, la empresa cuenta con experiencia colaborando con **organizaciones internacionales como OIM, UNICEF, FAO, UNESCO y el Banco Mundial**, lo que requería una presentación institucional sólida y profesional. :contentReference[oaicite:0]{index=0}
+Además, la empresa cuenta con experiencia colaborando con **organizaciones internacionales como OIM, UNICEF, FAO, UNESCO y el Banco Mundial**, lo que requería una presentación institucional sólida y profesional.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Arquitectura de información enfocada en la claridad y la narrativa del proyecto  
 - Optimización para navegación fluida en dispositivos móviles y escritorio  
 
-La plataforma permite comunicar el enfoque intercultural de la consultora, que combina **comunicación social, creatividad publicitaria y participación ciudadana** para conectar organizaciones con sus audiencias. :contentReference[oaicite:1]{index=1}
+La plataforma permite comunicar el enfoque intercultural de la consultora, que combina **comunicación social, creatividad publicitaria y participación ciudadana** para conectar organizaciones con sus audiencias.
 
 ---
 

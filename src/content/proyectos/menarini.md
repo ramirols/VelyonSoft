@@ -3,7 +3,7 @@ title: "Menarini – Casos clínicos gamificados en rinitis alérgica"
 description: "Diseño y desarrollo de una landing page interactiva con gestión interna de casos clínicos y cursos, enfocada en mejorar la experiencia de aprendizaje en rinitis alérgica."
 result: "Incremento del 40% en conversiones."
 date: "2025-12-24"
-cover: "/images/portafolio/menarini.png"
+cover: "/images/portafolio/menarini.webp"
 url: "https://cursorinitis.com/landing"
 featured: true
 ---

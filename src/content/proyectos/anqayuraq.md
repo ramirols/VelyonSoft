@@ -3,7 +3,7 @@ title: "Anqayuraq – Plataforma web para soluciones industriales y perforacione
 description: "Diseño y desarrollo de un sitio web corporativo para Anqayuraq, enfocado en presentar soluciones integrales para proyectos de construcción, perforaciones y suministro de equipos industriales."
 result: "Mayor visibilidad digital y mejor presentación de servicios industriales y proyectos ejecutados."
 date: "2025-05-05"
-cover: "/images/portafolio/anqayuraq.png"
+cover: "/images/portafolio/anqayuraq.webp"
 url: "https://anqayuraq.com/"
 featured: false
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio web que pudiera:
 - Comunicar la experiencia de la empresa en **trabajos técnicos y operaciones industriales**
 - Facilitar el acceso a contacto y solicitudes de servicios
 
-La empresa ofrece soluciones integrales para proyectos de construcción, incluyendo **grupos electrógenos, tableros de obra, cables de potencia, depósitos de combustible y mantenimiento de equipos**, con personal especializado y cobertura operativa continua. :contentReference[oaicite:0]{index=0}
+La empresa ofrece soluciones integrales para proyectos de construcción, incluyendo **grupos electrógenos, tableros de obra, cables de potencia, depósitos de combustible y mantenimiento de equipos**, con personal especializado y cobertura operativa continua.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de formularios de contacto para consultas y cotizaciones  
 - Optimización para navegación en dispositivos móviles y carga rápida  
 
-La plataforma permite a los clientes explorar soluciones para proyectos industriales, incluyendo trabajos de perforación en distintos tipos de terreno y suministro de equipos para obras de gran escala. :contentReference[oaicite:1]{index=1}
+La plataforma permite a los clientes explorar soluciones para proyectos industriales, incluyendo trabajos de perforación en distintos tipos de terreno y suministro de equipos para obras de gran escala.
 
 ---
 

@@ -3,7 +3,7 @@ title: "Estudio Jurídico EduVal – Plataforma web para servicios legales espec
 description: "Diseño y desarrollo de un sitio web institucional para el Estudio Jurídico EduVal, enfocado en presentar sus servicios de asesoría legal, litigación y defensa de derechos en distintas áreas del derecho."
 result: "Mejor presencia digital y mayor acceso a servicios legales especializados."
 date: "2025-04-08"
-cover: "/images/portafolio/eduval-law.png"
+cover: "/images/portafolio/eduval-law.webp"
 url: "https://law.corporacioneduval.com/"
 featured: false
 ---
@@ -19,7 +19,7 @@ El desafío principal era desarrollar un sitio que pudiera:
 - Mostrar la experiencia del equipo en **litigios constitucionales y asesoría jurídica**
 - Facilitar el contacto directo con clientes para consultas legales
 
-El estudio cuenta con experiencia en litigación constitucional y defensa de derechos fundamentales, participando en procesos ante el **Poder Judicial, Tribunal Constitucional y organismos del sistema interamericano de derechos humanos**. :contentReference[oaicite:0]{index=0}
+El estudio cuenta con experiencia en litigación constitucional y defensa de derechos fundamentales, participando en procesos ante el **Poder Judicial, Tribunal Constitucional y organismos del sistema interamericano de derechos humanos**.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de canales de contacto para consultas legales  
 - Optimización para dispositivos móviles y distintos navegadores  
 
-La plataforma permite comunicar de forma clara la experiencia del estudio en acciones constitucionales como **hábeas corpus, amparo, hábeas data y procesos de inconstitucionalidad**, así como asesoría jurídica especializada. :contentReference[oaicite:1]{index=1}
+La plataforma permite comunicar de forma clara la experiencia del estudio en acciones constitucionales como **hábeas corpus, amparo, hábeas data y procesos de inconstitucionalidad**, así como asesoría jurídica especializada.
 
 ---
 

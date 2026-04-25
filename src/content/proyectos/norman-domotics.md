@@ -3,7 +3,7 @@ title: "Norman Domotics – Landing web para soluciones de domótica y automatiz
 description: "Diseño y desarrollo de una landing page corporativa para Norman Domotics, enfocada en presentar soluciones de automatización, control inteligente y tecnología para hogares y empresas."
 result: "Mayor presencia digital y mejor presentación de soluciones de automatización inteligente."
 date: "2025-05-22"
-cover: "/images/portafolio/norman-domotics.png"
+cover: "/images/portafolio/norman-domotics.webp"
 url: "https://normandomotics.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío era crear una web capaz de:
 - Transmitir innovación tecnológica y confianza
 - Facilitar el contacto con clientes interesados en implementar sistemas inteligentes
 
-La domótica permite integrar distintos dispositivos y sistemas del hogar —como iluminación, climatización o seguridad— para controlarlos de forma automática o remota, mejorando la comodidad, eficiencia y seguridad del usuario. :contentReference[oaicite:0]{index=0}
+La domótica permite integrar distintos dispositivos y sistemas del hogar —como iluminación, climatización o seguridad— para controlarlos de forma automática o remota, mejorando la comodidad, eficiencia y seguridad del usuario.
 
 ---
 

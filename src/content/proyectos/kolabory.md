@@ -3,7 +3,7 @@ title: "Kolabory – Plataforma digital para colaboración en proyectos audiovis
 description: "Diseño y desarrollo de una plataforma web para Kolabory, orientada a conectar artistas, técnicos y profesionales del sector audiovisual con empresas y proyectos creativos."
 result: "Mejor acceso a oportunidades de colaboración y crecimiento de la comunidad creativa."
 date: "2025-05-10"
-cover: "/images/portafolio/kolabory.png"
+cover: "/images/portafolio/kolabory.webp"
 url: "https://app.kolabory.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío principal era construir una solución que pudiera:
 - Crear una comunidad donde los usuarios puedan **colaborar y formar equipos creativos**
 - Ofrecer una experiencia digital clara y accesible desde cualquier dispositivo
 
-La plataforma se creó con el objetivo de convertirse en un **punto de encuentro para el talento audiovisual**, donde empresas y creadores puedan colaborar en producciones de cine, fotografía o publicidad. :contentReference[oaicite:0]{index=0}
+La plataforma se creó con el objetivo de convertirse en un **punto de encuentro para el talento audiovisual**, donde empresas y creadores puedan colaborar en producciones de cine, fotografía o publicidad.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Herramientas para conectar profesionales con empresas y productoras
 - Optimización para navegación desde navegador y dispositivos móviles
 
-La plataforma permite que empresas publiquen proyectos y que los usuarios se postulen para participar, generando un ecosistema colaborativo donde directores, actores, fotógrafos y otros profesionales puedan encontrar oportunidades de desarrollo profesional. :contentReference[oaicite:1]{index=1}
+La plataforma permite que empresas publiquen proyectos y que los usuarios se postulen para participar, generando un ecosistema colaborativo donde directores, actores, fotógrafos y otros profesionales puedan encontrar oportunidades de desarrollo profesional.
 
 ---
 

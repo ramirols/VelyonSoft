@@ -3,7 +3,7 @@ title: "BioClin Perú – Landing web para servicios y soluciones clínicas"
 description: "Diseño y desarrollo de una landing page para BioClin Perú, enfocada en presentar servicios clínicos, atención médica especializada y facilitar el contacto con pacientes."
 result: "Mayor presencia digital y mejor acceso a información de servicios médicos."
 date: "2025-05-18"
-cover: "/images/portafolio/bioclin-peru.png"
+cover: "/images/portafolio/bioclin-peru.webp"
 url: "https://bioclinperu.vercel.app/"
 featured: true
 ---

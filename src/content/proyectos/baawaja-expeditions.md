@@ -3,7 +3,7 @@ title: "Tambopata Tourism – Plataforma de reservas para experiencias de ecotur
 description: "Diseño y desarrollo de una plataforma web dinámica para Tambopata Tourism, enfocada en la promoción y reserva de actividades de ecoturismo cultural en la región amazónica de Tambopata."
 result: "Incremento del 20% en el alcance de nuevos clientes."
 date: "2024-12-25"
-cover: "/images/portafolio/baawaja-expeditions.png"
+cover: "/images/portafolio/baawaja-expeditions.webp"
 url: "https://tambopatatourism.com/"
 featured: true
 ---

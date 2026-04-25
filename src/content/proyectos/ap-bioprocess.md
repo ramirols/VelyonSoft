@@ -3,7 +3,7 @@ title: "AP Bioprocess – Plataforma web para soluciones biotecnológicas y biop
 description: "Diseño y desarrollo de un sitio web corporativo para AP Bioprocess, enfocado en presentar soluciones tecnológicas, equipos y servicios especializados para investigación biotecnológica y bioprocesos."
 result: "Mejor posicionamiento digital y acceso simplificado a soluciones biotecnológicas."
 date: "2025-03-15"
-cover: "/images/portafolio/ap-bioprocess.png"
+cover: "/images/portafolio/ap-bioprocess.webp"
 url: "https://ap-bioprocess.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era estructurar un sitio que pudiera:
 - Facilitar el acceso a información técnica sobre productos y servicios
 - Transmitir la **innovación tecnológica y especialización científica** de la empresa
 
-Además, el sitio debía organizar una amplia variedad de soluciones utilizadas en investigación y producción biotecnológica, incluyendo sistemas de cultivo, biorreactores, filtración y análisis molecular. :contentReference[oaicite:0]{index=0}
+Además, el sitio debía organizar una amplia variedad de soluciones utilizadas en investigación y producción biotecnológica, incluyendo sistemas de cultivo, biorreactores, filtración y análisis molecular.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Sección de servicios técnicos con soporte, instalación y mantenimiento de equipos
 - Optimización para navegación clara desde dispositivos móviles y escritorio
 
-La plataforma permite explorar tecnologías aplicadas a áreas como **producción de proteínas recombinantes, terapia celular, vacunas y agrobiológicos**, facilitando la comprensión de cada etapa del bioproceso. :contentReference[oaicite:1]{index=1}
+La plataforma permite explorar tecnologías aplicadas a áreas como **producción de proteínas recombinantes, terapia celular, vacunas y agrobiológicos**, facilitando la comprensión de cada etapa del bioproceso.
 
 ---
 

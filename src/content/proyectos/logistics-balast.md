@@ -3,7 +3,7 @@ title: "Logistics Balast – Plataforma web para servicios de comercio exterior 
 description: "Diseño y desarrollo de un sitio web corporativo para Logistics Balast, enfocado en presentar sus servicios de logística internacional, comercio exterior y gestión de operaciones globales."
 result: "Mayor presencia digital y mejor acceso a servicios logísticos para empresas de comercio exterior."
 date: "2025-04-02"
-cover: "/images/portafolio/logistics-balast.png"
+cover: "/images/portafolio/logistics-balast.webp"
 url: "https://logisticsbalast.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio web que pudiera:
 - Facilitar el acceso a información comercial y contacto empresarial
 - Mostrar su presencia dentro de una **red internacional de agentes logísticos**
 
-La empresa es una compañía peruana especializada en operaciones integrales de comercio exterior, trabajando con una red global de agentes en distintos continentes para gestionar operaciones logísticas internacionales. :contentReference[oaicite:0]{index=0}
+La empresa es una compañía peruana especializada en operaciones integrales de comercio exterior, trabajando con una red global de agentes en distintos continentes para gestionar operaciones logísticas internacionales.
 
 ---
 

@@ -3,7 +3,7 @@ title: "Green Salud Integral – Plataforma web para centro médico y salud ocup
 description: "Diseño y desarrollo de un sitio web corporativo para Green Salud Integral, enfocado en presentar servicios médicos, exámenes ocupacionales y diagnósticos clínicos para empresas y pacientes."
 result: "Mejor presencia digital y acceso simplificado a servicios médicos y ocupacionales."
 date: "2025-04-18"
-cover: "/images/portafolio/green-salud-integral.png"
+cover: "/images/portafolio/green-salud-integral.webp"
 url: "https://greensaludintegral.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio web que pudiera:
 - Transmitir confianza y profesionalismo en el sector de la salud
 - Permitir que los usuarios contacten rápidamente para consultas o atención médica
 
-El centro ofrece servicios como **consultas médicas, rayos X, exámenes de laboratorio, capacitaciones y monitoreos ocupacionales**, orientados tanto a pacientes como a organizaciones que requieren servicios de salud laboral. :contentReference[oaicite:0]{index=0}
+El centro ofrece servicios como **consultas médicas, rayos X, exámenes de laboratorio, capacitaciones y monitoreos ocupacionales**, orientados tanto a pacientes como a organizaciones que requieren servicios de salud laboral.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de formularios y canales de contacto para consultas rápidas  
 - Optimización para navegación en dispositivos móviles y escritorio  
 
-La plataforma permite comunicar el enfoque del centro médico en **prevención, diagnóstico y bienestar laboral**, facilitando el acceso a servicios médicos especializados. :contentReference[oaicite:1]{index=1}
+La plataforma permite comunicar el enfoque del centro médico en **prevención, diagnóstico y bienestar laboral**, facilitando el acceso a servicios médicos especializados.
 
 ---
 

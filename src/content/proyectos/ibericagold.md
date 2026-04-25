@@ -3,7 +3,7 @@ title: "Ibérica Gold – Plataforma web para importación y distribución de pr
 description: "Diseño y desarrollo de un sitio web corporativo para Ibérica Gold, enfocado en presentar su catálogo de productos importados, fortaleciendo su presencia digital y facilitando el acceso a información comercial."
 result: "Mayor visibilidad digital y mejor presentación de productos importados."
 date: "2025-03-22"
-cover: "/images/portafolio/ibericagold.png"
+cover: "/images/portafolio/ibericagold.webp"
 url: "https://www.ibericagold.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio que pudiera:
 - Facilitar el acceso a información sobre el catálogo y canales de contacto
 - Posicionar la marca como un proveedor confiable en el sector de importación y distribución
 
-Además, la empresa forma parte del sector de **importación y comercialización mayorista**, operando como una sociedad comercial en Perú desde 2014. :contentReference[oaicite:0]{index=0}
+Además, la empresa forma parte del sector de **importación y comercialización mayorista**, operando como una sociedad comercial en Perú desde 2014.
 
 ---
 

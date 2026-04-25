@@ -3,7 +3,7 @@ title: "Metal Supplies – Plataforma web para soluciones industriales y suminis
 description: "Diseño y desarrollo de un sitio web corporativo para Metal Supplies, enfocado en presentar soluciones industriales, instrumentación de laboratorio y suministro especializado para los sectores energético y petrolero."
 result: "Mayor visibilidad digital y mejor acceso a productos y servicios industriales especializados."
 date: "2025-04-15"
-cover: "/images/portafolio/metalsupplies-coorp.png"
+cover: "/images/portafolio/metalsupplies-coorp.webp"
 url: "https://www.metalsuppliescoorp.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío principal era desarrollar un sitio web que pudiera:
 - Transmitir experiencia técnica y confiabilidad en el sector industrial
 - Facilitar el contacto con empresas interesadas en sus productos y servicios
 
-La empresa cuenta con una trayectoria que se remonta a la década de 1990, ofreciendo soluciones tecnológicas y de suministro para industrias como hidrocarburos, metalmecánica y energía. :contentReference[oaicite:0]{index=0}
+La empresa cuenta con una trayectoria que se remonta a la década de 1990, ofreciendo soluciones tecnológicas y de suministro para industrias como hidrocarburos, metalmecánica y energía.
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de formularios para solicitudes de cotización  
 - Optimización para dispositivos móviles y navegación rápida  
 
-La plataforma permite a los clientes explorar soluciones industriales que incluyen **tuberías, accesorios metalmecánicos, instrumentos analíticos y servicios técnicos especializados**. :contentReference[oaicite:1]{index=1}
+La plataforma permite a los clientes explorar soluciones industriales que incluyen **tuberías, accesorios metalmecánicos, instrumentos analíticos y servicios técnicos especializados**.
 
 ---
 

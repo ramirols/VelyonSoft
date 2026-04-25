@@ -3,7 +3,7 @@ title: "Indalnor – Plataforma web para comercialización de productos avícola
 description: "Diseño y desarrollo de un sitio web corporativo para Indalnor, enfocado en presentar y promocionar la venta de pavos y gallinas criollas, facilitando pedidos y contacto directo con clientes."
 result: "Mayor visibilidad digital y optimización del proceso de pedidos para clientes y empresas."
 date: "2025-04-25"
-cover: "/images/portafolio/indalnor.png"
+cover: "/images/portafolio/indalnor.webp"
 url: "https://indalnor.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El desafío principal era desarrollar un sitio que pudiera:
 - Facilitar el contacto rápido mediante **formularios y WhatsApp**
 - Promover campañas de preventa para **eventos empresariales y celebraciones**
 
-Los pavos criollos ofrecidos por la empresa se crían en el valle del Bajo Piura con alimentación natural como maíz y alfalfa, lo que contribuye a una carne magra, nutritiva y de sabor característico. :contentReference[oaicite:0]{index=0}
+Los pavos criollos ofrecidos por la empresa se crían en el valle del Bajo Piura con alimentación natural como maíz y alfalfa, lo que contribuye a una carne magra, nutritiva y de sabor característico.
 
 ---
 

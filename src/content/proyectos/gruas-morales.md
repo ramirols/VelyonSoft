@@ -3,7 +3,7 @@ title: "Grúas Morales – Plataforma web para servicios de izaje y alquiler de 
 description: "Diseño y desarrollo de un sitio web corporativo para Grúas Morales, enfocado en presentar sus servicios de alquiler de camiones grúa, camionetas con grúa y soluciones de manipulación de cargas pesadas."
 result: "Mayor visibilidad digital y mejor acceso a solicitudes de cotización para servicios de grúas."
 date: "2025-03-25"
-cover: "/images/portafolio/gruas-morales.png"
+cover: "/images/portafolio/gruas-morales.webp"
 url: "https://www.gruasmorales.pe/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio que pudiera:
 - Transmitir **confianza, seguridad y profesionalismo** en operaciones de izaje
 - Facilitar el contacto directo con clientes para solicitudes de servicio
 
-La empresa se especializa en el alquiler de equipos de elevación y logística de carga, priorizando **seguridad, puntualidad y cumplimiento de normas ambientales** en cada proyecto. :contentReference[oaicite:0]{index=0}
+La empresa se especializa en el alquiler de equipos de elevación y logística de carga, priorizando **seguridad, puntualidad y cumplimiento de normas ambientales** en cada proyecto.
 
 ---
 

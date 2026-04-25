@@ -169,6 +169,8 @@ export default function Header({ lang = "es" }) {
         ? "border border-border/70 bg-card/80 text-primary hover:bg-muted"
         : "border border-white/15 bg-white/10 text-white hover:bg-white/20";
 
+    const headerLogoSrc = theme === "dark" ? "/velyon-logo-mo.webp" : "/velyon-logo-mc.webp";
+
     return (
         <header className="fixed top-6 left-0 w-full z-50 px-6 transition-all duration-500">
             <div className="max-w-7xl mx-auto">
@@ -190,13 +192,15 @@ export default function Header({ lang = "es" }) {
                         ) : (
                             <a
                                 href={`/${lang}#inicio`}
-                                className="transition-all duration-500 ease-in-out"
+                                className="ml-2 inline-flex items-center py-1 transition-all duration-500 ease-in-out"
                             >
-                                <img
-                                    src="/logo.png"
-                                    alt="VelyonSoft Logo"
-                                    className="h-10 w-auto rounded-lg object-cover shadow-sm"
-                                />
+                                <div className="rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg shadow-black/20 backdrop-blur-sm">
+                                    <img
+                                        src={headerLogoSrc}
+                                        alt="VelyonSoft Logo"
+                                        className="h-6 w-auto object-cover"
+                                    />
+                                </div>
                             </a>
                         )}
                     </div>

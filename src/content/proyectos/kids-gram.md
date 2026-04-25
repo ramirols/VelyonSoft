@@ -3,7 +3,7 @@ title: "Kids-Gram – Landing web para plataforma social y creativa para niños"
 description: "Diseño y desarrollo de una landing page para Kids-Gram, una plataforma digital enfocada en compartir contenido creativo, fotos y experiencias en un entorno pensado para niños y familias."
 result: "Creación de una presencia digital moderna para una plataforma orientada a la creatividad infantil."
 date: "2025-05-30"
-cover: "/images/portafolio/kids-gram.png"
+cover: "/images/portafolio/kids-gram.webp"
 url: "https://kids-gram.vercel.app/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El objetivo era desarrollar una web que pudiera:
 - Facilitar la interacción y exploración del contenido
 - Crear una experiencia accesible desde dispositivos móviles y computadoras
 
-Las plataformas digitales orientadas a niños suelen enfocarse en fomentar la **creatividad, el aprendizaje y la interacción social en entornos visuales e intuitivos**, con interfaces simples y adaptadas a usuarios jóvenes. :contentReference[oaicite:0]{index=0}
+Las plataformas digitales orientadas a niños suelen enfocarse en fomentar la **creatividad, el aprendizaje y la interacción social en entornos visuales e intuitivos**, con interfaces simples y adaptadas a usuarios jóvenes.
 
 ---
 

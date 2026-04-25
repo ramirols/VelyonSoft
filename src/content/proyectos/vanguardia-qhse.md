@@ -3,7 +3,7 @@ title: "Vanguardia QHSE – Plataforma web para consultoría en calidad, segurid
 description: "Diseño y desarrollo de un sitio web corporativo para Vanguardia QHSE, enfocado en presentar servicios de consultoría, auditoría y capacitación en sistemas de gestión de calidad, seguridad y medio ambiente."
 result: "Mayor visibilidad digital y mejor acceso a servicios de consultoría y formación empresarial."
 date: "2025-04-12"
-cover: "/images/portafolio/vanguardia-qhse.png"
+cover: "/images/portafolio/vanguardia-qhse.webp"
 url: "https://vanguardiaqhse.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio que pudiera:
 - Facilitar el contacto con empresas interesadas en implementar o mejorar sus sistemas de gestión
 - Mostrar el enfoque integral de la empresa en **optimización de procesos y cumplimiento normativo**
 
-La empresa se especializa en asesoría y formación en **sistemas de gestión QHSE (Quality, Health, Safety and Environment)**, ayudando a las organizaciones a mejorar sus procesos, cumplir regulaciones y promover entornos de trabajo seguros. :contentReference[oaicite:0]{index=0}
+La empresa se especializa en asesoría y formación en **sistemas de gestión QHSE (Quality, Health, Safety and Environment)**, ayudando a las organizaciones a mejorar sus procesos, cumplir regulaciones y promover entornos de trabajo seguros.
 
 ---
 

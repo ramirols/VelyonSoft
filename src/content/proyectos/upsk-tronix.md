@@ -3,7 +3,7 @@ title: "UPSK Tronix Perú – Plataforma web para soluciones de energía y prote
 description: "Diseño y desarrollo de un sitio web corporativo para UPSK Tronix Perú, enfocado en presentar equipos de protección eléctrica, UPS industriales y servicios técnicos especializados para empresas."
 result: "Mayor visibilidad digital y mejor acceso a productos y servicios de respaldo energético."
 date: "2025-04-22"
-cover: "/images/portafolio/upsk-tronix.png"
+cover: "/images/portafolio/upsk-tronix.webp"
 url: "https://www.upsk-tronixperu.com/"
 featured: true
 ---
@@ -19,7 +19,7 @@ El principal desafío era desarrollar un sitio web que pudiera:
 - Transmitir confianza y experiencia en el sector electro-industrial
 - Facilitar el contacto con empresas interesadas en soluciones energéticas
 
-La empresa ofrece equipos como **UPS, estabilizadores, transformadores, baterías industriales, tableros eléctricos, inversores y paneles solares**, además de servicios de mantenimiento e instalación para sistemas de protección eléctrica. :contentReference[oaicite:0]{index=0}  
+La empresa ofrece equipos como **UPS, estabilizadores, transformadores, baterías industriales, tableros eléctricos, inversores y paneles solares**, además de servicios de mantenimiento e instalación para sistemas de protección eléctrica.  
 
 ---
 
@@ -35,7 +35,7 @@ La solución incluyó:
 - Integración de formularios de contacto para consultas y cotizaciones  
 - Optimización para navegación en dispositivos móviles y carga rápida  
 
-La plataforma permite a los clientes explorar soluciones para **protección eléctrica, respaldo energético y sistemas industriales críticos**, facilitando la comunicación con la empresa para proyectos o servicios técnicos. :contentReference[oaicite:1]{index=1}  
+La plataforma permite a los clientes explorar soluciones para **protección eléctrica, respaldo energético y sistemas industriales críticos**, facilitando la comunicación con la empresa para proyectos o servicios técnicos.  
 
 ---
 
