@@ -1,0 +1,47 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+  ];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
+---
+
+<BaseLayout
+    lang="es"
+    title="Desarrollo web para educación | VelyonSoft"
+    description="Creamos páginas web y plataformas para colegios, academias, cursos online e instituciones educativas."
+>
+    <ServiceLanding
+        title="Desarrollo web para educación"
+        description="Impulsa tu institución educativa con una web profesional para mostrar cursos, matrículas, docentes y beneficios."
+        price="Desde S/ 1,000"
+        features={[
+            "Página institucional",
+            "Sección de cursos",
+            "Formulario de matrícula",
+            "Landing para campañas",
+            "Blog educativo",
+            "SEO local",
+        ]}
+        benefits={[
+            "Aumenta consultas de estudiantes",
+            "Comunica mejor tu propuesta educativa",
+            "Facilita matrículas o inscripciones",
+            "Mejora tu presencia digital",
+        ]}
+        faq={[
+            {
+                q: "¿Sirve para academias o cursos?",
+                a: "Sí. Se puede adaptar para colegios, academias, institutos, cursos online o capacitaciones.",
+            },
+            {
+                q: "¿Puede incluir pagos?",
+                a: "Sí. Podemos integrar pagos o formularios de inscripción según el proyecto.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar una web para educación."
+    />
+</BaseLayout>

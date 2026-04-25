@@ -1,0 +1,44 @@
+---
+export function getStaticPaths() {
+    return [{ params: { lang: "es" } }];
+}
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
+---
+
+<BaseLayout
+    lang="es"
+    title="Software para restaurantes en Perú | VelyonSoft"
+    description="Creamos software para restaurantes con pedidos, menú digital, reservas, inventario y reportes."
+>
+    <ServiceLanding
+        title="Software para restaurantes"
+        description="Gestiona pedidos, reservas, menú digital, inventario y ventas desde una plataforma diseñada para tu restaurante."
+        price="Desde S/ 1,500"
+        features={[
+            "Menú digital",
+            "Gestión de pedidos",
+            "Reservas online",
+            "Control de mesas",
+            "Inventario básico",
+            "Reportes de ventas",
+        ]}
+        benefits={[
+            "Mejora la atención al cliente",
+            "Reduce errores en pedidos",
+            "Controla mejor tus ventas",
+            "Digitaliza tu restaurante",
+        ]}
+        faq={[
+            {
+                q: "¿Puede funcionar con WhatsApp?",
+                a: "Sí. Podemos conectar botones de pedido, reservas o consultas por WhatsApp.",
+            },
+            {
+                q: "¿Incluye diseño responsive?",
+                a: "Sí. Todo se adapta a celulares, tablets y computadoras.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar un software para restaurantes."
+    />
+</BaseLayout>

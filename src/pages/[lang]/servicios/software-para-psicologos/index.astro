@@ -1,4 +1,45 @@
 ---
-// src/pages/[lang]/servicios/software-para-psicologos/index.astro
-export const prerender = false;
+export function getStaticPaths() {
+    return [{ params: { lang: "es" } }];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
 ---
+
+<BaseLayout
+    lang="es"
+    title="Software para psicólogos en Perú | VelyonSoft"
+    description="Creamos software para psicólogos con agenda, pacientes, sesiones, historial de atención y control de pagos."
+>
+    <ServiceLanding
+        title="Software para psicólogos"
+        description="Organiza tus pacientes, sesiones, citas y pagos desde una plataforma privada, moderna y fácil de usar."
+        price="Desde S/ 1,200"
+        features={[
+            "Registro de pacientes",
+            "Agenda de sesiones",
+            "Historial de atención",
+            "Recordatorios de citas",
+            "Control de pagos",
+            "Panel privado",
+        ]}
+        benefits={[
+            "Ordena toda la información de tus pacientes",
+            "Reduce ausencias con recordatorios",
+            "Mejora la experiencia de atención",
+            "Gestiona tu consulta desde cualquier lugar",
+        ]}
+        faq={[
+            {
+                q: "¿La información de los pacientes es privada?",
+                a: "Sí. Se trabaja con accesos privados y buenas prácticas de seguridad.",
+            },
+            {
+                q: "¿Puedo tener agenda online?",
+                a: "Sí. Podemos integrar reserva de citas o una agenda administrativa interna.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar un software para psicólogos."
+    />
+</BaseLayout>

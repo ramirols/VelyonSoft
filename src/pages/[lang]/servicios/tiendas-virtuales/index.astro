@@ -1,4 +1,45 @@
 ---
-// src/pages/[lang]/servicios/tiendas-virtuales/index.astro
-export const prerender = false;
+export function getStaticPaths() {
+    return [{ params: { lang: "es" } }];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
 ---
+
+<BaseLayout
+    lang="es"
+    title="Tiendas virtuales en Perú | VelyonSoft"
+    description="Diseñamos tiendas virtuales rápidas, modernas y optimizadas para vender online con excelente SEO."
+>
+    <ServiceLanding
+        title="Tiendas virtuales"
+        description="Vende tus productos online con una tienda moderna, rápida, administrable y optimizada para convertir visitas en clientes."
+        price="Desde S/ 1,200"
+        features={[
+            "Catálogo de productos",
+            "Carrito de compras",
+            "Botón de WhatsApp",
+            "Pasarela de pago opcional",
+            "Panel para administrar productos",
+            "SEO técnico",
+        ]}
+        benefits={[
+            "Vende las 24 horas",
+            "Muestra tus productos profesionalmente",
+            "Aumenta la confianza de tus clientes",
+            "Escala tu negocio online",
+        ]}
+        faq={[
+            {
+                q: "¿Puedo administrar mis productos?",
+                a: "Sí. Podemos crear un panel para que agregues, edites o elimines productos.",
+            },
+            {
+                q: "¿Se puede integrar pago online?",
+                a: "Sí. Se puede integrar con pasarelas de pago según tu necesidad.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar una tienda virtual."
+    />
+</BaseLayout>

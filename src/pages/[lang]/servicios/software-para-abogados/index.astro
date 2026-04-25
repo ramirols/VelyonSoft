@@ -1,0 +1,47 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+  ];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
+---
+
+<BaseLayout
+  lang="es"
+  title="Software para abogados en Perú | VelyonSoft"
+  description="Creamos software para abogados con gestión de clientes, casos, documentos, agenda, automatización y reportes."
+>
+  <ServiceLanding
+    title="Software para abogados"
+    description="Digitaliza tu estudio jurídico con un sistema profesional para gestionar clientes, casos, documentos, pagos y agenda."
+    price="Desde S/ 1,500"
+    features={[
+      "Gestión de clientes y expedientes",
+      "Control de casos legales",
+      "Agenda de audiencias y reuniones",
+      "Carga y organización de documentos",
+      "Panel administrativo",
+      "Reportes y métricas",
+    ]}
+    benefits={[
+      "Ahorra tiempo en tareas repetitivas",
+      "Mejora el seguimiento de cada caso",
+      "Centraliza la información de tus clientes",
+      "Proyecta una imagen más profesional",
+    ]}
+    faq={[
+      {
+        q: "¿El sistema se adapta a mi estudio jurídico?",
+        a: "Sí. Lo desarrollamos según tus procesos, áreas legales y flujo de trabajo.",
+      },
+      {
+        q: "¿Incluye página web?",
+        a: "Puede incluir landing page, sistema interno o ambos, según el alcance del proyecto.",
+      },
+    ]}
+    whatsappText="Hola, quiero cotizar un software para abogados."
+  />
+</BaseLayout>

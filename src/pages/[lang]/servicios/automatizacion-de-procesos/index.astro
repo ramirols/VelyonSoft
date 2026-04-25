@@ -1,4 +1,45 @@
 ---
-// src/pages/[lang]/servicios/automatizacion-de-procesos/index.astro
-export const prerender = false;
+export function getStaticPaths() {
+    return [{ params: { lang: "es" } }];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
 ---
+
+<BaseLayout
+    lang="es"
+    title="Automatización de procesos para empresas | VelyonSoft"
+    description="Automatizamos procesos repetitivos para ahorrar tiempo, reducir errores y mejorar la productividad."
+>
+    <ServiceLanding
+        title="Automatización de procesos"
+        description="Convierte tareas manuales y repetitivas en flujos automáticos para que tu empresa trabaje más rápido y con menos errores."
+        price="Desde S/ 1,000"
+        features={[
+            "Automatización de reportes",
+            "Flujos internos",
+            "Integraciones con formularios",
+            "Alertas automáticas",
+            "Dashboards",
+            "Procesos personalizados",
+        ]}
+        benefits={[
+            "Reduce trabajo manual",
+            "Evita errores repetitivos",
+            "Ahorra horas operativas",
+            "Mejora el control de tu negocio",
+        ]}
+        faq={[
+            {
+                q: "¿Qué procesos se pueden automatizar?",
+                a: "Reportes, registros, formularios, notificaciones, seguimiento de clientes y tareas internas.",
+            },
+            {
+                q: "¿Necesito tener un sistema previo?",
+                a: "No necesariamente. Podemos crear una solución desde cero o integrarla con herramientas existentes.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar una automatización de procesos."
+    />
+</BaseLayout>

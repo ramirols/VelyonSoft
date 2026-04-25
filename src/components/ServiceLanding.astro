@@ -1,0 +1,216 @@
+---
+// Define los tipos de los datos que recibe el componente
+interface Props {
+    eyebrow?: string;
+    title: string;
+    description: string;
+    price: string;
+    features: string[]; // Indica que es un array de strings
+    benefits: string[]; // Indica que es un array de strings
+    faq: { q: string; a: string }[]; // Indica que es un array de objetos con q y a
+    whatsappText?: string;
+}
+
+const {
+    eyebrow = "Servicio especializado",
+    title,
+    description,
+    price,
+    features = [],
+    benefits = [],
+    faq = [],
+    whatsappText = "Hola, quiero cotizar este servicio.",
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden pt-36 pb-24 bg-background">
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10"
+    >
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl">
+            <p
+                class="mb-4 inline-flex rounded-full border border-secondary/30 bg-secondary/10 px-4 py-2 text-sm font-semibold text-secondary"
+            >
+                {eyebrow}
+            </p>
+
+            <h1
+                class="text-4xl md:text-6xl font-black tracking-tight text-primary"
+            >
+                {title}
+            </h1>
+
+            <p
+                class="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed"
+            >
+                {description}
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <a
+                    href="#contacto"
+                    class="rounded-xl bg-secondary px-6 py-3 font-semibold text-white text-center"
+                >
+                    Solicitar cotización
+                </a>
+
+                <a
+                    href="#precio"
+                    class="rounded-xl border border-border px-6 py-3 font-semibold text-primary text-center"
+                >
+                    Ver precio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-card">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-black text-primary">
+            ¿Qué incluye?
+        </h2>
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                features.map((feature) => (
+                    <article class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+                        <h3 class="font-bold text-primary">{feature}</h3>
+                        <p class="mt-2 text-sm text-muted-foreground">
+                            Implementado con enfoque profesional, velocidad,
+                            seguridad y facilidad de uso.
+                        </p>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+        <div>
+            <h2 class="text-3xl md:text-4xl font-black text-primary">
+                Beneficios para tu negocio
+            </h2>
+
+            <p class="mt-4 text-muted-foreground">
+                Creamos una solución pensada para mejorar tus procesos, aumentar
+                tu presencia digital y ayudarte a conseguir mejores resultados.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            {
+                benefits.map((benefit) => (
+                    <div class="rounded-2xl border border-border bg-card p-5">
+                        <p class="font-semibold text-primary">{benefit}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<section id="precio" class="py-24 bg-card">
+    <div class="max-w-7xl mx-auto px-6">
+        <div
+            class="rounded-3xl border border-border bg-background p-8 md:p-12 shadow-xl"
+        >
+            <p
+                class="text-sm font-semibold text-secondary uppercase tracking-wide"
+            >
+                Precio referencial
+            </p>
+
+            <h2 class="mt-3 text-3xl md:text-5xl font-black text-primary">
+                {price}
+            </h2>
+
+            <p class="mt-4 text-muted-foreground max-w-2xl">
+                El precio final depende del alcance, cantidad de secciones,
+                funcionalidades, integraciones y nivel de personalización.
+            </p>
+
+            <a
+                href="#contacto"
+                class="mt-8 inline-flex rounded-xl bg-secondary px-6 py-3 font-semibold text-white"
+            >
+                Quiero una propuesta
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-black text-primary">
+            Proceso de trabajo
+        </h2>
+
+        <div class="mt-12 grid md:grid-cols-4 gap-6">
+            {
+                ["Diagnóstico", "Diseño", "Desarrollo", "Lanzamiento"].map(
+                    (step, index) => (
+                        <article class="rounded-2xl border border-border bg-card p-6">
+                            <p class="text-sm font-bold text-secondary">
+                                0{index + 1}
+                            </p>
+                            <h3 class="mt-3 font-bold text-primary">{step}</h3>
+                            <p class="mt-2 text-sm text-muted-foreground">
+                                Trabajamos esta etapa contigo para asegurar una
+                                solución clara, útil y profesional.
+                            </p>
+                        </article>
+                    ),
+                )
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-card">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-black text-primary">
+            Preguntas frecuentes
+        </h2>
+
+        <div class="mt-10 space-y-4">
+            {
+                faq.map((item) => (
+                    <details class="rounded-2xl border border-border bg-background p-6">
+                        <summary class="cursor-pointer font-bold text-primary">
+                            {item.q}
+                        </summary>
+                        <p class="mt-3 text-muted-foreground">{item.a}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="py-24 bg-background">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-5xl font-black text-primary">
+            ¿Quieres desarrollar este servicio?
+        </h2>
+
+        <p class="mt-5 text-lg text-muted-foreground">
+            Cuéntanos qué necesitas y te ayudamos a definir la mejor solución
+            para tu negocio.
+        </p>
+
+        <a
+            href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex rounded-xl bg-secondary px-6 py-3 font-semibold text-white"
+        >
+            Escribir por WhatsApp
+        </a>
+    </div>
+</section>

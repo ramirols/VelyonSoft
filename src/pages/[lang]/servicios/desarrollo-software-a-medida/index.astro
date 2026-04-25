@@ -1,4 +1,47 @@
 ---
-// src/pages/[lang]/servicios/automatizacion-de-procesos/index.astro
-export const prerender = false;
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+  ];
+}
+
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ServiceLanding from "../../../../components/ServiceLanding.astro";
 ---
+
+<BaseLayout
+    lang="es"
+    title="Desarrollo de software a medida en Perú | VelyonSoft"
+    description="Desarrollamos software a medida para empresas que necesitan sistemas personalizados, paneles, automatizaciones y plataformas."
+>
+    <ServiceLanding
+        title="Desarrollo de software a medida"
+        description="Creamos sistemas personalizados para resolver procesos específicos de tu negocio con tecnología moderna y escalable."
+        price="Desde S/ 2,000"
+        features={[
+            "Análisis del proceso",
+            "Diseño de plataforma",
+            "Panel administrativo",
+            "Roles de usuario",
+            "Base de datos",
+            "Escalabilidad",
+        ]}
+        benefits={[
+            "Sistema hecho para tu negocio",
+            "Mayor control operativo",
+            "Mejor productividad",
+            "Solución escalable a futuro",
+        ]}
+        faq={[
+            {
+                q: "¿Cuánto demora un software a medida?",
+                a: "Depende del alcance. Un proyecto inicial puede tomar desde 3 a 8 semanas.",
+            },
+            {
+                q: "¿Incluye soporte?",
+                a: "Sí. Podemos incluir soporte, mantenimiento y mejoras continuas.",
+            },
+        ]}
+        whatsappText="Hola, quiero cotizar un software a medida."
+    />
+</BaseLayout>
