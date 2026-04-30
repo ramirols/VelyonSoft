@@ -91,6 +91,10 @@ const plans = onlyFeatured
     ? servicesData[lang].filter((p) => p.featured)
     : servicesData[lang];
 
+const sectionSpacingClass = onlyFeatured
+    ? "py-15 md:py-15"
+    : "pb-15 pt-32 md:pb-15 md:pt-40";
+
 const serviceIcons = {
     laptop: Laptop,
     code: Code,
@@ -130,7 +134,7 @@ const schemaData = {
     aria-label={lang === "es"
         ? "Planes y precios de servicios"
         : "Service plans and pricing"}
-    class="relative py-15 md:py-15 overflow-hidden"
+    class:list={["relative overflow-hidden", sectionSpacingClass]}
 >
     <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div

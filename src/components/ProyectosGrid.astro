@@ -92,39 +92,39 @@ const schemaData = {
 
   <div class="relative z-10 max-w-6xl mx-auto px-6">
     <header
-      class="mb-16 md:mb-20 opacity-0 animate-fade-up"
+      class="mb-16 text-center md:mb-20 opacity-0 animate-fade-up"
       style="animation-delay: 0.05s;"
     >
-      <div class="flex items-center gap-3 mb-7" aria-hidden="true">
-        <span class="block w-8 h-px bg-secondary"></span>
+      <div class="mb-7 inline-flex items-center gap-3" aria-hidden="true">
         <span
           class="text-[0.6rem] font-semibold tracking-[0.28em] uppercase text-secondary"
         >
           {i18n.eyebrow}
         </span>
+        <span class="block h-px w-8 bg-secondary"></span>
       </div>
 
       <div
-        class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-16"
+        class="mx-auto flex max-w-3xl flex-col items-center gap-6"
       >
         <h2
-          class="m-0 shrink-0 text-[clamp(2.6rem,5.5vw,5rem)] leading-[1.05] text-primary font-black"
+          class="m-0 text-[clamp(2.6rem,5.5vw,5rem)] font-black leading-[1.05] text-primary"
         >
           <span class="not-italic">{i18n.title}</span>
           <br />
           <em class="not-italic italic text-secondary">{i18n.titleAccent}</em>
         </h2>
 
-        <div class="max-w-xs lg:max-w-sm pb-1 shrink-0">
+        <div class="max-w-xl pb-1">
           <p
-            class="text-sm font-light text-muted-foreground leading-relaxed mb-6"
+            class="mb-6 text-sm font-light leading-relaxed text-muted-foreground"
           >
             {i18n.subtitle}
           </p>
           <a
             href={`/${lang}/proyectos`}
             aria-label={i18n.viewAll}
-            class="group inline-flex items-center gap-3 text-primary text-[0.78rem] font-medium tracking-wide no-underline transition-colors duration-300 hover:text-secondary"
+            class="group inline-flex items-center gap-3 text-[0.78rem] font-medium tracking-wide text-primary no-underline transition-colors duration-300 hover:text-secondary"
           >
             <span>{i18n.viewAll}</span>
             <span
@@ -146,10 +146,7 @@ const schemaData = {
       {
         projects.map((project, i) => (
           <li
-            class:list={[
-              "flex opacity-0 animate-fade-up",
-              i === 1 ? "lg:mt-10" : "",
-            ]}
+            class="flex opacity-0 animate-fade-up"
             style={`animation-delay: ${0.18 + i * 0.12}s`}
           >
             <article

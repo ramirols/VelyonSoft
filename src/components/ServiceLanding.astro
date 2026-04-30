@@ -1,13 +1,28 @@
 ---
-// Define los tipos de los datos que recibe el componente
+import {
+    ArrowRight,
+    BadgeCheck,
+    Brain,
+    Building2,
+    Check,
+    Clock3,
+    MessageCircle,
+    Scale,
+    ShieldCheck,
+    ShoppingBag,
+    Sparkles,
+    UtensilsCrossed,
+    Workflow,
+} from "lucide-astro";
+
 interface Props {
     eyebrow?: string;
     title: string;
     description: string;
     price: string;
-    features: string[]; // Indica que es un array de strings
-    benefits: string[]; // Indica que es un array de strings
-    faq: { q: string; a: string }[]; // Indica que es un array de objetos con q y a
+    features: string[];
+    benefits: string[];
+    faq: { q: string; a: string }[];
     whatsappText?: string;
 }
 
@@ -21,67 +36,888 @@ const {
     faq = [],
     whatsappText = "Hola, quiero cotizar este servicio.",
 } = Astro.props;
+
+const currentLang = Astro.url.pathname.split("/").filter(Boolean)[0] === "en"
+    ? "en"
+    : "es";
+const primaryContactHref = `/${currentLang}#contacto`;
+
+const featureSupportCopy = [
+    "Pensado para integrarse con tu flujo de trabajo diario.",
+    "Diseñado para reducir fricción operativa y acelerar procesos.",
+    "Preparado para crecer contigo sin perder claridad ni control.",
+    "Configurado para mejorar la experiencia de tu equipo y tus clientes.",
+    "Optimizado para mantener orden, trazabilidad y velocidad.",
+    "Implementado con foco en usabilidad, estabilidad y resultados.",
+];
+
+const sharedAccentTokens = {
+    accentText: "text-secondary",
+    accentBorder: "border-secondary/20",
+    accentSoft: "bg-secondary/10 text-secondary",
+    accentGlow: "from-secondary/20 via-secondary/8 to-transparent",
+    accentPanel: "bg-secondary/10",
+    accentButton: "hover:opacity-90",
+    accentRing: "shadow-secondary/10",
+};
+
+const serviceThemes = {
+    "Software para abogados": {
+        variant: "legal",
+        label: "Legal Digital",
+        audience: "Estudios jurídicos, firmas legales y consultoras que necesitan trazabilidad total.",
+        focusAreas: [
+            {
+                title: "Expedientes claros",
+                description: "Ordena clientes, documentos y estados del caso en una sola vista operativa.",
+            },
+            {
+                title: "Agenda crítica",
+                description: "Audiencias, reuniones y vencimientos visibles para reducir omisiones.",
+            },
+            {
+                title: "Control profesional",
+                description: "Mejora seguimiento interno y la percepción de confianza frente al cliente.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Operación jurídica centralizada",
+                description: "La información del estudio deja de estar dispersa entre chats, archivos y hojas sueltas.",
+            },
+            {
+                title: "Seguimiento por etapas del caso",
+                description: "Cada flujo se configura según tu práctica legal, prioridades y tiempos de atención.",
+            },
+            {
+                title: "Mayor control documental",
+                description: "Documentos, pagos y tareas quedan trazables dentro del mismo sistema.",
+            },
+        ],
+        icon: Scale,
+        ...sharedAccentTokens,
+        moduleTitle: "Un entorno legal para trabajar con orden y contexto.",
+        moduleDescription: "Cada módulo prioriza trazabilidad, control documental y seguimiento del caso sin fricción operativa.",
+        benefitsTitle: "Beneficios que elevan la operación del estudio.",
+        benefitsDescription: "El valor está en responder más rápido, controlar mejor cada expediente y proyectar una práctica jurídica más sólida.",
+        processTitle: "Implementación pensada para estudios jurídicos.",
+        processIntro: "Definimos una solución alineada a tu forma de trabajar, tus áreas legales y el nivel de control que necesitas.",
+        processSteps: [
+            {
+                title: "Mapeo legal",
+                description: "Revisamos cómo gestionas clientes, expedientes, documentos y vencimientos.",
+            },
+            {
+                title: "Diseño del flujo",
+                description: "Estructuramos roles, etapas, paneles y vistas útiles para tu estudio.",
+            },
+            {
+                title: "Configuración del sistema",
+                description: "Implementamos módulos, reglas y organización documental según tu operación.",
+            },
+            {
+                title: "Salida controlada",
+                description: "Validamos contigo el uso real antes de dejarlo listo para el equipo.",
+            },
+        ],
+        priceIncludes: [
+            "Modelo funcional adaptado al trabajo jurídico.",
+            "Organización de expedientes, agenda y documentación.",
+            "Acompañamiento para adopción y puesta en marcha.",
+        ],
+        faqTitle: "Dudas comunes antes de digitalizar tu estudio.",
+        faqDescription: "Estas respuestas te ayudan a entender alcance, flexibilidad y forma de implementación.",
+        ctaTitle: "Hagamos que tu estudio trabaje con más control y menos fricción.",
+        ctaDescription: "Si hoy pierdes tiempo entre documentos, seguimiento y coordinación, podemos diseñar una solución hecha para tu práctica legal.",
+    },
+    "Software para psicólogos": {
+        variant: "therapy",
+        label: "Consulta Digital",
+        audience: "Consultorios y profesionales que necesitan una operación privada, clara y ordenada.",
+        focusAreas: [
+            {
+                title: "Pacientes organizados",
+                description: "Historias, sesiones y pagos ordenados dentro de una experiencia privada y simple.",
+            },
+            {
+                title: "Agenda estable",
+                description: "Menos ausencias y más claridad sobre horarios, recordatorios y seguimiento.",
+            },
+            {
+                title: "Atención más humana",
+                description: "Menos carga administrativa para que dediques más energía al proceso terapéutico.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Privacidad como prioridad",
+                description: "La solución se plantea con orden, accesos controlados y foco en la confidencialidad.",
+            },
+            {
+                title: "Sesiones y seguimiento claros",
+                description: "Agenda, historial y control de continuidad se alinean a tu dinámica de atención.",
+            },
+            {
+                title: "Menos gestión manual",
+                description: "Automatiza recordatorios y organiza mejor la parte operativa del consultorio.",
+            },
+        ],
+        icon: Brain,
+        ...sharedAccentTokens,
+        moduleTitle: "Una consulta digital ordenada, privada y fácil de usar.",
+        moduleDescription: "Los módulos están pensados para sostener tu práctica diaria sin volverla más compleja.",
+        benefitsTitle: "Beneficios que mejoran la continuidad terapéutica.",
+        benefitsDescription: "Una buena herramienta no reemplaza tu trabajo clínico: lo protege, lo organiza y le da soporte.",
+        processTitle: "Diseño funcional para consultorios y profesionales.",
+        processIntro: "Aterrizamos la solución según tu tipo de atención, frecuencia de sesiones y necesidades de seguimiento.",
+        processSteps: [
+            {
+                title: "Lectura de la práctica",
+                description: "Entendemos cómo agendas, registras sesiones y gestionas tu consulta hoy.",
+            },
+            {
+                title: "Modelo de atención",
+                description: "Definimos estructura para pacientes, historial, citas y pagos.",
+            },
+            {
+                title: "Configuración segura",
+                description: "Implementamos la plataforma con foco en privacidad y claridad de uso.",
+            },
+            {
+                title: "Validación contigo",
+                description: "Probamos la herramienta sobre casos reales antes de dejarla operativa.",
+            },
+        ],
+        priceIncludes: [
+            "Estructura privada para pacientes, citas e historial.",
+            "Panel claro para operación diaria del consultorio.",
+            "Acompañamiento para implementación y uso inicial.",
+        ],
+        faqTitle: "Lo importante antes de digitalizar tu consulta.",
+        faqDescription: "Estas respuestas te orientan sobre privacidad, alcance y configuración de la plataforma.",
+        ctaTitle: "Creamos una herramienta que cuide tu práctica y tu tiempo.",
+        ctaDescription: "Si tu consulta ya creció y necesitas más orden sin perder cercanía, te ayudamos a implementarlo bien.",
+    },
+    "Software para restaurantes": {
+        variant: "restaurant",
+        label: "Operacion Gastronomica",
+        audience: "Restaurantes, dark kitchens y marcas gastronómicas que buscan velocidad y control.",
+        focusAreas: [
+            {
+                title: "Pedidos sin caos",
+                description: "Centraliza órdenes, reservas y atención para reducir errores en momentos críticos.",
+            },
+            {
+                title: "Operación visible",
+                description: "Mesas, inventario y flujo comercial con una lectura rápida del negocio.",
+            },
+            {
+                title: "Más ritmo comercial",
+                description: "Una experiencia más clara para el equipo y más consistente para el cliente.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Atención más fluida",
+                description: "El sistema se orienta a resolver fricciones del día a día en caja, salón o delivery.",
+            },
+            {
+                title: "Coordinación operativa",
+                description: "Pedidos, reservas y mesas pueden convivir con mejor visibilidad para el equipo.",
+            },
+            {
+                title: "Información útil para vender mejor",
+                description: "Tus datos dejan de ser ruido y se convierten en decisiones más claras.",
+            },
+        ],
+        icon: UtensilsCrossed,
+        ...sharedAccentTokens,
+        moduleTitle: "Una operación gastronómica pensada para el ritmo real del servicio.",
+        moduleDescription: "Los módulos priorizan velocidad, visibilidad y coordinación para que el negocio funcione mejor bajo presión.",
+        benefitsTitle: "Impacto tangible en atención, ventas y control.",
+        benefitsDescription: "El objetivo no es solo digitalizar, sino mejorar la ejecución diaria del restaurante.",
+        processTitle: "Implementación enfocada en el servicio diario.",
+        processIntro: "Aterrizamos la solución según tu modelo de atención, reservas, ventas y dinámica operativa.",
+        processSteps: [
+            {
+                title: "Revisión del servicio",
+                description: "Analizamos cómo manejas pedidos, mesas, delivery y reservas hoy.",
+            },
+            {
+                title: "Diseño del flujo gastronómico",
+                description: "Definimos cómo debe ordenarse la experiencia para tu equipo y tus clientes.",
+            },
+            {
+                title: "Integración operativa",
+                description: "Implementamos módulos útiles para caja, pedidos, inventario y control.",
+            },
+            {
+                title: "Prueba en contexto real",
+                description: "Validamos el uso en operación para asegurar que la herramienta acompañe el ritmo del negocio.",
+            },
+        ],
+        priceIncludes: [
+            "Estructura adaptada al flujo operativo del restaurante.",
+            "Configuración de pedidos, reservas y control comercial.",
+            "Soporte para puesta en marcha con el equipo.",
+        ],
+        faqTitle: "Preguntas típicas antes de digitalizar tu restaurante.",
+        faqDescription: "Estas respuestas ayudan a entender alcance, compatibilidad y beneficios prácticos.",
+        ctaTitle: "Hagamos que tu operación venda mejor y se equivoque menos.",
+        ctaDescription: "Si tu restaurante ya necesita más control en pedidos, atención o reservas, podemos construir una solución hecha para ese ritmo.",
+    },
+    "Tiendas virtuales": {
+        variant: "commerce",
+        label: "E-commerce",
+        audience: "Negocios que quieren vender online con una experiencia rápida, clara y confiable.",
+        focusAreas: [
+            {
+                title: "Catálogo más claro",
+                description: "Tus productos se presentan con mejor estructura, confianza y foco comercial.",
+            },
+            {
+                title: "Compra más simple",
+                description: "Reducimos fricción en el recorrido para que más visitas lleguen a contacto o compra.",
+            },
+            {
+                title: "Escala digital",
+                description: "Tu tienda queda lista para crecer en visibilidad, productos y conversión.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Experiencia pensada para convertir",
+                description: "La estructura prioriza claridad, confianza y velocidad en cada punto del recorrido.",
+            },
+            {
+                title: "Operación administrable",
+                description: "No se trata solo de vender, sino de mantener catálogo y contenidos con orden.",
+            },
+            {
+                title: "Base lista para crecer",
+                description: "Preparamos la tienda para integrar pagos, campañas y futuras ampliaciones.",
+            },
+        ],
+        icon: ShoppingBag,
+        ...sharedAccentTokens,
+        moduleTitle: "Una tienda online con foco en claridad comercial y conversión.",
+        moduleDescription: "Cada módulo ayuda a mostrar mejor tus productos, facilitar la compra y sostener crecimiento digital.",
+        benefitsTitle: "Ventajas que se reflejan en confianza y ventas.",
+        benefitsDescription: "La tienda no solo debe verse bien; debe ayudar a vender mejor y a operar con menos fricción.",
+        processTitle: "Construcción de una tienda pensada para convertir.",
+        processIntro: "Diseñamos la experiencia desde el catálogo hasta el cierre para que la tienda funcione como canal comercial real.",
+        processSteps: [
+            {
+                title: "Diagnóstico comercial",
+                description: "Revisamos tu oferta, tipo de cliente y forma actual de venta online.",
+            },
+            {
+                title: "Arquitectura de conversión",
+                description: "Definimos catálogo, navegación, fichas, mensajes y puntos de contacto.",
+            },
+            {
+                title: "Implementación del e-commerce",
+                description: "Montamos la tienda con foco en velocidad, confianza y facilidad de administración.",
+            },
+            {
+                title: "Salida comercial",
+                description: "Validamos pagos, flujos y contenido para dejar la tienda lista para vender.",
+            },
+        ],
+        priceIncludes: [
+            "Arquitectura comercial para catálogo y conversión.",
+            "Implementación de tienda con administración clara.",
+            "Preparación para crecer con campañas o más productos.",
+        ],
+        faqTitle: "Lo que suele preguntarse antes de lanzar una tienda virtual.",
+        faqDescription: "Estas respuestas aclaran alcance, administración y posibilidades de expansión.",
+        ctaTitle: "Construyamos una tienda que ayude a vender desde el primer día.",
+        ctaDescription: "Si tu negocio ya necesita un canal online sólido, podemos diseñar una tienda rápida, administrable y enfocada en resultados.",
+    },
+    "Automatización de procesos": {
+        variant: "automation",
+        label: "Automatizacion Operativa",
+        audience: "Equipos que necesitan eliminar tareas manuales y ganar velocidad operativa.",
+        focusAreas: [
+            {
+                title: "Menos trabajo repetitivo",
+                description: "Automatiza tareas que hoy consumen tiempo y energía sin aportar valor real.",
+            },
+            {
+                title: "Más control operativo",
+                description: "Tus procesos pasan de depender de personas a funcionar con reglas más claras.",
+            },
+            {
+                title: "Decisiones con datos",
+                description: "Alertas, tableros y flujos conectados para actuar con mejor información.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Procesos convertidos en sistema",
+                description: "Estructuramos operaciones manuales para que funcionen con lógica, orden y trazabilidad.",
+            },
+            {
+                title: "Automatizaciones útiles",
+                description: "No automatizamos por moda: priorizamos tareas que sí generan ahorro real.",
+            },
+            {
+                title: "Integración con tu contexto",
+                description: "Se conecta con tus formularios, flujos internos o herramientas ya existentes si conviene.",
+            },
+        ],
+        icon: Workflow,
+        ...sharedAccentTokens,
+        moduleTitle: "Automatizaciones pensadas para aligerar la operación real.",
+        moduleDescription: "Cada módulo busca reducir tareas manuales, mejorar trazabilidad y acelerar la ejecución del equipo.",
+        benefitsTitle: "Beneficios que se sienten en tiempo, control y productividad.",
+        benefitsDescription: "La automatización correcta reduce dependencia operativa y libera tiempo para tareas de más valor.",
+        processTitle: "Implementación centrada en procesos, no en adornos.",
+        processIntro: "Primero detectamos qué conviene automatizar; luego diseñamos una solución que realmente simplifique la operación.",
+        processSteps: [
+            {
+                title: "Mapa operativo",
+                description: "Identificamos cuellos de botella, tareas manuales y puntos de pérdida de tiempo.",
+            },
+            {
+                title: "Diseño del flujo",
+                description: "Convertimos pasos dispersos en una lógica operativa clara y medible.",
+            },
+            {
+                title: "Automatización e integración",
+                description: "Implementamos reportes, alertas, formularios o tableros según tu caso.",
+            },
+            {
+                title: "Ajuste fino",
+                description: "Probamos el flujo en contexto real y afinamos hasta que aporte valor tangible.",
+            },
+        ],
+        priceIncludes: [
+            "Evaluación de procesos con foco en ahorro operativo.",
+            "Diseño e implementación de flujos personalizados.",
+            "Ajustes para integración y uso real dentro del equipo.",
+        ],
+        faqTitle: "Preguntas frecuentes antes de automatizar procesos.",
+        faqDescription: "Estas respuestas ayudan a dimensionar el alcance y detectar si tu caso es una buena oportunidad.",
+        ctaTitle: "Convirtamos tareas repetitivas en un sistema que trabaje por ti.",
+        ctaDescription: "Si tu equipo pierde horas en operaciones manuales, podemos diseñar automatizaciones útiles y sostenibles.",
+    },
+    "Desarrollo web para empresas": {
+        variant: "corporate",
+        label: "Presencia Corporativa",
+        audience: "Empresas que necesitan una presencia digital profesional orientada a conversión.",
+        focusAreas: [
+            {
+                title: "Imagen más sólida",
+                description: "Tu empresa se presenta con mayor claridad, orden y confianza frente al mercado.",
+            },
+            {
+                title: "Mensajes que convierten",
+                description: "La web se estructura para explicar mejor lo que haces y captar interés real.",
+            },
+            {
+                title: "Base comercial digital",
+                description: "Una web profesional que acompaña ventas, posicionamiento y crecimiento.",
+            },
+        ],
+        offerPoints: [
+            {
+                title: "Presencia corporativa clara",
+                description: "No se trata solo de diseño: organizamos tu propuesta para que comunique mejor.",
+            },
+            {
+                title: "Enfoque comercial y SEO",
+                description: "La estructura se plantea para generar confianza, captar contactos y rendir mejor en buscadores.",
+            },
+            {
+                title: "Escalable a futuro",
+                description: "La web queda lista para crecer con más secciones, campañas o integraciones.",
+            },
+        ],
+        icon: Building2,
+        ...sharedAccentTokens,
+        moduleTitle: "Una web corporativa que comunique valor y abra oportunidades.",
+        moduleDescription: "Los módulos priorizan narrativa comercial, claridad visual y estructura pensada para captar clientes.",
+        benefitsTitle: "Beneficios que fortalecen la presencia digital de tu empresa.",
+        benefitsDescription: "Una web bien diseñada mejora la imagen, la comprensión del servicio y la generación de contactos.",
+        processTitle: "Construcción web pensada para negocio y posicionamiento.",
+        processIntro: "Diseñamos la presencia digital de tu empresa desde una lógica comercial, no solo estética.",
+        processSteps: [
+            {
+                title: "Lectura de marca",
+                description: "Entendemos tu propuesta, tus servicios y el perfil del cliente que quieres atraer.",
+            },
+            {
+                title: "Arquitectura del sitio",
+                description: "Definimos secciones, mensajes, estructura SEO y jerarquía de información.",
+            },
+            {
+                title: "Diseño e implementación",
+                description: "Construimos una web rápida, clara y alineada con la imagen de tu empresa.",
+            },
+            {
+                title: "Lanzamiento con criterio",
+                description: "Validamos rendimiento, experiencia y elementos de contacto antes de publicar.",
+            },
+        ],
+        priceIncludes: [
+            "Arquitectura de contenido y enfoque comercial.",
+            "Diseño e implementación optimizada para velocidad y SEO.",
+            "Preparación para captación de contactos y crecimiento.",
+        ],
+        faqTitle: "Dudas frecuentes antes de desarrollar tu web corporativa.",
+        faqDescription: "Aquí respondemos lo clave sobre estructura, posicionamiento y posibilidades de expansión.",
+        ctaTitle: "Diseñemos una web que represente mejor el valor de tu empresa.",
+        ctaDescription: "Si tu negocio necesita una presencia digital más profesional y orientada a resultados, podemos construirla contigo.",
+    },
+};
+
+const theme = serviceThemes[title] ?? {
+    variant: "default",
+    label: eyebrow,
+    audience: "Soluciones pensadas para equipos que necesitan orden, velocidad y resultados medibles.",
+    focusAreas: [
+        {
+            title: "Orden operativo",
+            description: "Creamos una estructura clara para que el servicio se use de forma simple y consistente.",
+        },
+        {
+            title: "Escalabilidad real",
+            description: "La solución se diseña para crecer contigo sin perder control ni claridad.",
+        },
+        {
+            title: "Mejor experiencia",
+            description: "El foco está en facilitar la operación y elevar la percepción profesional del negocio.",
+        },
+    ],
+    offerPoints: [
+        {
+            title: "Implementación personalizada",
+            description: "La estructura se adapta a tu flujo real, no a una plantilla rígida.",
+        },
+        {
+            title: "Entrega por etapas",
+            description: "Trabajamos con validaciones progresivas para mantener control y claridad.",
+        },
+        {
+            title: "Escalable y mantenible",
+            description: "Diseñado para crecer sin perder rendimiento, orden ni experiencia de uso.",
+        },
+    ],
+    icon: ShieldCheck,
+    accentText: "text-secondary",
+    accentBorder: "border-secondary/20",
+    accentSoft: "bg-secondary/10 text-secondary",
+    accentGlow: "from-secondary/18 via-secondary/8 to-transparent",
+    accentPanel: "bg-secondary/10",
+    accentButton: "hover:bg-secondary/90",
+    accentRing: "shadow-secondary/10",
+    moduleTitle: "Módulos diseñados para operar sin fricción.",
+    moduleDescription: "Cada bloque está pensado para resolver tareas críticas, ordenar información y hacer que tu operación sea más clara y productiva.",
+    benefitsTitle: "Impacto directo en tu operación.",
+    benefitsDescription: "No se trata solo de tener una herramienta bonita, sino de reducir fricción, ordenar procesos y mejorar la percepción profesional de tu negocio.",
+    processTitle: "De idea a implementación.",
+    processIntro: "Definimos una solución útil, escalable y bien ejecutada según el contexto real de tu operación.",
+    processSteps: [
+        {
+            title: "Diagnóstico",
+            description: "Revisamos tu operación, detectamos cuellos de botella y definimos el alcance ideal.",
+        },
+        {
+            title: "Arquitectura",
+            description: "Diseñamos la estructura funcional para que la solución sea clara, usable y escalable.",
+        },
+        {
+            title: "Implementación",
+            description: "Desarrollamos, iteramos contigo y conectamos lo necesario para que todo funcione en conjunto.",
+        },
+        {
+            title: "Puesta en marcha",
+            description: "Lanzamos, afinamos detalles y dejamos tu sistema listo para operar con confianza.",
+        },
+    ],
+    priceIncludes: [
+        "Estrategia funcional alineada a tu operación.",
+        "Diseño e implementación con enfoque comercial y técnico.",
+        "Acompañamiento para salida a producción.",
+    ],
+    faqTitle: "Lo que normalmente te preguntarías antes de avanzar.",
+    faqDescription: "Estas respuestas te ayudan a entender alcance, flexibilidad y forma de implementación.",
+    ctaTitle: "Convirtamos esta idea en una herramienta real para tu negocio.",
+    ctaDescription: "Cuéntanos tu contexto, tus procesos y lo que quieres mejorar. Te ayudamos a definir una solución útil, escalable y bien ejecutada.",
+};
+
+const ServiceIcon = theme.icon;
+const heroHighlights = features.slice(0, 3);
+const panelIcons = [BadgeCheck, Clock3, ShieldCheck];
+const statItems = [
+    { value: `0${Math.min(features.length, 9)}`, label: "módulos clave" },
+    { value: `0${Math.min(benefits.length, 9)}`, label: "beneficios directos" },
+    { value: `0${Math.min(faq.length, 9)}`, label: "preguntas resueltas" },
+];
+const commerceJourney = ["Descubre", "Confirma", "Convierte"];
+const automationFlow = ["entrada", "reglas", "disparo", "resultado"];
+const corporateAngles = ["Posicionamiento", "Credibilidad", "Conversión"];
+const secondaryCta =
+    theme.variant === "legal" || theme.variant === "commerce"
+        ? { href: "#modulos", label: "Ver módulos del servicio" }
+        : theme.variant === "automation"
+            ? { href: "#beneficios-proceso", label: "Ver flujo y beneficios" }
+            : theme.variant === "corporate"
+                ? { href: "#beneficios-proceso", label: "Ver enfoque del servicio" }
+                : { href: "#beneficios-proceso", label: "Ver beneficios y proceso" };
 ---
 
-<section class="relative overflow-hidden pt-36 pb-24 bg-background">
-    <div
-        class="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10"
-    >
+<div class="service-landing" data-service-variant={theme.variant}>
+<section class="relative overflow-hidden bg-background pt-36 pb-20 md:pt-40 md:pb-24">
+    <div class="pointer-events-none absolute inset-0">
+        <div class={`absolute inset-x-0 top-0 h-[34rem] bg-gradient-to-b ${theme.accentGlow}`} />
+        <div class="absolute inset-0 opacity-[0.32] service-grid-mask" />
+        <div class="absolute -left-24 top-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+        <div class={`absolute -right-20 top-40 h-80 w-80 rounded-full blur-3xl ${theme.accentPanel}`} />
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-6">
-        <div class="max-w-3xl">
-            <p
-                class="mb-4 inline-flex rounded-full border border-secondary/30 bg-secondary/10 px-4 py-2 text-sm font-semibold text-secondary"
-            >
-                {eyebrow}
-            </p>
+    <div class="service-hero-grid relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[minmax(0,1.15fr)_24rem] lg:items-start">
+        <div>
+            <div class="service-eyebrow inline-flex items-center gap-3 rounded-full border border-border/70 bg-card/60 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground backdrop-blur-xl">
+                <span class={`flex h-8 w-8 items-center justify-center rounded-full border ${theme.accentBorder} ${theme.accentSoft}`}>
+                    <ServiceIcon size={15} />
+                </span>
+                <span>{theme.label}</span>
+                <span class={`h-1.5 w-1.5 rounded-full ${theme.accentPanel}`} />
+                <span>{eyebrow}</span>
+            </div>
 
-            <h1
-                class="text-4xl md:text-6xl font-black tracking-tight text-primary"
-            >
-                {title}
-            </h1>
+            <div class="mt-8 max-w-4xl">
+                <h1 class="service-title text-balance text-4xl font-black tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[0.95]">
+                    {title}
+                </h1>
 
-            <p
-                class="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed"
-            >
-                {description}
-            </p>
+                <p class="service-copy mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+                    {description}
+                </p>
+            </div>
 
-            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            {
+                theme.variant === "legal" && (
+                    <div class="service-hero-detail mt-8 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
+                        <div class="rounded-[1.3rem] border border-border/70 bg-card/55 p-5 backdrop-blur-xl">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                                Criterio de implementación
+                            </p>
+                            <p class="mt-3 text-base leading-relaxed text-primary/85">
+                                Diseñado para estudios que necesitan trazabilidad, orden documental y una operación más confiable frente al cliente.
+                            </p>
+                        </div>
+                        <div class="rounded-[1.3rem] border border-border/70 bg-background/70 p-5">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                                Marco de trabajo
+                            </p>
+                            <div class="mt-3 space-y-2 text-sm text-primary">
+                                <p>Clientes</p>
+                                <p>Expedientes</p>
+                                <p>Agenda</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "therapy" && (
+                    <div class="service-hero-detail mt-8 rounded-[2rem] border border-border/70 bg-card/55 p-6 backdrop-blur-xl">
+                        <p class="max-w-2xl text-base leading-relaxed text-primary/85">
+                            Una estructura digital que acompaña tu práctica con privacidad, continuidad y menos carga administrativa.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-3 text-sm text-muted-foreground">
+                            <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Historial ordenado</span>
+                            <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Agenda estable</span>
+                            <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Seguimiento claro</span>
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "restaurant" && (
+                    <div class="service-hero-detail mt-8 grid gap-3 sm:grid-cols-3">
+                        <div class="rounded-[1.3rem] border border-border/70 bg-card/60 p-4">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Atención</p>
+                            <p class="mt-3 text-lg font-bold text-primary">Atención más clara</p>
+                        </div>
+                        <div class="rounded-[1.3rem] border border-border/70 bg-card/70 p-4">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Cocina</p>
+                            <p class="mt-3 text-lg font-bold text-primary">Menos errores en pedidos</p>
+                        </div>
+                        <div class="rounded-[1.3rem] border border-border/70 bg-card/60 p-4">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Ventas</p>
+                            <p class="mt-3 text-lg font-bold text-primary">Control comercial diario</p>
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "commerce" && (
+                    <div class="service-hero-detail mt-8 rounded-[1.6rem] border border-border/70 bg-card/60 p-5 backdrop-blur-xl">
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            {
+                                commerceJourney.map((step, index) => (
+                                    <div class="rounded-[1.1rem] border border-border/70 bg-background/75 p-4">
+                                        <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">0{index + 1}</p>
+                                        <p class="mt-3 text-lg font-bold text-primary">{step}</p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "automation" && (
+                    <div class="service-hero-detail mt-8 rounded-[1.1rem] border border-border/70 bg-card/70 p-5">
+                        <div class="grid gap-3 sm:grid-cols-4">
+                            {
+                                automationFlow.map((step) => (
+                                    <div class="rounded-xl border border-border/70 bg-background/75 px-3 py-4 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-primary">
+                                        {step}
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "corporate" && (
+                    <div class="service-hero-detail mt-8 grid gap-4 xl:grid-cols-[1.05fr_0.95fr] xl:items-stretch">
+                        <div class="rounded-[1.35rem] border border-border/70 bg-card/55 p-5 md:p-6 corporate-hero-copy backdrop-blur-xl">
+                            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-secondary">Enfoque digital</p>
+                            <h3 class="mt-3 text-xl font-bold tracking-tight text-primary md:text-2xl">
+                                Una web corporativa pensada para vender mejor.
+                            </h3>
+                            <p class="mt-3 text-base leading-relaxed text-primary/85 max-w-xl">
+                                Organizamos tu propuesta para que se entienda rápido, transmita confianza y lleve al usuario hacia una conversación comercial más clara.
+                            </p>
+                        </div>
+                        <div class="corporate-pillars-wrap grid gap-3 sm:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
+                            {
+                                corporateAngles.map((item) => (
+                                    <div class="corporate-pillar rounded-[1.2rem] border border-border/70 bg-card/45 p-4 min-w-0 backdrop-blur-md">
+                                        <p class="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-secondary/80">
+                                            Pilar
+                                        </p>
+                                        <p class="mt-3 break-words text-base font-bold leading-snug text-primary md:text-lg">{item}</p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                     href="#contacto"
-                    class="rounded-xl bg-secondary px-6 py-3 font-semibold text-white text-center"
+                    class={`inline-flex items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
                 >
-                    Solicitar cotización
+                    Solicitar propuesta
+                    <ArrowRight size={16} />
                 </a>
 
                 <a
-                    href="#precio"
-                    class="rounded-xl border border-border px-6 py-3 font-semibold text-primary text-center"
+                    href={secondaryCta.href}
+                    class="inline-flex items-center justify-center gap-2 rounded-2xl border border-border/80 bg-card/60 px-6 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-card"
                 >
-                    Ver precio
+                    {secondaryCta.label}
                 </a>
             </div>
+
+            <div class="service-kpi-grid mt-12 grid gap-4 sm:grid-cols-3">
+                {
+                    statItems.map((item) => (
+                        <div class="service-kpi-card rounded-2xl border border-border/70 bg-card/55 p-5 backdrop-blur-xl">
+                            <p class="text-3xl font-black tracking-tight text-primary">{item.value}</p>
+                            <p class="mt-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                                {item.label}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-3">
+                {
+                    heroHighlights.map((item) => (
+                        <span class={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm ${theme.accentBorder} bg-card/50 text-foreground/90`}>
+                            <Check size={15} class={theme.accentText} />
+                            {item}
+                        </span>
+                    ))
+                }
+            </div>
         </div>
+
+        <aside class={`service-offer-panel rounded-[2rem] border border-border/70 bg-card/70 p-6 shadow-2xl backdrop-blur-2xl lg:sticky lg:top-28 ${theme.accentRing}`}>
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                Oferta base
+            </div>
+
+            {
+                theme.variant === "legal" && (
+                    <div class="mt-5 rounded-[1.3rem] border border-border/70 bg-background/70 p-4">
+                        <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Prioridad</p>
+                        <p class="mt-2 text-sm leading-relaxed text-primary/85">
+                            Que cada expediente tenga contexto, trazabilidad y una lectura operativa inmediata.
+                        </p>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "therapy" && (
+                    <div class="mt-5 rounded-[1.6rem] border border-border/70 bg-background/70 p-4">
+                        <p class="text-sm leading-relaxed text-primary/85">
+                            "Menos carga operativa, más espacio para enfocarte en la atención."
+                        </p>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "restaurant" && (
+                    <div class="mt-5 grid grid-cols-3 gap-2">
+                        <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Pedidos</div>
+                        <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Reservas</div>
+                        <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Ventas</div>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "commerce" && (
+                    <div class="mt-5 rounded-[1.3rem] border border-border/70 bg-background/75 p-4">
+                        <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Objetivo</p>
+                        <p class="mt-2 text-sm leading-relaxed text-primary/85">
+                            Convertir visitas en compras o consultas con una experiencia rápida y confiable.
+                        </p>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "automation" && (
+                    <div class="mt-5 rounded-xl border border-border/70 bg-background/75 p-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-primary">
+                        <p>&gt; reduce tareas manuales</p>
+                        <p class="mt-2">&gt; conecta operaciones</p>
+                        <p class="mt-2">&gt; escala procesos</p>
+                    </div>
+                )
+            }
+
+            {
+                theme.variant === "corporate" && (
+                    <div class="mt-5 rounded-[1.2rem] border border-border/70 bg-background/75 p-4">
+                        <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Resultado esperado</p>
+                        <p class="mt-2 text-sm leading-relaxed text-primary/85">
+                            Una presencia digital más creíble, clara y alineada con tus objetivos comerciales.
+                        </p>
+                    </div>
+                )
+            }
+
+            <div class="mt-6 border-b border-border/70 pb-6">
+                <p class="text-sm font-medium text-muted-foreground">Inversión referencial</p>
+                <p class="mt-2 text-4xl font-black tracking-tight text-primary">{price}</p>
+                <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {theme.audience}
+                </p>
+            </div>
+
+            <div class="mt-6 space-y-4">
+                {
+                    theme.offerPoints.map((point, index) => {
+                        const PointIcon = panelIcons[index] ?? BadgeCheck;
+
+                        return (
+                            <div class="flex items-start gap-3">
+                                <PointIcon size={18} class={`mt-0.5 shrink-0 ${theme.accentText}`} />
+                                <div>
+                                    <p class="font-semibold text-primary">{point.title}</p>
+                                    <p class="mt-1 text-sm text-muted-foreground">{point.description}</p>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+
+            <a
+                href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-secondary px-5 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
+            >
+                <MessageCircle size={16} />
+                Cotizar por WhatsApp
+            </a>
+        </aside>
     </div>
 </section>
 
-<section class="py-24 bg-card">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-black text-primary">
-            ¿Qué incluye?
-        </h2>
+<div class="service-sections flex flex-col">
+<section class="service-focus-section bg-background py-8 md:py-10">
+    <div class="service-focus-grid mx-auto grid max-w-7xl gap-4 px-6 md:grid-cols-3">
+        {
+            theme.focusAreas.map((area) => (
+                <article class="service-focus-card rounded-[1.8rem] border border-border/70 bg-card/60 p-6 backdrop-blur-xl">
+                    <span class={`inline-flex rounded-full border px-3 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.2em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                        Enfoque
+                    </span>
+                    <h3 class="mt-5 text-xl font-bold tracking-tight text-primary">{area.title}</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {area.description}
+                    </p>
+                </article>
+            ))
+        }
+    </div>
+</section>
 
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<section id="modulos" class="service-modules-section relative overflow-hidden bg-card/20 py-20 md:py-24">
+    <div class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-12">
+        <div>
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                Estructura del servicio
+            </div>
+            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+                {theme.moduleTitle}
+            </h2>
+            <p class="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {theme.moduleDescription}
+            </p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {
-                features.map((feature) => (
-                    <article class="rounded-2xl border border-border bg-background p-6 shadow-sm">
-                        <h3 class="font-bold text-primary">{feature}</h3>
-                        <p class="mt-2 text-sm text-muted-foreground">
-                            Implementado con enfoque profesional, velocidad,
-                            seguridad y facilidad de uso.
+                features.map((feature, index) => (
+                    <article class="service-module-card group rounded-[1.6rem] border border-border/70 bg-background/70 p-6 transition-transform duration-300 hover:-translate-y-1 hover:bg-background">
+                        <div class="flex items-start justify-between gap-3">
+                            <span class={`inline-flex h-10 w-10 items-center justify-center rounded-2xl border ${theme.accentBorder} ${theme.accentSoft}`}>
+                                <Sparkles size={16} />
+                            </span>
+                            <span class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                                0{index + 1}
+                            </span>
+                        </div>
+
+                        <h3 class="mt-6 text-lg font-bold leading-snug text-primary">
+                            {feature}
+                        </h3>
+                        <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+                            {featureSupportCopy[index % featureSupportCopy.length]}
                         </p>
                     </article>
                 ))
@@ -90,127 +926,477 @@ const {
     </div>
 </section>
 
-<section class="py-24 bg-background">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
-        <div>
-            <h2 class="text-3xl md:text-4xl font-black text-primary">
-                Beneficios para tu negocio
+<section id="beneficios-proceso" class="service-benefits-process-section bg-background py-20 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)]">
+        <div class="service-benefits-panel rounded-[2rem] border border-border/70 bg-card/55 p-8 backdrop-blur-xl md:p-10">
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                Beneficios reales
+            </div>
+            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+                {theme.benefitsTitle}
             </h2>
-
-            <p class="mt-4 text-muted-foreground">
-                Creamos una solución pensada para mejorar tus procesos, aumentar
-                tu presencia digital y ayudarte a conseguir mejores resultados.
-            </p>
-        </div>
-
-        <div class="space-y-4">
-            {
-                benefits.map((benefit) => (
-                    <div class="rounded-2xl border border-border bg-card p-5">
-                        <p class="font-semibold text-primary">{benefit}</p>
-                    </div>
-                ))
-            }
-        </div>
-    </div>
-</section>
-
-<section id="precio" class="py-24 bg-card">
-    <div class="max-w-7xl mx-auto px-6">
-        <div
-            class="rounded-3xl border border-border bg-background p-8 md:p-12 shadow-xl"
-        >
-            <p
-                class="text-sm font-semibold text-secondary uppercase tracking-wide"
-            >
-                Precio referencial
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                {theme.benefitsDescription}
             </p>
 
-            <h2 class="mt-3 text-3xl md:text-5xl font-black text-primary">
-                {price}
+            <div class="mt-10 grid gap-4 md:grid-cols-2">
+                {
+                    benefits.map((benefit) => (
+                        <div class="rounded-[1.5rem] border border-border/70 bg-background/80 p-5">
+                            <div class="flex items-start gap-3">
+                                <span class={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${theme.accentSoft}`}>
+                                    <Check size={15} />
+                                </span>
+                                <p class="font-semibold leading-relaxed text-primary">{benefit}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="service-process-panel rounded-[2rem] border border-border/70 bg-card/55 p-8 backdrop-blur-xl md:p-10">
+            <div class="inline-flex rounded-full border border-border/70 bg-background/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Proceso VelyonSoft
+            </div>
+            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-4xl">
+                {theme.processTitle}
             </h2>
-
-            <p class="mt-4 text-muted-foreground max-w-2xl">
-                El precio final depende del alcance, cantidad de secciones,
-                funcionalidades, integraciones y nivel de personalización.
+            <p class="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {theme.processIntro}
             </p>
 
-            <a
-                href="#contacto"
-                class="mt-8 inline-flex rounded-xl bg-secondary px-6 py-3 font-semibold text-white"
-            >
-                Quiero una propuesta
-            </a>
-        </div>
-    </div>
-</section>
-
-<section class="py-24 bg-background">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-black text-primary">
-            Proceso de trabajo
-        </h2>
-
-        <div class="mt-12 grid md:grid-cols-4 gap-6">
-            {
-                ["Diagnóstico", "Diseño", "Desarrollo", "Lanzamiento"].map(
-                    (step, index) => (
-                        <article class="rounded-2xl border border-border bg-card p-6">
-                            <p class="text-sm font-bold text-secondary">
+            <div class="mt-8 space-y-5">
+                {
+                    theme.processSteps.map((step, index) => (
+                        <article class="service-process-card grid grid-cols-[3rem_1fr] gap-4 rounded-[1.4rem] border border-border/70 bg-background/80 p-4">
+                            <div class={`flex h-12 w-12 items-center justify-center rounded-2xl border text-sm font-black ${theme.accentBorder} ${theme.accentSoft}`}>
                                 0{index + 1}
-                            </p>
-                            <h3 class="mt-3 font-bold text-primary">{step}</h3>
-                            <p class="mt-2 text-sm text-muted-foreground">
-                                Trabajamos esta etapa contigo para asegurar una
-                                solución clara, útil y profesional.
-                            </p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">{step.title}</h3>
+                                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                                    {step.description}
+                                </p>
+                            </div>
                         </article>
-                    ),
-                )
-            }
+                    ))
+                }
+            </div>
         </div>
     </div>
 </section>
 
-<section class="py-24 bg-card">
-    <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-black text-primary">
-            Preguntas frecuentes
-        </h2>
+<section id="precio" class="service-pricing-section bg-card/20 py-20 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-[24rem_minmax(0,1fr)]">
+        <div class={`service-price-card rounded-[2rem] border border-border/70 bg-background/80 p-8 shadow-2xl backdrop-blur-xl ${theme.accentRing}`}>
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                Inversión estimada
+            </div>
+            <p class="mt-6 text-4xl font-black tracking-tight text-primary md:text-5xl">{price}</p>
+            <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                El valor final depende del alcance, integraciones, automatizaciones, paneles, roles y personalización requerida.
+            </p>
 
-        <div class="mt-10 space-y-4">
-            {
-                faq.map((item) => (
-                    <details class="rounded-2xl border border-border bg-background p-6">
-                        <summary class="cursor-pointer font-bold text-primary">
-                            {item.q}
-                        </summary>
-                        <p class="mt-3 text-muted-foreground">{item.a}</p>
-                    </details>
-                ))
-            }
+            <div class="mt-8 space-y-3 border-t border-border/70 pt-6">
+                <p class="text-sm font-semibold text-primary">Incluye normalmente:</p>
+                <div class="space-y-2 text-sm text-muted-foreground">
+                    {
+                        theme.priceIncludes.map((item) => (
+                            <p class="flex items-start gap-2"><Check size={15} class={`mt-0.5 ${theme.accentText}`} />{item}</p>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="service-faq-card rounded-[2rem] border border-border/70 bg-background/80 p-8 backdrop-blur-xl md:p-10">
+            <div class="inline-flex rounded-full border border-border/70 bg-card/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Preguntas frecuentes
+            </div>
+            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-4xl">
+                {theme.faqTitle}
+            </h2>
+            <p class="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {theme.faqDescription}
+            </p>
+
+            <div class="mt-8 space-y-4">
+                {
+                    faq.map((item) => (
+                        <details class="group rounded-[1.4rem] border border-border/70 bg-card/60 p-5 transition-colors open:bg-card/90">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-primary marker:hidden">
+                                <span>{item.q}</span>
+                                <span class={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border ${theme.accentBorder} ${theme.accentSoft} faq-plus`}>
+                                    <span class="faq-plus-line faq-plus-line-x"></span>
+                                    <span class="faq-plus-line faq-plus-line-y"></span>
+                                </span>
+                            </summary>
+                            <p class="mt-4 pr-10 text-sm leading-relaxed text-muted-foreground">
+                                {item.a}
+                            </p>
+                        </details>
+                    ))
+                }
+            </div>
         </div>
     </div>
 </section>
 
-<section id="contacto" class="py-24 bg-background">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-black text-primary">
-            ¿Quieres desarrollar este servicio?
-        </h2>
+<section id="contacto" class="service-cta-section bg-background py-20 md:py-24">
+    <div class="mx-auto max-w-5xl px-6">
+        <div class="service-cta-card rounded-[2.4rem] border border-border/70 bg-card/65 px-8 py-10 text-center shadow-2xl backdrop-blur-2xl md:px-12 md:py-14">
+            <div class={`mx-auto inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                Siguiente paso
+            </div>
+            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+                {theme.ctaTitle}
+            </h2>
+            <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                {theme.ctaDescription}
+            </p>
 
-        <p class="mt-5 text-lg text-muted-foreground">
-            Cuéntanos qué necesitas y te ayudamos a definir la mejor solución
-            para tu negocio.
-        </p>
+            <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+                <a
+                    href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`inline-flex items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
+                >
+                    <MessageCircle size={16} />
+                    Hablar por WhatsApp
+                </a>
 
-        <a
-            href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-8 inline-flex rounded-xl bg-secondary px-6 py-3 font-semibold text-white"
-        >
-            Escribir por WhatsApp
-        </a>
+                <a
+                    href={primaryContactHref}
+                    class="inline-flex items-center justify-center rounded-2xl border border-border/80 bg-background/70 px-6 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-background"
+                >
+                    Ir al contacto principal
+                </a>
+            </div>
+        </div>
     </div>
 </section>
+</div>
+</div>
+
+<style>
+    .service-landing {
+        --service-accent: var(--color-secondary);
+        --service-surface: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--color-card) 94%, var(--service-accent) 6%),
+            color-mix(in srgb, var(--color-background) 96%, var(--service-accent) 4%)
+        );
+        --service-surface-strong: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--color-card) 90%, var(--service-accent) 10%),
+            color-mix(in srgb, var(--color-background) 92%, var(--service-accent) 8%)
+        );
+        --service-border-color: color-mix(
+            in srgb,
+            var(--color-border) 84%,
+            var(--service-accent) 16%
+        );
+        --service-shadow: color-mix(
+            in srgb,
+            var(--service-accent) 14%,
+            transparent
+        );
+    }
+
+    .service-kpi-card,
+    .service-offer-panel,
+    .service-focus-card,
+    .service-module-card,
+    .service-benefits-panel,
+    .service-process-panel,
+    .service-process-card,
+    .service-price-card,
+    .service-faq-card,
+    .service-cta-card,
+    .service-hero-detail > div,
+    .service-hero-detail span {
+        background: var(--service-surface);
+        border-color: var(--service-border-color);
+    }
+
+    .service-offer-panel,
+    .service-price-card,
+    .service-cta-card {
+        background: var(--service-surface-strong);
+        box-shadow: 0 24px 60px var(--service-shadow);
+    }
+
+    .service-grid-mask {
+        background-image: linear-gradient(var(--color-border) 1px, transparent 1px),
+            linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .faq-plus {
+        position: relative;
+    }
+
+    .faq-plus-line {
+        position: absolute;
+        display: block;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .faq-plus-line-x {
+        height: 2px;
+        width: 12px;
+    }
+
+    .faq-plus-line-y {
+        height: 12px;
+        width: 2px;
+    }
+
+    details[open] .faq-plus-line-y {
+        opacity: 0;
+        transform: scaleY(0.4);
+    }
+
+    .service-focus-section {
+        order: 1;
+    }
+
+    .service-modules-section {
+        order: 2;
+    }
+
+    .service-benefits-process-section {
+        order: 3;
+    }
+
+    .service-pricing-section {
+        order: 4;
+    }
+
+    .service-cta-section {
+        order: 5;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-focus-section {
+        order: 1;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-modules-section {
+        order: 2;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-benefits-process-section {
+        order: 3;
+    }
+
+    .service-landing[data-service-variant="therapy"] .service-benefits-process-section {
+        order: 2;
+    }
+
+    .service-landing[data-service-variant="therapy"] .service-modules-section {
+        order: 3;
+    }
+
+    .service-landing[data-service-variant="restaurant"] .service-modules-section {
+        order: 2;
+    }
+
+    .service-landing[data-service-variant="restaurant"] .service-benefits-process-section {
+        order: 3;
+    }
+
+    .service-landing[data-service-variant="automation"] .service-benefits-process-section {
+        order: 1;
+    }
+
+    .service-landing[data-service-variant="automation"] .service-focus-section {
+        order: 2;
+    }
+
+    .service-landing[data-service-variant="automation"] .service-modules-section {
+        order: 3;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-benefits-process-section {
+        order: 2;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-focus-section {
+        order: 1;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-modules-section {
+        order: 3;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-title {
+        max-width: 13ch;
+        letter-spacing: -0.05em;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-focus-card,
+    .service-landing[data-service-variant="legal"] .service-price-card,
+    .service-landing[data-service-variant="legal"] .service-faq-card {
+        border-radius: 1.35rem;
+    }
+
+    .service-landing[data-service-variant="legal"] .service-module-card {
+        border-radius: 1.1rem;
+        border-left-width: 3px;
+    }
+
+    .service-landing[data-service-variant="therapy"] .service-title {
+        max-width: 11ch;
+        line-height: 0.98;
+    }
+
+    .service-landing[data-service-variant="therapy"] .service-eyebrow,
+    .service-landing[data-service-variant="therapy"] .service-kpi-card,
+    .service-landing[data-service-variant="therapy"] .service-offer-panel,
+    .service-landing[data-service-variant="therapy"] .service-focus-card,
+    .service-landing[data-service-variant="therapy"] .service-module-card,
+    .service-landing[data-service-variant="therapy"] .service-benefits-panel,
+    .service-landing[data-service-variant="therapy"] .service-process-panel,
+    .service-landing[data-service-variant="therapy"] .service-price-card,
+    .service-landing[data-service-variant="therapy"] .service-faq-card,
+    .service-landing[data-service-variant="therapy"] .service-cta-card {
+        border-radius: 2rem;
+    }
+
+    .service-landing[data-service-variant="therapy"] .service-focus-card:nth-child(2) {
+        transform: translateY(-0.9rem);
+    }
+
+    .service-landing[data-service-variant="restaurant"] .service-title {
+        max-width: 10ch;
+    }
+
+    .service-landing[data-service-variant="restaurant"] .service-module-card:hover {
+        transform: translateY(-0.1rem) scale(1.01);
+    }
+
+    .service-landing[data-service-variant="commerce"] .service-hero-grid {
+        align-items: center;
+    }
+
+    .service-landing[data-service-variant="commerce"] .service-title {
+        max-width: 12ch;
+    }
+
+    .service-landing[data-service-variant="commerce"] .service-module-card:first-child,
+    .service-landing[data-service-variant="commerce"] .service-module-card:last-child {
+        background: var(--service-surface-strong);
+    }
+
+    .service-landing[data-service-variant="automation"] .service-grid-mask {
+        background-size: 40px 40px;
+    }
+
+    .service-landing[data-service-variant="automation"] .service-eyebrow,
+    .service-landing[data-service-variant="automation"] .service-kpi-card p:last-child,
+    .service-landing[data-service-variant="automation"] .service-focus-card span,
+    .service-landing[data-service-variant="automation"] .service-price-card div:first-child {
+        font-family: Consolas, "Courier New", monospace;
+    }
+
+    .service-landing[data-service-variant="automation"] .service-offer-panel,
+    .service-landing[data-service-variant="automation"] .service-module-card,
+    .service-landing[data-service-variant="automation"] .service-process-card,
+    .service-landing[data-service-variant="automation"] .service-price-card,
+    .service-landing[data-service-variant="automation"] .service-faq-card {
+        border-style: dashed;
+        border-radius: 1rem;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-title {
+        max-width: 12ch;
+    }
+
+    .service-landing[data-service-variant="corporate"] .corporate-hero-copy {
+        box-shadow: 0 18px 42px color-mix(in srgb, var(--color-secondary) 8%, transparent);
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-hero-detail > .corporate-pillars-wrap {
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .service-landing[data-service-variant="corporate"] .corporate-pillar {
+        box-shadow: 0 12px 30px color-mix(in srgb, var(--color-secondary) 8%, transparent);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .service-landing[data-service-variant="corporate"] .corporate-pillar:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--color-secondary) 32%, var(--color-border));
+        box-shadow: 0 18px 42px color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-focus-grid {
+        gap: 1.25rem;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-focus-card:first-child,
+    .service-landing[data-service-variant="corporate"] .service-module-card:first-child,
+    .service-landing[data-service-variant="corporate"] .service-module-card:last-child {
+        grid-column: span 2;
+    }
+
+    .service-landing[data-service-variant="corporate"] .service-cta-card {
+        text-align: left;
+    }
+
+    @media (min-width: 768px) {
+        .service-landing[data-service-variant="legal"] .service-focus-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .service-landing[data-service-variant="legal"] .service-focus-card:first-child,
+        .service-landing[data-service-variant="corporate"] .service-focus-card:first-child {
+            grid-column: span 2;
+        }
+
+        .service-landing[data-service-variant="corporate"] .service-focus-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .service-landing[data-service-variant="therapy"] .service-focus-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .service-landing[data-service-variant="therapy"] .service-focus-card:first-child,
+        .service-landing[data-service-variant="therapy"] .service-focus-card:last-child {
+            margin-top: 1.25rem;
+        }
+
+        .service-landing[data-service-variant="commerce"] .service-module-card:first-child {
+            grid-column: span 2;
+        }
+
+    }
+
+    @media (max-width: 767px) {
+        .service-landing[data-service-variant="therapy"] .service-focus-card:nth-child(2),
+        .service-landing[data-service-variant="restaurant"] .service-focus-card:nth-child(1),
+        .service-landing[data-service-variant="restaurant"] .service-focus-card:nth-child(2),
+        .service-landing[data-service-variant="restaurant"] .service-focus-card:nth-child(3) {
+            transform: none;
+        }
+    }
+</style>

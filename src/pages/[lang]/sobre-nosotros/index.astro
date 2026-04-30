@@ -97,7 +97,7 @@ const t = i18n[lang];
     type="website"
 >
     <section
-        class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 pb-12 bg-background overflow-hidden"
+        class="relative overflow-hidden bg-background pt-32 pb-20 md:pt-40 md:pb-24"
         id="hero-about"
     >
         <div class="absolute inset-0 z-0">
@@ -149,12 +149,12 @@ const t = i18n[lang];
                     ))
                 }
             </div>
-        </div>
 
-        <div
-            class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-secondary/40 hidden sm:block"
-        >
-            <ArrowDown size={24} />
+            <div
+                class="mt-14 md:mt-16 flex justify-center animate-bounce text-secondary/40 hidden sm:flex"
+            >
+                <ArrowDown size={24} />
+            </div>
         </div>
     </section>
 
@@ -208,10 +208,10 @@ const t = i18n[lang];
         </div>
 
         <div
-            class="max-w-7xl mx-auto px-6 py-16 md:py-24 lg:min-h-screen flex flex-col justify-center"
+            class="max-w-7xl mx-auto px-6 py-16 md:py-24 lg:py-28"
         >
             <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start lg:items-center"
+                class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-32"
             >
                 <div class="method-intro space-y-6 md:space-y-8">
                     <div>
@@ -266,7 +266,7 @@ const t = i18n[lang];
                 </div>
 
                 <div
-                    class="relative w-full h-auto lg:min-h-[550px] flex flex-col justify-center"
+                    class="method-cards-column relative flex h-auto w-full flex-col justify-start lg:min-h-[620px]"
                 >
                     {
                         t.howWeWork.steps.map((step, idx) => (
@@ -369,6 +369,23 @@ const t = i18n[lang];
     mm.add("(min-width: 1024px)", () => {
         const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
         const dots = document.querySelectorAll(".progress-dot");
+        const cardsColumn = document.querySelector(".method-cards-column") as HTMLElement | null;
+
+        const syncCardsColumnHeight = () => {
+            if (!cardsColumn || cards.length === 0) {
+                return;
+            }
+
+            const tallestCard = Math.max(
+                ...cards.map((card) => card.offsetHeight),
+            );
+
+            cardsColumn.style.minHeight = `${Math.max(tallestCard, 620)}px`;
+            ScrollTrigger.refresh();
+        };
+
+        syncCardsColumnHeight();
+        window.addEventListener("resize", syncCardsColumnHeight);
 
         const pinTl = gsap.timeline({
             scrollTrigger: {
@@ -377,6 +394,7 @@ const t = i18n[lang];
                 end: "+=3000",
                 pin: true,
                 scrub: 1.2,
+                invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const progress = self.progress;
                     const activeIndex = Math.min(
@@ -416,6 +434,12 @@ const t = i18n[lang];
         });
 
         return () => {
+            window.removeEventListener("resize", syncCardsColumnHeight);
+
+            if (cardsColumn) {
+                cardsColumn.style.minHeight = "";
+            }
+
             dots.forEach((dot) =>
                 dot.classList.remove("bg-secondary", "scale-150"),
             );
