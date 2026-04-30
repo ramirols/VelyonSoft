@@ -569,17 +569,17 @@ const secondaryCta =
 ---
 
 <div class="service-landing" data-service-variant={theme.variant}>
-<section class="relative overflow-hidden bg-background pt-36 pb-20 md:pt-40 md:pb-24">
+<section class="relative overflow-hidden bg-background pt-32 pb-16 sm:pt-36 md:pt-40 md:pb-24">
     <div class="pointer-events-none absolute inset-0">
         <div class={`absolute inset-x-0 top-0 h-[34rem] bg-gradient-to-b ${theme.accentGlow}`} />
         <div class="absolute inset-0 opacity-[0.32] service-grid-mask" />
-        <div class="absolute -left-24 top-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
-        <div class={`absolute -right-20 top-40 h-80 w-80 rounded-full blur-3xl ${theme.accentPanel}`} />
+        <div class="absolute -left-32 top-24 h-64 w-64 rounded-full bg-white/5 blur-3xl sm:h-72 sm:w-72" />
+        <div class={`absolute -right-32 top-40 h-64 w-64 rounded-full blur-3xl sm:h-80 sm:w-80 ${theme.accentPanel}`} />
     </div>
 
-    <div class="service-hero-grid relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[minmax(0,1.15fr)_24rem] lg:items-start">
+    <div class="service-hero-grid relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_24rem] lg:items-start lg:gap-12">
         <div>
-            <div class="service-eyebrow inline-flex items-center gap-3 rounded-full border border-border/70 bg-card/60 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground backdrop-blur-xl">
+            <div class="service-eyebrow inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground backdrop-blur-xl sm:gap-3 sm:px-4 sm:text-[0.68rem] sm:tracking-[0.24em]">
                 <span class={`flex h-8 w-8 items-center justify-center rounded-full border ${theme.accentBorder} ${theme.accentSoft}`}>
                     <ServiceIcon size={15} />
                 </span>
@@ -589,11 +589,11 @@ const secondaryCta =
             </div>
 
             <div class="mt-8 max-w-4xl">
-                <h1 class="service-title text-balance text-4xl font-black tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[0.95]">
+                <h1 class="service-title text-balance text-[2.35rem] font-black tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[0.95]">
                     {title}
                 </h1>
 
-                <p class="service-copy mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+                <p class="service-copy mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:mt-6 md:text-xl">
                     {description}
                 </p>
             </div>
@@ -601,7 +601,7 @@ const secondaryCta =
             {
                 theme.variant === "legal" && (
                     <div class="service-hero-detail mt-8 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-                        <div class="rounded-[1.3rem] border border-border/70 bg-card/55 p-5 backdrop-blur-xl">
+                        <div class="rounded-[1.3rem] border border-border/70 bg-card/55 p-4 backdrop-blur-xl sm:p-5">
                             <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                                 Criterio de implementación
                             </p>
@@ -609,7 +609,7 @@ const secondaryCta =
                                 Diseñado para estudios que necesitan trazabilidad, orden documental y una operación más confiable frente al cliente.
                             </p>
                         </div>
-                        <div class="rounded-[1.3rem] border border-border/70 bg-background/70 p-5">
+                        <div class="rounded-[1.3rem] border border-border/70 bg-background/70 p-4 sm:p-5">
                             <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                                 Marco de trabajo
                             </p>
@@ -625,11 +625,11 @@ const secondaryCta =
 
             {
                 theme.variant === "therapy" && (
-                    <div class="service-hero-detail mt-8 rounded-[2rem] border border-border/70 bg-card/55 p-6 backdrop-blur-xl">
+                    <div class="service-hero-detail mt-8 rounded-[2rem] border border-border/70 bg-card/55 p-5 backdrop-blur-xl sm:p-6">
                         <p class="max-w-2xl text-base leading-relaxed text-primary/85">
                             Una estructura digital que acompaña tu práctica con privacidad, continuidad y menos carga administrativa.
                         </p>
-                        <div class="mt-5 flex flex-wrap gap-3 text-sm text-muted-foreground">
+                        <div class="mt-5 flex flex-wrap gap-2 text-sm text-muted-foreground sm:gap-3">
                             <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Historial ordenado</span>
                             <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Agenda estable</span>
                             <span class="rounded-full border border-border/70 bg-background/70 px-4 py-2">Seguimiento claro</span>
@@ -659,7 +659,7 @@ const secondaryCta =
 
             {
                 theme.variant === "commerce" && (
-                    <div class="service-hero-detail mt-8 rounded-[1.6rem] border border-border/70 bg-card/60 p-5 backdrop-blur-xl">
+                    <div class="service-hero-detail mt-8 rounded-[1.6rem] border border-border/70 bg-card/60 p-4 backdrop-blur-xl sm:p-5">
                         <div class="grid gap-3 sm:grid-cols-3">
                             {
                                 commerceJourney.map((step, index) => (
@@ -676,8 +676,8 @@ const secondaryCta =
 
             {
                 theme.variant === "automation" && (
-                    <div class="service-hero-detail mt-8 rounded-[1.1rem] border border-border/70 bg-card/70 p-5">
-                        <div class="grid gap-3 sm:grid-cols-4">
+                    <div class="service-hero-detail mt-8 rounded-[1.1rem] border border-border/70 bg-card/70 p-4 sm:p-5">
+                        <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
                             {
                                 automationFlow.map((step) => (
                                     <div class="rounded-xl border border-border/70 bg-background/75 px-3 py-4 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-primary">
@@ -718,7 +718,7 @@ const secondaryCta =
                 )
             }
 
-            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
                     href="#contacto"
                     class={`inline-flex items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
@@ -735,10 +735,10 @@ const secondaryCta =
                 </a>
             </div>
 
-            <div class="service-kpi-grid mt-12 grid gap-4 sm:grid-cols-3">
+            <div class="service-kpi-grid mt-10 grid gap-3 sm:grid-cols-3 md:mt-12 md:gap-4">
                 {
                     statItems.map((item) => (
-                        <div class="service-kpi-card rounded-2xl border border-border/70 bg-card/55 p-5 backdrop-blur-xl">
+                        <div class="service-kpi-card rounded-2xl border border-border/70 bg-card/55 p-4 backdrop-blur-xl sm:p-5">
                             <p class="text-3xl font-black tracking-tight text-primary">{item.value}</p>
                             <p class="mt-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                                 {item.label}
@@ -748,10 +748,10 @@ const secondaryCta =
                 }
             </div>
 
-            <div class="mt-10 flex flex-wrap gap-3">
+            <div class="mt-8 flex flex-wrap gap-2 sm:mt-10 sm:gap-3">
                 {
                     heroHighlights.map((item) => (
-                        <span class={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm ${theme.accentBorder} bg-card/50 text-foreground/90`}>
+                        <span class={`inline-flex max-w-full items-start gap-2 rounded-full border px-3 py-2 text-sm sm:items-center sm:px-4 ${theme.accentBorder} bg-card/50 text-foreground/90`}>
                             <Check size={15} class={theme.accentText} />
                             {item}
                         </span>
@@ -760,8 +760,8 @@ const secondaryCta =
             </div>
         </div>
 
-        <aside class={`service-offer-panel rounded-[2rem] border border-border/70 bg-card/70 p-6 shadow-2xl backdrop-blur-2xl lg:sticky lg:top-28 ${theme.accentRing}`}>
-            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+        <aside class={`service-offer-panel rounded-[1.5rem] border border-border/70 bg-card/70 p-5 shadow-2xl backdrop-blur-2xl sm:rounded-[2rem] sm:p-6 lg:sticky lg:top-28 ${theme.accentRing}`}>
+            <div class={`inline-flex max-w-full rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
                 Oferta base
             </div>
 
@@ -788,7 +788,7 @@ const secondaryCta =
 
             {
                 theme.variant === "restaurant" && (
-                    <div class="mt-5 grid grid-cols-3 gap-2">
+                    <div class="mt-5 grid grid-cols-1 gap-2 min-[420px]:grid-cols-3">
                         <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Pedidos</div>
                         <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Reservas</div>
                         <div class="rounded-xl border border-border/70 bg-background/75 p-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">Ventas</div>
@@ -830,7 +830,7 @@ const secondaryCta =
 
             <div class="mt-6 border-b border-border/70 pb-6">
                 <p class="text-sm font-medium text-muted-foreground">Inversión referencial</p>
-                <p class="mt-2 text-4xl font-black tracking-tight text-primary">{price}</p>
+                <p class="mt-2 text-3xl font-black tracking-tight text-primary sm:text-4xl">{price}</p>
                 <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
                     {theme.audience}
                 </p>
@@ -869,11 +869,11 @@ const secondaryCta =
 
 <div class="service-sections flex flex-col">
 <section class="service-focus-section bg-background py-8 md:py-10">
-    <div class="service-focus-grid mx-auto grid max-w-7xl gap-4 px-6 md:grid-cols-3">
+    <div class="service-focus-grid mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-3">
         {
             theme.focusAreas.map((area) => (
-                <article class="service-focus-card rounded-[1.8rem] border border-border/70 bg-card/60 p-6 backdrop-blur-xl">
-                    <span class={`inline-flex rounded-full border px-3 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.2em] ${theme.accentBorder} ${theme.accentSoft}`}>
+                <article class="service-focus-card rounded-[1.5rem] border border-border/70 bg-card/60 p-5 backdrop-blur-xl sm:rounded-[1.8rem] sm:p-6">
+                    <span class={`inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.66rem] sm:tracking-[0.2em] ${theme.accentBorder} ${theme.accentSoft}`}>
                         Enfoque
                     </span>
                     <h3 class="mt-5 text-xl font-bold tracking-tight text-primary">{area.title}</h3>
@@ -886,13 +886,13 @@ const secondaryCta =
     </div>
 </section>
 
-<section id="modulos" class="service-modules-section relative overflow-hidden bg-card/20 py-20 md:py-24">
-    <div class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-12">
+<section id="modulos" class="service-modules-section relative overflow-hidden bg-card/20 py-16 md:py-20 lg:py-24">
+    <div class="relative mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-12">
         <div>
-            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
                 Estructura del servicio
             </div>
-            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+            <h2 class="mt-6 text-[2rem] font-black tracking-tight text-primary md:text-5xl">
                 {theme.moduleTitle}
             </h2>
             <p class="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -900,10 +900,10 @@ const secondaryCta =
             </p>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {
                 features.map((feature, index) => (
-                    <article class="service-module-card group rounded-[1.6rem] border border-border/70 bg-background/70 p-6 transition-transform duration-300 hover:-translate-y-1 hover:bg-background">
+                    <article class="service-module-card group rounded-[1.4rem] border border-border/70 bg-background/70 p-5 transition-transform duration-300 hover:-translate-y-1 hover:bg-background sm:rounded-[1.6rem] sm:p-6">
                         <div class="flex items-start justify-between gap-3">
                             <span class={`inline-flex h-10 w-10 items-center justify-center rounded-2xl border ${theme.accentBorder} ${theme.accentSoft}`}>
                                 <Sparkles size={16} />
@@ -926,20 +926,20 @@ const secondaryCta =
     </div>
 </section>
 
-<section id="beneficios-proceso" class="service-benefits-process-section bg-background py-20 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)]">
-        <div class="service-benefits-panel rounded-[2rem] border border-border/70 bg-card/55 p-8 backdrop-blur-xl md:p-10">
-            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+<section id="beneficios-proceso" class="service-benefits-process-section bg-background py-16 md:py-20 lg:py-24">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)]">
+        <div class="service-benefits-panel rounded-[1.5rem] border border-border/70 bg-card/55 p-5 backdrop-blur-xl sm:p-8 md:rounded-[2rem] md:p-10">
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
                 Beneficios reales
             </div>
-            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+            <h2 class="mt-6 text-[2rem] font-black tracking-tight text-primary md:text-5xl">
                 {theme.benefitsTitle}
             </h2>
             <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {theme.benefitsDescription}
             </p>
 
-            <div class="mt-10 grid gap-4 md:grid-cols-2">
+            <div class="mt-8 grid gap-4 sm:grid-cols-2 md:mt-10">
                 {
                     benefits.map((benefit) => (
                         <div class="rounded-[1.5rem] border border-border/70 bg-background/80 p-5">
@@ -955,11 +955,11 @@ const secondaryCta =
             </div>
         </div>
 
-        <div class="service-process-panel rounded-[2rem] border border-border/70 bg-card/55 p-8 backdrop-blur-xl md:p-10">
-            <div class="inline-flex rounded-full border border-border/70 bg-background/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+        <div class="service-process-panel rounded-[1.5rem] border border-border/70 bg-card/55 p-5 backdrop-blur-xl sm:p-8 md:rounded-[2rem] md:p-10">
+            <div class="inline-flex rounded-full border border-border/70 bg-background/70 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.68rem] sm:tracking-[0.22em]">
                 Proceso VelyonSoft
             </div>
-            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-4xl">
+            <h2 class="mt-6 text-[2rem] font-black tracking-tight text-primary md:text-4xl">
                 {theme.processTitle}
             </h2>
             <p class="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -969,8 +969,8 @@ const secondaryCta =
             <div class="mt-8 space-y-5">
                 {
                     theme.processSteps.map((step, index) => (
-                        <article class="service-process-card grid grid-cols-[3rem_1fr] gap-4 rounded-[1.4rem] border border-border/70 bg-background/80 p-4">
-                            <div class={`flex h-12 w-12 items-center justify-center rounded-2xl border text-sm font-black ${theme.accentBorder} ${theme.accentSoft}`}>
+                        <article class="service-process-card grid grid-cols-[2.5rem_1fr] gap-3 rounded-[1.4rem] border border-border/70 bg-background/80 p-4 sm:grid-cols-[3rem_1fr] sm:gap-4">
+                            <div class={`flex h-10 w-10 items-center justify-center rounded-xl border text-sm font-black sm:h-12 sm:w-12 sm:rounded-2xl ${theme.accentBorder} ${theme.accentSoft}`}>
                                 0{index + 1}
                             </div>
                             <div>
@@ -987,13 +987,13 @@ const secondaryCta =
     </div>
 </section>
 
-<section id="precio" class="service-pricing-section bg-card/20 py-20 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-[24rem_minmax(0,1fr)]">
-        <div class={`service-price-card rounded-[2rem] border border-border/70 bg-background/80 p-8 shadow-2xl backdrop-blur-xl ${theme.accentRing}`}>
-            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+<section id="precio" class="service-pricing-section bg-card/20 py-16 md:py-20 lg:py-24">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[24rem_minmax(0,1fr)]">
+        <div class={`service-price-card rounded-[1.5rem] border border-border/70 bg-background/80 p-5 shadow-2xl backdrop-blur-xl sm:p-8 md:rounded-[2rem] ${theme.accentRing}`}>
+            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
                 Inversión estimada
             </div>
-            <p class="mt-6 text-4xl font-black tracking-tight text-primary md:text-5xl">{price}</p>
+            <p class="mt-6 text-3xl font-black tracking-tight text-primary sm:text-4xl md:text-5xl">{price}</p>
             <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
                 El valor final depende del alcance, integraciones, automatizaciones, paneles, roles y personalización requerida.
             </p>
@@ -1010,11 +1010,11 @@ const secondaryCta =
             </div>
         </div>
 
-        <div class="service-faq-card rounded-[2rem] border border-border/70 bg-background/80 p-8 backdrop-blur-xl md:p-10">
-            <div class="inline-flex rounded-full border border-border/70 bg-card/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+        <div class="service-faq-card rounded-[1.5rem] border border-border/70 bg-background/80 p-5 backdrop-blur-xl sm:p-8 md:rounded-[2rem] md:p-10">
+            <div class="inline-flex rounded-full border border-border/70 bg-card/70 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.68rem] sm:tracking-[0.22em]">
                 Preguntas frecuentes
             </div>
-            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-4xl">
+            <h2 class="mt-6 text-[2rem] font-black tracking-tight text-primary md:text-4xl">
                 {theme.faqTitle}
             </h2>
             <p class="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -1024,7 +1024,7 @@ const secondaryCta =
             <div class="mt-8 space-y-4">
                 {
                     faq.map((item) => (
-                        <details class="group rounded-[1.4rem] border border-border/70 bg-card/60 p-5 transition-colors open:bg-card/90">
+                        <details class="group rounded-[1.2rem] border border-border/70 bg-card/60 p-4 transition-colors open:bg-card/90 sm:rounded-[1.4rem] sm:p-5">
                             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-primary marker:hidden">
                                 <span>{item.q}</span>
                                 <span class={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border ${theme.accentBorder} ${theme.accentSoft} faq-plus`}>
@@ -1032,7 +1032,7 @@ const secondaryCta =
                                     <span class="faq-plus-line faq-plus-line-y"></span>
                                 </span>
                             </summary>
-                            <p class="mt-4 pr-10 text-sm leading-relaxed text-muted-foreground">
+                            <p class="mt-4 text-sm leading-relaxed text-muted-foreground sm:pr-10">
                                 {item.a}
                             </p>
                         </details>
@@ -1043,20 +1043,20 @@ const secondaryCta =
     </div>
 </section>
 
-<section id="contacto" class="service-cta-section bg-background py-20 md:py-24">
-    <div class="mx-auto max-w-5xl px-6">
-        <div class="service-cta-card rounded-[2.4rem] border border-border/70 bg-card/65 px-8 py-10 text-center shadow-2xl backdrop-blur-2xl md:px-12 md:py-14">
-            <div class={`mx-auto inline-flex rounded-full border px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
+<section id="contacto" class="service-cta-section bg-background py-16 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+        <div class="service-cta-card rounded-[1.75rem] border border-border/70 bg-card/65 px-5 py-8 text-center shadow-2xl backdrop-blur-2xl sm:px-8 sm:py-10 md:rounded-[2.4rem] md:px-12 md:py-14">
+            <div class={`mx-auto inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
                 Siguiente paso
             </div>
-            <h2 class="mt-6 text-3xl font-black tracking-tight text-primary md:text-5xl">
+            <h2 class="mt-6 text-[2rem] font-black tracking-tight text-primary md:text-5xl">
                 {theme.ctaTitle}
             </h2>
             <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {theme.ctaDescription}
             </p>
 
-            <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                 <a
                     href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
                     target="_blank"
@@ -1103,6 +1103,18 @@ const secondaryCta =
             var(--service-accent) 14%,
             transparent
         );
+        overflow-x: clip;
+    }
+
+    .service-title,
+    .service-copy,
+    .service-landing h2,
+    .service-landing h3,
+    .service-landing p,
+    .service-landing span,
+    .service-landing a,
+    .service-landing summary {
+        overflow-wrap: anywhere;
     }
 
     .service-kpi-card,
@@ -1352,12 +1364,6 @@ const secondaryCta =
         gap: 1.25rem;
     }
 
-    .service-landing[data-service-variant="corporate"] .service-focus-card:first-child,
-    .service-landing[data-service-variant="corporate"] .service-module-card:first-child,
-    .service-landing[data-service-variant="corporate"] .service-module-card:last-child {
-        grid-column: span 2;
-    }
-
     .service-landing[data-service-variant="corporate"] .service-cta-card {
         text-align: left;
     }
@@ -1386,6 +1392,12 @@ const secondaryCta =
         }
 
         .service-landing[data-service-variant="commerce"] .service-module-card:first-child {
+            grid-column: span 2;
+        }
+
+        .service-landing[data-service-variant="corporate"] .service-focus-card:first-child,
+        .service-landing[data-service-variant="corporate"] .service-module-card:first-child,
+        .service-landing[data-service-variant="corporate"] .service-module-card:last-child {
             grid-column: span 2;
         }
 

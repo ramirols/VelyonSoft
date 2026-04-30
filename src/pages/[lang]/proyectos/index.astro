@@ -59,10 +59,10 @@ const schemaData = {
     <main class="relative bg-background min-h-screen">
 
         <!-- Background -->
-        <div class="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
-            <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-30"
+        <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+            <div class="absolute -top-40 -right-40 h-80 w-80 rounded-full opacity-30 sm:h-[600px] sm:w-[600px]"
                 style="background: radial-gradient(circle, #d4eef5 0%, transparent 70%); filter: blur(90px);"></div>
-            <div class="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full opacity-20"
+            <div class="absolute bottom-0 -left-32 h-72 w-72 rounded-full opacity-20 sm:h-[400px] sm:w-[400px]"
                 style="background: radial-gradient(circle, #cce9f0 0%, transparent 70%); filter: blur(80px);"></div>
             <div class="absolute inset-0 opacity-[0.3]"
                 style="
@@ -73,20 +73,20 @@ const schemaData = {
                 "></div>
         </div>
 
-        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24">
+        <div class="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-16 sm:px-6 md:pb-24">
 
             <!-- Header -->
-            <header class="mb-16 md:mb-20 opacity-0 anim-up" style="animation-delay:0.05s">
+            <header class="mb-12 opacity-0 anim-up md:mb-16 lg:mb-20" style="animation-delay:0.05s">
                 <div class="flex items-center gap-3 mb-7">
                     <span class="block w-8 h-px bg-secondary"></span>
                     <span class="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-secondary">{t.eyebrow}</span>
                 </div>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                    <h1 class="font-display text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.02] text-primary tracking-tight m-0">
+                    <h1 class="font-display text-[clamp(2.25rem,10vw,5rem)] font-bold leading-[1.02] text-primary tracking-tight m-0">
                         {t.title}<br />
                         <em class="not-italic italic text-secondary">{t.titleAccent}</em>
                     </h1>
-                    <div class="md:pb-2 max-w-xs">
+                    <div class="max-w-sm md:max-w-xs md:pb-2">
                         <p class="text-sm font-light text-muted-foreground leading-relaxed">{t.subtitle}</p>
                         <p class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/40 mt-3">{t.count(projects.length)}</p>
                     </div>
@@ -136,7 +136,7 @@ const schemaData = {
                                 <div class="flex flex-col flex-1 px-5 pt-4 pb-5">
 
                                     <!-- Title: medium weight, not bold -->
-                                    <h2 class="card-title text-[1rem] font-medium text-primary leading-snug mb-1.5 tracking-tight">
+                                    <h2 class="card-title text-[1rem] font-medium text-primary leading-snug mb-1.5 tracking-tight break-words">
                                         {project.data.title}
                                     </h2>
 
@@ -146,7 +146,7 @@ const schemaData = {
                                     </p>
 
                                     <!-- Bottom row: just a subtle link, no divider clutter -->
-                                    <div class="flex items-center justify-between mt-4">
+                                    <div class="flex flex-wrap items-center justify-between gap-3 mt-4">
                                         <span class="card-cta text-[0.68rem] font-medium text-muted-foreground/60 tracking-wide">
                                             {t.viewProject}
                                         </span>

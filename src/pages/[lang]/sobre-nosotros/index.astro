@@ -97,12 +97,12 @@ const t = i18n[lang];
     type="website"
 >
     <section
-        class="relative overflow-hidden bg-background pt-32 pb-20 md:pt-40 md:pb-24"
+        class="relative overflow-hidden bg-background pt-32 pb-16 sm:pt-36 md:pt-40 md:pb-24"
         id="hero-about"
     >
         <div class="absolute inset-0 z-0">
             <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[600px] md:h-[1000px] opacity-60"
+                class="absolute top-0 left-1/2 h-[520px] w-[130vw] -translate-x-1/2 opacity-60 md:h-[1000px] md:w-[140%]"
             >
                 <div
                     class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(30,172,204,0.40)_0%,rgba(30,172,204,0.1)_35%,transparent_70%)]"
@@ -111,25 +111,25 @@ const t = i18n[lang];
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
             <span
                 class="reveal inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase bg-secondary/10 text-secondary border border-secondary/20 rounded-full"
             >
                 {t.hero.tag}
             </span>
             <h1
-                class="reveal text-5xl sm:text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-primary tracking-tighter leading-[0.9] md:leading-[0.85] mb-8 md:mb-10"
+                class="reveal text-[clamp(2.75rem,14vw,7.5rem)] font-bold text-primary tracking-tighter leading-[0.95] md:leading-[0.85] mb-8 md:mb-10"
             >
                 {t.hero.h1}
             </h1>
             <p
-                class="reveal text-lg md:text-2xl text-foreground/60 max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed px-4"
+                class="reveal text-base sm:text-lg md:text-2xl text-foreground/60 max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed sm:px-4"
             >
                 {t.hero.subtitle}
             </p>
 
             <div
-                class="reveal grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto border-t border-border pt-10 md:pt-12"
+                class="reveal grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-8 max-w-4xl mx-auto border-t border-border pt-8 md:pt-12"
             >
                 {
                     [
@@ -139,7 +139,7 @@ const t = i18n[lang];
                         { v: "24/7", l: "Support" },
                     ].map((s) => (
                         <div class="stat-item">
-                            <p class="text-3xl md:text-4xl font-bold text-primary tracking-tighter">
+                            <p class="text-2xl md:text-4xl font-bold text-primary tracking-tighter">
                                 {s.v}
                             </p>
                             <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
@@ -159,24 +159,24 @@ const t = i18n[lang];
     </section>
 
     <section
-        class="py-16 md:py-24 bg-background relative z-10"
+        class="py-16 md:py-20 lg:py-24 bg-background relative z-10"
         id="mission-vision"
     >
         <div
-            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8"
         >
             {
                 [t.mission, t.vision].map((item, i) => (
-                    <div class="mission-card group p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
+                    <div class="mission-card group p-6 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
                         <div
-                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary text-white" : "bg-primary text-primary-foreground"} rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg`}
+                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary text-white" : "bg-primary text-primary-foreground"} rounded-xl md:rounded-2xl flex items-center justify-center mb-5 md:mb-8 shadow-lg`}
                         >
                             {i === 0 ? <Target size={26} /> : <Eye size={26} />}
                         </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6">
+                        <h2 class="text-2xl md:text-4xl font-bold text-primary mb-4 md:mb-6">
                             {item.title}
                         </h2>
-                        <p class="text-base md:text-lg text-foreground/80 leading-relaxed pl-5 border-l-2 border-secondary/20">
+                        <p class="text-base md:text-lg text-foreground/80 leading-relaxed pl-4 md:pl-5 border-l-2 border-secondary/20">
                             {item.desc}
                         </p>
                     </div>
@@ -208,10 +208,10 @@ const t = i18n[lang];
         </div>
 
         <div
-            class="max-w-7xl mx-auto px-6 py-16 md:py-24 lg:py-28"
+            class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-28"
         >
             <div
-                class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-32"
+                class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-24 xl:gap-32"
             >
                 <div class="method-intro space-y-6 md:space-y-8">
                     <div>
@@ -221,13 +221,13 @@ const t = i18n[lang];
                             // {t.howWeWork.title}
                         </span>
                         <h2
-                            class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary tracking-tighter leading-[1.1] lg:leading-[1] mb-6"
+                            class="text-[2.25rem] md:text-6xl lg:text-7xl font-bold text-primary tracking-tighter leading-[1.1] lg:leading-[1] mb-6"
                         >
                             Ingeniería <br class="hidden md:block" />
                             <span class="text-secondary">sin fricción.</span>
                         </h2>
                         <p
-                            class="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-md"
+                            class="text-base md:text-xl text-foreground/70 leading-relaxed max-w-md"
                         >
                             Nuestra metodología está diseñada para eliminar
                             cuellos de botella técnicos, asegurando
@@ -236,7 +236,7 @@ const t = i18n[lang];
                     </div>
 
                     <div
-                        class="flex gap-8 md:gap-10 border-t border-border pt-8"
+                        class="flex flex-wrap gap-6 md:gap-10 border-t border-border pt-8"
                     >
                         <div>
                             <p
@@ -270,16 +270,16 @@ const t = i18n[lang];
                 >
                     {
                         t.howWeWork.steps.map((step, idx) => (
-                            <div class="method-step-card relative lg:absolute inset-0 flex flex-col justify-center p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] bg-muted/40 border border-border opacity-100 lg:opacity-0 translate-y-0 lg:translate-y-12 backdrop-blur-sm mb-6 lg:mb-0 last:mb-0">
-                                <div class="flex justify-between items-start mb-6">
-                                    <span class="text-5xl md:text-7xl font-black text-secondary/30 lg:text-secondary">
+                            <div class="method-step-card relative lg:absolute inset-0 flex flex-col justify-center p-6 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] bg-muted/40 border border-border opacity-100 lg:opacity-0 translate-y-0 lg:translate-y-12 backdrop-blur-sm mb-6 lg:mb-0 last:mb-0">
+                                <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
+                                    <span class="text-4xl md:text-7xl font-black text-secondary/30 lg:text-secondary">
                                         0{idx + 1}
                                     </span>
                                     <span class="px-3 py-1 rounded-full border border-secondary/20 text-secondary text-[9px] font-bold uppercase tracking-widest mt-2">
                                         Fase de Ejecución
                                     </span>
                                 </div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">
+                                <h3 class="text-xl md:text-3xl font-bold text-primary mb-4">
                                     {step.t}
                                 </h3>
                                 <p class="text-foreground/80 text-base md:text-lg leading-relaxed">
@@ -297,22 +297,22 @@ const t = i18n[lang];
         </div>
     </section>
 
-    <section class="py-20 md:py-32 bg-background text-center">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="cta-reveal border-t border-border pt-16 md:pt-20">
+    <section class="py-16 md:py-24 lg:py-32 bg-background text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="cta-reveal border-t border-border pt-12 md:pt-20">
                 <p
                     class="text-secondary font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-8"
                 >
                     {t.motto}
                 </p>
                 <h2
-                    class="text-4xl md:text-7xl lg:text-[6rem] font-bold text-primary leading-[1] md:leading-[0.85] mb-10 md:mb-12 tracking-tighter"
+                    class="text-[2.35rem] md:text-7xl lg:text-[6rem] font-bold text-primary leading-[1] md:leading-[0.85] mb-10 md:mb-12 tracking-tighter"
                 >
                     Hablemos de <br class="hidden md:block" /> tu próximo éxito.
                 </h2>
                 <a
                     href={`/${lang}/proyectos`}
-                    class="inline-flex items-center gap-4 px-8 py-5 md:px-12 md:py-6 bg-primary text-primary-foreground font-bold rounded-xl md:rounded-2xl hover:bg-secondary hover:text-white transition-all duration-500 group shadow-xl shadow-primary/20"
+                    class="inline-flex w-full items-center justify-center gap-3 px-6 py-4 sm:w-auto sm:gap-4 sm:px-8 sm:py-5 md:px-12 md:py-6 bg-primary text-primary-foreground font-bold rounded-xl md:rounded-2xl hover:bg-secondary hover:text-white transition-all duration-500 group shadow-xl shadow-primary/20"
                 >
                     Ver Proyectos
                     <Rocket

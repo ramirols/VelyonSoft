@@ -65,16 +65,16 @@ const schemaData = {
 <section
   id="proyectos"
   aria-label={i18n.title + " " + i18n.titleAccent}
-  class="relative py-15 md:py-15 overflow-hidden font-sans"
+  class="relative py-16 overflow-hidden font-sans md:py-20 lg:py-24"
 >
   <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
     <div
-      class="absolute -top-48 -right-36 w-[600px] h-[600px] rounded-full opacity-40"
+      class="absolute -top-36 -right-36 h-80 w-80 rounded-full opacity-40 sm:h-[600px] sm:w-[600px]"
       style="background: radial-gradient(circle, #d4eef5 0%, transparent 70%); filter: blur(90px);"
     >
     </div>
     <div
-      class="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full opacity-25"
+      class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full opacity-25 sm:h-[400px] sm:w-[400px]"
       style="background: radial-gradient(circle, #cce9f0 0%, transparent 70%); filter: blur(80px);"
     >
     </div>
@@ -90,9 +90,9 @@ const schemaData = {
     </div>
   </div>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-6">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
     <header
-      class="mb-16 text-center md:mb-20 opacity-0 animate-fade-up"
+      class="mb-12 text-center opacity-0 animate-fade-up md:mb-16 lg:mb-20"
       style="animation-delay: 0.05s;"
     >
       <div class="mb-7 inline-flex items-center gap-3" aria-hidden="true">
@@ -108,7 +108,7 @@ const schemaData = {
         class="mx-auto flex max-w-3xl flex-col items-center gap-6"
       >
         <h2
-          class="m-0 text-[clamp(2.6rem,5.5vw,5rem)] font-black leading-[1.05] text-primary"
+          class="m-0 text-[clamp(2.25rem,10vw,5rem)] font-black leading-[1.05] text-primary"
         >
           <span class="not-italic">{i18n.title}</span>
           <br />
@@ -139,7 +139,7 @@ const schemaData = {
     </header>
 
     <ul
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch list-none p-0 m-0"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch list-none p-0 m-0"
       role="list"
       aria-label={lang === "es" ? "Proyectos destacados" : "Featured projects"}
     >
@@ -173,7 +173,7 @@ const schemaData = {
                   {i18n.index[i]}
                 </span>
 
-                <div class="relative px-3 pt-2 pb-0">
+                  <div class="relative px-2.5 pt-2 pb-0 sm:px-3">
                   <div class="relative aspect-[4/3] rounded-[0.75rem] overflow-hidden bg-muted">
                     <img
                       src={project.data.cover}
@@ -198,7 +198,7 @@ const schemaData = {
                   </div>
                 </div>
 
-                <div class="flex flex-col flex-1 px-5 pb-5 pt-4">
+                <div class="flex flex-col flex-1 px-4 pb-5 pt-4 sm:px-5">
                   {project.data.tags && project.data.tags.length > 0 && (
                     <div
                       class="flex flex-wrap gap-1.5 mb-3"

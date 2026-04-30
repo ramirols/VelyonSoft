@@ -132,21 +132,21 @@ export default function FAQ({ lang = "es" }) {
     const t = i18n[lang] ?? i18n.es;
 
     return (
-        <section id="faq" className="py-15 bg-background">
-            <div className="max-w-4xl mx-auto px-6">
+        <section id="faq" className="py-16 md:py-20 lg:py-24 bg-background">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
                 {/* Header */}
-                <header className="text-center mb-20 space-y-4">
+                <header className="text-center mb-12 space-y-4 md:mb-16 lg:mb-20">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary">
                         <Sparkles size={14} />
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
                             {t.badge}
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary">
+                    <h2 className="text-[2rem] md:text-5xl font-bold tracking-tight text-primary">
                         {t.title}
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-lg font-light leading-relaxed">
+                    <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light leading-relaxed">
                         {t.subtitle}
                     </p>
                 </header>
@@ -161,15 +161,15 @@ export default function FAQ({ lang = "es" }) {
                             // Añadimos itemScope para Microdatos (SEO Avanzado)
                             itemScope
                             itemType="https://schema.org/Question"
-                            className="group border border-border rounded-2xl bg-muted/40 px-4 transition-all duration-500 data-[state=open]:bg-card data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
+                            className="group border border-border rounded-2xl bg-muted/40 px-2 sm:px-4 transition-all duration-500 data-[state=open]:bg-card data-[state=open]:border-secondary/50 data-[state=open]:shadow-[0_20px_40px_-15px_rgba(30,172,204,0.1)]"
                         >
-                            <AccordionTrigger className="hover:no-underline py-7 px-4">
-                                <div className="flex items-center gap-5 text-left">
+                            <AccordionTrigger className="hover:no-underline py-5 px-3 sm:py-7 sm:px-4">
+                                <div className="flex items-center gap-3 text-left sm:gap-5">
                                     <span className="hidden sm:block text-[11px] font-bold text-muted-foreground group-data-[state=open]:text-secondary transition-colors duration-500">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
                                     {/* Quitamos el H3 repetido y lo dejamos solo aquí con itemProp */}
-                                    <h3 itemProp="name" className="text-lg font-medium text-foreground/80 group-data-[state=open]:text-primary transition-colors duration-500">
+                                    <h3 itemProp="name" className="text-base sm:text-lg font-medium text-foreground/80 group-data-[state=open]:text-primary transition-colors duration-500">
                                         {faq.q}
                                     </h3>
                                 </div>
@@ -181,9 +181,9 @@ export default function FAQ({ lang = "es" }) {
                             <AccordionContent
                                 itemScope
                                 itemType="https://schema.org/Answer"
-                                className="px-4 pb-8 pt-0 sm:pl-16"
+                                className="px-3 pb-6 pt-0 sm:px-4 sm:pb-8 sm:pl-16"
                             >
-                                <div itemProp="text" className="text-muted-foreground leading-relaxed font-light text-[17px]">
+                                <div itemProp="text" className="text-muted-foreground leading-relaxed font-light text-base sm:text-[17px]">
                                     {faq.a}{" "}
                                     <strong className="font-medium text-primary">
                                         {faq.str}
@@ -195,7 +195,7 @@ export default function FAQ({ lang = "es" }) {
                 </Accordion>
 
                 {/* Footer */}
-                <div className="mt-20 text-center">
+                <div className="mt-12 text-center md:mt-20">
                     <p className="text-muted-foreground text-sm">
                         {t.footer}
                         <a

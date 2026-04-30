@@ -61,7 +61,7 @@ const i18n = {
 const t = i18n[lang];
 ---
 
-<section id="contacto" class="relative max-w-4xl mx-auto px-6 py-15">
+<section id="contacto" class="relative max-w-4xl mx-auto px-4 py-16 sm:px-6 md:py-20 lg:py-24">
     <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none"
     >
@@ -75,7 +75,7 @@ const t = i18n[lang];
         </div>
     </div>
 
-    <header class="text-center mb-16">
+    <header class="text-center mb-12 md:mb-16">
         <div class="flex items-center justify-center gap-2 mb-4">
             <span class="w-8 h-[1px] bg-secondary"></span>
             <span
@@ -85,16 +85,16 @@ const t = i18n[lang];
             <span class="w-8 h-[1px] bg-secondary"></span>
         </div>
         <h2
-            class="text-4xl md:text-5xl font-black text-primary tracking-tighter mb-6"
+            class="text-[2rem] md:text-5xl font-black text-primary tracking-tighter mb-6"
         >
             {t.title}
         </h2>
-        <p class="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+        <p class="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             {t.subtitle}
         </p>
     </header>
 
-    <div class="grid md:grid-cols-1 relative px-4">
+    <div class="grid md:grid-cols-1 relative sm:px-4">
         <div
             class="absolute -top-10 -right-4 md:-top-20 md:-right-10 w-40 h-40 md:w-80 md:h-80 bg-secondary/50 rounded-full blur-3xl -z-10 pointer-events-none"
         >
@@ -108,9 +108,9 @@ const t = i18n[lang];
         <form
             id="contactForm"
             novalidate
-            class="relative overflow-hidden bg-card border border-border p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.08)] group/form"
+            class="relative overflow-hidden bg-card border border-border p-5 sm:p-8 md:p-12 rounded-[1.75rem] md:rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.08)] group/form"
         >
-            <div class="relative z-10 grid md:grid-cols-2 gap-8 mb-6">
+            <div class="relative z-10 grid gap-5 mb-6 md:grid-cols-2 md:gap-8">
                 <div class="space-y-2.5">
                     <label
                         for="name"
@@ -207,7 +207,7 @@ const t = i18n[lang];
                 class="mt-8 flex items-center justify-center gap-4 py-4 border-t border-border"
             >
                 <div
-                    class="flex items-center gap-2.5 text-[12px] text-foreground font-bold uppercase tracking-widest"
+                    class="flex flex-wrap items-center justify-center gap-2.5 text-center text-[11px] sm:text-[12px] text-foreground font-bold uppercase tracking-widest"
                 >
                     <div class="bg-green-500/10 p-1 rounded-full">
                         <ShieldCheck size={14} class="text-green-600" />

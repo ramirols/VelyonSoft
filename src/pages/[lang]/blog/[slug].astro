@@ -39,7 +39,7 @@ const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 ---
 
 <BlogLayout frontmatter={post.data}>
-    <div class="prose prose-neutral prose-lg max-w-none">
+    <div class="prose prose-neutral prose-base md:prose-lg max-w-none prose-img:max-w-full prose-pre:overflow-x-auto">
         <Content />
     </div>
 

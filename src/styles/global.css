@@ -169,11 +169,20 @@ select:-webkit-autofill {
 
     body {
         @apply bg-background text-foreground;
+        overflow-x: hidden;
         transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     html {
         @apply font-sans;
+        overflow-x: hidden;
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+        max-width: 100%;
     }
 }
 

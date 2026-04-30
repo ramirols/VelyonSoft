@@ -22,7 +22,7 @@ const backText = lang === "en" ? "Blog" : "Blog";
   lang={lang}
 >
   <header
-    class="relative h-[60vh] min-h-[400px] flex items-end"
+    class="relative flex min-h-[460px] items-end sm:min-h-[500px] md:h-[60vh]"
     id={frontmatter.cover ? "blog-hero" : undefined}
   >
     {
@@ -39,13 +39,13 @@ const backText = lang === "en" ? "Blog" : "Blog";
     >
     </div>
 
-    <div class="relative max-w-4xl mx-auto px-6 pb-16 w-full text-white">
+    <div class="relative max-w-4xl mx-auto px-4 pb-12 w-full text-white sm:px-6 md:pb-16">
       <h1
-        class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
+        class="text-[2.25rem] md:text-6xl font-extrabold tracking-tight leading-tight break-words"
       >
         {frontmatter.title}
       </h1>
-      <div class="flex flex-wrap gap-4 text-sm mt-6 text-white/80 items-center">
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm mt-6 text-white/80 items-center">
         <span class="bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">
           {
             new Date(frontmatter.date).toLocaleDateString(
@@ -67,11 +67,11 @@ const backText = lang === "en" ? "Blog" : "Blog";
   </header>
 
   <main class="bg-background">
-    <nav class="max-w-3xl mx-auto px-6 pt-10">
-      <div class="flex items-center gap-2 text-muted-foreground text-sm">
+    <nav class="max-w-3xl mx-auto px-4 pt-8 sm:px-6 md:pt-10">
+      <div class="flex min-w-0 items-center gap-2 text-muted-foreground text-sm">
         <a
           href={blogHref}
-          class="flex items-center gap-1 hover:text-primary transition-colors font-medium"
+          class="flex shrink-0 items-center gap-1 hover:text-primary transition-colors font-medium"
         >
           <ChevronLeft class="h-[18px] w-[18px]" stroke-width={2.5} />
           {backText}
@@ -82,31 +82,31 @@ const backText = lang === "en" ? "Blog" : "Blog";
     </nav>
 
     <article
-      class="max-w-3xl mx-auto px-6 py-10
-      prose prose-neutral dark:prose-invert prose-lg
+      class="max-w-3xl mx-auto px-4 py-8 sm:px-6 md:py-10
+      prose prose-neutral dark:prose-invert prose-base md:prose-lg
       prose-headings:font-bold
       prose-a:text-primary
       prose-img:rounded-2xl
-      prose-pre:bg-neutral-900"
+      prose-pre:bg-neutral-900 prose-pre:overflow-x-auto"
     >
       <slot />
     </article>
   </main>
 
   <footer class="border-t border-border bg-muted/40">
-    <section class="max-w-5xl mx-auto px-6 py-15">
-      <h2 class="text-3xl font-bold mb-10 tracking-tight text-foreground">
+    <section class="max-w-5xl mx-auto px-4 py-16 sm:px-6 md:py-20 lg:py-24">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-10 tracking-tight text-foreground">
         {lang === "en" ? "Related articles" : "Artículos relacionados"}
       </h2>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
         <slot name="related" />
       </div>
 
       <div class="flex justify-center mt-12">
         <a
           href={blogHref}
-          class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-foreground font-semibold hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+          class="inline-flex w-full items-center justify-center gap-2 px-8 py-3 rounded-full border border-border text-foreground font-semibold hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 sm:w-auto"
         >
           {viewAllText}
           <ArrowRight class="h-5 w-5" />

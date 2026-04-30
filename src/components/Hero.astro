@@ -80,7 +80,7 @@ const heroSchema = {
     <div class="absolute inset-0 bg-black/50"></div>
 
     <div
-        class="relative z-10 max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-40 md:pb-28"
+        class="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-28"
     >
         <div class="max-w-3xl">
             <div
@@ -96,7 +96,7 @@ const heroSchema = {
             </div>
 
             <h1
-                class="text-4xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6"
+                class="text-[2.35rem] sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6"
             >
                 {t.title}
             </h1>
@@ -118,16 +118,16 @@ const heroSchema = {
                 }
             </ul>
 
-            <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                     href={`/${lang}#contacto`}
-                    class="inline-flex items-center justify-center rounded-2xl bg-cyan-400 px-7 py-4 font-bold text-black transition hover:scale-[1.02] hover:bg-cyan-300"
+                    class="inline-flex items-center justify-center rounded-2xl bg-cyan-400 px-6 py-3.5 font-bold text-black transition hover:scale-[1.02] hover:bg-cyan-300 sm:px-7 sm:py-4"
                 >
                     {t.ctaPrimary}
                 </a>
                 <a
                     href={`/${lang}/proyectos`}
-                    class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-4 font-semibold text-white/90 transition hover:bg-white/5"
+                    class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-6 py-3.5 font-semibold text-white/90 transition hover:bg-white/5 sm:px-7 sm:py-4"
                 >
                     {t.ctaSecondary}
                 </a>

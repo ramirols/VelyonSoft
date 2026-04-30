@@ -92,8 +92,8 @@ const plans = onlyFeatured
     : servicesData[lang];
 
 const sectionSpacingClass = onlyFeatured
-    ? "py-15 md:py-15"
-    : "pb-15 pt-32 md:pb-15 md:pt-40";
+    ? "py-16 md:py-20 lg:py-24"
+    : "pb-16 pt-32 md:pb-20 md:pt-40 lg:pb-24";
 
 const serviceIcons = {
     laptop: Laptop,
@@ -138,12 +138,12 @@ const schemaData = {
 >
     <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div
-            class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-30"
+            class="absolute -top-32 -left-40 h-72 w-72 rounded-full opacity-30 sm:h-[500px] sm:w-[500px]"
             style="background: radial-gradient(circle, #d4eef5 0%, transparent 70%); filter: blur(80px);"
         >
         </div>
         <div
-            class="absolute -bottom-32 -right-32 w-[450px] h-[450px] rounded-full opacity-20"
+            class="absolute -bottom-32 -right-32 h-72 w-72 rounded-full opacity-20 sm:h-[450px] sm:w-[450px]"
             style="background: radial-gradient(circle, #cce9f0 0%, transparent 70%); filter: blur(80px);"
         >
         </div>
@@ -159,9 +159,9 @@ const schemaData = {
         </div>
     </div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <header
-            class="text-center mb-16 md:mb-20 opacity-0 animate-fade-up"
+            class="text-center mb-12 opacity-0 animate-fade-up md:mb-16 lg:mb-20"
             style="animation-delay: 0.05s;"
         >
             <div
@@ -176,7 +176,7 @@ const schemaData = {
             </div>
 
             <h2
-                class="font-display text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] text-primary mb-5 tracking-tight"
+                class="font-display text-[clamp(2rem,9vw,4rem)] font-bold leading-[1.05] text-primary mb-5 tracking-tight"
             >
                 {t.sectionTitle}
                 <br />
@@ -199,7 +199,7 @@ const schemaData = {
         </header>
 
         <ul
-            class="grid gap-6 md:grid-cols-3 items-stretch list-none p-0 m-0"
+            class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 items-stretch list-none p-0 m-0"
             role="list"
             aria-label={lang === "es" ? "Planes de servicio" : "Service plans"}
         >

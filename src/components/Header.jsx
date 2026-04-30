@@ -210,15 +210,15 @@ export default function Header({ lang = "es" }) {
     const headerLogoSrc = theme === "dark" ? "/velyon-logo-mo.webp" : "/velyon-logo-mc.webp";
 
     return (
-        <header className="fixed top-6 left-0 w-full z-50 px-6 transition-all duration-500">
+        <header className="fixed top-3 left-0 w-full z-50 px-3 transition-all duration-500 sm:top-4 sm:px-4 lg:top-6 lg:px-6">
             <div className="max-w-7xl mx-auto">
                 <div
-                    className="relative flex items-center justify-between rounded-2xl border border-border/60 bg-background/75 px-6 py-3 shadow-lg shadow-black/5 backdrop-blur-xl transition-all duration-500 ease-out"
+                    className="relative flex items-center justify-between rounded-2xl border border-white/25 bg-background/45 px-3 py-2.5 shadow-lg shadow-black/5 backdrop-blur-2xl transition-all duration-500 ease-out dark:border-white/10 dark:bg-background/35 sm:px-4 lg:px-6 lg:py-3"
                 >
                     <div className="flex items-center">
                         <a
                             href={`/${lang}#inicio`}
-                            className="ml-2 inline-flex items-center py-1 transition-all duration-500 ease-in-out"
+                            className="inline-flex items-center py-1 transition-all duration-500 ease-in-out lg:ml-2"
                         >
                             <div className="rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg shadow-black/20 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
                                 <img
@@ -231,7 +231,7 @@ export default function Header({ lang = "es" }) {
                     </div>
 
                     <nav
-                        className="hidden items-center gap-8 text-sm font-medium text-primary transition-colors duration-300 md:flex"
+                        className="hidden items-center gap-4 text-sm font-medium text-primary transition-colors duration-300 lg:flex xl:gap-8"
                     >
                         <a href={`/${lang}/sobre-nosotros`} className="flex items-center gap-2 hover:text-secondary">
                             <BookOpen size={18} />
@@ -251,8 +251,8 @@ export default function Header({ lang = "es" }) {
                                 />
                             </a>
 
-                            <div className="absolute left-1/2 top-full z-50 w-[760px] max-w-[92vw] -translate-x-1/2 pt-5 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                                <div className="overflow-hidden rounded-3xl border border-border/70 bg-background/95 p-3 shadow-2xl shadow-black/10 backdrop-blur-2xl">
+                            <div className="absolute left-1/2 top-full z-50 w-[min(760px,92vw)] -translate-x-1/2 pt-5 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                                <div className="overflow-hidden rounded-3xl border border-white/20 bg-background/55 p-3 shadow-2xl shadow-black/10 backdrop-blur-2xl dark:border-white/10 dark:bg-background/45">
                                     <div className="border-b border-border/60 px-4 pb-4 pt-2">
                                         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
                                             Servicios
@@ -317,7 +317,7 @@ export default function Header({ lang = "es" }) {
                         </a>
                     </nav>
 
-                    <div className="hidden md:flex items-center gap-3">
+                    <div className="hidden lg:flex items-center gap-3">
                         <button
                             type="button"
                             onClick={toggleTheme}
@@ -363,7 +363,9 @@ export default function Header({ lang = "es" }) {
                     <button
                         type="button"
                         onClick={() => setOpen(!open)}
-                        className="text-primary transition-colors md:hidden"
+                        aria-expanded={open}
+                        aria-controls="mobile-navigation"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card/80 text-primary transition-colors hover:bg-muted lg:hidden"
                     >
                         {open ? <X size={22} /> : <Menu size={22} />}
                     </button>
@@ -371,21 +373,56 @@ export default function Header({ lang = "es" }) {
 
                 {open && (
                     <div
-                        className="mt-2 space-y-6 rounded-2xl border border-border/60 bg-background/90 p-6 shadow-xl backdrop-blur-xl transition-all duration-300 md:hidden"
+                        id="mobile-navigation"
+                        className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-white/20 bg-background/55 p-4 shadow-xl shadow-black/10 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-background/45 sm:p-5 lg:hidden"
                     >
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setOpen(false)}
-                                className="flex items-center gap-3 text-lg font-medium text-primary transition hover:text-secondary"
-                            >
-                                {link.icon}
-                                {link.name}
-                            </a>
-                        ))}
+                        <div className="space-y-2">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold text-primary transition hover:bg-muted hover:text-secondary"
+                                >
+                                    {link.icon}
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
 
-                        <div className="flex items-center justify-center gap-4 border-t border-border/60 pt-4">
+                        <div className="mt-5 border-t border-border/60 pt-5">
+                            <p className="px-3 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                                Servicios
+                            </p>
+                            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                                {servicesLinks.map((service) => {
+                                    const Icon = service.icon;
+
+                                    return (
+                                        <a
+                                            key={service.href}
+                                            href={service.href}
+                                            onClick={() => setOpen(false)}
+                                            className="flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-card/70 p-3 transition hover:border-secondary/30 hover:bg-muted/70"
+                                        >
+                                            <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background ${service.iconClass}`}>
+                                                <Icon size={18} />
+                                            </span>
+                                            <span className="min-w-0">
+                                                <span className="block truncate text-sm font-bold text-primary">
+                                                    {service.name}
+                                                </span>
+                                                <span className={`mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${service.badgeClass}`}>
+                                                    {service.label}
+                                                </span>
+                                            </span>
+                                        </a>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        <div className="mt-5 flex flex-wrap items-center justify-center gap-4 border-t border-border/60 pt-5">
                             <button
                                 type="button"
                                 onClick={toggleTheme}
@@ -421,7 +458,7 @@ export default function Header({ lang = "es" }) {
                         <a
                             href={`/${lang}#contacto`}
                             onClick={() => setOpen(false)}
-                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition hover:opacity-90"
+                            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition hover:opacity-90"
                         >
                             <Mail size={18} />
                             {t.contacto}
